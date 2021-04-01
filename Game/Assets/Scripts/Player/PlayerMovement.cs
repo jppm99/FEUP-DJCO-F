@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
 
-    private float speed = 12f;
-    private float gravity = -20f;
-    private float jumpHeigh = 3f;
+    private float speed = 10f;
+    private float gravity = -30f;
+    private float jumpHeigh = 2f;
 
     private Vector3 velocity;
 
@@ -33,14 +32,18 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         if (Input.GetButtonDown("Jump") && isGrounded)
-            velocity.y = Mathf.Sqrt(jumpHeigh * -2f * gravity);
+        {
+            velocity.y = Mathf.Sqrt(jumpHeigh * -3f * this.gravity);
+        }
 
         Vector3 movement = transform.right * x + transform.forward * z;
 
-        if (isGrounded && velocity.y < 0)
-            velocity.y = -2f;
+        // if (isGrounded && velocity.y < 0)
+        // {
+        //     velocity.y = -2f;
+        // }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += this.gravity * Time.deltaTime;
 
         controller.Move(movement * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);

@@ -206,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6588388255551331477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6843c75d1e9934dfaa044c583c3859fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 467d3bcdfd874ff44bf8a65c8c8dc55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6588388256520990389
@@ -253,7 +253,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.76
+  m_Height: 1.7
   m_Radius: 0.41
   m_SlopeLimit: 45
   m_StepOffset: 0.3
