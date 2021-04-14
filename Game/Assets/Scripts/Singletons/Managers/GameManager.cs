@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour, ISingleton
 {
-    public float timeOfDay = 10;
-    public GameManager()
+    public bool isDaytime = false;
+    void Awake()
     {
         this.register();
-
-
     }
 
-    public bool IsItDaytime()
+    #region DAYTIME
+    public bool IsDaytime()
     {
-        //TODO
-        return timeOfDay > 5;
+        return this.isDaytime;
     }
 
-
-
+    public void SetDaytime(bool isDaytime)
+    {
+        this.isDaytime = isDaytime;
+    }
+    #endregion
 
 
     /**
