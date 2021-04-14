@@ -7,7 +7,10 @@ public static class RuntimeStuff
     static void OnBeforeSceneLoadRuntimeMethod()
     {
         // Create new singleton objects
+        new GameManager();
 
+
+        // Set target FPS for the game
         int target_fps = 120;
         Application.targetFrameRate = target_fps > Screen.currentResolution.refreshRate ? Screen.currentResolution.refreshRate : target_fps;
     }
