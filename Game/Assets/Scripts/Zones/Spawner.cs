@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 
     private GameManager gameHandler;
     private GameObject animalParent, monsterParent;
+    private int spawn_count = 0;
 
     private void Start() {
         this.gameHandler = RuntimeStuff.GetSingleton<GameManager>();
@@ -36,10 +37,18 @@ public class Spawner : MonoBehaviour
 
             if(parent.transform.childCount < this.maxNumberCreatures)
             {
-                GameObject creature = spannableList[UnityEngine.Random.Range(0, spannableList.Length)];
-                GameObject spawnPoint = this.spawnPoints[UnityEngine.Random.Range(0, this.spawnPoints.Length)];
+                if(spannableList.Length > 0 && this.spawnPoints.Length > 0)
+                {
+                    GameObject creature = spannableList[UnityEngine.Random.Range(0, spannableList.Length)];
 
-                Instantiate(creature, spawnPoint.transform.position, Quaternion.identity, parent.transform);
+                    // Random spawn point
+                    // GameObject spawnPoint = this.spawnPoints[UnityEngine.Random.Range(0, this.spawnPoints.Length)];
+
+                    // Sequential spawn point
+                    GameObject spawnPoint = this.spawnPoints[this.spawn_count++ % this.spawnPoints.Length];
+
+                    Instantiate(creature, spawnPoint.transform.position, Quaternion.identity, parent.transform);
+                }
             }
         }
     }
