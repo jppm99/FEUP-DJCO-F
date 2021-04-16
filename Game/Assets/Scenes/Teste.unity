@@ -261,15 +261,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: NaN
+      value: 5.07e-43
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791509, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_Pivot.x
