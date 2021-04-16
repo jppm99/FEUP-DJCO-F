@@ -7,7 +7,7 @@ public static class RuntimeStuff
     static void OnBeforeSceneLoadRuntimeMethod()
     {
         // Create new singleton objects
-        new GameManager();
+
 
 
         // Set target FPS for the game
@@ -23,11 +23,12 @@ public static class RuntimeStuff
     public static T GetSingleton<T>() where T : ISingleton
     {
         string id = "" + typeof(T);
+        
         ISingleton obj = null;
-        if(Singleton_registry.TryGetValue(id, out obj)) {
-            return (T)obj;
-        }
-        return (T) obj;
+
+        Singleton_registry.TryGetValue(id, out obj);
+
+        return (T)obj;
     }
 
     /**
