@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public int zone = 0, maxNumberCreatures = 30;
-    public float spawnDelay = 5f;
-    public GameObject[] animals, monsters, spawnPoints;
+    public int zone, maxNumberCreatures;
+    public float spawnDelay, minimumDistaceToPlayer, maximumDistaceToPlayer;
+    public Transform spawnPointParent;
+    public GameObject[] animals, monsters;
 
+    private SpawnPoint[] spawnPoints;
     private GameManager gameHandler;
     private GameObject animalParent, monsterParent;
     private int spawn_count = 0;
@@ -19,6 +21,9 @@ public class Spawner : MonoBehaviour
         this.animalParent.transform.SetParent(this.transform);
         this.monsterParent = new GameObject("mosters_parent_zone_" + this.zone);
         this.monsterParent.transform.SetParent(this.transform);
+
+        // Get all Spawn Points
+        this.spawnPoints = this.spawnPointParent.GetComponentsInChildren<SpawnPoint>();
 
         // Start Spawner
         StartCoroutine(SpawnCoroutine());
@@ -41,15 +46,26 @@ public class Spawner : MonoBehaviour
                 {
                     GameObject creature = spannableList[UnityEngine.Random.Range(0, spannableList.Length)];
 
-                    // Random spawn point
-                    // GameObject spawnPoint = this.spawnPoints[UnityEngine.Random.Range(0, this.spawnPoints.Length)];
-
-                    // Sequential spawn point
-                    GameObject spawnPoint = this.spawnPoints[this.spawn_count++ % this.spawnPoints.Length];
-
-                    Instantiate(creature, spawnPoint.transform.position, Quaternion.identity, parent.transform);
+                    // Try to spawn within distance starting from spawnPoint
+                    int oldCount = this.spawn_count;
+                    while(
+                        (this.spawn_count - oldCount) < this.spawnPoints.Length &&
+                        !this.GetNextSpawnPoint().Spawn(creature, parent.transform, this.minimumDistaceToPlayer, this.maximumDistaceToPlayer)
+                    );
                 }
             }
         }
+    }
+
+    private SpawnPoint GetNextSpawnPoint()
+    {
+        // // Random spawn point
+        // SpawnPoint spawnPoint = this.spawnPoints[UnityEngine.Random.Range(0, this.spawnPoints.Length)];
+
+        // Sequential spawn point
+        SpawnPoint spawnPoint = this.spawnPoints[this.spawn_count % this.spawnPoints.Length];
+
+        this.spawn_count++;
+        return spawnPoint;
     }
 }
