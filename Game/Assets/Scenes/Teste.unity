@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6850614519464676049, guid: db657e30ee783384ebde18609580a54f, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6850614519464676049, guid: db657e30ee783384ebde18609580a54f, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 459856655304254296, guid: db657e30ee783384ebde18609580a54f, type: 3}
       propertyPath: m_Name
       value: uhh scary
@@ -314,19 +322,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -6.206905e-15
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1.01e-43
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791509, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_Pivot.x
