@@ -35,6 +35,23 @@ public class Inventory : ISingleton
         }
     }
 
+    #region ItemQqlCoisa
+    public int GetItemQqlCoisaCount()
+    {
+        return this.inventoryData.itemQqlCoisaCount;
+    }
+
+    public void SpendItemQqlCoisa(int count = -1)
+    {
+        this.inventoryData.itemQqlCoisaCount -= count;
+    }
+
+    public void AddItemQqlCoisa(int count = 1)
+    {
+        this.inventoryData.itemQqlCoisaCount += count;
+    }
+    #endregion
+
     void WhenQuit()
     {
         this.SaveData();
