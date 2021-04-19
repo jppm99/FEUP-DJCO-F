@@ -4,9 +4,10 @@ public class MonsterMovement : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private int angle;
+    private float angle;
 
     public float speed;
+    public float rotation_speed;
 
 
     // Start is called before the first frame update
@@ -19,9 +20,12 @@ public class MonsterMovement : MonoBehaviour
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(speed, rb.velocity.y, 0);
+        Quaternion target = Quaternion.Euler(0, angle, 0);
 
-        Rotate();
+        if (target != rb.rotation)
+            Rotate(target);
+        else 
+            rb.velocity = new Vector3(speed, rb.velocity.y, 0);
     }
 
     // Update is called once per frame
@@ -30,10 +34,9 @@ public class MonsterMovement : MonoBehaviour
 
     }
 
-    // Update angle
-    private void Rotate()
+    // Update rotation
+    private void Rotate(Quaternion target)
     {
-        Quaternion target = Quaternion.Euler(0, angle, 0);
-        rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime);
+        rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
     }
 }
