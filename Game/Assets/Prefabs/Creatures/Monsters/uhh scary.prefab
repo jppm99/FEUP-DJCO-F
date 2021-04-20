@@ -129,3 +129,4 @@ MonoBehaviour:
   speed: 2
   rotation_speed: 8
   movement_range: 2000
+  detect_radius: 30

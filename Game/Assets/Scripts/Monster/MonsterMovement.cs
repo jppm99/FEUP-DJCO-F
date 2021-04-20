@@ -12,6 +12,7 @@ public class MonsterMovement : MonoBehaviour
     public float speed;
     public float rotation_speed;
     public float movement_range;
+    public float detect_radius;
 
 
     // Start is called before the first frame update
@@ -34,11 +35,16 @@ public class MonsterMovement : MonoBehaviour
         if (target != rb.rotation)
             Rotate(target);
         else {
-            if (updates == target_updates)
-                UpdateAngle();
+            if (dist < detect_radius) {
+                transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * speed);
+            }
             else {
-                transform.position += transform.forward * Time.deltaTime * speed;
-                updates++;
+                if (updates == target_updates)
+                    UpdateAngle();
+                else {
+                    transform.position += transform.forward * Time.deltaTime * speed;
+                    updates++;
+                }
             }
         }
     }
