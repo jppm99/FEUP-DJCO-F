@@ -47,9 +47,12 @@ public class MonsterMovement : MonoBehaviour
         else {
             Quaternion target = Quaternion.Euler(0, angle, 0);
 
+            // Rotate
             if (target != rb.rotation)
                 rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
+            // Move forward
             else {
+                // Change direction
                 if (updates == target_updates)
                     UpdateAngle();
                 else {
@@ -72,8 +75,9 @@ public class MonsterMovement : MonoBehaviour
         float delta = Random.Range(-180.0f, 180.0f);
         
         angle = angle + delta;
-        updates = 0;
 
+        // Reset updates and set new target updates
+        updates = 0;
         target_updates = (int) Random.Range(0.0f, movement_range / speed);
     }
 }
