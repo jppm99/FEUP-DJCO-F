@@ -33,7 +33,7 @@ public class MonsterMovement : MonoBehaviour
             if (updates == target_updates)
                 UpdateAngle();
             else {
-                rb.velocity = new Vector3(speed, rb.velocity.y, 0);
+                transform.position += transform.forward * Time.deltaTime * speed;
                 updates++;
             }
         }
