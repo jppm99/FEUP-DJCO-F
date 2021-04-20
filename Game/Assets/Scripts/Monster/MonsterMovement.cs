@@ -10,6 +10,7 @@ public class MonsterMovement : MonoBehaviour
 
     public float speed;
     public float rotation_speed;
+    public float movement_range;
 
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class MonsterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         angle = 0;
         updates = 0;
-        target_updates = 1000;
+        target_updates = 0;
     }
 
     // FixedUpdate is called once every physic update
@@ -57,5 +58,7 @@ public class MonsterMovement : MonoBehaviour
         
         angle = angle + delta;
         updates = 0;
+
+        target_updates = (int) Random.Range(0.0f, movement_range / speed);
     }
 }
