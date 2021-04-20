@@ -28,21 +28,33 @@ public class MonsterMovement : MonoBehaviour
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
+        float step = Time.deltaTime * speed;
+
         float dist = Vector3.Distance(player_transform.position, transform.position);
 
-        Quaternion target = Quaternion.Euler(0, angle, 0);
+        // If following player
+        if (dist < detect_radius) {
+            // Face the player
+            Vector3 target_direction = player_transform.position - transform.position;
+            
+            Vector3 new_direction = Vector3.RotateTowards(transform.forward, target_direction, step, 0.0f);
+            
+            rb.rotation = Quaternion.LookRotation(new_direction);
 
-        if (target != rb.rotation)
-            Rotate(target);
+            // Move towards player
+            transform.position = Vector3.MoveTowards(transform.position, player_transform.position, step);
+        }
+        // If patrolling
         else {
-            if (dist < detect_radius) {
-                transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * speed);
-            }
+            Quaternion target = Quaternion.Euler(0, angle, 0);
+
+            if (target != rb.rotation)
+                rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
             else {
                 if (updates == target_updates)
                     UpdateAngle();
                 else {
-                    transform.position += transform.forward * Time.deltaTime * speed;
+                    transform.position += transform.forward * step;
                     updates++;
                 }
             }
@@ -53,12 +65,6 @@ public class MonsterMovement : MonoBehaviour
     void Update()
     {
 
-    }
-
-    // Update rotation
-    private void Rotate(Quaternion target)
-    {
-        rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
     }
 
     // Update angle
