@@ -128,5 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   rotation_speed: 8
+  follow_speed: 4
   movement_range: 2000
   detect_radius: 30

@@ -11,6 +11,7 @@ public class MonsterMovement : MonoBehaviour
 
     public float speed;
     public float rotation_speed;
+    public float follow_speed;
     public float movement_range;
     public float detect_radius;
 
@@ -28,8 +29,6 @@ public class MonsterMovement : MonoBehaviour
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
-        float step = Time.deltaTime * speed;
-
         float dist = Vector3.Distance(player_transform.position, transform.position);
 
         // If following player
@@ -37,12 +36,12 @@ public class MonsterMovement : MonoBehaviour
             // Face the player
             Vector3 target_direction = player_transform.position - transform.position;
             
-            Vector3 new_direction = Vector3.RotateTowards(transform.forward, target_direction, step, 0.0f);
+            Vector3 new_direction = Vector3.RotateTowards(transform.forward, target_direction, Time.deltaTime * follow_speed, 0.0f);
             
             rb.rotation = Quaternion.LookRotation(new_direction);
 
             // Move towards player
-            transform.position = Vector3.MoveTowards(transform.position, player_transform.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * follow_speed);
         }
         // If patrolling
         else {
@@ -54,7 +53,7 @@ public class MonsterMovement : MonoBehaviour
                 if (updates == target_updates)
                     UpdateAngle();
                 else {
-                    transform.position += transform.forward * step;
+                    transform.position += transform.forward * Time.deltaTime * speed;
                     updates++;
                 }
             }
