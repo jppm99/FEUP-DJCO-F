@@ -7,6 +7,7 @@ public class MonsterMovement : MonoBehaviour
     private float angle;
     private int updates;
     private int target_updates;
+    private Transform player_transform;
 
     public float speed;
     public float rotation_speed;
@@ -20,11 +21,14 @@ public class MonsterMovement : MonoBehaviour
         angle = 0;
         updates = 0;
         target_updates = 0;
+        player_transform = GameObject.Find("Player").transform;
     }
 
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
+        float dist = Vector3.Distance(player_transform.position, transform.position);
+
         Quaternion target = Quaternion.Euler(0, angle, 0);
 
         if (target != rb.rotation)
