@@ -7,6 +7,8 @@ public abstract class Interactable : MonoBehaviour
     protected float maxDistanceToPlayer = 7f;
     protected PlayerAPI player;
     protected TextMesh text;
+    protected Camera mainCamera;
+    protected bool isClose = false;
     protected abstract void Action();
     
     public void Interact()
@@ -20,18 +22,21 @@ public abstract class Interactable : MonoBehaviour
         this.text = this.transform.GetComponentInChildren<TextMesh>();
 
         this.text.text = "Press " + this.actionKey + " to " + this.actionString;
+
+        this.mainCamera = Camera.main;
     }
 
     protected void FixedUpdate()
     {
-        bool isClose = this.isCloseEnough();
+        this.isClose = this.isCloseEnough();
+        text.gameObject.SetActive(this.isClose);
+    }
 
-        text.gameObject.SetActive(isClose);
-
-        if(isClose)
+    protected void LateUpdate() {
+        if(this.isClose)
         {
-            text.transform.LookAt(Camera.main.transform);
-            text.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+            text.transform.LookAt(this.mainCamera.transform);
+            text.transform.rotation = Quaternion.LookRotation(this.mainCamera.transform.forward);
         }
     }
 
