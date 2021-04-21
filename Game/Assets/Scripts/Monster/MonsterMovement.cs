@@ -9,12 +9,17 @@ public class MonsterMovement : MonoBehaviour
     private int updates;
     private int target_updates;
     private bool following;
+    private bool obstacle_collision;
+
+    public Transform collision_check_transform;
+    public LayerMask tree_mask;
 
     public float speed;
     public float rotation_speed;
     public float follow_speed;
     public float movement_range;
     public float detect_radius;
+    public float collision_radius;
 
 
     // Start is called before the first frame update
@@ -27,6 +32,7 @@ public class MonsterMovement : MonoBehaviour
         updates = 0;
         target_updates = 0;
         following = false;
+        obstacle_collision = false;
     }
 
     // FixedUpdate is called once every physic update
@@ -56,6 +62,15 @@ public class MonsterMovement : MonoBehaviour
                 UpdateAngle(0);
             }
 
+            if (obstacle_collision) {
+                float r = Random.Range(-1.0f, 1.0f);
+
+                if (r > 0)
+                    SetAngle(angle + 90);
+                else
+                    SetAngle(angle - 90);
+            }
+
             Quaternion target = Quaternion.Euler(0, angle, 0);
 
             // Rotate
@@ -77,7 +92,12 @@ public class MonsterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Collider[] hit_colliders = Physics.OverlapSphere(collision_check_transform.position, collision_radius, tree_mask);
 
+        if (hit_colliders.Length > 0)
+            obstacle_collision = true;
+        else
+            obstacle_collision = false;
     }
 
     // Update angle
@@ -85,7 +105,12 @@ public class MonsterMovement : MonoBehaviour
     {
         float delta = Random.Range(-180.0f, 180.0f);
         
-        this.angle = angle + delta;
+        SetAngle(angle + delta);
+    }
+
+    // Set angle
+    private void SetAngle(float angle) {
+        this.angle = angle;
 
         // Reset updates and set new target updates
         updates = 0;
