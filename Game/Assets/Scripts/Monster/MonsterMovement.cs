@@ -8,6 +8,7 @@ public class MonsterMovement : MonoBehaviour
     private float angle;
     private int updates;
     private int target_updates;
+    private bool following;
 
     public float speed;
     public float rotation_speed;
@@ -25,6 +26,7 @@ public class MonsterMovement : MonoBehaviour
         angle = 0;
         updates = 0;
         target_updates = 0;
+        following = false;
     }
 
     // FixedUpdate is called once every physic update
@@ -34,6 +36,8 @@ public class MonsterMovement : MonoBehaviour
 
         // If following player
         if (dist < detect_radius) {
+            following = true;
+
             // Face the player
             Vector3 target_direction = player_transform.position - transform.position;
             Vector3 target_direction_x_z = new Vector3(target_direction.x, 0, target_direction.z);
@@ -47,6 +51,11 @@ public class MonsterMovement : MonoBehaviour
         }
         // If patrolling
         else {
+            if (following) {
+                following = false;
+                UpdateAngle(0);
+            }
+
             Quaternion target = Quaternion.Euler(0, angle, 0);
 
             // Rotate
@@ -56,7 +65,7 @@ public class MonsterMovement : MonoBehaviour
             else {
                 // Change direction
                 if (updates == target_updates)
-                    UpdateAngle();
+                    UpdateAngle(angle);
                 else {
                     transform.position += transform.forward * Time.deltaTime * speed;
                     updates++;
@@ -72,11 +81,11 @@ public class MonsterMovement : MonoBehaviour
     }
 
     // Update angle
-    private void UpdateAngle()
+    private void UpdateAngle(float angle)
     {
         float delta = Random.Range(-180.0f, 180.0f);
         
-        angle = angle + delta;
+        this.angle = angle + delta;
 
         // Reset updates and set new target updates
         updates = 0;
