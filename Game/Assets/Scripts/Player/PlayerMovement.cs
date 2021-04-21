@@ -36,12 +36,20 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeigh * -3f * this.gravity);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = 15f;
+        else if (Input.GetKey(KeyCode.LeftControl))
+            speed = 5f;
+        else
+            speed = 10f;
+            
+
         Vector3 movement = transform.right * x + transform.forward * z;
 
-        // if (isGrounded && velocity.y < 0)
-        // {
-        //     velocity.y = -2f;
-        // }
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
 
         velocity.y += this.gravity * Time.deltaTime;
 

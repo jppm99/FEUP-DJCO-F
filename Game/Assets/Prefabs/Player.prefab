@@ -299,6 +299,8 @@ GameObject:
   - component: {fileID: 6588388256520990391}
   - component: {fileID: 6588388256520990390}
   - component: {fileID: 6588388256520990384}
+  - component: {fileID: 4019580424778941469}
+  - component: {fileID: 6399570151146191461}
   - component: {fileID: 5980644029037486440}
   m_Layer: 0
   m_Name: Player
@@ -355,6 +357,32 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &4019580424778941469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588388256520990389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdec7f5d872963f4ba94919aa9af7963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 0
+  attackDamage: 0
+--- !u!114 &6399570151146191461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588388256520990389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc35cd8cd4905384fb4ee564f9e9dfd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5980644029037486440
 MonoBehaviour:
   m_ObjectHideFlags: 0
