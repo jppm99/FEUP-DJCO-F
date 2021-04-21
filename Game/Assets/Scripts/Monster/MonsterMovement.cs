@@ -3,11 +3,11 @@ using UnityEngine;
 public class MonsterMovement : MonoBehaviour
 {
     private Rigidbody rb;
+    private Transform player_transform;
 
     private float angle;
     private int updates;
     private int target_updates;
-    private Transform player_transform;
 
     public float speed;
     public float rotation_speed;
@@ -20,10 +20,11 @@ public class MonsterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player_transform = GameObject.Find("Player").transform;
+        
         angle = 0;
         updates = 0;
         target_updates = 0;
-        player_transform = GameObject.Find("Player").transform;
     }
 
     // FixedUpdate is called once every physic update
@@ -35,8 +36,9 @@ public class MonsterMovement : MonoBehaviour
         if (dist < detect_radius) {
             // Face the player
             Vector3 target_direction = player_transform.position - transform.position;
-            
-            Vector3 new_direction = Vector3.RotateTowards(transform.forward, target_direction, Time.deltaTime * follow_speed, 0.0f);
+            Vector3 target_direction_x_z = new Vector3(target_direction.x, 0, target_direction.z);
+
+            Vector3 new_direction = Vector3.RotateTowards(transform.forward, target_direction_x_z, Time.deltaTime * follow_speed, 0.0f);
             
             rb.rotation = Quaternion.LookRotation(new_direction);
 
