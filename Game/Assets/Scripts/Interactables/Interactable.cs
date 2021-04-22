@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
@@ -6,7 +7,7 @@ public abstract class Interactable : MonoBehaviour
     protected string actionString = "interact";
     protected float maxDistanceToPlayer = 7f;
     protected PlayerAPI player;
-    protected TextMesh text;
+    protected TextMeshPro text;
     protected Camera mainCamera;
     protected bool isClose = false;
     protected abstract void Action();
@@ -19,7 +20,7 @@ public abstract class Interactable : MonoBehaviour
     protected virtual void Start()
     {
         this.player = RuntimeStuff.GetSingleton<PlayerAPI>();
-        this.text = this.transform.GetComponentInChildren<TextMesh>();
+        this.text = this.transform.GetComponentInChildren<TextMeshPro>();
 
         this.text.text = "Press " + this.actionKey + " to " + this.actionString;
 
