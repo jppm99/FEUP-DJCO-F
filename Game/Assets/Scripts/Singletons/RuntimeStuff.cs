@@ -11,7 +11,7 @@ public static class RuntimeStuff
 
 
         // Set target FPS for the game
-        int target_fps = 120;
+        int target_fps = 75;
         Application.targetFrameRate = target_fps > Screen.currentResolution.refreshRate ? Screen.currentResolution.refreshRate : target_fps;
     }
 
