@@ -15,15 +15,15 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.4433962, g: 0.39035463, b: 0.25307047, a: 1}
+  m_FogColor: {r: 0.5188679, g: 0.4810848, b: 0.37936097, a: 1}
   m_FogMode: 1
-  m_FogDensity: 0.02
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 130
+  m_FogDensity: 0.011
+  m_LinearFogStart: 15
+  m_LinearFogEnd: 135
   m_AmbientSkyColor: {r: 0.6197214, g: 0.58736026, b: 0.662036, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.07
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 39cace2863926444a9a78daa8ae26413, type: 2}
@@ -33,12 +33,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_DefaultReflectionResolution: 256
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1390337462}
-  m_IndirectSpecularColor: {r: 0.08009133, g: 0.05057216, b: 0.019436698, a: 1}
+  m_IndirectSpecularColor: {r: 0.17241228, g: 0.12579322, b: 0.06759102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,6 +173,30 @@ PrefabInstance:
     - target: {fileID: 408056173296389515, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766867261743913969, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766867261743913983, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_TreeDistance
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766867261743913983, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_DrawInstanced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766867261743913983, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_DetailObjectDistance
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766867261743913983, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_TreeBillboardDistance
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766867261743913983, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_TreeMaximumFullLODCount
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8896795278214428610, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_Name
@@ -475,11 +499,11 @@ PrefabInstance:
       objectReference: {fileID: 905959720}
     - target: {fileID: 1136953125222791506, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: secondsPerDay
-      value: 100
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791506, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: secondsPerNight
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_DrawHalo
@@ -515,15 +539,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: 1.0952584e-25
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0
+      value: 8.629e-42
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1.0842022e-19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -743,8 +767,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805708346}
-  m_LocalRotation: {x: -0.22729172, y: 0.45390534, z: 0.1209377, w: 0.8530431}
-  m_LocalPosition: {x: -114.663025, y: -282.96252, z: 42.391724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 146.324, y: -9.469999, z: 112.904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
