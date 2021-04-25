@@ -48,7 +48,10 @@ public class PlayerLife : MonoBehaviour
         decreaseElementOverTime(ref food, foodLossDelay);
 
         if (food == 0)
+        {
             decreaseElementOverTime(ref health, healthLossDelay);
+
+        }
 
     }
 
