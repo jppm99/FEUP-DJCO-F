@@ -8,8 +8,8 @@ public class PlayerLife : MonoBehaviour
     private Image healthImage;
     private Text healthText;
 
-    private Image foodImage;
-    private Text foodText;
+    private Image sanityImage;
+    private Text sanityText;
 
     [SerializeField]
     private float maxHealth;
@@ -18,10 +18,10 @@ public class PlayerLife : MonoBehaviour
     private float healthLossDelay;
 
     [SerializeField]
-    private float maxFood;
-    private float food;
+    private float maxSanity;
+    private float sanity;
     [SerializeField]
-    private float foodLossDelay;
+    private float sanityLossDelay;
     private float nextActionTime = 0.0f;
 
     // Start is called before the first frame update
@@ -29,11 +29,11 @@ public class PlayerLife : MonoBehaviour
     {
         healthImage = GameObject.Find("HealthImage").GetComponent<Image>();
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
-        foodImage = GameObject.Find("FoodImage").GetComponent<Image>();
-        foodText = GameObject.Find("FoodText").GetComponent<Text>();
+        sanityImage = GameObject.Find("SanityImage").GetComponent<Image>();
+        sanityText = GameObject.Find("SanityText").GetComponent<Text>();
 
         health = maxHealth;
-        food = maxFood;
+        sanity = maxSanity;
     }
 
     // Update is called once per frame
@@ -42,12 +42,12 @@ public class PlayerLife : MonoBehaviour
         healthImage.fillAmount = health / maxHealth;
         healthText.text = health.ToString() + " / " + maxHealth.ToString();
 
-        foodImage.fillAmount = food / maxFood;
-        foodText.text = food.ToString() + " / " + maxFood.ToString();
+        sanityImage.fillAmount = sanity / maxSanity;
+        sanityText.text = sanity.ToString() + " / " + maxSanity.ToString();
 
-        decreaseElementOverTime(ref food, foodLossDelay);
+        decreaseElementOverTime(ref sanity, sanityLossDelay);
 
-        if (food == 0)
+        if (sanity == 0)
         {
             decreaseElementOverTime(ref health, healthLossDelay);
 
