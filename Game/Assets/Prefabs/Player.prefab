@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6588388255551331473}
   - component: {fileID: 8253197765496401927}
   - component: {fileID: 4251970602257649938}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
     m_Bits: 128
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 3
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 4019580424778941469}
   - component: {fileID: 6399570151146191461}
   - component: {fileID: 5980644029037486440}
+  - component: {fileID: 886082130}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -395,3 +396,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359e9eafb6e73d843af0a0fec3089277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &886082130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588388256520990389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9adbe215d53e4184b274176743a891d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthLossDelay: 10
+  healthLossAmount: 1
+  healthLevelPercent: 30
+  maxSanity: 50
+  sanityLossDelay: 5
+  sanityLossAmount: 1
+  sanityLossAmountWithLight: 1
+  sanityRecoverDelay: 4
+  sanityRecoverAmount: 1
+  lightSourceDistance: 5

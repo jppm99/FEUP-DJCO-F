@@ -9,9 +9,12 @@ public class LightingManager : MonoBehaviour
     private float maxHeight, daytimeStep, nighttimeStep;
     private bool isDaytime = false;
     private GameManager gameManager;
+    private PlayerLife playerLife;
 
     private void Start()
     {
+        playerLife = GameObject.Find("Player").gameObject.GetComponent<PlayerLife>();
+
         this.maxHeight = Vector3.Distance(this.transform.position, this.center.transform.position);
         this.gameManager = RuntimeStuff.GetSingleton<GameManager>();
 
@@ -27,11 +30,13 @@ public class LightingManager : MonoBehaviour
 
         if(heightPercentage < 0 && this.isDaytime)
         {
+            playerLife.setDay(false);
             this.isDaytime = false;
             this.gameManager.SetDaytime(this.isDaytime);
         }
         else if(heightPercentage > 0 && !this.isDaytime)
         {
+            playerLife.setDay(true);
             this.isDaytime = true;
             this.gameManager.SetDaytime(this.isDaytime);
         }

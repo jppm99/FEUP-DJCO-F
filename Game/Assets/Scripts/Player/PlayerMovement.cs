@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 10f;
     private float gravity = -30f;
     private float jumpHeigh = 2f;
+    private bool canRun = true;
 
     private Vector3 velocity;
 
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeigh * -3f * this.gravity);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && canRun)
             speed = 15f;
         else if (Input.GetKey(KeyCode.LeftControl))
             speed = 5f;
@@ -55,5 +56,10 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(movement * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void setNotBeingAbleToRun(bool canRun)
+    {
+        this.canRun = !canRun;
     }
 }

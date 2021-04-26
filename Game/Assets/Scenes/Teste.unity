@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemTemplate
       objectReference: {fileID: 0}
+    - target: {fileID: 4500235874869130201, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
 --- !u!1 &843187661
@@ -291,30 +295,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &886082123 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6588388256520990389, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-  m_PrefabInstance: {fileID: 6588388255158710756}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &886082130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886082123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9adbe215d53e4184b274176743a891d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthLossDelay: 10
-  healthLossAmount: 1
-  healthLevelPercent: 30
-  maxSanity: 30
-  sanityLossDelay: 20
-  sanityLossAmount: 1
 --- !u!1 &1285003158
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -2.6655258e+20
+      value: 9.8e-44
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.x
@@ -558,11 +538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 9.1835e-41
+      value: 1.3086558e-37
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791509, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_Pivot.x
@@ -753,9 +733,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6588388255551331477, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 886082130, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
+      propertyPath: maxSanity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 886082130, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
+      propertyPath: healthLevelPercent
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 886082130, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
+      propertyPath: sanityRecoverDelay
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6588388256520990389, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: m_Name
@@ -804,10 +792,6 @@ PrefabInstance:
     - target: {fileID: 6588388256520990391, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8253197765496401927, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: antialiasingMode
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
