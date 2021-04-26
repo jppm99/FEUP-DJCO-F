@@ -309,9 +309,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthLossDelay: 3
-  maxSanity: 50
-  sanityLossDelay: 0
+  healthLossDelay: 10
+  healthLossAmount: 1
+  healthLevelPercent: 30
+  maxSanity: 30
+  sanityLossDelay: 20
+  sanityLossAmount: 1
 --- !u!1 &1285003158
 GameObject:
   m_ObjectHideFlags: 0

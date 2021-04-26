@@ -15,14 +15,23 @@ public class PlayerLife : MonoBehaviour
     private float maxHealth;
     private float health;
     [SerializeField]
-    private float healthLossDelay;
+    private float healthLossDelay; //interval of time between losses
+    [SerializeField]
+    private float healthLossAmount; //loss amount
+    [SerializeField]
+    private float healthLevelPercent; //level of life where player starts loosing sanity
+    private float nextActionTimeSanity = 0.0f;
 
     [SerializeField]
     private float maxSanity;
     private float sanity;
     [SerializeField]
-    private float sanityLossDelay;
-    private float nextActionTime = 0.0f;
+    private float sanityLossDelay; //interval of time between losses
+    [SerializeField]
+    private float sanityLossAmount; //loss amount
+    private float nextActionTimeHealth = 0.0f;
+
+    private bool isDay;
 
     // Start is called before the first frame update
     void Start()
@@ -45,13 +54,20 @@ public class PlayerLife : MonoBehaviour
         sanityImage.fillAmount = sanity / maxSanity;
         sanityText.text = sanity.ToString() + " / " + maxSanity.ToString();
 
-        decreaseElementOverTime(ref sanity, sanityLossDelay);
+        //Health will decreaxse from time to time
+        changeElementOverTime(ref health, healthLossDelay, healthLossAmount, ref nextActionTimeHealth, -1);
 
-        if (sanity == 0)
-        {
-            decreaseElementOverTime(ref health, healthLossDelay);
+        //If health is below a certain level, sanity will decreaxse from time to time
+        if (health <= maxHealth * healthLevelPercent/100)
+            changeElementOverTime(ref sanity, sanityLossDelay, sanityLossAmount, ref nextActionTimeSanity, -1);
 
-        }
+        //If it's daytime, sanity will increase from time to time
+        else if(isDay)
+            changeElementOverTime(ref sanity, sanityLossDelay, sanityLossAmount, ref nextActionTimeSanity, 1);
+
+        //If it's not daytime, sanity will decrease from time to time
+        else if (!isDay)
+            changeElementOverTime(ref sanity, sanityLossDelay, sanityLossAmount, ref nextActionTimeSanity, -1);
 
     }
 
@@ -60,11 +76,17 @@ public class PlayerLife : MonoBehaviour
         health -= damage;
     }
 
-    private void decreaseElementOverTime(ref float element, float delay)
+    public void setDay(bool isDay)
+    {
+        this.isDay = isDay;
+    }
+
+    //1 to increase, -1 to decrease
+    private void changeElementOverTime(ref float element, float delay, float amount, ref float nextActionTime, int increase)
     {
         if (Time.time > nextActionTime && element >= 1)
         {
-            element -= 1f;
+            element = element + amount * increase;
             nextActionTime += delay;
         }
     }
