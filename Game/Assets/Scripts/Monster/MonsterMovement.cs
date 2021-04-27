@@ -12,7 +12,7 @@ public class MonsterMovement : MonoBehaviour
     private bool obstacle_collision;
 
     public Transform collision_check_transform;
-    public LayerMask tree_mask;
+    public LayerMask ground_mask;
 
     public float speed;
     public float rotation_speed;
@@ -38,6 +38,9 @@ public class MonsterMovement : MonoBehaviour
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
+        if (obstacle_collision)
+            print("collision my g");
+
         float dist = Vector3.Distance(player_transform.position, transform.position);
 
         // If following player
@@ -92,7 +95,7 @@ public class MonsterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider[] hit_colliders = Physics.OverlapSphere(collision_check_transform.position, collision_radius, tree_mask);
+        Collider[] hit_colliders = Physics.OverlapSphere(collision_check_transform.position, collision_radius, ground_mask);
 
         if (hit_colliders.Length > 0)
             obstacle_collision = true;

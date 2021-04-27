@@ -160,7 +160,7 @@ MonoBehaviour:
   collision_check_transform: {fileID: 1982388332}
   tree_mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
   speed: 2
   rotation_speed: 8
   follow_speed: 4
