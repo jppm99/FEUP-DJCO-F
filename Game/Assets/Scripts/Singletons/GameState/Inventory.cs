@@ -55,33 +55,49 @@ public class Inventory : ISingleton
     #region STICK
     public int GetStickCount()
     {
-        return this.inventoryData.stick;
+        return this.inventoryData.Stick;
     }
 
     public void SpendStick(int count = -1)
     {
-        this.inventoryData.stick -= count;
+        this.inventoryData.Stick -= count;
     }
 
     public void AddStick(int count = 1)
     {
-        this.inventoryData.stick += count;
+        this.inventoryData.Stick += count;
     }
     #endregion
     #region ROCK
     public int GetRockCount()
     {
-        return this.inventoryData.rock;
+        return this.inventoryData.Rock;
     }
 
     public void SpendRock(int count = -1)
     {
-        this.inventoryData.rock -= count;
+        this.inventoryData.Rock -= count;
     }
 
     public void AddRock(int count = 1)
     {
-        this.inventoryData.rock += count;
+        this.inventoryData.Rock += count;
+    }
+    #endregion
+    #region METAL
+    public int GetMetalCount()
+    {
+        return this.inventoryData.Metal;
+    }
+
+    public void SpendMetal(int count = -1)
+    {
+        this.inventoryData.Metal -= count;
+    }
+
+    public void AddMetal(int count = 1)
+    {
+        this.inventoryData.Metal += count;
     }
     #endregion
 
@@ -112,5 +128,5 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, stick, rock;
+    public int itemQqlCoisaCount, Stick, Rock, Metal;
 }

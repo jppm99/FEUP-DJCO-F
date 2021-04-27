@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Stick : Interactable
+public class Metal : Interactable
 {
     public int spawnDelay;
     private Inventory inventory;
@@ -11,7 +11,7 @@ public class Stick : Interactable
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
         // Must be set before start runs
-        this.actionString = "grab stick";
+        this.actionString = "grab metal";
 
         base.Start();
         
@@ -20,8 +20,8 @@ public class Stick : Interactable
 
     protected override void Action()
     {
-        this.inventory.AddStick();
-        Debug.Log("Added to inventory, current count: " + this.inventory.GetStickCount());
+        this.inventory.AddMetal();
+        Debug.Log("Added to inventory, current count: " + this.inventory.GetMetalCount());
 
         StartCoroutine(this.DisableForDuration(this.spawnDelay));
     }

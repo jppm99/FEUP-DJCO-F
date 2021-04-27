@@ -11,7 +11,7 @@ public class Rock : Interactable
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
         // Must be set before start runs
-        this.actionString = "grab";
+        this.actionString = "grab rock";
 
         base.Start();
         
