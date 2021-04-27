@@ -10,6 +10,7 @@ public class MonsterMovement : MonoBehaviour
     private int target_updates;
     private bool following;
     private bool obstacle_collision;
+    private int stuck;
 
     public Transform collision_check_transform;
     public LayerMask ground_mask;
@@ -33,6 +34,7 @@ public class MonsterMovement : MonoBehaviour
         target_updates = 0;
         following = false;
         obstacle_collision = false;
+        stuck = 0;
     }
 
     // FixedUpdate is called once every physic update
@@ -62,24 +64,26 @@ public class MonsterMovement : MonoBehaviour
                 UpdateAngle(0);
             }
 
-            if (obstacle_collision)
-                SetAngle(angle + 90);
-
             Quaternion target = Quaternion.Euler(0, angle, 0);
 
             // Rotate
-            if (Quaternion.Angle(rb.rotation, target) > 1) {
+            if (Quaternion.Angle(rb.rotation, target) > 1)
                 rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
-            }
-                
-            // Move forward
             else {
                 // Change direction
-                if (updates == target_updates)
-                    UpdateAngle(angle);
+                if (obstacle_collision && stucks < 12) {
+                    SetAngle(angle + 30);
+                    stucks++;
+                }
                 else {
-                    transform.position += transform.forward * Time.deltaTime * speed;
-                    updates++;
+                    // Change direction
+                    if (updates == target_updates)
+                        UpdateAngle(angle);
+                    // Move forward
+                    else {
+                        transform.position += transform.forward * Time.deltaTime * speed;
+                        updates++;
+                    }
                 }
             }
         }
@@ -99,6 +103,9 @@ public class MonsterMovement : MonoBehaviour
     // Update angle
     private void UpdateAngle(float angle)
     {
+        // Reset stucks
+        stucks = 0;
+
         float delta = Random.Range(-180.0f, 180.0f);
         
         SetAngle(angle + delta);
