@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public abstract class Interactable : MonoBehaviour
     protected TextMeshPro text;
     protected Camera mainCamera;
     protected bool isClose = false, isActive = true;
+    protected MeshRenderer[] meshRenderers;
     protected abstract void Action();
     
     public void Interact()
@@ -25,6 +27,8 @@ public abstract class Interactable : MonoBehaviour
         this.text.text = "Press " + this.actionKey + " to " + this.actionString;
 
         this.mainCamera = Camera.main;
+
+        this.meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
     }
 
     protected void FixedUpdate()
@@ -48,5 +52,22 @@ public abstract class Interactable : MonoBehaviour
         float distance = Mathf.Abs(this.transform.position.x - playerPosition.x) + Mathf.Abs(this.transform.position.z - playerPosition.z);
 
         return distance < this.maxDistanceToPlayer;
+    }
+
+    protected IEnumerator DisableForDuration(float duration)
+    {
+        this.isActive = false;
+        foreach(MeshRenderer mr in this.meshRenderers)
+        {
+            mr.enabled = false;
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        foreach(MeshRenderer mr in this.meshRenderers)
+        {
+            mr.enabled = true;
+        }
+        this.isActive = true;
     }
 }

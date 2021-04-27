@@ -1,11 +1,11 @@
-using System.Collections;
 using UnityEngine;
 
 public class Stick : Interactable
 {
     public int spawnDelay;
+    [Range(0, 100)]
+    public int randomness;
     private Inventory inventory;
-    private MeshRenderer[] meshRenderers;
     protected override void Start()
     {
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
@@ -13,9 +13,7 @@ public class Stick : Interactable
         // Must be set before start runs
         this.actionString = "grab stick";
 
-        base.Start();
-        
-        this.meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
+        base.Start();   
     }
 
     protected override void Action()
@@ -23,23 +21,7 @@ public class Stick : Interactable
         this.inventory.AddStick();
         Debug.Log("Added to inventory, current count: " + this.inventory.GetStickCount());
 
-        StartCoroutine(this.DisableForDuration(this.spawnDelay));
-    }
-
-    private IEnumerator DisableForDuration(float duration)
-    {
-        this.isActive = false;
-        foreach(MeshRenderer mr in this.meshRenderers)
-        {
-            mr.enabled = false;
-        }
-
-        yield return new WaitForSeconds(duration);
-
-        foreach(MeshRenderer mr in this.meshRenderers)
-        {
-            mr.enabled = true;
-        }
-        this.isActive = true;
+        float delay = this.spawnDelay * ((Random.Range(-this.randomness, this.randomness+1) + 100) / 100f);
+        StartCoroutine(this.DisableForDuration(delay));
     }
 }

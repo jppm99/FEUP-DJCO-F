@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDelay: 5
+  randomness: 30
 --- !u!1001 &7610118959711642443
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDelay: 5
+  randomness: 30
 --- !u!205 &6206941084101726235
 LODGroup:
   m_ObjectHideFlags: 0
