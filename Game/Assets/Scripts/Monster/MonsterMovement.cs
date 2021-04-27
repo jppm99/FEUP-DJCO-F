@@ -38,9 +38,6 @@ public class MonsterMovement : MonoBehaviour
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
-        if (obstacle_collision)
-            print("collision my g");
-
         float dist = Vector3.Distance(player_transform.position, transform.position);
 
         // If following player
@@ -65,14 +62,8 @@ public class MonsterMovement : MonoBehaviour
                 UpdateAngle(0);
             }
 
-            if (obstacle_collision) {
-                float r = Random.Range(-1.0f, 1.0f);
-
-                if (r > 0)
-                    SetAngle(angle + 90);
-                else
-                    SetAngle(angle - 90);
-            }
+            if (obstacle_collision)
+                SetAngle(angle + 90);
 
             Quaternion target = Quaternion.Euler(0, angle, 0);
 
