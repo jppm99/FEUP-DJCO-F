@@ -68,6 +68,22 @@ public class Inventory : ISingleton
         this.inventoryData.stick += count;
     }
     #endregion
+    #region ROCK
+    public int GetRockCount()
+    {
+        return this.inventoryData.rock;
+    }
+
+    public void SpendRock(int count = -1)
+    {
+        this.inventoryData.rock -= count;
+    }
+
+    public void AddRock(int count = 1)
+    {
+        this.inventoryData.rock += count;
+    }
+    #endregion
 
     void WhenQuit()
     {
@@ -96,5 +112,5 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, stick;
+    public int itemQqlCoisaCount, stick, rock;
 }
