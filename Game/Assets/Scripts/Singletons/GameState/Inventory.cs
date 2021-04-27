@@ -52,6 +52,23 @@ public class Inventory : ISingleton
     }
     #endregion
 
+    #region STICK
+    public int GetStickCount()
+    {
+        return this.inventoryData.stick;
+    }
+
+    public void SpendStick(int count = -1)
+    {
+        this.inventoryData.stick -= count;
+    }
+
+    public void AddStick(int count = 1)
+    {
+        this.inventoryData.stick += count;
+    }
+    #endregion
+
     void WhenQuit()
     {
         this.SaveData();
@@ -79,5 +96,5 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount;
+    public int itemQqlCoisaCount, stick;
 }

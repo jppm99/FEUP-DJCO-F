@@ -9,12 +9,12 @@ public abstract class Interactable : MonoBehaviour
     protected PlayerAPI player;
     protected TextMeshPro text;
     protected Camera mainCamera;
-    protected bool isClose = false;
+    protected bool isClose = false, isActive = true;
     protected abstract void Action();
     
     public void Interact()
     {
-        if(isCloseEnough()) this.Action();
+        if(this.isActive && isCloseEnough()) this.Action();
     }
 
     protected virtual void Start()
@@ -30,11 +30,11 @@ public abstract class Interactable : MonoBehaviour
     protected void FixedUpdate()
     {
         this.isClose = this.isCloseEnough();
-        text.gameObject.SetActive(this.isClose);
+        text.gameObject.SetActive(this.isActive && this.isClose);
     }
 
     protected void LateUpdate() {
-        if(this.isClose)
+        if(this.isActive && this.isClose)
         {
             text.transform.LookAt(this.mainCamera.transform);
             text.transform.rotation = Quaternion.LookRotation(this.mainCamera.transform.forward);
