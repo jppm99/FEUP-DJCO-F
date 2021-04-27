@@ -68,8 +68,10 @@ public class MonsterMovement : MonoBehaviour
             Quaternion target = Quaternion.Euler(0, angle, 0);
 
             // Rotate
-            if (target != rb.rotation)
+            if (Quaternion.Angle(rb.rotation, target) > 1) {
                 rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
+            }
+                
             // Move forward
             else {
                 // Change direction
