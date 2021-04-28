@@ -49,7 +49,7 @@ PlayerSettings:
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 1
   m_MTRendering: 1
-  mipStripping: 0
+  mipStripping: 1
   numberOfMipsStripped: 0
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
@@ -79,7 +79,7 @@ PlayerSettings:
   hideHomeButton: 0
   submitAnalytics: 1
   usePlayerLog: 1
-  bakeCollisionMeshes: 0
+  bakeCollisionMeshes: 1
   forceSingleInstance: 0
   useFlipModelSwapchain: 1
   resizableWindow: 0
@@ -137,7 +137,7 @@ PlayerSettings:
   vrSettings:
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
-  enableFrameTimingStats: 0
+  enableFrameTimingStats: 1
   useHDRDisplay: 0
   D3DHDRBitDepth: 0
   m_ColorGamuts: 00000000
@@ -355,7 +355,7 @@ PlayerSettings:
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
-    m_DynamicBatching: 0
+    m_DynamicBatching: 1
   - m_BuildTarget: tvOS
     m_StaticBatching: 1
     m_DynamicBatching: 0
@@ -696,7 +696,8 @@ PlayerSettings:
   useDeterministicCompilation: 1
   useReferenceAssemblies: 1
   enableRoslynAnalyzers: 1
-  additionalIl2CppArgs: 
+  additionalIl2CppArgs: --additional-cpp="C:/GitHub/FEUP-DJCO-F/Game/Assets/../Temp/fmod_register_static_plugins.cpp"
+    --additional-cpp="C:/GitHub/FEUP-DJCO-F/Game/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
   scriptingRuntimeVersion: 1
   gcIncremental: 1
   assemblyVersionValidation: 1
