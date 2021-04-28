@@ -124,6 +124,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 4500235874869130201, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_Name
       value: Rock
