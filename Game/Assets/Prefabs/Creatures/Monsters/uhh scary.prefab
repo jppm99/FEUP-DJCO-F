@@ -166,4 +166,4 @@ MonoBehaviour:
   follow_speed: 4
   movement_range: 2000
   detect_radius: 30
-  collision_radius: 2.5
+  raycast_distance: 5
