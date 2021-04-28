@@ -36,7 +36,7 @@ public class MonsterAttack : MonoBehaviour
             {
                 PlayerLife life = player.GetComponent<PlayerLife>();
 
-                life.damage(atackDamage);
+                life.decreaseHealth(atackDamage);
             } 
         }
     }
