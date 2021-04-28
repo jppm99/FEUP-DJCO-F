@@ -11,15 +11,17 @@ public class MonsterMovement : MonoBehaviour
     private bool following;
     private static Vector3 raycast_direction = new Vector3(0, 1, 1);
 
-    public Transform collision_check_transform;
-    public LayerMask ground_mask;
-
-    public float speed;
-    public float rotation_speed;
-    public float follow_speed;
-    public float movement_range;
-    public float detect_radius;
-    public float raycast_distance;
+    [Header("Movement Variables")]
+    [SerializeField] public float speed;
+    [SerializeField] public float follow_speed;
+    [SerializeField]public float rotation_speed;
+    [SerializeField] public float movement_range;
+    [SerializeField] public float detect_radius;
+    
+    [Header("Collision Variables")]
+    [SerializeField] public Transform collision_check_transform;
+    [SerializeField] public LayerMask ground_mask;
+    [SerializeField] public float raycast_distance;
 
 
     // Start is called before the first frame update
