@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    protected char actionKey = 'F';
-    protected string actionString = "interact";
+    protected string floatingText = "Press F to interact";
     protected float maxDistanceToPlayer = 7f;
     protected PlayerAPI player;
     protected TextMeshPro text;
@@ -24,7 +23,7 @@ public abstract class Interactable : MonoBehaviour
         this.player = RuntimeStuff.GetSingleton<PlayerAPI>();
         this.text = this.transform.GetComponentInChildren<TextMeshPro>();
 
-        this.text.text = "Press " + this.actionKey + " to " + this.actionString;
+        this.text.text = this.floatingText;
 
         this.mainCamera = Camera.main;
 
@@ -54,20 +53,28 @@ public abstract class Interactable : MonoBehaviour
         return distance < this.maxDistanceToPlayer;
     }
 
-    protected IEnumerator DisableForDuration(float duration)
+    protected void Disable()
     {
         this.isActive = false;
         foreach(MeshRenderer mr in this.meshRenderers)
         {
             mr.enabled = false;
         }
+    }
 
-        yield return new WaitForSeconds(duration);
-
+    protected void Enable()
+    {
         foreach(MeshRenderer mr in this.meshRenderers)
         {
             mr.enabled = true;
         }
         this.isActive = true;
+    }
+
+    protected IEnumerator DisableForDuration(float duration)
+    {
+        this.Disable();
+        yield return new WaitForSeconds(duration);
+        this.Enable();
     }
 }

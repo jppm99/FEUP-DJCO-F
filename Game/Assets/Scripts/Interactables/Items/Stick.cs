@@ -11,7 +11,7 @@ public class Stick : Interactable
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
         // Must be set before start runs
-        this.actionString = "grab stick";
+        this.floatingText = "Press F to collect wood";
 
         base.Start();   
     }
