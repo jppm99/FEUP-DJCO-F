@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 231940190776844715}
   - component: {fileID: 7799660525071075543}
   m_Layer: 0
-  m_Name: ItemTemplate
+  m_Name: InteractableTemplate
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

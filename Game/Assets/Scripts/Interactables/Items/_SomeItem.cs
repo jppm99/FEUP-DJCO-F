@@ -8,7 +8,7 @@ public class _SomeItem : Interactable
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
         // Must be set before start runs
-        this.floatingText = "Press F to collect grab";
+        this.floatingText = "Press F to grab";
 
         base.Start();
     }

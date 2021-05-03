@@ -21,6 +21,7 @@ public abstract class Interactable : MonoBehaviour
     protected virtual void Start()
     {
         this.player = RuntimeStuff.GetSingleton<PlayerAPI>();
+        
         this.text = this.transform.GetComponentInChildren<TextMeshPro>();
 
         this.text.text = this.floatingText;
@@ -30,7 +31,12 @@ public abstract class Interactable : MonoBehaviour
         this.meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
     }
 
-    protected void FixedUpdate()
+    protected void UpdateFloatingText(string newText)
+    {
+        this.text.text = newText;
+    }
+
+    protected virtual void FixedUpdate()
     {
         this.isClose = this.isCloseEnough();
         text.gameObject.SetActive(this.isActive && this.isClose);
