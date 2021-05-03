@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
             /* In the future a layermask must be added as a parameter to this function */
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward), out ray, attackDistance))
             {
+
                 string objectTag = ray.transform.tag;
 
                 if(objectTag.Equals("monster"))

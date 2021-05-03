@@ -24,7 +24,7 @@ public class MonsterAttack : MonoBehaviour
      * Every physics update, increments a counter that starts with the atack interval value,
      * this allows the monster to atack as soon as it gets near enough to the player. When 
      * the monster atacks, the counter resets and it only atacks after the defined
-     * atackInterval
+     * atackInterval.
      */
     void FixedUpdate()
     {
