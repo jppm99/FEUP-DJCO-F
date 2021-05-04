@@ -14,7 +14,7 @@ public class ChangeCameras : MonoBehaviour
         firstPersonCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         thirdPersonCamera = GameObject.Find("Second Camera").GetComponent<Camera>();
 
-        thirdPersonCamera.enabled = false;
+        firstPersonCamera.enabled = false;
     }
 
     // Update is called once per frame
