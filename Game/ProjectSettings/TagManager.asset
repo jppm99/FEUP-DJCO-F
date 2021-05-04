@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - LightSource
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerBody
   - Water
   - UI
   - Ground
