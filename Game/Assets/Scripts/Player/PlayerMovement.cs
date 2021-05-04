@@ -20,9 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private float playerSpeed = 0;
     Vector3 lastPosition = Vector3.zero;
 
-    private bool isRunning = false;
-    private bool isWalking = false;
-
 
     // Start is called before the first frame update
     void Start()
