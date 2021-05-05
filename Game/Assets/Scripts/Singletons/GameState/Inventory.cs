@@ -6,6 +6,9 @@ using MessageType = SPStudios.Tools.UnityMessageForwarder.MessageType;
 
 public class Inventory : ISingleton
 {
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
+
     private string dataFile = "inventory_data.json";
     private string dataPath;
     private InventoryData inventoryData;
@@ -49,6 +52,9 @@ public class Inventory : ISingleton
     public void AddItemQqlCoisa(int count = 1)
     {
         this.inventoryData.itemQqlCoisaCount += count;
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
 
@@ -66,6 +72,9 @@ public class Inventory : ISingleton
     public void AddStick(int count = 1)
     {
         this.inventoryData.Stick += count;
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
     #region ROCK
@@ -82,6 +91,9 @@ public class Inventory : ISingleton
     public void AddRock(int count = 1)
     {
         this.inventoryData.Rock += count;
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
     #region METAL
@@ -98,6 +110,9 @@ public class Inventory : ISingleton
     public void AddMetal(int count = 1)
     {
         this.inventoryData.Metal += count;
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
 
