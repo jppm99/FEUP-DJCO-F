@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour, ISingleton
         zones = new GameObject[4];
     }
 
+    private void Start()
+    {
+
+    }
+
     #region DAYTIME
     public bool IsDaytime()
     {
