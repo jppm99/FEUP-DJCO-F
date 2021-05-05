@@ -4,7 +4,7 @@ public class LightPoint : MonoBehaviour
 {
     private Light[] lights;
 
-    void Start()
+    void Awake()
     {
         this.lights = this.transform.GetComponentsInChildren<Light>();
     }

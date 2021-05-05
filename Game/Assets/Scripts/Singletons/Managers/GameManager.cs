@@ -10,11 +10,6 @@ public class GameManager : MonoBehaviour, ISingleton
         zones = new GameObject[4];
     }
 
-    private void Start()
-    {
-
-    }
-
     #region DAYTIME
     public bool IsDaytime()
     {
@@ -24,6 +19,11 @@ public class GameManager : MonoBehaviour, ISingleton
     public void SetDaytime(bool isDaytime)
     {
         this.isDaytime = isDaytime;
+
+        foreach(GameObject zone in this.zones)
+        {
+            zone.GetComponent<ZoneLightSystem>().SetDaytime(isDaytime);
+        }
     }
     #endregion
 

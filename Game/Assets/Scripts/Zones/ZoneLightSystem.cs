@@ -17,10 +17,22 @@ public class ZoneLightSystem : MonoBehaviour
     {
         this.state = state;
 
+        this.SetLights(state);
+    }
+
+    private void SetLights(bool state)
+    {
         foreach(LightPoint light in this.lights)
         {
             light.SetState(state);
         }
+    }
+
+    public void SetDaytime(bool isDay)
+    {
+        if(this.state == false) return;
+
+        this.SetLights(!isDay);
     }
 
     public bool GetState()
