@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), Color.green);
+
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             playerAnimator.SetTrigger("Attack");
@@ -32,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
             RaycastHit ray;
 
             /* In the future a layermask must be added as a parameter to this function */
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward), out ray, attackDistance))
+            if (Physics.Raycast(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
             {
 
                 string objectTag = ray.transform.tag;
@@ -40,7 +42,6 @@ public class PlayerAttack : MonoBehaviour
                 if (objectTag.Equals("monster"))
                 {
                     MonsterLife enemy = ray.transform.GetComponent<MonsterLife>();
-
                     enemy.damage(attackDamage);
                 }
             }

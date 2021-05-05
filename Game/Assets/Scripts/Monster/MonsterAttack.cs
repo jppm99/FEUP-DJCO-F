@@ -8,44 +8,46 @@ public class MonsterAttack : MonoBehaviour
     public float atackRadius;
     public float atackInterval;
     public int atackDamage;
-    private float timeSinceLastAtack;
+    private bool canAttack = true;
 
     private GameObject player;
     private Transform playerTransform;
+    PlayerLife life;
+
 
     void Start()
     {
         player = GameObject.Find("Player");
         playerTransform = player.transform;
-        timeSinceLastAtack = 1f;
+        life = player.GetComponent<PlayerLife>();
     }
 
-    /**
-     * Every physics update, increments a counter that starts with the atack interval value,
-     * this allows the monster to atack as soon as it gets near enough to the player. When 
-     * the monster atacks, the counter resets and it only atacks after the defined
-     * atackInterval.
-     */
-    void FixedUpdate()
+    void Update()
     {
-        timeSinceLastAtack = Math.Min(atackInterval, timeSinceLastAtack + Time.fixedDeltaTime);
 
-        if(timeSinceLastAtack >= atackInterval)
+        if(canAttack)
         {
             float dist = Vector3.Distance(playerTransform.position, transform.position);
 
             if (dist < atackRadius)
             {
                 atackPlayer();
-                timeSinceLastAtack = 0;
+                StartCoroutine(WaitToAttack(atackInterval));
             }
         }
     }
 
     void atackPlayer()
     {
-        PlayerLife life = player.GetComponent<PlayerLife>();
 
         life.decreaseHealth(atackDamage);
+    }
+
+    private IEnumerator WaitToAttack(float waitTime)
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(waitTime);
+        canAttack = true;
+
     }
 }
