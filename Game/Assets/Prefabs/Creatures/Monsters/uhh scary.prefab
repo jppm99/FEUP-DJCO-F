@@ -43,10 +43,12 @@ GameObject:
   - component: {fileID: 2008818120715308624}
   - component: {fileID: 2829778662749399800}
   - component: {fileID: -6850614519464676049}
+  - component: {fileID: 4699638305020485244}
+  - component: {fileID: 9135405291734000467}
   - component: {fileID: 9174212951084889895}
   m_Layer: 0
   m_Name: uhh scary
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +147,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4699638305020485244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459856655304254296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25014bfc805bf2f40a7c95b564f0793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atackRadius: 5
+  atackInterval: 5
+  atackDamage: 5
+--- !u!114 &9135405291734000467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459856655304254296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306219988d707bb418e9195aecb4192a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 5
+  currentHitPoints: 5
+  regenRate: 5
 --- !u!114 &9174212951084889895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,13 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbf4331764254ba283d857226919aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  follow_speed: 4
+  rotation_speed: 8
+  movement_range: 2000
+  detect_radius: 30
   collision_check_transform: {fileID: 1982388332}
   ground_mask:
     serializedVersion: 2
     m_Bits: 64
-  speed: 2
-  rotation_speed: 8
-  follow_speed: 4
-  movement_range: 2000
-  detect_radius: 30
   raycast_distance: 3
