@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
+    private bool inventoryEnabled;
+
+    public GameObject inventory;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        inventoryEnabled = false;
+    }
+
     void Update()
     {
         if(Input.GetButtonDown("Interact"))
@@ -13,6 +23,14 @@ public class PlayerInteractions : MonoBehaviour
             
             if(i != null) i.Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+            inventoryEnabled = !inventoryEnabled;
+
+        if (inventoryEnabled)
+            inventory.SetActive(true);
+        else
+            inventory.SetActive(false);
     }
 
     // thanks: https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html
