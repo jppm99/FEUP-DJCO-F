@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Interactable
   - LightSource
+  - monster
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerBody
   - Water
   - UI
   - Ground

@@ -5,30 +5,24 @@ using UnityEngine;
 
 public class MonsterLife : MonoBehaviour
 {
-    [SerializeField] private int maxHitPoints;
-    [SerializeField] private int currentHitPoints;
-    [SerializeField] private int regenRate;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currentHealth;
 
-    // Update is called once per frame
-    void Update()
+    public void damage(int damage)
     {
-        
-    }
+        Debug.Log(currentHealth);
 
-    public void damage(int hitPoints)
-    {
         // Hitpoints cannnot go below 0
-        currentHitPoints = Math.Max(currentHitPoints - currentHitPoints, 0);
+        currentHealth = Math.Max(currentHealth - damage, 0);
+
+        if(currentHealth <= 0)
+        {
+            die();
+        }
     }
 
-    private void regen()
+    private void die()
     {
-        // Hitpoints cannnot go above maximum hitpoints
-        currentHitPoints = Math.Max(currentHitPoints + regenRate, maxHitPoints);
+        Destroy(transform.root.gameObject);
     }
 }
