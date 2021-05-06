@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public int zone, maxNumberCreatures;
+    public int maxNumberCreatures;
     public float spawnDelay, minimumDistaceToPlayer, maximumDistaceToPlayer;
     public Transform spawnPointParent;
     public GameObject[] animals, monsters;
@@ -11,10 +11,12 @@ public class Spawner : MonoBehaviour
     private SpawnPoint[] spawnPoints;
     private GameManager gameHandler;
     private GameObject animalParent, monsterParent;
-    private int spawn_count = 0;
+    private int spawn_count = 0, zone;
 
     private void Start() {
         this.gameHandler = RuntimeStuff.GetSingleton<GameManager>();
+
+        this.zone = this.GetComponent<Zone>().GetZone();
 
         // Creating gameobjects to parent animals and monsters
         this.animalParent = new GameObject("animals_parent_zone_" + this.zone);
