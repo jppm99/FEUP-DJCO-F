@@ -100,6 +100,38 @@ public class Inventory : ISingleton
         this.inventoryData.Metal += count;
     }
     #endregion
+    #region FOOD
+    public int GetFoodCount()
+    {
+        return this.inventoryData.Food;
+    }
+
+    public void SpendFood(int count = -1)
+    {
+        this.inventoryData.Food -= count;
+    }
+
+    public void AddFood(int count = 1)
+    {
+        this.inventoryData.Food += count;
+    }
+    #endregion
+    #region GENERATOR_ITEM
+    public bool GetGeneratorItem()
+    {
+        return this.inventoryData.hasMonsterGeneratorItem;
+    }
+
+    public void SpendGeneratorItem()
+    {
+        this.inventoryData.hasMonsterGeneratorItem = false;
+    }
+
+    public void AddGeneratorItem()
+    {
+        this.inventoryData.hasMonsterGeneratorItem = true;
+    }
+    #endregion
 
     void WhenQuit()
     {
@@ -128,5 +160,6 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, Stick, Rock, Metal;
+    public int itemQqlCoisaCount, Stick, Rock, Metal, Food;
+    public bool hasMonsterGeneratorItem;
 }
