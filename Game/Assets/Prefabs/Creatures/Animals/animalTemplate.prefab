@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 909924484736010501}
   - component: {fileID: -7230191934677285843}
   m_Layer: 0
-  m_Name: ya just a box
+  m_Name: animalTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
