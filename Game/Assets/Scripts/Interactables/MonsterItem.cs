@@ -2,7 +2,7 @@ public class MonsterItem : Interactable
 {
     protected override void Action()
     {
-        RuntimeStuff.GetSingleton<Inventory>().AddGeneratorItem();
+        RuntimeStuff.GetSingleton<Inventory>().AddMonsterGeneratorItem();
         Destroy(this.gameObject);
     }
 
