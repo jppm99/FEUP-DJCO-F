@@ -15,7 +15,7 @@ public class AnimalLife : MonoBehaviour
     {
         Debug.Log(currentHealth);
 
-        // Hitpoints cannnot go below 0
+        // Hitpoints cannot go below 0
         currentHealth = Math.Max(currentHealth - damage, 0);
 
         if(currentHealth <= 0)
