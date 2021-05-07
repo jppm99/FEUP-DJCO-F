@@ -40,6 +40,8 @@ public class Spawner : MonoBehaviour
             GameObject parent;
             GameObject[] spannableList;
 
+            Debug.Log("is day -> " + this.gameHandler.IsDaytime());
+
             (parent, spannableList) = this.gameHandler.IsDaytime() ? (this.animalParent, this.animals) : (this.monsterParent, this.monsters);
 
             if(parent.transform.childCount < this.maxNumberCreatures)

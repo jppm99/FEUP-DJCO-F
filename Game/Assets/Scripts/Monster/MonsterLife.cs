@@ -13,7 +13,7 @@ public class MonsterLife : MonoBehaviour
 
     private void Start()
     {
-        if(this.dropsGeneratorItem) this.interactableScript = this.GetComponent<MonsterItem>();
+        if(this.dropsGeneratorItem) this.interactableScript = this.GetComponentInChildren<MonsterItem>();
     }
 
     public void damage(int damage)

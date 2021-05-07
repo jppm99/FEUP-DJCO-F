@@ -8,7 +8,7 @@ public class AnimalLife : MonoBehaviour
     private AnimalFood interactableScript;
 
     private void Start() {
-        this.interactableScript = this.GetComponent<AnimalFood>();
+        this.interactableScript = this.GetComponentInChildren<AnimalFood>();
     }
 
     public void damage(int damage)
