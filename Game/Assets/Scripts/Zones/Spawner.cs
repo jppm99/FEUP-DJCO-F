@@ -12,11 +12,13 @@ public class Spawner : MonoBehaviour
     private GameManager gameHandler;
     private GameObject animalParent, monsterParent;
     private int spawn_count = 0, zone;
+    private ZoneLightSystem zoneLightSystem;
 
     private void Start() {
         this.gameHandler = RuntimeStuff.GetSingleton<GameManager>();
 
         this.zone = this.GetComponent<Zone>().GetZone();
+        this.zoneLightSystem = this.GetComponent<ZoneLightSystem>();
 
         // Creating gameobjects to parent animals and monsters
         this.animalParent = new GameObject("animals_parent_zone_" + this.zone);
@@ -40,9 +42,7 @@ public class Spawner : MonoBehaviour
             GameObject parent;
             GameObject[] spannableList;
 
-            Debug.Log("is day -> " + this.gameHandler.IsDaytime());
-
-            (parent, spannableList) = this.gameHandler.IsDaytime() ? (this.animalParent, this.animals) : (this.monsterParent, this.monsters);
+            (parent, spannableList) = (this.gameHandler.IsDaytime() || this.zoneLightSystem.GetState()) ? (this.animalParent, this.animals) : (this.monsterParent, this.monsters);
 
             if(parent.transform.childCount < this.maxNumberCreatures)
             {
