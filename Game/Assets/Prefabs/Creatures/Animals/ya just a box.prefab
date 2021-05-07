@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1173581033444786415}
   - component: {fileID: -3747853252134882359}
   - component: {fileID: 4522975776656052879}
+  - component: {fileID: 909924484736010501}
   - component: {fileID: -7230191934677285843}
   m_Layer: 0
   m_Name: ya just a box
@@ -121,6 +122,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   raycast_distance: 1.5
+--- !u!114 &909924484736010501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707645069301936573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7b250efd35b1645ba6c6b5244dfe51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  secondsUntilBodyDisapears: 120
 --- !u!64 &-7230191934677285843
 MeshCollider:
   m_ObjectHideFlags: 0
