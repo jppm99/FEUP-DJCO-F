@@ -33,6 +33,12 @@ public abstract class Interactable : MonoBehaviour
 
     protected void UpdateFloatingText(string newText)
     {
+        this.floatingText = newText;
+
+        if(this.text == null)
+        {
+            this.text = this.transform.GetComponentInChildren<TextMeshPro>();
+        }
         this.text.text = newText;
     }
 
