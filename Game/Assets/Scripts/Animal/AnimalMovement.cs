@@ -26,7 +26,7 @@ public class AnimalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
         player_transform = GameObject.Find("Player").transform;
         
         angle = 0;
