@@ -7,6 +7,14 @@ public class MonsterLife : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
+    [SerializeField] private int secondsUntilBodyDisapears;
+    [SerializeField] private bool dropsGeneratorItem;
+    private MonsterItem interactableScript;
+
+    private void Start()
+    {
+        if(this.dropsGeneratorItem) this.interactableScript = this.GetComponentInChildren<MonsterItem>();
+    }
 
     public void damage(int damage)
     {
@@ -17,12 +25,16 @@ public class MonsterLife : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            die();
+            StartCoroutine(die());
         }
     }
 
-    private void die()
+    private IEnumerator die()
     {
-        Destroy(transform.root.gameObject);
+        if(this.dropsGeneratorItem) this.interactableScript.EnableInteraction();
+
+        yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
+
+        Destroy(this.gameObject);
     }
 }

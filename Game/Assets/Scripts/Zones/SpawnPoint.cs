@@ -14,7 +14,7 @@ public class SpawnPoint : MonoBehaviour
         Vector3 playerPosition = this.player.GetPosition();
         float distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.z), new Vector2(playerPosition.x, playerPosition.z));
 
-        Debug.Log("Distance " + distance);
+        // Debug.Log("Distance " + distance);
 
         if(distance < minDistance || distance > maxDistance) return false;
 
