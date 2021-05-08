@@ -41,7 +41,7 @@ public class PlayerLook : MonoBehaviour
 
         if (currentCamera == 1)
         {
-            verticalRotation = Mathf.Clamp(verticalRotation, -60f, 90f);
+            verticalRotation = Mathf.Clamp(verticalRotation, -35f, 95f);
             transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         }
         else if (currentCamera == 2)
