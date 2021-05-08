@@ -6,7 +6,7 @@ public class PlayerLook : MonoBehaviour
 {
     private float mouseSensibility = 100f;
     private float verticalRotation;
-    private float cameraDistance = 5;
+    public float cameraDistance = 5;
 
     private Transform player;
     private Transform cameraTarget;
