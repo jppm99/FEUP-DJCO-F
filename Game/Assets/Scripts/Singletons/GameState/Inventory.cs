@@ -12,6 +12,7 @@ public class Inventory : ISingleton
     private string dataFile = "inventory_data.json";
     private string dataPath;
     private InventoryData inventoryData;
+    private string lastItemPicked = "";
 
     public Inventory()
     {
@@ -38,6 +39,11 @@ public class Inventory : ISingleton
         }
     }
 
+    public string GetLastItemPicked()
+    {
+        return lastItemPicked;
+    }
+
     #region ItemQqlCoisa
     public int GetItemQqlCoisaCount()
     {
@@ -52,6 +58,7 @@ public class Inventory : ISingleton
     public void AddItemQqlCoisa(int count = 1)
     {
         this.inventoryData.itemQqlCoisaCount += count;
+        lastItemPicked = "qqlcoisa";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
@@ -72,6 +79,7 @@ public class Inventory : ISingleton
     public void AddStick(int count = 1)
     {
         this.inventoryData.Stick += count;
+        lastItemPicked = "stick";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
@@ -91,6 +99,7 @@ public class Inventory : ISingleton
     public void AddRock(int count = 1)
     {
         this.inventoryData.Rock += count;
+        lastItemPicked = "rock";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
@@ -110,6 +119,7 @@ public class Inventory : ISingleton
     public void AddMetal(int count = 1)
     {
         this.inventoryData.Metal += count;
+        lastItemPicked = "metal";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
