@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour
 
     public Image icon;
     public Sprite sprite;
+    public Text text;
 
     public void AddNewItem(string item) {
         this.item = item;
@@ -15,6 +16,7 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = sprite;
         icon.color = new Color(1,1,1,1);
+        text.text = count.ToString();
 
         Debug.Log("Added item: " + item);
     }
