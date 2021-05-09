@@ -7,13 +7,14 @@ public class InventorySlot : MonoBehaviour
     private int count;
 
     public Image icon;
+    public Sprite sprite;
 
     public void AddNewItem(string item) {
         this.item = item;
         count = 1;
 
-        // icon.sprite = item.sprite;
-        icon.enabled = false;
+        icon.sprite = sprite;
+        icon.color = new Color(1,1,1,1);
 
         Debug.Log("Added item: " + item);
     }
