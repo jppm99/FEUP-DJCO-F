@@ -17,8 +17,6 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = sprite;
         icon.color = new Color(1,1,1,1);
         text.text = count.ToString();
-
-        Debug.Log("Added item: " + item);
     }
 
     public void SetCount(int count) {
@@ -38,6 +36,19 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
-        Debug.Log("Used " + item);
+        count--;
+
+        if (count == 0) {
+            ResetSlot();
+        }
+    }
+
+    private void ResetSlot()
+    {
+        item = "";
+        count = 0;
+
+        icon.color = new Color(0,0,0,0);
+        text.text = "";
     }
 }
