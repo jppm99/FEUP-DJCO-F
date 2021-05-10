@@ -14,9 +14,12 @@ public class MonsterAttack : MonoBehaviour
     private Transform playerTransform;
     PlayerLife life;
 
+    Animator monsterAnimator;
+
 
     void Start()
     {
+        monsterAnimator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player");
         playerTransform = player.transform;
         life = player.GetComponent<PlayerLife>();
@@ -31,24 +34,30 @@ public class MonsterAttack : MonoBehaviour
 
             if (dist < atackDistance)
             {
-                atackPlayer();
-                StartCoroutine(WaitToAttack(atackInterval));
+                monsterAnimator.SetTrigger("attack");
+                canAttack = false;
             }
         }
     }
 
-    void atackPlayer()
-    {
 
+    void AttackPlayer()
+    {
         life.decreaseHealth(atackDamage);
+        //StartCoroutine(WaitToAttack(atackInterval));
     }
 
-    private IEnumerator WaitToAttack(float waitTime)
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(waitTime);
-        canAttack = true;
+    //private IEnumerator WaitToAttack(float waitTime)
+    //{
+    //    canAttack = false;
+    //    yield return new WaitForSeconds(waitTime);
+    //    canAttack = true;
 
+    //}
+
+    void CanAttack()
+    {
+        canAttack = true;
     }
 
     public float getAttackDistance()
