@@ -54,7 +54,8 @@ public class MonsterMovement : MonoBehaviour
             rb.rotation = Quaternion.LookRotation(new_direction);
 
             // Move towards player
-            transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * follow_speed);
+            if(dist > GetComponent<MonsterAttack>().getAttackDistance())
+                transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * follow_speed);
         }
         // If patrolling
         else {

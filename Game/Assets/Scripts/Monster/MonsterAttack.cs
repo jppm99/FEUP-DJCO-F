@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour
 {
-    public float atackRadius;
+    public float atackDistance;
     public float atackInterval;
     public int atackDamage;
     private bool canAttack = true;
@@ -29,7 +29,7 @@ public class MonsterAttack : MonoBehaviour
         {
             float dist = Vector3.Distance(playerTransform.position, transform.position);
 
-            if (dist < atackRadius)
+            if (dist < atackDistance)
             {
                 atackPlayer();
                 StartCoroutine(WaitToAttack(atackInterval));
@@ -49,5 +49,10 @@ public class MonsterAttack : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         canAttack = true;
 
+    }
+
+    public float getAttackDistance()
+    {
+        return atackDistance;
     }
 }
