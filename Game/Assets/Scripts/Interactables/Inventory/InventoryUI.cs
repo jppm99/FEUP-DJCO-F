@@ -99,9 +99,34 @@ public class InventoryUI : MonoBehaviour
     // Called when an item is removed
     public void RemoveItem(InventorySlot slot)
     {
-        if (inventory.SpendItem(slot.GetItem()) == 0)
+        if (inventory.SpendItem(slot.GetItem()) == 0) {
             slot.ResetSlot();
+            UpdateSlotsOrder();
+        }
         else
             slot.SetCount(inventory.GetCount(slot.GetItem()));
+    }
+
+    // Called after a slot becomes empty
+    private void UpdateSlotsOrder()
+    {
+        int emptySlotIndex = -1;
+
+        for (int i = 0; i < slots.Length; i++) {
+            if (emptySlotIndex == -1) {
+                if (!slots[i].Used())
+                    emptySlotIndex = i;
+                
+                continue;
+            }
+
+            if (slots[i].Used()) {
+                slots[emptySlotIndex].AddNewItem(slots[i].GetItem(), inventory.GetCount(slots[i].GetItem()));
+                slots[i].ResetSlot();
+
+                i = emptySlotIndex;
+                emptySlotIndex = -1;
+            }
+        }
     }
 }
