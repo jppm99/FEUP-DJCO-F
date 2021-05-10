@@ -4,24 +4,24 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     private string item = "";
-    private int count;
 
     public Image icon;
     public Sprite sprite;
     public Text text;
+    public GameObject canvas;
 
-    public void AddNewItem(string item, int count = 1) {
+    public void AddNewItem(string item, int count = 1) 
+    {
         this.item = item;
-        this.count = count;
 
         icon.sprite = sprite;
         icon.color = new Color(1,1,1,1);
-        text.text = this.count.ToString();
+        text.text = count.ToString();
     }
 
-    public void SetCount(int count) {
-        this.count = count;
-        text.text = this.count.ToString();
+    public void SetCount(int count) 
+    {
+        text.text = count.ToString();
     }
 
     public bool Used() 
@@ -37,19 +37,13 @@ public class InventorySlot : MonoBehaviour
     public void UseItem()
     {
         if (Used()) {
-            count--;
-
-            if (count == 0)
-                ResetSlot();
-            else
-                text.text = this.count.ToString();
+            canvas.GetComponent<InventoryUI>().RemoveItem(this, item);
         }
     }
 
     private void ResetSlot()
     {
         item = "";
-        count = 0;
 
         icon.color = new Color(0,0,0,0);
         text.text = "";
