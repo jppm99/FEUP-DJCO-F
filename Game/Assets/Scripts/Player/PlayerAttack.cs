@@ -18,13 +18,12 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         playerAnimator = GameObject.Find("PlayerBody").GetComponent<Animator>();
-        playerCamera = GameObject.Find("Main Camera");
+        playerCamera = GameObject.Find("First Person Camera Holder");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), Color.green);
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
