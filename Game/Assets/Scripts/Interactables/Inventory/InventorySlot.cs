@@ -23,6 +23,7 @@ public class InventorySlot : MonoBehaviour
 
     public void SetCount(int count) {
         this.count = count;
+        text.text = this.count.ToString();
     }
 
     public bool Used() {

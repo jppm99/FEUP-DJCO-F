@@ -44,6 +44,23 @@ public class Inventory : ISingleton
         return lastItemPicked;
     }
 
+    public int GetCount(string item)
+    {
+        if (item == "qqlcoisa")
+            return GetItemQqlCoisaCount();
+        
+        if (item == "stick")
+            return GetStickCount();
+
+        if (item == "rock")
+            return GetRockCount();
+        
+        if (item == "metal")
+            return GetMetalCount();
+
+        return 0;
+    }
+
     #region ItemQqlCoisa
     public int GetItemQqlCoisaCount()
     {

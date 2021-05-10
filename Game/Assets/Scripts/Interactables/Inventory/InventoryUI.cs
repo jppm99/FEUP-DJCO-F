@@ -36,24 +36,28 @@ public class InventoryUI : MonoBehaviour
     // UpdateUI is called everytime a item is picked
     void UpdateUI() 
     {
+        bool updated = false;
         string item = inventory.GetLastItemPicked();
 
         for (int i = 0; i < slots.Length; i++) {
             if (!slots[i].Used())
                 break;
 
-            if (slots[i].GetItem() == item)
-                slots[i].SetCount(1);
+            if (slots[i].GetItem() == item) {
+                slots[i].SetCount(inventory.GetCount(item));
+                updated = true;
+            }
         }
 
-        for (int i = 0; i < slots.Length; i++) {
-            if (slots[i].Used())
-                continue;
+        if (!updated) {
+            for (int i = 0; i < slots.Length; i++) {
+                if (slots[i].Used())
+                    continue;
 
-            Debug.Log("using " + i);
-            slots[i].AddNewItem(item);
+                slots[i].AddNewItem(item);
 
-            break;
+                break;
+            }
         }
     }
 }
