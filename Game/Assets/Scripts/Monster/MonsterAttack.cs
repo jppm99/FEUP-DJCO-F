@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour
 {
-    public float atackRadius;
+    public float atackDistance;
     public float atackInterval;
     public int atackDamage;
     private bool canAttack = true;
@@ -14,9 +14,12 @@ public class MonsterAttack : MonoBehaviour
     private Transform playerTransform;
     PlayerLife life;
 
+    Animator monsterAnimator;
+
 
     void Start()
     {
+        monsterAnimator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player");
         playerTransform = player.transform;
         life = player.GetComponent<PlayerLife>();
@@ -29,25 +32,30 @@ public class MonsterAttack : MonoBehaviour
         {
             float dist = Vector3.Distance(playerTransform.position, transform.position);
 
-            if (dist < atackRadius)
+            if (dist < atackDistance)
             {
-                atackPlayer();
-                StartCoroutine(WaitToAttack(atackInterval));
+                monsterAnimator.SetTrigger("attack");
+                canAttack = false;
             }
         }
     }
 
-    void atackPlayer()
-    {
 
-        life.decreaseHealth(atackDamage);
+    void AttackPlayer()
+    {
+        float dist = Vector3.Distance(playerTransform.position, transform.position);
+
+        if (dist < atackDistance)
+            life.decreaseHealth(atackDamage);
     }
 
-    private IEnumerator WaitToAttack(float waitTime)
+    void CanAttack()
     {
-        canAttack = false;
-        yield return new WaitForSeconds(waitTime);
         canAttack = true;
+    }
 
+    public float getAttackDistance()
+    {
+        return atackDistance;
     }
 }

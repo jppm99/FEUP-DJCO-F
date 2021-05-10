@@ -10,31 +10,42 @@ public class MonsterLife : MonoBehaviour
     [SerializeField] private int secondsUntilBodyDisapears;
     [SerializeField] private bool dropsGeneratorItem;
     private MonsterItem interactableScript;
+    Animator monsterAnimator;
 
     private void Start()
     {
+        monsterAnimator = GetComponentInChildren<Animator>();
+        currentHealth = maxHealth;
         if(this.dropsGeneratorItem) this.interactableScript = this.GetComponentInChildren<MonsterItem>();
     }
 
     public void damage(int damage)
     {
-        Debug.Log(currentHealth);
-
         // Hitpoints cannnot go below 0
         currentHealth = Math.Max(currentHealth - damage, 0);
+        Debug.Log(currentHealth);
 
         if(currentHealth <= 0)
         {
-            StartCoroutine(die());
+            monsterAnimator.SetTrigger("die");
+            GetComponent<MonsterAttack>().enabled = false;
+            GetComponent<MonsterMovement>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 
-    private IEnumerator die()
+    void Die()
+    {
+        StartCoroutine(DieCollectable());
+    }
+
+    private IEnumerator DieCollectable()
     {
         if(this.dropsGeneratorItem) this.interactableScript.EnableInteraction();
 
         yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
 
+        
         Destroy(this.gameObject);
     }
 }
