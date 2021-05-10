@@ -10,13 +10,13 @@ public class InventorySlot : MonoBehaviour
     public Sprite sprite;
     public Text text;
 
-    public void AddNewItem(string item) {
+    public void AddNewItem(string item, int count = 1) {
         this.item = item;
-        count = 1;
+        this.count = count;
 
         icon.sprite = sprite;
         icon.color = new Color(1,1,1,1);
-        text.text = count.ToString();
+        text.text = this.count.ToString();
     }
 
     public void SetCount(int count) {

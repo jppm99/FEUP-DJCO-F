@@ -19,6 +19,8 @@ public class InventoryUI : MonoBehaviour
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         
         inventory.onItemChangedCallback += UpdateUI;
+
+        LoadInventory();
     }
 
     // Update is called once per frame
@@ -36,6 +38,33 @@ public class InventoryUI : MonoBehaviour
             inventoryUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+    }
+
+    // LoadInventory is called to load a previous saved inventory
+    void LoadInventory()
+    {
+        int currentSlot = 0;
+        int count = 0;
+
+        if (inventory.GetItemQqlCoisaCount() > 0) {
+            slots[currentSlot].AddNewItem("qqlcoisa", inventory.GetItemQqlCoisaCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetStickCount() > 0) {
+            slots[currentSlot].AddNewItem("stick", inventory.GetStickCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetRockCount() > 0) {
+            slots[currentSlot].AddNewItem("rock", inventory.GetRockCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetMetalCount() > 0) {
+            slots[currentSlot].AddNewItem("metal", inventory.GetMetalCount());
+            currentSlot++;
         }
     }
 
