@@ -36,10 +36,13 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
-        count--;
+        if (Used()) {
+            count--;
 
-        if (count == 0) {
-            ResetSlot();
+            if (count == 0)
+                ResetSlot();
+            else
+                text.text = this.count.ToString();
         }
     }
 
