@@ -27,10 +27,16 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
             inventoryEnabled = !inventoryEnabled;
 
-        if (inventoryEnabled)
+        if (inventoryEnabled) {
             inventoryUI.SetActive(true);
-        else
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else {
             inventoryUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     // UpdateUI is called everytime a item is picked
