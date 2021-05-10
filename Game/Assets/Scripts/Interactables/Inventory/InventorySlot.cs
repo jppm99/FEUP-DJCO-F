@@ -26,11 +26,18 @@ public class InventorySlot : MonoBehaviour
         text.text = this.count.ToString();
     }
 
-    public bool Used() {
+    public bool Used() 
+    {
         return item != "";
     }
 
-    public string GetItem() {
+    public string GetItem() 
+    {
         return item;
+    }
+
+    public void UseItem()
+    {
+        Debug.Log("Used " + item);
     }
 }
