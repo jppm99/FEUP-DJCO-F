@@ -97,8 +97,11 @@ public class InventoryUI : MonoBehaviour
     }
 
     // Called when an item is removed
-    public void RemoveItem(InventorySlot slot, string item)
+    public void RemoveItem(InventorySlot slot)
     {
-        Debug.Log("Removed " + item);
+        if (inventory.SpendItem(slot.GetItem()) == 0)
+            slot.ResetSlot();
+        else
+            slot.SetCount(inventory.GetCount(slot.GetItem()));
     }
 }

@@ -61,15 +61,33 @@ public class Inventory : ISingleton
         return 0;
     }
 
+    public int SpendItem(string item)
+    {
+        if (item == "qqlcoisa")
+            return SpendItemQqlCoisa();
+        
+        if (item == "stick")
+            return SpendStick();
+
+        if (item == "rock")
+            return SpendRock();
+        
+        if (item == "metal")
+            return SpendMetal();
+
+        return 0;
+    }
+
     #region ItemQqlCoisa
     public int GetItemQqlCoisaCount()
     {
         return this.inventoryData.itemQqlCoisaCount;
     }
 
-    public void SpendItemQqlCoisa(int count = -1)
+    public int SpendItemQqlCoisa(int count = 1)
     {
         this.inventoryData.itemQqlCoisaCount -= count;
+        return this.inventoryData.itemQqlCoisaCount;
     }
 
     public void AddItemQqlCoisa(int count = 1)
@@ -88,9 +106,10 @@ public class Inventory : ISingleton
         return this.inventoryData.Stick;
     }
 
-    public void SpendStick(int count = -1)
+    public int SpendStick(int count = 1)
     {
         this.inventoryData.Stick -= count;
+        return this.inventoryData.Stick;
     }
 
     public void AddStick(int count = 1)
@@ -108,9 +127,10 @@ public class Inventory : ISingleton
         return this.inventoryData.Rock;
     }
 
-    public void SpendRock(int count = -1)
+    public int SpendRock(int count = 1)
     {
         this.inventoryData.Rock -= count;
+        return this.inventoryData.Rock;
     }
 
     public void AddRock(int count = 1)
@@ -128,9 +148,10 @@ public class Inventory : ISingleton
         return this.inventoryData.Metal;
     }
 
-    public void SpendMetal(int count = -1)
+    public int SpendMetal(int count = 1)
     {
         this.inventoryData.Metal -= count;
+        return this.inventoryData.Metal;
     }
 
     public void AddMetal(int count = 1)

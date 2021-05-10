@@ -37,11 +37,11 @@ public class InventorySlot : MonoBehaviour
     public void UseItem()
     {
         if (Used()) {
-            canvas.GetComponent<InventoryUI>().RemoveItem(this, item);
+            canvas.GetComponent<InventoryUI>().RemoveItem(this);
         }
     }
 
-    private void ResetSlot()
+    public void ResetSlot()
     {
         item = "";
 
