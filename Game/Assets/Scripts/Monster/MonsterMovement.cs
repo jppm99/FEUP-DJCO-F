@@ -19,7 +19,7 @@ public class MonsterMovement : MonoBehaviour
     [SerializeField] public float detect_radius;
     
     [Header("Collision Variables")]
-    [SerializeField] public Transform collision_check_transform;
+    //[SerializeField] public Transform collision_check_transform;
     [SerializeField] public LayerMask ground_mask;
     [SerializeField] public float raycast_distance;
 
@@ -27,7 +27,7 @@ public class MonsterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponentInChildren<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         player_transform = GameObject.Find("Player").transform;
         
         angle = 0;
