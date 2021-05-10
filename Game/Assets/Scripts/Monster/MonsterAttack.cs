@@ -43,17 +43,11 @@ public class MonsterAttack : MonoBehaviour
 
     void AttackPlayer()
     {
-        life.decreaseHealth(atackDamage);
-        //StartCoroutine(WaitToAttack(atackInterval));
+        float dist = Vector3.Distance(playerTransform.position, transform.position);
+
+        if (dist < atackDistance)
+            life.decreaseHealth(atackDamage);
     }
-
-    //private IEnumerator WaitToAttack(float waitTime)
-    //{
-    //    canAttack = false;
-    //    yield return new WaitForSeconds(waitTime);
-    //    canAttack = true;
-
-    //}
 
     void CanAttack()
     {
