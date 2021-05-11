@@ -8,6 +8,7 @@ public class InventoryUI : MonoBehaviour
 
     public Transform itemsParent;
     public GameObject inventoryUI;
+    public GameObject build;
 
 
     // Start is called before the first frame update
@@ -31,11 +32,13 @@ public class InventoryUI : MonoBehaviour
 
         if (inventoryEnabled) {
             inventoryUI.SetActive(true);
+            build.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
         else {
             inventoryUI.SetActive(false);
+            build.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
