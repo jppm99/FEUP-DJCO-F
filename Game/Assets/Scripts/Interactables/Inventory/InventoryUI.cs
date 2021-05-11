@@ -116,6 +116,12 @@ public class InventoryUI : MonoBehaviour
         swordRequirements.Add("metal", 5);
 
         buildSlots[1].SetItem("sword", swordRequirements);
+
+        for (int i = 0; i < buildSlots.Length; i++) {
+            buildSlots[i].UpdateText("stick", inventory.GetStickCount());
+            buildSlots[i].UpdateText("rock", inventory.GetRockCount());
+            buildSlots[i].UpdateText("metal", inventory.GetMetalCount());
+        }
     }
 
     // UpdateUI is called everytime a item is picked

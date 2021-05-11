@@ -8,6 +8,7 @@ public class BuildSlot : MonoBehaviour
     private string item = "";
     private Dictionary<string, int> requirements;
     private GameObject canvas;
+    private Text[] lines;
 
     public Image icon;
     public Sprite sprite;
@@ -21,6 +22,7 @@ public class BuildSlot : MonoBehaviour
     void Start()
     {
         canvas = GameObject.Find("Canvas");
+        lines = new Text[] {line1, line2, line3};
     }
 
     public void SetItem(string item, Dictionary<string, int> requirements)
@@ -30,33 +32,21 @@ public class BuildSlot : MonoBehaviour
 
         icon.sprite = sprite;
 
-        line1.text = this.requirements.ElementAt(0).Key + " x" + this.requirements.ElementAt(0).Value.ToString();
-
-        if (this.requirements.Count > 1)
-            line2.text = this.requirements.ElementAt(1).Key + " x" + this.requirements.ElementAt(1).Value.ToString();
-        
-        if (this.requirements.Count > 2)
-            line3.text = this.requirements.ElementAt(2).Key + " x" + this.requirements.ElementAt(2).Value.ToString();
+        for (int i = 0; i < this.requirements.Count; i++) {
+            lines[i].text = this.requirements.ElementAt(i).Key + " x" + this.requirements.ElementAt(i).Value.ToString();
+        }
     }
 
-    // public string GetItem() 
-    // {
-    //     return item;
-    // }
+    public void UpdateText(string item, int count)
+    {
+        for (int i = 0; i < requirements.Count; i++) {
+            if (requirements.ElementAt(i).Key != item)
+                continue;
 
-    // public void UseItem()
-    // {
-    //     if (item == "food") {
-    //         canvas.GetComponent<InventoryUI>().RemoveItem(this);
-    //         player.GetComponent<PlayerLife>().IncreaseHealth(10);
-    //     }
-    // }
-
-    // public void ResetSlot()
-    // {
-    //     item = "";
-
-    //     icon.color = new Color(0,0,0,0);
-    //     text.text = "";
-    // }
+            if (count >= requirements.ElementAt(i).Value)
+                lines[i].color = new Color(0, 0.45f, 0.02f, 1);
+            else
+                lines[i].color = new Color(0.76f ,0.02f ,0 ,1);
+        }
+    }
 }
