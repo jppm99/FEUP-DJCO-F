@@ -140,6 +140,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetItemQqlCoisa(int count)
+    {
+        this.inventoryData.itemQqlCoisaCount = count;
+    }
     #endregion
 
     #region STICK
@@ -162,6 +167,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetStick(int count)
+    {
+        this.inventoryData.Stick = count;
+    }
     #endregion
     #region ROCK
     public int GetRockCount()
@@ -182,6 +192,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetRock(int count)
+    {
+        this.inventoryData.Rock = count;
     }
     #endregion
 
@@ -205,6 +220,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetMetal(int count)
+    {
+        this.inventoryData.Metal = count;
+    }
     #endregion
 
     #region FOOD
@@ -226,6 +246,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetFood(int count)
+    {
+        this.inventoryData.Food = count;
     }
     #endregion
 
@@ -249,6 +274,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetAxe(int count)
+    {
+        this.inventoryData.Axe = count;
+    }
     #endregion
 
     #region SWORD
@@ -270,6 +300,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetSword(int count)
+    {
+        this.inventoryData.Sword = count;
     }
     #endregion
 

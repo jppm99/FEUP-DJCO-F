@@ -58,13 +58,13 @@ public class InventoryUI : MonoBehaviour
         int count = 0;
 
         // Only for testing
-        inventory.AddItemQqlCoisa(10);
-        inventory.AddStick(10);
-        inventory.AddRock(10);
-        inventory.AddMetal(10);
-        inventory.AddFood(10);
-        inventory.AddAxe(1);
-        inventory.AddSword(1);
+        inventory.SetItemQqlCoisa(10);
+        inventory.SetStick(10);
+        inventory.SetRock(10);
+        inventory.SetMetal(10);
+        inventory.SetFood(10);
+        inventory.SetAxe(0);
+        inventory.SetSword(0);
 
         if (inventory.GetItemQqlCoisaCount() > 0) {
             slots[currentSlot].AddNewItem("qqlcoisa", inventory.GetItemQqlCoisaCount());
