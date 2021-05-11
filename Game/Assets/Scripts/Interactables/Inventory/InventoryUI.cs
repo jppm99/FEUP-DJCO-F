@@ -47,6 +47,13 @@ public class InventoryUI : MonoBehaviour
         int currentSlot = 0;
         int count = 0;
 
+        // Only for testing
+        inventory.AddItemQqlCoisa(10);
+        inventory.AddStick(10);
+        inventory.AddRock(10);
+        inventory.AddMetal(10);
+        inventory.AddFood(10);
+
         if (inventory.GetItemQqlCoisaCount() > 0) {
             slots[currentSlot].AddNewItem("qqlcoisa", inventory.GetItemQqlCoisaCount());
             currentSlot++;
@@ -64,6 +71,11 @@ public class InventoryUI : MonoBehaviour
 
         if (inventory.GetMetalCount() > 0) {
             slots[currentSlot].AddNewItem("metal", inventory.GetMetalCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetFoodCount() > 0) {
+            slots[currentSlot].AddNewItem("food", inventory.GetFoodCount());
             currentSlot++;
         }
     }

@@ -58,6 +58,9 @@ public class Inventory : ISingleton
         if (item == "metal")
             return GetMetalCount();
 
+        if (item == "food")
+            return GetFoodCount();
+
         return 0;
     }
 
@@ -74,6 +77,9 @@ public class Inventory : ISingleton
         
         if (item == "metal")
             return SpendMetal();
+
+        if (item == "food")
+            return SpendFood();
 
         return 0;
     }
@@ -142,6 +148,7 @@ public class Inventory : ISingleton
             onItemChangedCallback.Invoke();
     }
     #endregion
+
     #region METAL
     public int GetMetalCount()
     {
@@ -158,6 +165,28 @@ public class Inventory : ISingleton
     {
         this.inventoryData.Metal += count;
         lastItemPicked = "metal";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+    }
+    #endregion
+
+    #region FOOD
+    public int GetFoodCount()
+    {
+        return this.inventoryData.Food;
+    }
+
+    public int SpendFood(int count = 1)
+    {
+        this.inventoryData.Food -= count;
+        return this.inventoryData.Food;
+    }
+
+    public void AddFood(int count = 1)
+    {
+        this.inventoryData.Food += count;
+        lastItemPicked = "food";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
@@ -191,5 +220,5 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, Stick, Rock, Metal;
+    public int itemQqlCoisaCount, Stick, Rock, Metal, Food;
 }
