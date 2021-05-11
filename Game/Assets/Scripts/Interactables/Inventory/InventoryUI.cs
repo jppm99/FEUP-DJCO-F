@@ -185,4 +185,10 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+
+    // BuildItem is called when building an item
+    public void BuildItem(string item)
+    {
+        inventory.AddItem(item);
+    }
 }

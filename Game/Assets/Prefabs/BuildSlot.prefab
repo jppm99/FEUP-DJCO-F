@@ -324,7 +324,6 @@ GameObject:
   - component: {fileID: 5692996113157752901}
   - component: {fileID: 3761486140854359755}
   - component: {fileID: 3525481863338724881}
-  - component: {fileID: 5047034992411373813}
   - component: {fileID: 4175902899252717155}
   m_Layer: 5
   m_Name: BuildSlot
@@ -438,9 +437,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5047034992411373813}
-        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
-        m_MethodName: UseItem
+      - m_Target: {fileID: 4175902899252717155}
+        m_TargetAssemblyTypeName: BuildSlot, Assembly-CSharp
+        m_MethodName: BuildItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -450,21 +449,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5047034992411373813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6992153626153742124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 211826b0e461b2e03a124345cf76e097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 7495713232189916186}
-  sprite: {fileID: 21300000, guid: 89d27a3e2131a433a80f9cd31393b636, type: 3}
-  text: {fileID: 4819316252555015487}
 --- !u!114 &4175902899252717155
 MonoBehaviour:
   m_ObjectHideFlags: 0

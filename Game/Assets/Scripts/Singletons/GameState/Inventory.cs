@@ -64,10 +64,34 @@ public class Inventory : ISingleton
         if (item == "axe")
             return GetAxeCount();
 
-        if (item == "Sword")
+        if (item == "sword")
             return GetSwordCount();
 
         return 0;
+    }
+
+    public void AddItem(string item)
+    {
+        if (item == "qqlcoisa")
+            AddItemQqlCoisa();
+        
+        if (item == "stick")
+            AddStick();
+
+        if (item == "rock")
+            AddRock();
+        
+        if (item == "metal")
+            AddMetal();
+
+        if (item == "food")
+            AddFood();
+
+        if (item == "axe")
+            AddAxe();
+
+        if (item == "sword")
+            AddSword();
     }
 
     public int SpendItem(string item)

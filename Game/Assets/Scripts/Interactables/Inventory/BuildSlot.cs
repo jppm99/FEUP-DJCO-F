@@ -49,4 +49,9 @@ public class BuildSlot : MonoBehaviour
                 lines[i].color = new Color(0.76f ,0.02f ,0 ,1);
         }
     }
+
+    public void BuildItem()
+    {
+        canvas.GetComponent<InventoryUI>().BuildItem(item);
+    }
 }
