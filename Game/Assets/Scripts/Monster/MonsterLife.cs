@@ -23,7 +23,6 @@ public class MonsterLife : MonoBehaviour
     {
         // Hitpoints cannnot go below 0
         currentHealth = Math.Max(currentHealth - damage, 0);
-        Debug.Log(currentHealth);
 
         if(currentHealth <= 0)
         {

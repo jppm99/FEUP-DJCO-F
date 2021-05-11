@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: 402777910441530788, guid: 6031890a69f8c4d42a67217776430ac1, type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 1071052748089036574, guid: 6031890a69f8c4d42a67217776430ac1, type: 3}
       propertyPath: m_RootOrder
       value: 0

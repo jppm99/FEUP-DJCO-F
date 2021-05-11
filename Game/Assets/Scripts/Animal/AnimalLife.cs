@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class AnimalLife : MonoBehaviour
 {
-    [SerializeField] private int maxHealth, currentHealth, secondsUntilBodyDisapears;
+    [SerializeField] private int maxHealth, secondsUntilBodyDisapears;
+    private int currentHealth;
     private AnimalFood interactableScript;
+    Animator animalAnimator;
 
     private void Start() {
+        animalAnimator = GetComponentInChildren<Animator>();
+        currentHealth = maxHealth;
         this.interactableScript = this.GetComponentInChildren<AnimalFood>();
     }
 
     public void damage(int damage)
     {
-        Debug.Log(currentHealth);
+        // Hitpoints cannnot go below 0
+        currentHealth -= damage;
 
-        // Hitpoints cannot go below 0
-        currentHealth = Math.Max(currentHealth - damage, 0);
-
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            StartCoroutine(die());
+            animalAnimator.SetTrigger("die");
+            GetComponent<AnimalMovement>().enabled = false;
+            GetComponentInChildren<BoxCollider>().enabled = false;
         }
     }
 
-    private IEnumerator die()
+    void Die()
+    {
+        StartCoroutine(DieCollectable());
+    }
+
+
+    private IEnumerator DieCollectable()
     {
         this.interactableScript.EnableInteraction();
 

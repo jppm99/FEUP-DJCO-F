@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else if (objectTag.Equals("Animal"))
                 {
-                    AnimalLife animal = ray.transform.GetComponent<AnimalLife>();
+                    AnimalLife animal = ray.transform.GetComponentInParent<AnimalLife>();
                     animal.damage(attackDamage);
                 }
             }
