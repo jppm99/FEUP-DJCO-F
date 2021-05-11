@@ -50,8 +50,18 @@ public class BuildSlot : MonoBehaviour
         }
     }
 
+    public string GetItem()
+    {
+        return item;
+    }
+
+    public Dictionary<string, int> GetRequirements()
+    {
+        return requirements;
+    }
+
     public void BuildItem()
     {
-        canvas.GetComponent<InventoryUI>().BuildItem(item);
+        canvas.GetComponent<InventoryUI>().BuildItem(this);
     }
 }

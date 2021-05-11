@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -187,8 +188,19 @@ public class InventoryUI : MonoBehaviour
     }
 
     // BuildItem is called when building an item
-    public void BuildItem(string item)
+    public void BuildItem(BuildSlot slot)
     {
-        inventory.AddItem(item);
+        bool canBuild = true;
+        Dictionary<string, int> requirements = slot.GetRequirements();
+
+        for (int i = 0; i < requirements.Count; i++) {
+            if (inventory.GetCount(requirements.ElementAt(i).Key) < requirements.ElementAt(i).Value) {
+                canBuild = false;
+                break;
+            }
+        }
+
+        if (canBuild)
+            inventory.AddItem(slot.GetItem());
     }
 }
