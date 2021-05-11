@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1982390361935977791}
   m_Layer: 0
   m_Name: Monster Body
-  m_TagString: monster
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 4910944086739739179}
   m_Layer: 0
   m_Name: tallMonster
-  m_TagString: monster
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,8 +608,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9844971, y: 5.7444477, z: 0.80114746}
-  m_Center: {x: -0.18338013, y: 3.2249584, z: 3.2407227}
+  m_Size: {x: 1.6409302, y: 6.0460973, z: 0.80114746}
+  m_Center: {x: -0.28775024, y: 3.0741336, z: 3.2407227}
 --- !u!95 &4910944086739739607
 Animator:
   serializedVersion: 3
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 1152294857448171441}
   m_Layer: 0
   m_Name: mixamorig:Hips
-  m_TagString: monster
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
