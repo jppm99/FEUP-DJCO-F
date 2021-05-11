@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 56c5d6a5224ac974786b0c690b2ca2e9
+guid: fb4afe037214e52439fd56b39e5ecc77
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rust
-    second: {fileID: 2100000, guid: 16b847498e7272744b30845e1042cff6, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
