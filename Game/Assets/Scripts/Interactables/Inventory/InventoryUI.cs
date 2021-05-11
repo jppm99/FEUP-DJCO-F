@@ -5,8 +5,10 @@ public class InventoryUI : MonoBehaviour
     private bool inventoryEnabled;
     private Inventory inventory;
     private InventorySlot[] slots;
+    private BuildSlot[] buildSlots;
 
     public Transform itemsParent;
+    public Transform buildsParent;
     public GameObject inventoryUI;
     public GameObject build;
 
@@ -18,6 +20,8 @@ public class InventoryUI : MonoBehaviour
 
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        buildSlots = buildsParent.GetComponentsInChildren<BuildSlot>();
+        Debug.Log(buildSlots.Length);
         
         inventory.onItemChangedCallback += UpdateUI;
 
