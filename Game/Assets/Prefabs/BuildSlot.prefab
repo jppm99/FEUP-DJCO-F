@@ -153,7 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Required: Stick x1'
+  m_Text: 
 --- !u!1 &5592683345881134336
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Required: Metal x3'
+  m_Text: 
 --- !u!1 &6303711311815967531
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Required: Rock x2'
+  m_Text: 
 --- !u!1 &6992153626153742124
 GameObject:
   m_ObjectHideFlags: 0

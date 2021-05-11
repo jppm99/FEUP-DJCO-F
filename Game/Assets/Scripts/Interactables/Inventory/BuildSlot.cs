@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BuildSlot : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class BuildSlot : MonoBehaviour
         this.requirements = requirements;
 
         icon.sprite = sprite;
+
+        line1.text = this.requirements.ElementAt(0).Key + " x" + this.requirements.ElementAt(0).Value.ToString();
+
+        if (this.requirements.Count > 1)
+            line2.text = this.requirements.ElementAt(1).Key + " x" + this.requirements.ElementAt(1).Value.ToString();
+        
+        if (this.requirements.Count > 2)
+            line3.text = this.requirements.ElementAt(2).Key + " x" + this.requirements.ElementAt(2).Value.ToString();
     }
 
     // public string GetItem() 

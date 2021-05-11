@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallback += UpdateUI;
 
         LoadInventory();
+        LoadBuilds();
     }
 
     // Update is called once per frame
@@ -97,6 +99,23 @@ public class InventoryUI : MonoBehaviour
             slots[currentSlot].AddNewItem("sword", inventory.GetSwordCount());
             currentSlot++;
         }
+    }
+
+    // LoadBuilds is called to load all items available to build
+    void LoadBuilds()
+    {
+        Dictionary<string, int> axeRequirements = new Dictionary<string, int>();
+        axeRequirements.Add("stick", 4);
+        axeRequirements.Add("rock", 2);
+
+        buildSlots[0].SetItem("axe", axeRequirements);
+
+        Dictionary<string, int> swordRequirements = new Dictionary<string, int>();
+        swordRequirements.Add("stick", 3);
+        swordRequirements.Add("rock", 1);
+        swordRequirements.Add("metal", 5);
+
+        buildSlots[1].SetItem("sword", swordRequirements);
     }
 
     // UpdateUI is called everytime a item is picked
