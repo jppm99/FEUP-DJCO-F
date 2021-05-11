@@ -151,17 +151,27 @@ public class InventoryUI : MonoBehaviour
                 break;
             }
         }
+
+        for (int i = 0; i < buildSlots.Length; i++) {
+            buildSlots[i].UpdateText(item, inventory.GetCount(item));
+        }
     }
 
     // Called when an item is removed
     public void RemoveItem(InventorySlot slot, int count = 1)
     {
-        if (inventory.SpendItem(slot.GetItem(), count) == 0) {
+        string item = slot.GetItem();
+
+        if (inventory.SpendItem(item, count) == 0) {
             slot.ResetSlot();
             UpdateSlotsOrder();
         }
         else
-            slot.SetCount(inventory.GetCount(slot.GetItem()));
+            slot.SetCount(inventory.GetCount(item));
+
+        for (int i = 0; i < buildSlots.Length; i++) {
+            buildSlots[i].UpdateText(item, inventory.GetCount(item));
+        }
     }
 
     public void RemoveItem(string item, int count)
