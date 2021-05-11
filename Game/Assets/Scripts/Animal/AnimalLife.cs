@@ -17,14 +17,16 @@ public class AnimalLife : MonoBehaviour
 
     public void damage(int damage)
     {
-        // Hitpoints cannnot go below 0
+        // Hitpoints cannot go below 0
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
             animalAnimator.SetTrigger("die");
             GetComponent<AnimalMovement>().enabled = false;
-            //GetComponentInChildren<BoxCollider>().enabled = false;
+            GetComponentInChildren<Rigidbody>().useGravity = false;
+            GetComponentInChildren<BoxCollider>().enabled = false;
+            this.Die();
         }
     }
 
