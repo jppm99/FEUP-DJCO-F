@@ -94,28 +94,28 @@ public class Inventory : ISingleton
             AddSword();
     }
 
-    public int SpendItem(string item)
+    public int SpendItem(string item, int count = 1)
     {
         if (item == "qqlcoisa")
-            return SpendItemQqlCoisa();
+            return SpendItemQqlCoisa(count);
         
         if (item == "stick")
-            return SpendStick();
+            return SpendStick(count);
 
         if (item == "rock")
-            return SpendRock();
+            return SpendRock(count);
         
         if (item == "metal")
-            return SpendMetal();
+            return SpendMetal(count);
 
         if (item == "food")
-            return SpendFood();
+            return SpendFood(count);
 
         if (item == "axe")
-            return SpendAxe();
+            return SpendAxe(count);
 
         if (item == "sword")
-            return SpendSword();
+            return SpendSword(count);
 
         return 0;
     }

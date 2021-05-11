@@ -154,14 +154,25 @@ public class InventoryUI : MonoBehaviour
     }
 
     // Called when an item is removed
-    public void RemoveItem(InventorySlot slot)
+    public void RemoveItem(InventorySlot slot, int count = 1)
     {
-        if (inventory.SpendItem(slot.GetItem()) == 0) {
+        if (inventory.SpendItem(slot.GetItem(), count) == 0) {
             slot.ResetSlot();
             UpdateSlotsOrder();
         }
         else
             slot.SetCount(inventory.GetCount(slot.GetItem()));
+    }
+
+    public void RemoveItem(string item, int count)
+    {
+        for (int i = 0; i < slots.Length; i++) {
+            if (!slots[i].Used())
+                continue;
+
+            if (slots[i].GetItem() == item)
+                RemoveItem(slots[i], count);
+        }
     }
 
     // Called after a slot becomes empty
@@ -200,7 +211,12 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        if (canBuild)
+        if (canBuild) {
+            for (int i = 0; i < requirements.Count; i++) {
+                RemoveItem(requirements.ElementAt(i).Key, requirements.ElementAt(i).Value);
+            }
+
             inventory.AddItem(slot.GetItem());
+        }
     }
 }
