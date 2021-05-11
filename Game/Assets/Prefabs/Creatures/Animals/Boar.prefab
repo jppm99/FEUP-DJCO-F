@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: 909924484736010501, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2223725829353696696, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_TagString
       value: Animal
@@ -115,6 +119,14 @@ PrefabInstance:
     - target: {fileID: 2537975014688226204, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: evade_speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8910870381872584233, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_LocalScale.x

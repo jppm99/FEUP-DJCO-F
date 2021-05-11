@@ -24,7 +24,7 @@ public class AnimalLife : MonoBehaviour
         {
             animalAnimator.SetTrigger("die");
             GetComponent<AnimalMovement>().enabled = false;
-            GetComponentInChildren<BoxCollider>().enabled = false;
+            //GetComponentInChildren<BoxCollider>().enabled = false;
         }
     }
 
