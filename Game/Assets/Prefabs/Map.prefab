@@ -1547,7 +1547,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2637695735072391755
 Transform:
@@ -2942,7 +2942,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6289247954227488577
 Transform:
@@ -2952,7 +2952,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9115428317032550228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.479, z: 0}
+  m_LocalPosition: {x: -0.012, y: -0.479, z: -0.012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2637695735072391755}
@@ -2970,14 +2970,14 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8584906, g: 0.64558506, b: 0.34420612, a: 1}
-  m_Intensity: 10
-  m_Range: 15
+  m_Intensity: 3.5
+  m_Range: 25
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -3009,13 +3009,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.2
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -31.215103}
+  m_BoundingSphereOverride: {x: NaN, y: 0, z: 4.09e-43, w: -570.73975}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -9139,7 +9139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 83ae146a6e32d3047bbfb152cf61eb35, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83ae146a6e32d3047bbfb152cf61eb35, type: 3}
@@ -42919,7 +42919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1023818249199954, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1670901578753894, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_Layer
@@ -42927,7 +42927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1670901578753894, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1671333127018840, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_Layer
@@ -42935,7 +42935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1671333127018840, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1729665029767850, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_Layer
@@ -42943,7 +42943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1729665029767850, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4537420558883232, guid: d17bd81f00e4eb843a71e73358112786, type: 3}
       propertyPath: m_RootOrder
