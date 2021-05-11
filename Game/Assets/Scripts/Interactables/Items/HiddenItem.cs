@@ -22,6 +22,6 @@ public class HiddenItem : Interactable
         
         Debug.Log("Added hidden item to inventory");
         
-        Destroy(this.gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 }

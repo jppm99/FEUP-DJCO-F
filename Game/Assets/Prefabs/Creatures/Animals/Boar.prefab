@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: 2387333691778584470, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.551
+      objectReference: {fileID: 0}
     - target: {fileID: 2537975014688226204, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -82,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2537975014688226204, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 959.6199
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2537975014688226204, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -139,6 +143,10 @@ PrefabInstance:
     - target: {fileID: 8910870381872584233, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910870381872584233, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.71
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 847438220144254816, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
