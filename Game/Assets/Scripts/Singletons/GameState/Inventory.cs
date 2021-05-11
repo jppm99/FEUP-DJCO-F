@@ -61,6 +61,12 @@ public class Inventory : ISingleton
         if (item == "food")
             return GetFoodCount();
 
+        if (item == "axe")
+            return GetAxeCount();
+
+        if (item == "Sword")
+            return GetSwordCount();
+
         return 0;
     }
 
@@ -80,6 +86,12 @@ public class Inventory : ISingleton
 
         if (item == "food")
             return SpendFood();
+
+        if (item == "axe")
+            return SpendAxe();
+
+        if (item == "sword")
+            return SpendSword();
 
         return 0;
     }
@@ -193,6 +205,50 @@ public class Inventory : ISingleton
     }
     #endregion
 
+    #region AXE
+    public int GetAxeCount()
+    {
+        return this.inventoryData.Axe;
+    }
+
+    public int SpendAxe(int count = 1)
+    {
+        this.inventoryData.Axe -= count;
+        return this.inventoryData.Axe;
+    }
+
+    public void AddAxe(int count = 1)
+    {
+        this.inventoryData.Axe += count;
+        lastItemPicked = "axe";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+    }
+    #endregion
+
+    #region SWORD
+    public int GetSwordCount()
+    {
+        return this.inventoryData.Sword;
+    }
+
+    public int SpendSword(int count = 1)
+    {
+        this.inventoryData.Sword -= count;
+        return this.inventoryData.Sword;
+    }
+
+    public void AddSword(int count = 1)
+    {
+        this.inventoryData.Sword += count;
+        lastItemPicked = "sword";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+    }
+    #endregion
+
     void WhenQuit()
     {
         this.SaveData();
@@ -220,5 +276,5 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, Stick, Rock, Metal, Food;
+    public int itemQqlCoisaCount, Stick, Rock, Metal, Food, Axe, Sword;
 }

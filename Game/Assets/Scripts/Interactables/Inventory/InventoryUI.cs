@@ -60,6 +60,8 @@ public class InventoryUI : MonoBehaviour
         inventory.AddRock(10);
         inventory.AddMetal(10);
         inventory.AddFood(10);
+        inventory.AddAxe(1);
+        inventory.AddSword(1);
 
         if (inventory.GetItemQqlCoisaCount() > 0) {
             slots[currentSlot].AddNewItem("qqlcoisa", inventory.GetItemQqlCoisaCount());
@@ -83,6 +85,16 @@ public class InventoryUI : MonoBehaviour
 
         if (inventory.GetFoodCount() > 0) {
             slots[currentSlot].AddNewItem("food", inventory.GetFoodCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetAxeCount() > 0) {
+            slots[currentSlot].AddNewItem("axe", inventory.GetAxeCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetSwordCount() > 0) {
+            slots[currentSlot].AddNewItem("sword", inventory.GetSwordCount());
             currentSlot++;
         }
     }
