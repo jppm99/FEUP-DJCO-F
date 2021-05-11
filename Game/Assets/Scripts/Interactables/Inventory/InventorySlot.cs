@@ -4,11 +4,20 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     private string item = "";
+    private GameObject canvas;
+    private GameObject player;
 
     public Image icon;
     public Sprite sprite;
     public Text text;
-    public GameObject canvas;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        canvas = GameObject.Find("Canvas");
+        player = GameObject.Find("Player");
+    }
 
     public void AddNewItem(string item, int count = 1) 
     {
