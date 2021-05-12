@@ -39,6 +39,11 @@ public class Inventory : ISingleton
         }
     }
 
+    public void NewGame()
+    {
+        this.inventoryData = new InventoryData();
+    }
+
     public string GetLastItemPicked()
     {
         return lastItemPicked;
