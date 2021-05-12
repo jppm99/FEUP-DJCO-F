@@ -38,10 +38,16 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(playerSpeed);
 
 
+
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, groundMask);
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        playerAnimator.SetFloat("VelocityX", x);
+        playerAnimator.SetFloat("VelocityY", z);
+
+
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -101,4 +107,6 @@ public class PlayerMovement : MonoBehaviour
     {
         this.canRun = !canRun;
     }
+
+
 }
