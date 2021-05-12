@@ -307,22 +307,7 @@ public class Inventory : ISingleton
         this.inventoryData.Sword = count;
     }
     #endregion
-    #region FOOD
-    public int GetFoodCount()
-    {
-        return this.inventoryData.Food;
-    }
 
-    public void SpendFood(int count = -1)
-    {
-        this.inventoryData.Food -= count;
-    }
-
-    public void AddFood(int count = 1)
-    {
-        this.inventoryData.Food += count;
-    }
-    #endregion
     #region GENERATOR_ITEMS
     #region MONSTER
     public bool GetMonsterGeneratorItem()
