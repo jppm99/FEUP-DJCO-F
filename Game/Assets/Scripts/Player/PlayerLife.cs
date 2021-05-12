@@ -96,6 +96,14 @@ public class PlayerLife : MonoBehaviour
         health -= damage;
     }
 
+    public void IncreaseHealth(float increase)
+    {
+        if (health + increase > maxHealth)
+            health = maxHealth;
+        else
+            health = health + increase;
+    }
+
     public void setDay(bool isDay)
     {
         this.isDay = isDay;
