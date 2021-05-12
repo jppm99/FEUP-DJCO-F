@@ -3,7 +3,7 @@ public class AnimalFood : Interactable
     protected override void Action()
     {
         RuntimeStuff.GetSingleton<Inventory>().AddFood();
-        Destroy(this.gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 
     protected override void Start()

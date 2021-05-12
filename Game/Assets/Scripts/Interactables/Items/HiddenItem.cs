@@ -11,7 +11,7 @@ public class HiddenItem : Interactable
         if(this.inventory.GetHiddenGeneratorItem()) Destroy(this.gameObject);
 
         // Must be set before start runs
-        this.floatingText = "Press F to grab tool";
+        this.floatingText = "Press F to grab part";
 
         base.Start();        
     }
