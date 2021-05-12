@@ -84,10 +84,8 @@ MonoBehaviour:
   maximumDistaceToPlayer: 9999
   spawnPointParent: {fileID: 2707126472241920475}
   animals:
-  - {fileID: 707645069301936573, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
   - {fileID: 2978547453086077047, guid: 66adda67a849248c7b04354a2aba9415, type: 3}
   monsters:
-  - {fileID: 459856655304254296, guid: db657e30ee783384ebde18609580a54f, type: 3}
   - {fileID: 5252961269506055583, guid: 9bd2463c03f924b2b80027f19a7717d1, type: 3}
 --- !u!114 &321553851050138745
 MonoBehaviour:

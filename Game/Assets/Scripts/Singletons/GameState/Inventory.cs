@@ -364,7 +364,7 @@ public class Inventory : ISingleton
         this.SaveData();
     }
 
-    private void SaveData()
+    public void SaveData()
     {
         string data = JsonUtility.ToJson(this.inventoryData);
 
