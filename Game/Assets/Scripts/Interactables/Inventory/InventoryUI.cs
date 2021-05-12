@@ -38,12 +38,14 @@ public class InventoryUI : MonoBehaviour
             inventoryEnabled = !inventoryEnabled;
 
         if (inventoryEnabled) {
+            Time.timeScale = 0;
             inventoryUI.SetActive(true);
             build.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
         else {
+            Time.timeScale = 1;
             inventoryUI.SetActive(false);
             build.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
