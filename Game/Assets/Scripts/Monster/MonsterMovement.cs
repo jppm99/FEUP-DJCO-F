@@ -19,7 +19,7 @@ public class MonsterMovement : MonoBehaviour
     [SerializeField] public float detect_radius;
     
     [Header("Collision Variables")]
-    [SerializeField] public Transform collision_check_transform;
+    //[SerializeField] public Transform collision_check_transform;
     [SerializeField] public LayerMask ground_mask;
     [SerializeField] public float raycast_distance;
 
@@ -27,7 +27,7 @@ public class MonsterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
         player_transform = GameObject.Find("Player").transform;
         
         angle = 0;
@@ -54,7 +54,8 @@ public class MonsterMovement : MonoBehaviour
             rb.rotation = Quaternion.LookRotation(new_direction);
 
             // Move towards player
-            transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * follow_speed);
+            if(dist > GetComponent<MonsterAttack>().getAttackDistance())
+                transform.position = Vector3.MoveTowards(transform.position, player_transform.position, Time.deltaTime * follow_speed);
         }
         // If patrolling
         else {

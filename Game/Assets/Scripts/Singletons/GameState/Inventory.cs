@@ -307,6 +307,72 @@ public class Inventory : ISingleton
         this.inventoryData.Sword = count;
     }
     #endregion
+    #region FOOD
+    public int GetFoodCount()
+    {
+        return this.inventoryData.Food;
+    }
+
+    public void SpendFood(int count = -1)
+    {
+        this.inventoryData.Food -= count;
+    }
+
+    public void AddFood(int count = 1)
+    {
+        this.inventoryData.Food += count;
+    }
+    #endregion
+    #region GENERATOR_ITEMS
+    #region MONSTER
+    public bool GetMonsterGeneratorItem()
+    {
+        return this.inventoryData.hasMonsterGeneratorItem;
+    }
+
+    public void SpendMonsterGeneratorItem()
+    {
+        this.inventoryData.hasMonsterGeneratorItem = false;
+    }
+
+    public void AddMonsterGeneratorItem()
+    {
+        this.inventoryData.hasMonsterGeneratorItem = true;
+    }
+    #endregion
+    #region HIDDEN
+    public bool GetHiddenGeneratorItem()
+    {
+        return this.inventoryData.hasHiddenGeneratorItem;
+    }
+
+    public void SpendHiddenGeneratorItem()
+    {
+        this.inventoryData.hasHiddenGeneratorItem = false;
+    }
+
+    public void AddHiddenGeneratorItem()
+    {
+        this.inventoryData.hasHiddenGeneratorItem = true;
+    }
+    #endregion
+    #region BUILDABLE
+    public bool GetBuildableGeneratorItem()
+    {
+        return this.inventoryData.hasBuildableGeneratorItem;
+    }
+
+    public void SpendBuildableGeneratorItem()
+    {
+        this.inventoryData.hasBuildableGeneratorItem = false;
+    }
+
+    public void AddBuildableGeneratorItem()
+    {
+        this.inventoryData.hasBuildableGeneratorItem = true;
+    }
+    #endregion
+    #endregion
 
     void WhenQuit()
     {
@@ -336,4 +402,5 @@ public class Inventory : ISingleton
 class InventoryData
 {
     public int itemQqlCoisaCount, Stick, Rock, Metal, Food, Axe, Sword;
+    public bool hasMonsterGeneratorItem, hasHiddenGeneratorItem, hasBuildableGeneratorItem;
 }

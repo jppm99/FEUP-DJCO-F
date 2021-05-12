@@ -75,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("isWalking", false);
         }
 
+        if (z < 0)
+            playerAnimator.SetFloat("Direction", -1);
+        else
+            playerAnimator.SetFloat("Direction", 1);
+
 
         Vector3 movement = transform.right * x + transform.forward * z;
 

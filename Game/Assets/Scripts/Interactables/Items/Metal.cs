@@ -11,7 +11,7 @@ public class Metal : Interactable
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
         // Must be set before start runs
-        this.actionString = "grab metal";
+        this.floatingText = "Press F to collect metal";
 
         base.Start();        
     }

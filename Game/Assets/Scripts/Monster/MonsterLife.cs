@@ -5,30 +5,46 @@ using UnityEngine;
 
 public class MonsterLife : MonoBehaviour
 {
-    [SerializeField] private int maxHitPoints;
-    [SerializeField] private int currentHitPoints;
-    [SerializeField] private int regenRate;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private int secondsUntilBodyDisapears;
+    [SerializeField] private bool dropsGeneratorItem;
+    private MonsterItem interactableScript;
+    Animator monsterAnimator;
+
+    private void Start()
     {
-        
+        monsterAnimator = GetComponentInChildren<Animator>();
+        currentHealth = maxHealth;
+        if(this.dropsGeneratorItem) this.interactableScript = this.GetComponentInChildren<MonsterItem>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void damage(int hitPoints)
+    public void damage(int damage)
     {
         // Hitpoints cannnot go below 0
-        currentHitPoints = Math.Max(currentHitPoints - currentHitPoints, 0);
+        currentHealth = Math.Max(currentHealth - damage, 0);
+
+        if(currentHealth <= 0)
+        {
+            monsterAnimator.SetTrigger("die");
+            GetComponent<MonsterAttack>().enabled = false;
+            GetComponent<MonsterMovement>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
-    private void regen()
+    void Die()
     {
-        // Hitpoints cannnot go above maximum hitpoints
-        currentHitPoints = Math.Max(currentHitPoints + regenRate, maxHitPoints);
+        StartCoroutine(DieCollectable());
+    }
+
+    private IEnumerator DieCollectable()
+    {
+        if(this.dropsGeneratorItem) this.interactableScript.EnableInteraction();
+
+        yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
+
+        
+        Destroy(this.gameObject);
     }
 }
