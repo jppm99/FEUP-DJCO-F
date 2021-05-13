@@ -26,21 +26,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4879541810627169089, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4917231700253272986, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
       propertyPath: m_Name
       value: Gerador1
       objectReference: {fileID: 0}
     - target: {fileID: 5802763225299154251, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5802763225299154251, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
+      propertyPath: m_LocalRotation.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5802763225299154251, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802763225299154251, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802763225299154251, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802763225299154251, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 8201747694345412886, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
       propertyPath: m_Pivot.x
@@ -125,6 +141,18 @@ PrefabInstance:
     - target: {fileID: 8201747694345412886, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373869858609501693, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373869858609501693, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373869858609501693, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.398
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
