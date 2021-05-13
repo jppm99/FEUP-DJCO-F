@@ -16,4 +16,9 @@ public class LightPoint : MonoBehaviour
             light.enabled = isOn;
         }
     }
+
+    public bool IsOn()
+    {
+        return this.lights.Length > 0 && this.lights[0].enabled;
+    }
 }

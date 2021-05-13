@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3453636379734926581}
   m_Layer: 0
   m_Name: Light1
-  m_TagString: Untagged
+  m_TagString: LightSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -231,6 +231,20 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!136 &4912750626980376066
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094434544361074632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.8578496
+  m_Height: 3.2335887
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.33113608, z: 0.034920212}
 --- !u!205 &5083933776894711547
 LODGroup:
   m_ObjectHideFlags: 0
@@ -250,20 +264,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6752001169292348957}
   m_Enabled: 1
---- !u!136 &4912750626980376066
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5094434544361074632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 4.8578496
-  m_Height: 3.2335887
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.33113608, z: 0.034920212}
 --- !u!1 &5346626579400972364
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,12 +31,11 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float maxSanity;
     [SerializeField] [Range(0, 1)] float sanityEffectStartsAt; // 0-1 amount of full sanity at which low sanity post processing effect starts at
     [SerializeField] float sanityLossDelay; //interval of time between losses
-    [SerializeField] float sanityLossAmount; //loss amount
-    [SerializeField] float sanityLossAmountWithLight; //loss amount when in presence of light
+    [SerializeField] float sanityLossDelayWithLight; //interval of time between losses when in presence of light
     [SerializeField] float sanityRecoverDelay; //recover amount
-    [SerializeField] float sanityRecoverAmount; //recover amount
     [SerializeField] float lightSourceDistance; //distance from which the player must be from a light source to decrease the amount of sanity that he looses during night time
-
+    float sanityLossAmount = 1; //loss amount
+    float sanityRecoverAmount = 1; //recover amount
     
 
     // Start is called before the first frame update
@@ -91,7 +90,7 @@ public class PlayerLife : MonoBehaviour
         {
             //if the player is close to a light source his sanity will decrease slower
             if (checkCloseLightSources())
-                changeElementOverTime(ref sanity, sanityLossDelay, sanityLossAmountWithLight, maxSanity, ref nextActionTimeSanity, -1);
+                changeElementOverTime(ref sanity, sanityLossDelayWithLight, sanityLossAmount, maxSanity, ref nextActionTimeSanity, -1);
 
             //if the player is NOT close to a light source his sanity will decrease faster
             else
@@ -110,7 +109,7 @@ public class PlayerLife : MonoBehaviour
 
         float chromaticAberrationMax = 1f;
         float lensDistortionMax = -70f;
-        float vignetteMax = 0.55f;
+        float vignetteMax = 0.5f;
 
         this.chromaticAberration.intensity.value = (amount * chromaticAberrationMax);
         this.lensDistortion.intensity.value = amount * lensDistortionMax;
@@ -154,7 +153,8 @@ public class PlayerLife : MonoBehaviour
         for(int i = 0; i < lightSources.Length; i++)
         {
             if (Mathf.Abs(lightSources[i].transform.position.x - transform.position.x) <= lightSourceDistance
-                && Mathf.Abs(lightSources[i].transform.position.z - transform.position.z) <= lightSourceDistance)
+                && Mathf.Abs(lightSources[i].transform.position.z - transform.position.z) <= lightSourceDistance
+                && lightSources[i].GetComponent<LightPoint>().IsOn())
                 return true;
         }
 

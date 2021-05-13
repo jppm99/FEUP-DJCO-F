@@ -936,12 +936,10 @@ MonoBehaviour:
   healthLevelPercent: 30
   maxSanity: 50
   sanityEffectStartsAt: 0.6
-  sanityLossDelay: 5
-  sanityLossAmount: 1
-  sanityLossAmountWithLight: 1
-  sanityRecoverDelay: 4
-  sanityRecoverAmount: 1
-  lightSourceDistance: 5
+  sanityLossDelay: 1
+  sanityLossDelayWithLight: 1.5
+  sanityRecoverDelay: 1
+  lightSourceDistance: 40
 --- !u!1 &1879063742807901397
 GameObject:
   m_ObjectHideFlags: 0
