@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSwitch : Interactable
+public class Generator : Interactable
 {
+    [SerializeField] private float distanceToPlayer;
     private GameManager gameManager;
     private int zone;
     private Inventory inventory;
-    private bool fixable = false;
+    private bool fixable = false, hasBeenFixed;
+
+    
     protected override void Action()
     {
-        if(this.CanFix())
+        if(!hasBeenFixed && this.CanFix())
         {
             this.gameManager.TurnOnZoneLights(this.zone);
-            this.Disable();
+            this.hasBeenFixed = true;
+            this.UpdateFloatingText("");
         }
     }
 
@@ -22,6 +26,9 @@ public class LightSwitch : Interactable
         this.gameManager = RuntimeStuff.GetSingleton<GameManager>();
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
         this.zone = this.transform.GetComponentInParent<Zone>().GetZone();
+
+        this.hasBeenFixed = false;
+        this.maxDistanceToPlayer = this.distanceToPlayer;
 
         // Set floating text for when the player cannot fix the generator
         switch (this.zone)
@@ -49,7 +56,7 @@ public class LightSwitch : Interactable
 
     protected override void FixedUpdate() 
     {
-        if(!fixable && this.CanFix())
+        if(!fixable && !hasBeenFixed && this.CanFix())
         {
             fixable = true;
             this.UpdateFloatingText("Press F to fix");
