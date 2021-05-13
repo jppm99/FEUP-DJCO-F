@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class PlayerLife : MonoBehaviour
     float nextActionTimeHealth = 0.0f;
     float nextActionTimeSanity = 0.0f;
     bool isDay;
+    LensDistortion lensDistortion;
+    ChromaticAberration chromaticAberration;
+    Vignette vignette;
+    PlayerMovement playerMovement;
     GameObject[] lightSources;
 
     [Header("Health Variables")]
@@ -24,6 +29,7 @@ public class PlayerLife : MonoBehaviour
 
     [Header("Sanity Variables")]
     [SerializeField] float maxSanity;
+    [SerializeField] [Range(0, 1)] float sanityEffectStartsAt; // 0-1 amount of full sanity at which low sanity post processing effect starts at
     [SerializeField] float sanityLossDelay; //interval of time between losses
     [SerializeField] float sanityLossAmount; //loss amount
     [SerializeField] float sanityLossAmountWithLight; //loss amount when in presence of light
@@ -42,6 +48,13 @@ public class PlayerLife : MonoBehaviour
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
         sanityImage = GameObject.Find("SanityImage").GetComponent<Image>();
         sanityText = GameObject.Find("SanityText").GetComponent<Text>();
+
+        this.playerMovement = gameObject.GetComponent<PlayerMovement>();
+
+        PostProcessVolume volume = GetComponentInChildren<PostProcessVolume>();
+        volume.profile.TryGetSettings<LensDistortion>(out this.lensDistortion);
+        volume.profile.TryGetSettings<ChromaticAberration>(out this.chromaticAberration);
+        volume.profile.TryGetSettings<Vignette>(out this.vignette);
 
         health = maxHealth;
         sanity = maxSanity;
@@ -63,14 +76,14 @@ public class PlayerLife : MonoBehaviour
         if (health <= maxHealth * healthLevelPercent / 100)
         {
             changeElementOverTime(ref sanity, sanityLossDelay, sanityLossAmount, maxSanity, ref nextActionTimeSanity, -1);
-            gameObject.GetComponent<PlayerMovement>().setNotBeingAbleToRun(true);
+            this.playerMovement.setNotBeingAbleToRun(true);
         }
 
         //If it's daytime, sanity will increase from time to time
         else if (isDay)
         {
             changeElementOverTime(ref sanity, sanityRecoverDelay, sanityRecoverAmount, maxSanity, ref nextActionTimeSanity, 1);
-            gameObject.GetComponent<PlayerMovement>().setNotBeingAbleToRun(false);
+            this.playerMovement.setNotBeingAbleToRun(false);
         }
 
         //If it's NOT daytime, sanity will decrease from time to time
@@ -84,11 +97,24 @@ public class PlayerLife : MonoBehaviour
             else
                 changeElementOverTime(ref sanity, sanityLossDelay, sanityLossAmount, maxSanity, ref nextActionTimeSanity, -1);
 
-            gameObject.GetComponent<PlayerMovement>().setNotBeingAbleToRun(false);
+            this.playerMovement.setNotBeingAbleToRun(false);
         }
 
-        //TODO: Add post processing filter that relates sanity level with camera distortion
+        this.LowSanityEffect();
+    }
 
+    private void LowSanityEffect()
+    {
+        // If sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
+        float amount = this.sanity / this.maxSanity < this.sanityEffectStartsAt ? (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1 : 0f;
+
+        float chromaticAberrationMax = 1f;
+        float lensDistortionMax = -70f;
+        float vignetteMax = 0.55f;
+
+        this.chromaticAberration.intensity.value = (amount * chromaticAberrationMax);
+        this.lensDistortion.intensity.value = amount * lensDistortionMax;
+        this.vignette.intensity.value = amount * vignetteMax;
     }
 
     public void decreaseHealth(float damage)
