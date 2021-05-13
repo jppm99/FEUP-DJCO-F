@@ -69,7 +69,7 @@ public class PlayerLife : MonoBehaviour
         sanityImage.fillAmount = sanity / maxSanity;
         sanityText.text = sanity.ToString() + " / " + maxSanity.ToString();
 
-        //Health will decreaxse from time to time
+        //Health will decrease from time to time
         changeElementOverTime(ref health, healthLossDelay, healthLossAmount, maxHealth, ref nextActionTimeHealth, -1);
 
         //If health is below a certain level, sanity will decrease from time to time
