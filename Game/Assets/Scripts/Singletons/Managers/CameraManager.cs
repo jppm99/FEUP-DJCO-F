@@ -49,6 +49,11 @@ public class CameraManager : ISingleton
         }
     }
 
+    public void PlayCutscene(int zone)
+    {
+        //TODO
+    }
+
     /**
      * DON'T USE
      * This shouldn't be public but it must be so that the interface enforces it's existence
