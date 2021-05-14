@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: First Person Camera Holder
-    m_To: 3rd Person Camera
+  - m_From: First Person Camera
+    m_To: Third Person Camera
     m_Blend:
       m_Style: 7
       m_Time: 1
@@ -60,8 +60,8 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-  - m_From: 3rd Person Camera
-    m_To: First Person Camera Holder
+  - m_From: Third Person Camera
+    m_To: First Person Camera
     m_Blend:
       m_Style: 7
       m_Time: 1
