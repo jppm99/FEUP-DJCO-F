@@ -58,6 +58,7 @@ public class CameraManager : ISingleton
 
     public void PlayCutscene(int zone)
     {
+        Debug.Log("playing cutscene for zone " + zone);
         this.zonesCutscenes[zone - 1].GetComponent<CinemachineVirtualCamera>().Priority = 100;
         this.zonesCutscenes[zone - 1].GetComponent<PlayableDirector>().Play();
     }

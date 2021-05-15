@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e05eba3016e6ed4a9b1dfe704392661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 10
+  distanceToPlayer: 12
 --- !u!1001 &8811724240352565315
 PrefabInstance:
   m_ObjectHideFlags: 0
