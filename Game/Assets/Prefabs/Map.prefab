@@ -2547,7 +2547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Resolution: 1
+  m_Resolution: 50
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -2558,9 +2558,9 @@ MonoBehaviour:
     roll: 0
   - position: {x: 40.243164, y: -1.2874317, z: 28.785034}
     roll: 0
-  - position: {x: 125.894135, y: -7.796423, z: 80.24475}
+  - position: {x: 124.05682, y: -7.531, z: 79.39026}
     roll: 0
-  - position: {x: 162.46933, y: -6.6062813, z: 70.36145}
+  - position: {x: 163.78674, y: -8.4073715, z: 64.14282}
     roll: 0
   - position: {x: 198.26535, y: -10.301491, z: -0.032348633}
     roll: 0
@@ -2568,19 +2568,19 @@ MonoBehaviour:
     roll: 0
   - position: {x: 225.45016, y: -8.128801, z: -238.60434}
     roll: 0
-  - position: {x: 132.11179, y: -3.020296, z: -294.01962}
+  - position: {x: 132.11176, y: -13.9134865, z: -294.01962}
     roll: 0
-  - position: {x: 14.47821, y: -0.04058075, z: -282.09668}
+  - position: {x: 47.06903, y: -15.567146, z: -290.41248}
     roll: 0
-  - position: {x: -22.969116, y: -2.0074253, z: -269.67996}
+  - position: {x: -14.668091, y: -0.07554245, z: -271.52548}
     roll: 0
-  - position: {x: -123.008545, y: 19.165596, z: -225.1785}
+  - position: {x: -123.008545, y: 40.80641, z: -225.17847}
     roll: 0
-  - position: {x: -105.18628, y: 0.12262344, z: -100.49356}
+  - position: {x: -105.18628, y: 35.183426, z: -100.49353}
     roll: 0
-  - position: {x: -37.93219, y: -10.45295, z: 23.855103}
+  - position: {x: -55.5589, y: -6.0969296, z: -3.4525146}
     roll: 0
-  - position: {x: -12.0685425, y: -13.709785, z: -3.572876}
+  - position: {x: -12.786804, y: -13.709785, z: 2.9663696}
     roll: 0
 --- !u!1 &6499583289239844193
 GameObject:
