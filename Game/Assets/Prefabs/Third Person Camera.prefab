@@ -106,8 +106,8 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
     Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_SpeedMode: 1
+    m_MaxSpeed: 1.5
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: 
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4825930903951115966}
   - component: {fileID: 3350187183585297902}
   m_Layer: 0
-  m_Name: 3rd Person Camera
+  m_Name: Third Person Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 25
+  m_Priority: 45
   m_StandbyUpdate: 0
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}

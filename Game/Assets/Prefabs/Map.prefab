@@ -1412,7 +1412,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3426403807816802516}
-  m_LocalRotation: {x: 0.045791797, y: -0.9408697, z: 0.14156206, w: 0.30434787}
+  m_LocalRotation: {x: 0.049723096, y: -0.939072, z: 0.15397508, w: 0.30325407}
   m_LocalPosition: {x: 466.1514, y: 37.1901, z: 585.7511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Resolution: 20
+  m_Resolution: 1
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -4115,11 +4115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 127107430979691660, guid: 9cf3f2a9787dba043a659cc3f7b40fb7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 439.69
+      value: 439.72
       objectReference: {fileID: 0}
     - target: {fileID: 127107430979691660, guid: 9cf3f2a9787dba043a659cc3f7b40fb7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16
+      value: 15.29
       objectReference: {fileID: 0}
     - target: {fileID: 127107430979691660, guid: 9cf3f2a9787dba043a659cc3f7b40fb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
