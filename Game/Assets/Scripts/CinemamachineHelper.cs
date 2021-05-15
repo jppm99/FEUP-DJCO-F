@@ -7,11 +7,20 @@ public class CinemamachineHelper : MonoBehaviour
 {
     [SerializeField] bool isPlayerCam, isFirstPerson;
     private CinemachineVirtualCamera virtualCamera;
+    private int zone;
+    CameraManager cameraManager;
     private void Awake()
     {
+        this.cameraManager = RuntimeStuff.GetSingleton<CameraManager>();
         this.virtualCamera = this.GetComponent<CinemachineVirtualCamera>();
         
-        if(this.isPlayerCam) RuntimeStuff.GetSingleton<CameraManager>().RegisterPlayerCam(this.gameObject, this.isFirstPerson);
+        // Register to camera manager
+        if(this.isPlayerCam) this.cameraManager.RegisterPlayerCam(this.gameObject, this.isFirstPerson);
+        else
+        {   
+            this.zone = this.GetComponentInParent<Zone>().GetZone();
+            this.cameraManager.RegisterCutsceneCam(this.gameObject, this.zone);
+        }
     }
 
     public int GetPriority()
@@ -19,8 +28,13 @@ public class CinemamachineHelper : MonoBehaviour
         return this.virtualCamera.Priority;
     }
     
-    public void GetPriority(int priority)
+    public void SetPriority(int priority)
     {
         this.virtualCamera.Priority = priority;
+    }
+
+    public void EndCutscene()
+    {
+        this.cameraManager.CutsceneEnded(this.zone);
     }
 }

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using Cinemachine;
 
 public class CameraManager : ISingleton
 {
     CinemachineVirtualCamera firstPersonCam, thirdPersonCam;
+    GameObject[] zonesCutscenes = new GameObject[4];
     bool isFirstPerson;
 
     public CameraManager()
@@ -13,14 +15,19 @@ public class CameraManager : ISingleton
         this.register();
     }
 
-    public void RegisterPlayerCam(GameObject cameraHolder, bool isFirstPerson)
+    public void RegisterPlayerCam(GameObject virtualCamera, bool isFirstPerson)
     {
-        CinemachineVirtualCamera vcam = cameraHolder.GetComponent<CinemachineVirtualCamera>();
-
+        CinemachineVirtualCamera vcam = virtualCamera.GetComponentInChildren<CinemachineVirtualCamera>();
+        
         if(isFirstPerson) this.firstPersonCam = vcam;
         else this.thirdPersonCam = vcam;
 
         if(this.firstPersonCam != null && this.thirdPersonCam != null) this.Init();
+    }
+
+    public void RegisterCutsceneCam(GameObject virtualCamera, int zone)
+    {
+        this.zonesCutscenes[zone - 1] = virtualCamera;
     }
 
     private void Init()
@@ -51,7 +58,13 @@ public class CameraManager : ISingleton
 
     public void PlayCutscene(int zone)
     {
-        //TODO
+        this.zonesCutscenes[zone - 1].GetComponent<CinemachineVirtualCamera>().Priority = 100;
+        this.zonesCutscenes[zone - 1].GetComponent<PlayableDirector>().Play();
+    }
+
+    public void CutsceneEnded(int zone)
+    {
+        this.zonesCutscenes[zone - 1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
     }
 
     /**

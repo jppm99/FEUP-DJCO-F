@@ -3,11 +3,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour, ISingleton
 {
     public bool isDaytime = false;
-    private GameObject[] zones;
+    private GameObject[] zones = new GameObject[4];
     void Awake()
     {
         this.register();
-        zones = new GameObject[4];
     }
 
     #region DAYTIME
