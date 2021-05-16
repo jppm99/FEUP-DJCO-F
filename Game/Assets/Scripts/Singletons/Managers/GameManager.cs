@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour, ISingleton
     }
 
     #region LIGHTS
-    public void TurnOnZoneLights(int zone)
+    public void TurnOnZoneLights(int zone, bool flicker = false)
     {
-        this.GetZone(zone).GetComponent<ZoneLightSystem>().SetState(true);
+        this.GetZone(zone).GetComponent<ZoneLightSystem>().SetState(true, flicker);
     }
     #endregion
 

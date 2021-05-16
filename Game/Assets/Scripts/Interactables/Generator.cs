@@ -16,7 +16,7 @@ public class Generator : Interactable
         if(!hasBeenFixed && this.CanFix())
         {
             RuntimeStuff.GetSingleton<CameraManager>().PlayCutscene(this.zone);
-            this.gameManager.TurnOnZoneLights(this.zone);
+            this.gameManager.TurnOnZoneLights(this.zone, true);
             this.hasBeenFixed = true;
             this.UpdateFloatingText("");
         }

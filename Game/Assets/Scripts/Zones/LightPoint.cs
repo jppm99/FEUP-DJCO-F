@@ -12,9 +12,9 @@ public class LightPoint : MonoBehaviour
         this.lights = this.transform.GetComponentsInChildren<Light>();
     }
 
-    public void SetState(bool isOn)
+    public void SetState(bool isOn, bool flicker = false)
     {
-        if(isOn)
+        if(isOn && flicker)
         {
             float duration = this.flickeringDuration * ((Random.Range(-this.flickeringDurationRandomness, this.flickeringDurationRandomness) / 200) + 1);
             StartCoroutine(this.FlickerLights(this.flickeringDelay, duration));
@@ -32,7 +32,7 @@ public class LightPoint : MonoBehaviour
     {
         if(flickeringDuration < 0) flickeringDuration = 0;
         
-        yield return new WaitForSeconds(initialDelay);
+        yield return new WaitForSecondsRealtime(initialDelay);
 
         float currTime = Time.unscaledTime, delay;
         while(Time.unscaledTime < currTime + flickeringDuration)
@@ -44,7 +44,7 @@ public class LightPoint : MonoBehaviour
                 light.enabled = true;
             }
             
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSecondsRealtime(delay);
             
             // OFF delay
             delay = Random.Range(0.3f, 0.5f);
@@ -53,7 +53,7 @@ public class LightPoint : MonoBehaviour
                 light.enabled = false;
             }
             
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSecondsRealtime(delay);
         }
 
         // Lights stay ON in the end
