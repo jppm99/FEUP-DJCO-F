@@ -61,4 +61,9 @@ public class PlayerAttack : MonoBehaviour
         canAttack = true;
 
     }
+
+    public void setDamage(int damage)
+    {
+        this.attackDamage = damage;
+    }
 }

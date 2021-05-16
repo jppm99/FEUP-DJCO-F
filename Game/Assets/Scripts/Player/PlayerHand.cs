@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
 {
-    public GameObject testItem1;
-    public GameObject testItem2;
-    public GameObject testItem3;
+    public GameObject knifeObject;
+    public GameObject catanaObject;
+    public GameObject axeObject;
+    public GameObject hammerObject;
 
     Animator playerAnimator;
-
-
-    bool isWithObject;
-    GameObject handItem;
-    float damage;
+    bool differentAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +22,37 @@ public class PlayerHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
+    }
+
+    public void updateHandItem(string item, int damage)
+    {
+        knifeObject.SetActive(false);
+        catanaObject.SetActive(false);
+        axeObject.SetActive(false);
+        hammerObject.SetActive(false);
+        differentAnimation = false;
+
+        if (item == "knife")
+            knifeObject.SetActive(true);
+        else if (item == "catana")
+        {
+            catanaObject.SetActive(true);
+            differentAnimation = true;
+        }
+        else if (item == "axe")
+        {
+            axeObject.SetActive(true);
+            differentAnimation = true;
+        }
+        else if (item == "hammer")
+        {
+            hammerObject.SetActive(true);
+            differentAnimation = true;
+        }
+
+        GetComponent<PlayerAttack>().setDamage(damage);
     }
 }
+
