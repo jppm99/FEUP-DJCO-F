@@ -943,7 +943,7 @@ PlayableDirector:
   m_PlayableAsset: {fileID: 11400000, guid: 9fa8bc4abd7309346a1375f30d801b96, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
-  m_DirectorUpdateMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -9157027057106532877, guid: c42ba6aab927a6243909cee8ffdd8271, type: 2}
@@ -1910,7 +1910,7 @@ PlayableDirector:
   m_PlayableAsset: {fileID: 11400000, guid: c42ba6aab927a6243909cee8ffdd8271, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
-  m_DirectorUpdateMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -9157027057106532877, guid: c42ba6aab927a6243909cee8ffdd8271, type: 2}
@@ -2962,7 +2962,7 @@ PlayableDirector:
   m_PlayableAsset: {fileID: 11400000, guid: d78aa779f1c6dd540ad516b808d081de, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
-  m_DirectorUpdateMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -9157027057106532877, guid: c42ba6aab927a6243909cee8ffdd8271, type: 2}
@@ -4407,7 +4407,7 @@ PlayableDirector:
   m_PlayableAsset: {fileID: 11400000, guid: c3afda1fd748fbe4ca32027016dd4472, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
-  m_DirectorUpdateMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -9157027057106532877, guid: c42ba6aab927a6243909cee8ffdd8271, type: 2}
