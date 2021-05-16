@@ -58,8 +58,8 @@ public class CameraManager : ISingleton
 
     public void PlayCutscene(int zone)
     {
-        Debug.Log("playing cutscene for zone " + zone);
         Time.timeScale = 0;
+
         this.zonesCutscenes[zone - 1].GetComponent<CinemachineVirtualCamera>().Priority = 100;
         this.zonesCutscenes[zone - 1].GetComponent<PlayableDirector>().Play();
     }
@@ -67,6 +67,7 @@ public class CameraManager : ISingleton
     public void CutsceneEnded(int zone)
     {
         Time.timeScale = 1;
+        
         this.zonesCutscenes[zone - 1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
     }
 
