@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         {
             playerAnimator.SetTrigger("Attack");
 
-            Debug.DrawRay(attackspot.transform.position, transform.TransformDirection(Vector3.forward));
+            //Debug.DrawRay(attackspot.transform.position, transform.TransformDirection(Vector3.forward));
 
             RaycastHit ray;
 
@@ -60,5 +60,10 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         canAttack = true;
 
+    }
+
+    public void setDamage(int damage)
+    {
+        this.attackDamage = damage;
     }
 }
