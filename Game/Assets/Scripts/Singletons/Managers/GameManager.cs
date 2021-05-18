@@ -3,11 +3,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour, ISingleton
 {
     public bool isDaytime = false;
-    private GameObject[] zones;
+    private GameObject[] zones = new GameObject[4];
     void Awake()
     {
         this.register();
-        zones = new GameObject[4];
     }
 
     #region DAYTIME
@@ -40,9 +39,9 @@ public class GameManager : MonoBehaviour, ISingleton
     }
 
     #region LIGHTS
-    public void TurnOnZoneLights(int zone)
+    public void TurnOnZoneLights(int zone, bool flicker = false)
     {
-        this.GetZone(zone).GetComponent<ZoneLightSystem>().SetState(true);
+        this.GetZone(zone).GetComponent<ZoneLightSystem>().SetState(true, flicker);
     }
     #endregion
 

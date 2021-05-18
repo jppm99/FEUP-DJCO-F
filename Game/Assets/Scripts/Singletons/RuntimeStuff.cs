@@ -8,7 +8,7 @@ public static class RuntimeStuff
     {
         // Create new singleton objects
         new Inventory();
-
+        new CameraManager();
 
         // Set target FPS for the game
         int target_fps = 75;
