@@ -75,6 +75,15 @@ public class MenuUI : MonoBehaviour
         RuntimeStuff.GetSingleton<Inventory>().NewGame();
     }
 
+    public void loadGame()
+    {
+        play();
+        gameStarted();
+        menuIsEnabled = false;
+        mainMenuUi.SetActive(false);
+        Debug.Log("Load objects missing");
+    }
+
     public void gameStarted()
     {
         context = MenuContext.GameMenu;
@@ -83,5 +92,14 @@ public class MenuUI : MonoBehaviour
     public void gameEnded()
     {
         context = MenuContext.EndMenu;
+    }
+
+    public void quitGame()
+    {
+        /*
+         * Shut down the running application. The Application.Quit call is ignored in the Editor.
+         * https://docs.unity3d.com/ScriptReference/Application.Quit.html
+         */
+        Application.Quit();
     }
 }
