@@ -30,7 +30,7 @@ public class AnimalLife : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         StartCoroutine(DieCollectable());
     }
