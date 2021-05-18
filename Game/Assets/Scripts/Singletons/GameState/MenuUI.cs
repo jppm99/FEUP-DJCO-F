@@ -31,25 +31,27 @@ public class MenuUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Script updating");
         if (context == MenuContext.StartMenu || context == MenuContext.EndMenu)
         {
             menuContextSettings();
             return;
         }
-        
+
+        bool oldMenuState = menuIsEnabled;
+
         if (Input.GetKeyDown(KeyCode.Escape) && context == MenuContext.GameMenu)
             menuIsEnabled = !menuIsEnabled;
 
-        if(menuIsEnabled)
+        if(menuIsEnabled && menuIsEnabled != oldMenuState)
         {
             menuContextSettings();
+            gameMenu.SetActive(true);
         }
-        else
+        else if(menuIsEnabled != oldMenuState)
         {
             play();
+            gameMenu.SetActive(false);
         }
-        
     }
 
     private void menuContextSettings()
@@ -57,6 +59,13 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+    }
+
+    public void resumeGame()
+    {
+        play();
+        gameMenu.SetActive(false);
+        menuIsEnabled = false;
     }
 
     public void play()
