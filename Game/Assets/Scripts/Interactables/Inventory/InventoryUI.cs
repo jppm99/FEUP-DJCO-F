@@ -34,18 +34,17 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool oldInventoryState = this.inventoryEnabled;
         if (Input.GetKeyDown(KeyCode.I))
             inventoryEnabled = !inventoryEnabled;
 
-        if (oldInventoryState != inventoryEnabled && inventoryEnabled) {
+        if (inventoryEnabled) {
             Time.timeScale = 0;
             inventoryUI.SetActive(true);
             build.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
-        else if (oldInventoryState != inventoryEnabled && !inventoryEnabled) {
+        else {
             Time.timeScale = 1;
             inventoryUI.SetActive(false);
             build.SetActive(false);

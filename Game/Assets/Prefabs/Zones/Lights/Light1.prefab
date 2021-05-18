@@ -45,9 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d07661df3f3674486a77d651e9dae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flickeringDelay: 2
-  flickeringDuration: 2
-  flickeringDurationRandomness: 750
 --- !u!1 &1148006010124837215
 GameObject:
   m_ObjectHideFlags: 0
