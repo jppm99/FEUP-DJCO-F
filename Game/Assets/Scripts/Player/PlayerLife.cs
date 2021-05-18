@@ -50,7 +50,7 @@ public class PlayerLife : MonoBehaviour
 
         this.playerMovement = gameObject.GetComponent<PlayerMovement>();
 
-        PostProcessVolume volume = Camera.main.GetComponentInChildren<PostProcessVolume>();
+        PostProcessVolume volume = GetComponentInChildren<PostProcessVolume>();
         volume.profile.TryGetSettings<LensDistortion>(out this.lensDistortion);
         volume.profile.TryGetSettings<ChromaticAberration>(out this.chromaticAberration);
         volume.profile.TryGetSettings<Vignette>(out this.vignette);
