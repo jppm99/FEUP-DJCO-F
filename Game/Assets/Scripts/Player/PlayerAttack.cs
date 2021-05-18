@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         {
             playerAnimator.SetTrigger("Attack");
 
-            Debug.DrawRay(attackspot.transform.position, transform.TransformDirection(Vector3.forward));
+            //Debug.DrawRay(attackspot.transform.position, transform.TransformDirection(Vector3.forward));
 
             RaycastHit ray;
 
