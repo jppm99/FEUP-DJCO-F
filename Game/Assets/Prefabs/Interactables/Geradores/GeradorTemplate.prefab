@@ -26,7 +26,7 @@ RectTransform:
   m_GameObject: {fileID: 325636451893191570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8201747694345412886}
   m_RootOrder: 1
@@ -47,8 +47,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6297636, y: 1.511454, z: 4.6877775}
-  m_Center: {x: -0.027832003, y: 0.2557272, z: 0.42029288}
+  m_Size: {x: 1.6297607, y: 1, z: 4.6877775}
+  m_Center: {x: -0.027832031, y: 0, z: 0.42029297}
 --- !u!114 &1194516455351159125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e05eba3016e6ed4a9b1dfe704392661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 15
+  distanceToPlayer: 8
 --- !u!1001 &8811724240352565315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,28 +154,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.52
+      value: 3.193
       objectReference: {fileID: 0}
     - target: {fileID: 4178801616560886530, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_fontSize
-      value: 3
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 4178801616560886530, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_fontSizeBase
