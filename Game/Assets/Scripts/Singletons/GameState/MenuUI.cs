@@ -93,6 +93,22 @@ public class MenuUI : MonoBehaviour
         Debug.Log("Load objects missing");
     }
 
+    public void saveGame()
+    {
+        RuntimeStuff.GetSingleton<Inventory>().SaveData();
+        Debug.Log("Other objects missing");
+    }
+
+    public void moveToMainMenu()
+    {
+        context = MenuContext.StartMenu;
+        menuContextSettings();
+        mainMenuUi.SetActive(true);
+        gameMenu.SetActive(false);
+        endGameMenu.SetActive(false);
+        menuIsEnabled = false;
+    }
+
     public void gameStarted()
     {
         context = MenuContext.GameMenu;
