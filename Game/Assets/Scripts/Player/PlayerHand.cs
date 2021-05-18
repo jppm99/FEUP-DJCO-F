@@ -24,16 +24,16 @@ public class PlayerHand : MonoBehaviour
     {
         //TODO: Remove this lines after integrated with inventory
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            updateHandItem("knife", 10);
+            updateHandItem("knife", 40);
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            updateHandItem("catana", 10);
+            updateHandItem("catana", 40);
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            updateHandItem("axe", 10);
+            updateHandItem("axe", 40);
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
-            updateHandItem("hammer", 10);
+            updateHandItem("hammer", 40);
 
     }
 
