@@ -13,18 +13,18 @@ public class ZoneLightSystem : MonoBehaviour
         this.SetState(this.state);
     }
 
-    public void SetState(bool state)
+    public void SetState(bool state, bool flicker = false)
     {
         this.state = state;
 
-        this.SetLights(state);
+        this.SetLights(state, flicker);
     }
 
-    private void SetLights(bool state)
+    private void SetLights(bool state, bool flicker = false)
     {
         foreach(LightPoint light in this.lights)
         {
-            light.SetState(state);
+            light.SetState(state, flicker);
         }
     }
 
