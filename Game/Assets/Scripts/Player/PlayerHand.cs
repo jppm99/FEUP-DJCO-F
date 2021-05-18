@@ -22,7 +22,18 @@ public class PlayerHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO: Remove this lines after integrated with inventory
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            updateHandItem("knife", 10);
 
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            updateHandItem("catana", 10);
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            updateHandItem("axe", 10);
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            updateHandItem("hammer", 10);
 
     }
 
@@ -55,6 +66,7 @@ public class PlayerHand : MonoBehaviour
         }
 
         GetComponent<PlayerAttack>().setDamage(damage);
+        playerAnimator.SetBool("withItem", differentAnimation);
     }
 }
 
