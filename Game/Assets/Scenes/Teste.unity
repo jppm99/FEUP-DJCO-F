@@ -1758,8 +1758,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074807340}
-  m_LocalRotation: {x: -0.18108791, y: 0, z: 0, w: 0.9834669}
-  m_LocalPosition: {x: 453.06, y: -5.3000007, z: 956.4}
+  m_LocalRotation: {x: -0.023341201, y: 0.8419298, z: 0.03669137, w: 0.537832}
+  m_LocalPosition: {x: 452.75317, y: 0.44794846, z: 972.8134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2021,6 +2021,10 @@ PrefabInstance:
     - target: {fileID: 5252961269506055583, guid: 9bd2463c03f924b2b80027f19a7717d1, type: 3}
       propertyPath: m_Name
       value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252961269506055583, guid: 9bd2463c03f924b2b80027f19a7717d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd2463c03f924b2b80027f19a7717d1, type: 3}
