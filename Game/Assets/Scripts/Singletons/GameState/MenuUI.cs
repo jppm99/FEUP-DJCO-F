@@ -47,9 +47,7 @@ public class MenuUI : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            play();
         }
         
     }
@@ -59,6 +57,22 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+    }
+
+    public void play()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void newGame()
+    {
+        play();
+        gameStarted();
+        menuIsEnabled = false;
+        mainMenuUi.SetActive(false);
+        RuntimeStuff.GetSingleton<Inventory>().NewGame();
     }
 
     public void gameStarted()
