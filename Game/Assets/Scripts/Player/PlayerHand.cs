@@ -35,7 +35,9 @@ public class PlayerHand : MonoBehaviour
         differentAnimation = false;
 
         if (item == "knife")
+        {
             knifeObject.SetActive(true);
+        }
         else if (item == "catana")
         {
             catanaObject.SetActive(true);
