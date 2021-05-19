@@ -4,9 +4,19 @@ public class GameManager : MonoBehaviour, ISingleton
 {
     public bool isDaytime = false;
     private GameObject[] zones = new GameObject[4];
+    private PlayerAPI player;
+    private GameState gameState;
+
     void Awake()
     {
         this.register();
+    }
+    
+    private void Start()
+    {
+        this.player = RuntimeStuff.GetSingleton<PlayerAPI>();
+        this.gameState = RuntimeStuff.GetSingleton<GameState>();
+        this.ApplyState(true);
     }
 
     #region DAYTIME
@@ -45,6 +55,46 @@ public class GameManager : MonoBehaviour, ISingleton
     }
     #endregion
 
+    #endregion
+
+    #region GAME_STATE
+    public void ApplyState(bool continueGame)
+    {
+        if(!continueGame) this.gameState.NewGame();
+        else
+        {
+            bool hasData;
+            Vector3 playerPosition, playerRotation;
+            float health, sanity;
+
+            (hasData, playerPosition, playerRotation, health, sanity) = this.gameState.GetPlayerInfo();
+
+            Debug.Log("has data -> " + hasData);
+            
+            if(hasData) this.ApplyPlayerInfo(playerPosition, playerRotation, health, sanity);
+            
+            //TODO
+            Debug.LogWarning("TODO");
+        }
+    }
+
+    /// <summary>
+    /// Gets the player's state
+    /// </summary>
+    /// <returns>
+    /// (v3 Pos, v3 Rot, Health, Sanity)
+    /// </returns>
+    public (Vector3, Vector3, float, float) GetPlayerInfo()
+    {
+        return (this.player.GetPosition(), this.player.GetRotation(), this.player.GetHealth(), this.player.GetSanity());
+    }
+    public void ApplyPlayerInfo(Vector3 pos, Vector3 rot, float health, float sanity)
+    {
+        this.player.SetPosition(pos);
+        this.player.SetRotation(rot);
+        this.player.SetHealth(health);
+        this.player.SetSanity(sanity);
+    }
     #endregion
 
     /**
