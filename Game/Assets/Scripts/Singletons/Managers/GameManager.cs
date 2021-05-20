@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour, ISingleton
     private GameObject[] zones = new GameObject[4];
     private PlayerAPI player;
     private GameState gameState;
+    private LightingManager lightingManager;
 
     void Awake()
     {
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour, ISingleton
     {
         this.player = RuntimeStuff.GetSingleton<PlayerAPI>();
         this.gameState = RuntimeStuff.GetSingleton<GameState>();
+        this.lightingManager = RuntimeStuff.GetSingleton<LightingManager>();
+
         this.ApplyState(true);
     }
 
@@ -63,19 +66,32 @@ public class GameManager : MonoBehaviour, ISingleton
         if(!continueGame) this.gameState.NewGame();
         else
         {
-            bool hasData;
+            if(!this.gameState.HasData()) return;
+
+            // Player stuff
             Vector3 playerPosition, playerRotation;
             float health, sanity;
+            (playerPosition, playerRotation, health, sanity) = this.gameState.GetPlayerInfo();
+            this.ApplyPlayerInfo(playerPosition, playerRotation, health, sanity);
 
-            (hasData, playerPosition, playerRotation, health, sanity) = this.gameState.GetPlayerInfo();
+            // Time of day
+            Vector3 sunLocation, sunRotation;
+            (sunLocation, sunRotation) = this.gameState.GetSunInfo();
+            this.lightingManager.SetSunPosition(sunLocation, sunRotation);
 
-            Debug.Log("has data -> " + hasData);
-            
-            if(hasData) this.ApplyPlayerInfo(playerPosition, playerRotation, health, sanity);
-            
             //TODO
             Debug.LogWarning("TODO");
         }
+    }
+
+    public (Vector3, Vector3) GetSunInfo()
+    {
+        return this.lightingManager.GetSunPosition();
+    }
+
+    public void SetSunInfo(Vector3 pos, Vector3 rot)
+    {
+        this.lightingManager.SetSunPosition(pos, rot);
     }
 
     /// <summary>

@@ -57,16 +57,36 @@ public class GameState : ISingleton
         (pos, rot, this.gameStateData.health, this.gameStateData.sanity) = this.gameManager.GetPlayerInfo();
         this.gameStateData.playerLocation = FloatArrFromV3(pos);
         this.gameStateData.playerRotation = FloatArrFromV3(rot);
+
+        // Time of day
+        Vector3 sunPos, sunRot;
+        (sunPos, sunRot) = this.gameManager.GetSunInfo();
+        this.gameStateData.sunLocation = FloatArrFromV3(sunPos);
+        this.gameStateData.sunRotation = FloatArrFromV3(sunRot);
+        
+        //TODO
     }
 
-    public (bool, Vector3, Vector3, float, float) GetPlayerInfo()
+    public bool HasData()
+    {
+        return this.gameStateData.hasData;
+    }
+
+    public (Vector3, Vector3, float, float) GetPlayerInfo()
     {
         return (
-            this.gameStateData.hasData, 
             V3FromFloatArr(this.gameStateData.playerLocation), 
             V3FromFloatArr(this.gameStateData.playerRotation), 
             this.gameStateData.health, 
             this.gameStateData.sanity
+            );
+    }
+
+    public (Vector3, Vector3) GetSunInfo()
+    {
+        return (
+            V3FromFloatArr(this.gameStateData.sunLocation),
+            V3FromFloatArr(this.gameStateData.sunRotation)
             );
     }
 
@@ -91,7 +111,7 @@ public class GameState : ISingleton
     }
     private Vector3 V3FromFloatArr(float[] a)
     {
-        if(a == null) return new Vector3();
+        if(a == null || a.Length == 0) return new Vector3();
         return new Vector3(a[0], a[1], a[2]);
     }
 
@@ -106,11 +126,17 @@ public class GameState : ISingleton
 }
 
 [System.Serializable]
+class MonsterData
+{
+    public float health;
+    public float[] location, rotation;
+}
+
+[System.Serializable]
 class GameStateData
 {
     public bool hasData;
     public float sanity, health;
-    public float[] playerLocation, playerRotation;
-    //! da p fazer isto??
-    public float[][] monsters;
+    public float[] playerLocation, playerRotation, sunLocation, sunRotation;
+    public MonsterData[] monsters;
 }
