@@ -71,8 +71,15 @@ public class GameState : ISingleton
         this.gameStateData.monsters_zone3 = new List<MonsterData>();
         this.gameStateData.monsters_zone4 = new List<MonsterData>();
         this.gameManager.SaveMonstersInfo();
+        
+        // Animals
+        this.gameStateData.animals_zone1 = new List<AnimalData>();
+        this.gameStateData.animals_zone2 = new List<AnimalData>();
+        this.gameStateData.animals_zone3 = new List<AnimalData>();
+        this.gameStateData.animals_zone4 = new List<AnimalData>();
+        this.gameManager.SaveAnimalsInfo();
 
-        //TODO Animals
+        //TODO Generators
     }
 
     public (List<MonsterData>, List<MonsterData>, List<MonsterData>, List<MonsterData>) GetMonstersInfo()
@@ -82,6 +89,16 @@ public class GameState : ISingleton
             this.gameStateData.monsters_zone2,
             this.gameStateData.monsters_zone3,
             this.gameStateData.monsters_zone4
+            );
+    }
+    
+    public (List<AnimalData>, List<AnimalData>, List<AnimalData>, List<AnimalData>) GetAnimalsInfo()
+    {
+        return (
+            this.gameStateData.animals_zone1,
+            this.gameStateData.animals_zone2,
+            this.gameStateData.animals_zone3,
+            this.gameStateData.animals_zone4
             );
     }
 
@@ -100,6 +117,28 @@ public class GameState : ISingleton
                 break;
             case 4:
                 this.gameStateData.monsters_zone4.Add(monster);
+                break;
+            default:
+                Debug.LogError("Shouldn't be here");
+                break;
+        }
+    }
+    
+    public void AddAnimalToData(AnimalData animal, int zone)
+    {
+        switch (zone)
+        {
+            case 1:
+                this.gameStateData.animals_zone1.Add(animal);
+                break;
+            case 2:
+                this.gameStateData.animals_zone2.Add(animal);
+                break;
+            case 3:
+                this.gameStateData.animals_zone3.Add(animal);
+                break;
+            case 4:
+                this.gameStateData.animals_zone4.Add(animal);
                 break;
             default:
                 Debug.LogError("Shouldn't be here");
@@ -171,6 +210,12 @@ public class MonsterData
     public float health;
     public float[] location, rotation;
 }
+[System.Serializable]
+public class AnimalData
+{
+    public float health;
+    public float[] location, rotation;
+}
 
 [System.Serializable]
 class GameStateData
@@ -179,4 +224,5 @@ class GameStateData
     public float sanity, health;
     public float[] playerLocation, playerRotation, sunLocation, sunRotation;
     public List<MonsterData> monsters_zone1, monsters_zone2, monsters_zone3, monsters_zone4;
+    public List<AnimalData> animals_zone1, animals_zone2, animals_zone3, animals_zone4;
 }

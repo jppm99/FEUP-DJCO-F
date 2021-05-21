@@ -84,6 +84,17 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+    
+    public void SaveAnimals()
+    {
+        foreach(Transform animal in this.animalParent.GetComponentsInChildren<Transform>())
+        {
+            if(animal.CompareTag("Animal"))
+            {
+                animal.gameObject.GetComponent<AnimalMovement>()?.AddToData(this.zone);
+            }
+        }
+    }
 
     public void SpawnMonsters(List<MonsterData> monsters)
     {
@@ -95,6 +106,20 @@ public class Spawner : MonoBehaviour
                 monster.location,
                 monster.rotation,
                 monster.health
+                );
+        }
+    }
+    
+    public void SpawnAnimals(List<AnimalData> animals)
+    {
+        foreach(AnimalData animal in animals)
+        {
+            this.spawnPoints?[0]?.Spawn(
+                this.animals?[0],
+                this.animalParent.transform,
+                animal.location,
+                animal.rotation,
+                animal.health
                 );
         }
     }

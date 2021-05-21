@@ -88,8 +88,13 @@ public class GameManager : MonoBehaviour, ISingleton
             this.GetZone(3).GetComponent<Spawner>().SpawnMonsters(monsters_zone3);
             this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(monsters_zone4);
 
-
-            //TODO Animals
+            // Animals
+            List<AnimalData> animals_zone1, animals_zone2, animals_zone3, animals_zone4;
+            (animals_zone1, animals_zone2, animals_zone3, animals_zone4) = this.gameState.GetAnimalsInfo();
+            this.GetZone(1).GetComponent<Spawner>().SpawnAnimals(animals_zone1);
+            this.GetZone(2).GetComponent<Spawner>().SpawnAnimals(animals_zone2);
+            this.GetZone(3).GetComponent<Spawner>().SpawnAnimals(animals_zone3);
+            this.GetZone(4).GetComponent<Spawner>().SpawnAnimals(animals_zone4);
             //TODO Generators
         }
     }
@@ -100,6 +105,14 @@ public class GameManager : MonoBehaviour, ISingleton
         this.GetZone(2).GetComponent<Spawner>().SaveMonsters();
         this.GetZone(3).GetComponent<Spawner>().SaveMonsters();
         this.GetZone(4).GetComponent<Spawner>().SaveMonsters();
+    }
+    
+    public void SaveAnimalsInfo()
+    {
+        this.GetZone(1).GetComponent<Spawner>().SaveAnimals();
+        this.GetZone(2).GetComponent<Spawner>().SaveAnimals();
+        this.GetZone(3).GetComponent<Spawner>().SaveAnimals();
+        this.GetZone(4).GetComponent<Spawner>().SaveAnimals();
     }
 
     public (Vector3, Vector3) GetSunInfo()
