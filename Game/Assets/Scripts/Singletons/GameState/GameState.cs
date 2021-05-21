@@ -1,4 +1,5 @@
 using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
 using SPStudios.Tools;
  
@@ -63,8 +64,47 @@ public class GameState : ISingleton
         (sunPos, sunRot) = this.gameManager.GetSunInfo();
         this.gameStateData.sunLocation = FloatArrFromV3(sunPos);
         this.gameStateData.sunRotation = FloatArrFromV3(sunRot);
-        
-        //TODO
+
+        // Monsters
+        this.gameStateData.monsters_zone1 = new List<MonsterData>();
+        this.gameStateData.monsters_zone2 = new List<MonsterData>();
+        this.gameStateData.monsters_zone3 = new List<MonsterData>();
+        this.gameStateData.monsters_zone4 = new List<MonsterData>();
+        this.gameManager.SaveMonstersInfo();
+
+        //TODO Animals
+    }
+
+    public (List<MonsterData>, List<MonsterData>, List<MonsterData>, List<MonsterData>) GetMonstersInfo()
+    {
+        return (
+            this.gameStateData.monsters_zone1,
+            this.gameStateData.monsters_zone2,
+            this.gameStateData.monsters_zone3,
+            this.gameStateData.monsters_zone4
+            );
+    }
+
+    public void AddMonsterToData(MonsterData monster, int zone)
+    {
+        switch (zone)
+        {
+            case 1:
+                this.gameStateData.monsters_zone1.Add(monster);
+                break;
+            case 2:
+                this.gameStateData.monsters_zone2.Add(monster);
+                break;
+            case 3:
+                this.gameStateData.monsters_zone3.Add(monster);
+                break;
+            case 4:
+                this.gameStateData.monsters_zone4.Add(monster);
+                break;
+            default:
+                Debug.LogError("Shouldn't be here");
+                break;
+        }
     }
 
     public bool HasData()
@@ -126,7 +166,7 @@ public class GameState : ISingleton
 }
 
 [System.Serializable]
-class MonsterData
+public class MonsterData
 {
     public float health;
     public float[] location, rotation;
@@ -138,5 +178,5 @@ class GameStateData
     public bool hasData;
     public float sanity, health;
     public float[] playerLocation, playerRotation, sunLocation, sunRotation;
-    public MonsterData[] monsters;
+    public List<MonsterData> monsters_zone1, monsters_zone2, monsters_zone3, monsters_zone4;
 }

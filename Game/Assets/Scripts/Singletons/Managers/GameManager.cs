@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour, ISingleton
@@ -79,9 +80,26 @@ public class GameManager : MonoBehaviour, ISingleton
             (sunLocation, sunRotation) = this.gameState.GetSunInfo();
             this.lightingManager.SetSunPosition(sunLocation, sunRotation);
 
-            //TODO
-            Debug.LogWarning("TODO");
+            // Monsters
+            List<MonsterData> monsters_zone1, monsters_zone2, monsters_zone3, monsters_zone4;
+            (monsters_zone1, monsters_zone2, monsters_zone3, monsters_zone4) = this.gameState.GetMonstersInfo();
+            this.GetZone(1).GetComponent<Spawner>().SpawnMonsters(monsters_zone1);
+            this.GetZone(2).GetComponent<Spawner>().SpawnMonsters(monsters_zone2);
+            this.GetZone(3).GetComponent<Spawner>().SpawnMonsters(monsters_zone3);
+            this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(monsters_zone4);
+
+
+            //TODO Animals
+            //TODO Generators
         }
+    }
+
+    public void SaveMonstersInfo()
+    {
+        this.GetZone(1).GetComponent<Spawner>().SaveMonsters();
+        this.GetZone(2).GetComponent<Spawner>().SaveMonsters();
+        this.GetZone(3).GetComponent<Spawner>().SaveMonsters();
+        this.GetZone(4).GetComponent<Spawner>().SaveMonsters();
     }
 
     public (Vector3, Vector3) GetSunInfo()

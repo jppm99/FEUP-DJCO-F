@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -71,5 +72,30 @@ public class Spawner : MonoBehaviour
 
         this.spawn_count++;
         return spawnPoint;
+    }
+
+    public void SaveMonsters()
+    {
+        foreach(Transform monster in this.monsterParent.GetComponentsInChildren<Transform>())
+        {
+            if(monster.CompareTag("Monster"))
+            {
+                monster.gameObject.GetComponent<MonsterMovement>()?.AddToData(this.zone);
+            }
+        }
+    }
+
+    public void SpawnMonsters(List<MonsterData> monsters)
+    {
+        foreach(MonsterData monster in monsters)
+        {
+            this.spawnPoints?[0]?.Spawn(
+                this.monsters?[0],
+                this.monsterParent.transform,
+                monster.location,
+                monster.rotation,
+                monster.health
+                );
+        }
     }
 }

@@ -21,4 +21,16 @@ public class SpawnPoint : MonoBehaviour
         Instantiate(gameObject, this.transform.position, Quaternion.identity, parent);
         return true;
     }
+
+    public void Spawn(GameObject gameObject, Transform parent, float[] position, float[] rotation, float health)
+    {
+        Vector3 pos = new Vector3(position[0], position[1], position[2]);
+        Vector3 rot = new Vector3(rotation[0], rotation[1], rotation[2]);
+
+        GameObject monster = Instantiate(gameObject, new Vector3(), Quaternion.identity, parent);
+
+        monster.transform.position = pos;
+        monster.transform.eulerAngles = rot;
+        monster.GetComponent<MonsterLife>().SetHealth(health);
+    }
 }

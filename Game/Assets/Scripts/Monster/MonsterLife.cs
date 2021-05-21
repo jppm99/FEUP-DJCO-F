@@ -1,18 +1,17 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterLife : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private int secondsUntilBodyDisapears;
     [SerializeField] private bool dropsGeneratorItem;
     private MonsterItem interactableScript;
     Animator monsterAnimator;
 
-    private void Start()
+    private void Awake()
     {
         monsterAnimator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
@@ -21,7 +20,7 @@ public class MonsterLife : MonoBehaviour
 
     public void damage(int damage)
     {
-        // Hitpoints cannnot go below 0
+        // Hitpoints cannot go below 0
         currentHealth = Math.Max(currentHealth - damage, 0);
 
         if(currentHealth <= 0)
@@ -44,7 +43,17 @@ public class MonsterLife : MonoBehaviour
 
         yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
 
-        
         Destroy(this.gameObject);
+    }
+
+    public float GetHealth()
+    {
+        return this.currentHealth;
+    }
+    
+    public void SetHealth(float h)
+    {
+        this.currentHealth = h;
+        this.damage(0);
     }
 }

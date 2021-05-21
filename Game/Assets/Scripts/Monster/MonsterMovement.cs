@@ -70,7 +70,7 @@ public class MonsterMovement : MonoBehaviour
             if (Quaternion.Angle(rb.rotation, target) > 1)
                 rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
             else {
-                // Change direction if aproaches collision
+                // Change direction if approaches collision
                 if (Physics.Raycast(transform.position, transform.TransformDirection(raycast_direction), raycast_distance, ground_mask))
                     SetAngle(angle + 30);
                 else {
@@ -85,12 +85,6 @@ public class MonsterMovement : MonoBehaviour
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     // Update angle
@@ -108,5 +102,34 @@ public class MonsterMovement : MonoBehaviour
         // Reset updates and set new target updates
         updates = 0;
         target_updates = (int) Random.Range(0.0f, movement_range / speed);
+    }
+
+    public void AddToData(int zone)
+    {
+        RuntimeStuff.GetSingleton<GameState>().AddMonsterToData(
+            this.GenerateData(),
+            zone
+            );
+    }
+
+    private MonsterData GenerateData()
+    {
+        MonsterData data = new MonsterData();
+
+        data.location = new float[] {
+            this.transform.position[0],
+            this.transform.position[1],
+            this.transform.position[2]
+        };
+        
+        data.rotation = new float[] {
+            this.transform.eulerAngles[0],
+            this.transform.eulerAngles[1],
+            this.transform.eulerAngles[2]
+        };
+
+        data.health = this.GetComponent<MonsterLife>().GetHealth();
+
+        return data;
     }
 }
