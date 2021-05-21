@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -71,5 +72,55 @@ public class Spawner : MonoBehaviour
 
         this.spawn_count++;
         return spawnPoint;
+    }
+
+    public void SaveMonsters()
+    {
+        foreach(Transform monster in this.monsterParent.GetComponentsInChildren<Transform>())
+        {
+            if(monster.CompareTag("Monster"))
+            {
+                monster.gameObject.GetComponent<MonsterMovement>()?.AddToData(this.zone);
+            }
+        }
+    }
+    
+    public void SaveAnimals()
+    {
+        foreach(Transform animal in this.animalParent.GetComponentsInChildren<Transform>())
+        {
+            if(animal.CompareTag("Animal"))
+            {
+                animal.gameObject.GetComponent<AnimalMovement>()?.AddToData(this.zone);
+            }
+        }
+    }
+
+    public void SpawnMonsters(List<MonsterData> monsters)
+    {
+        foreach(MonsterData monster in monsters)
+        {
+            this.spawnPoints?[0]?.Spawn(
+                this.monsters?[0],
+                this.monsterParent.transform,
+                monster.location,
+                monster.rotation,
+                monster.health
+                );
+        }
+    }
+    
+    public void SpawnAnimals(List<AnimalData> animals)
+    {
+        foreach(AnimalData animal in animals)
+        {
+            this.spawnPoints?[0]?.Spawn(
+                this.animals?[0],
+                this.animalParent.transform,
+                animal.location,
+                animal.rotation,
+                animal.health
+                );
+        }
     }
 }

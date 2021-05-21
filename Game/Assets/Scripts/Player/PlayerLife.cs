@@ -9,8 +9,8 @@ public class PlayerLife : MonoBehaviour
     Image sanityImage;
     Text sanityText;
 
-    float health;
-    float sanity;
+    public float health;
+    public float sanity;
     float nextActionTimeHealth = 0.0f;
     float nextActionTimeSanity = 0.0f;
     bool isDay;
@@ -159,5 +159,22 @@ public class PlayerLife : MonoBehaviour
         }
 
         return false;
+    }
+
+    public float GetHealth()
+    {
+        return this.health;
+    }
+    public void SetHealth(float h)
+    {
+        this.health = h;
+    }
+    public float GetSanity()
+    {
+        return this.sanity;
+    }
+    public void SetSanity(float s)
+    {
+        this.sanity = s;
     }
 }
