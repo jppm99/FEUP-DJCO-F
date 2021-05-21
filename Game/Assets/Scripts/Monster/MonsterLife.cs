@@ -30,6 +30,9 @@ public class MonsterLife : MonoBehaviour
             GetComponent<MonsterAttack>().enabled = false;
             GetComponent<MonsterMovement>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+
         }
     }
 
