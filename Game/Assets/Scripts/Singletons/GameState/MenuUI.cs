@@ -17,11 +17,17 @@ public class MenuUI : MonoBehaviour
     public GameObject gameMenu;
     public GameObject endGameMenu;
 
+    public GameObject healthBar;
+    public GameObject sanityBar;
+
+    public GameObject mainMenuBackGround;
+    public GameObject midGameMenuBackGround;
+    public GameObject endGameMenuBackGround;
+
     void Start()
     {
         context = MenuContext.StartMenu;
         menuIsEnabled = true;
-        Debug.Log("Script start");
         menuContextSettings();
         mainMenuUi.SetActive(true);
         gameMenu.SetActive(false);
@@ -59,6 +65,8 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        healthBar.SetActive(false);
+        sanityBar.SetActive(false);
     }
 
     public void resumeGame()
@@ -73,6 +81,11 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        healthBar.SetActive(true);
+        sanityBar.SetActive(true);
+        mainMenuBackGround.SetActive(false);
+        midGameMenuBackGround.SetActive(false);
+        endGameMenuBackGround.SetActive(false);
     }
 
     public void newGame()
