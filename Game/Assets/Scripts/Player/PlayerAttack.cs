@@ -13,12 +13,14 @@ public class PlayerAttack : MonoBehaviour
     Animator playerAnimator;
 
 
-    GameObject attackspot;
+    GameObject attackspotMonster;
+    GameObject attackspotAnimal;
 
     void Start()
     {
         playerAnimator = GameObject.Find("PlayerBody").GetComponent<Animator>();
-        attackspot = GameObject.Find("Attack Spot");
+        attackspotMonster = GameObject.Find("Attack Spot Monster");
+        attackspotAnimal = GameObject.Find("Attack Spot Animal");
     }
 
     // Update is called once per frame
@@ -33,8 +35,7 @@ public class PlayerAttack : MonoBehaviour
 
             RaycastHit ray;
 
-            /* In the future a layermask must be added as a parameter to this function */
-            if (Physics.Raycast(attackspot.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
+            if (Physics.Raycast(attackspotMonster.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
             {
                 string objectTag = ray.transform.tag;
 
@@ -43,7 +44,13 @@ public class PlayerAttack : MonoBehaviour
                     MonsterLife enemy = ray.transform.GetComponent<MonsterLife>();
                     enemy.damage(attackDamage);
                 }
-                else if (objectTag.Equals("Animal"))
+            }
+
+            if (Physics.Raycast(attackspotAnimal.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
+            {
+                string objectTag = ray.transform.tag;
+
+                if (objectTag.Equals("Animal"))
                 {
                     AnimalLife animal = ray.transform.GetComponentInParent<AnimalLife>();
                     animal.damage(attackDamage);

@@ -27,7 +27,7 @@ public class MonsterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponentInChildren<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         player_transform = GameObject.Find("Player").transform;
         
         angle = 0;
@@ -39,6 +39,7 @@ public class MonsterMovement : MonoBehaviour
     // FixedUpdate is called once every physic update
     private void FixedUpdate()
     {
+        rb.AddForce(Physics.gravity, ForceMode.Acceleration);
         float dist = Vector3.Distance(player_transform.position, transform.position);
 
         // If following player
