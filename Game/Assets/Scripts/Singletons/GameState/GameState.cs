@@ -65,6 +65,14 @@ public class GameState : ISingleton
         this.gameStateData.sunLocation = FloatArrFromV3(sunPos);
         this.gameStateData.sunRotation = FloatArrFromV3(sunRot);
 
+        // Generators
+        bool generator1, generator2, generator3, generator4;
+        (generator1, generator2, generator3, generator4) = this.gameManager.GetGeneratorsState();
+        this.gameStateData.isGeneratorOnZone1 = generator1;
+        this.gameStateData.isGeneratorOnZone2 = generator2;
+        this.gameStateData.isGeneratorOnZone3 = generator3;
+        this.gameStateData.isGeneratorOnZone4 = generator4;
+
         // Monsters
         this.gameStateData.monsters_zone1 = new List<MonsterData>();
         this.gameStateData.monsters_zone2 = new List<MonsterData>();
@@ -78,8 +86,6 @@ public class GameState : ISingleton
         this.gameStateData.animals_zone3 = new List<AnimalData>();
         this.gameStateData.animals_zone4 = new List<AnimalData>();
         this.gameManager.SaveAnimalsInfo();
-
-        //TODO Generators
     }
 
     public (List<MonsterData>, List<MonsterData>, List<MonsterData>, List<MonsterData>) GetMonstersInfo()
@@ -169,6 +175,16 @@ public class GameState : ISingleton
             );
     }
 
+    public (bool, bool, bool, bool) GetGeneratorsState()
+    {
+        return (
+            this.gameStateData.isGeneratorOnZone1,
+            this.gameStateData.isGeneratorOnZone2,
+            this.gameStateData.isGeneratorOnZone3,
+            this.gameStateData.isGeneratorOnZone4
+        );
+    }
+
     public void SaveData()
     {
         this.UpdateData();
@@ -220,7 +236,7 @@ public class AnimalData
 [System.Serializable]
 class GameStateData
 {
-    public bool hasData;
+    public bool hasData, isGeneratorOnZone1, isGeneratorOnZone2, isGeneratorOnZone3, isGeneratorOnZone4;
     public float sanity, health;
     public float[] playerLocation, playerRotation, sunLocation, sunRotation;
     public List<MonsterData> monsters_zone1, monsters_zone2, monsters_zone3, monsters_zone4;

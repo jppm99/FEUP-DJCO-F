@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour, ISingleton
     {
         this.GetZone(zone).GetComponent<ZoneLightSystem>().SetState(true, flicker);
     }
+
+    public bool GetLightsState(int zone)
+    {
+        return this.GetZone(zone).GetComponent<ZoneLightSystem>().GetState();
+    }
     #endregion
 
     #endregion
@@ -73,12 +78,23 @@ public class GameManager : MonoBehaviour, ISingleton
             Vector3 playerPosition, playerRotation;
             float health, sanity;
             (playerPosition, playerRotation, health, sanity) = this.gameState.GetPlayerInfo();
-            this.ApplyPlayerInfo(playerPosition, playerRotation, health, sanity);
+            this.player.SetPosition(playerPosition);
+            this.player.SetRotation(playerRotation);
+            this.player.SetHealth(health);
+            this.player.SetSanity(sanity);
 
             // Time of day
             Vector3 sunLocation, sunRotation;
             (sunLocation, sunRotation) = this.gameState.GetSunInfo();
             this.lightingManager.SetSunPosition(sunLocation, sunRotation);
+
+            // Generators
+            bool generator1, generator2, generator3, generator4;
+            (generator1, generator2, generator3, generator4) = this.gameState.GetGeneratorsState();
+            this.GetZone(1).GetComponent<ZoneLightSystem>().SetState(generator1);
+            this.GetZone(2).GetComponent<ZoneLightSystem>().SetState(generator2);
+            this.GetZone(3).GetComponent<ZoneLightSystem>().SetState(generator3);
+            this.GetZone(4).GetComponent<ZoneLightSystem>().SetState(generator4);
 
             // Monsters
             List<MonsterData> monsters_zone1, monsters_zone2, monsters_zone3, monsters_zone4;
@@ -95,8 +111,18 @@ public class GameManager : MonoBehaviour, ISingleton
             this.GetZone(2).GetComponent<Spawner>().SpawnAnimals(animals_zone2);
             this.GetZone(3).GetComponent<Spawner>().SpawnAnimals(animals_zone3);
             this.GetZone(4).GetComponent<Spawner>().SpawnAnimals(animals_zone4);
-            //TODO Generators
         }
+    }
+
+    #region GETTERS
+    public (bool, bool, bool, bool) GetGeneratorsState()
+    {
+        return (
+            this.GetZone(1).GetComponent<ZoneLightSystem>().GetState(),
+            this.GetZone(2).GetComponent<ZoneLightSystem>().GetState(),
+            this.GetZone(3).GetComponent<ZoneLightSystem>().GetState(),
+            this.GetZone(4).GetComponent<ZoneLightSystem>().GetState()
+        );
     }
 
     public void SaveMonstersInfo()
@@ -120,28 +146,11 @@ public class GameManager : MonoBehaviour, ISingleton
         return this.lightingManager.GetSunPosition();
     }
 
-    public void SetSunInfo(Vector3 pos, Vector3 rot)
-    {
-        this.lightingManager.SetSunPosition(pos, rot);
-    }
-
-    /// <summary>
-    /// Gets the player's state
-    /// </summary>
-    /// <returns>
-    /// (v3 Pos, v3 Rot, Health, Sanity)
-    /// </returns>
     public (Vector3, Vector3, float, float) GetPlayerInfo()
     {
         return (this.player.GetPosition(), this.player.GetRotation(), this.player.GetHealth(), this.player.GetSanity());
     }
-    public void ApplyPlayerInfo(Vector3 pos, Vector3 rot, float health, float sanity)
-    {
-        this.player.SetPosition(pos);
-        this.player.SetRotation(rot);
-        this.player.SetHealth(health);
-        this.player.SetSanity(sanity);
-    }
+    #endregion
     #endregion
 
     /**
