@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AnimalLife : MonoBehaviour
 {
-    [SerializeField] private int maxHealth, secondsUntilBodyDisapears;
-    private int currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private int secondsUntilBodyDisapears;
     private AnimalFood interactableScript;
     Animator animalAnimator;
 
-    private void Start() {
+    private void Awake() {
         animalAnimator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
         this.interactableScript = this.GetComponentInChildren<AnimalFood>();
@@ -30,11 +31,10 @@ public class AnimalLife : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         StartCoroutine(DieCollectable());
     }
-
 
     private IEnumerator DieCollectable()
     {
@@ -43,5 +43,15 @@ public class AnimalLife : MonoBehaviour
         yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
 
         Destroy(this.gameObject);
+    }
+    
+    public float GetHealth()
+    {
+        return this.currentHealth;
+    }
+    
+    public void SetHealth(float h)
+    {
+        this.currentHealth = h;
     }
 }

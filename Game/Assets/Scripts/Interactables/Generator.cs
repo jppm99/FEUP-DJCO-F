@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Generator : Interactable
@@ -13,11 +11,10 @@ public class Generator : Interactable
     
     protected override void Action()
     {
-        if(!hasBeenFixed && this.CanFix())
+        if(!this.gameManager.GetLightsState(this.zone) && this.CanFix())
         {
             RuntimeStuff.GetSingleton<CameraManager>().PlayCutscene(this.zone);
             this.gameManager.TurnOnZoneLights(this.zone, true);
-            this.hasBeenFixed = true;
             this.UpdateFloatingText("");
         }
     }
@@ -28,7 +25,6 @@ public class Generator : Interactable
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
         this.zone = this.transform.GetComponentInParent<Zone>().GetZone();
 
-        this.hasBeenFixed = false;
         this.maxDistanceToPlayer = this.distanceToPlayer;
 
         // Set floating text for when the player cannot fix the generator
@@ -57,7 +53,11 @@ public class Generator : Interactable
 
     protected override void FixedUpdate() 
     {
-        if(!fixable && !hasBeenFixed && this.CanFix())
+        if(this.gameManager.GetLightsState(this.zone))
+        {
+            this.UpdateFloatingText("");
+        }
+        else if(!fixable && !this.gameManager.GetLightsState(this.zone) && this.CanFix())
         {
             fixable = true;
             this.UpdateFloatingText("Press F to fix");

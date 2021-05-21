@@ -7,6 +7,7 @@ public static class RuntimeStuff
     static void OnBeforeSceneLoadRuntimeMethod()
     {
         // Create new singleton objects
+        new GameState();
         new Inventory();
         new CameraManager();
 
