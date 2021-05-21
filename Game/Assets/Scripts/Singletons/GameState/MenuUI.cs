@@ -20,9 +20,7 @@ public class MenuUI : MonoBehaviour
     public GameObject healthBar;
     public GameObject sanityBar;
 
-    public GameObject mainMenuBackGround;
-    public GameObject midGameMenuBackGround;
-    public GameObject endGameMenuBackGround;
+    private BackGroundController backgroundcontroller; 
 
     void Start()
     {
@@ -32,6 +30,8 @@ public class MenuUI : MonoBehaviour
         mainMenuUi.SetActive(true);
         gameMenu.SetActive(false);
         endGameMenu.SetActive(false);
+
+        backgroundcontroller = GameObject.Find("BackGroundCanvas").GetComponent<BackGroundController>();
     }
 
     // Update is called once per frame
@@ -52,6 +52,7 @@ public class MenuUI : MonoBehaviour
         {
             menuContextSettings();
             gameMenu.SetActive(true);
+            backgroundcontroller.showMidGameMenu();
         }
         else if(menuIsEnabled != oldMenuState)
         {
@@ -81,26 +82,24 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        gameStarted();
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
-        mainMenuBackGround.SetActive(false);
-        midGameMenuBackGround.SetActive(false);
-        endGameMenuBackGround.SetActive(false);
+        backgroundcontroller.disableAll();
     }
 
     public void newGame()
     {
+        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
+        RuntimeStuff.GetSingleton<Inventory>().NewGame();
         play();
-        gameStarted();
         menuIsEnabled = false;
         mainMenuUi.SetActive(false);
-        RuntimeStuff.GetSingleton<Inventory>().NewGame();
     }
 
     public void loadGame()
     {
         play();
-        gameStarted();
         menuIsEnabled = false;
         mainMenuUi.SetActive(false);
         Debug.Log("Load objects missing");
@@ -109,6 +108,7 @@ public class MenuUI : MonoBehaviour
     public void saveGame()
     {
         RuntimeStuff.GetSingleton<Inventory>().SaveData();
+        RuntimeStuff.GetSingleton<GameState>().SaveData();
         Debug.Log("Other objects missing");
     }
 
@@ -120,6 +120,7 @@ public class MenuUI : MonoBehaviour
         gameMenu.SetActive(false);
         endGameMenu.SetActive(false);
         menuIsEnabled = false;
+        backgroundcontroller.showMainMenu();
     }
 
     public void gameStarted()

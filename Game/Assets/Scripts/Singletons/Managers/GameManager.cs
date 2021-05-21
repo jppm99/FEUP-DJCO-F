@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour, ISingleton
         this.gameState = RuntimeStuff.GetSingleton<GameState>();
         this.lightingManager = RuntimeStuff.GetSingleton<LightingManager>();
 
-        this.ApplyState(true);
+        //this.ApplyState(true);
     }
 
     #region DAYTIME
