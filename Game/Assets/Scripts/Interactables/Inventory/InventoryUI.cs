@@ -8,11 +8,24 @@ public class InventoryUI : MonoBehaviour
     private Inventory inventory;
     private InventorySlot[] slots;
     private BuildSlot[] buildSlots;
+    private Dictionary<string, Sprite> sprites;
 
     public Transform itemsParent;
     public Transform buildsParent;
     public GameObject inventoryUI;
     public GameObject build;
+
+    // Sprites
+    public Sprite stickIcon;
+    public Sprite rockIcon;
+    public Sprite metalIcon;
+    public Sprite meatIcon;
+    public Sprite catanaIcon;
+    public Sprite knifeIcon;
+    public Sprite monsterGeneratorItemIcon;
+    public Sprite hiddenGeneratorItemIcon;
+    public Sprite buildableGeneratorItemIcon;
+    public Sprite diaryIcon;
 
 
     // Start is called before the first frame update
@@ -26,6 +39,18 @@ public class InventoryUI : MonoBehaviour
         Debug.Log(buildSlots.Length);
         
         inventory.onItemChangedCallback += UpdateUI;
+
+        sprites = new Dictionary<string, Sprite>();
+        sprites.Add("stick", stickIcon);
+        sprites.Add("rock", rockIcon);
+        sprites.Add("metal", metalIcon);
+        sprites.Add("meat", meatIcon);
+        sprites.Add("catana", catanaIcon);
+        sprites.Add("knife", knifeIcon);
+        sprites.Add("monsterGeneratorItem", monsterGeneratorItemIcon);
+        sprites.Add("hiddenGeneratorItem", hiddenGeneratorItemIcon);
+        sprites.Add("buildableGeneratorItem", buildableGeneratorItemIcon);
+        sprites.Add("diary", diaryIcon);
 
         LoadInventory();
         LoadBuilds();
@@ -61,46 +86,64 @@ public class InventoryUI : MonoBehaviour
         int count = 0;
 
         // Only for testing
-        inventory.SetItemQqlCoisa(10);
         inventory.SetStick(10);
         inventory.SetRock(10);
         inventory.SetMetal(10);
-        inventory.SetFood(10);
-        inventory.SetAxe(0);
-        inventory.SetSword(0);
-
-        if (inventory.GetItemQqlCoisaCount() > 0) {
-            slots[currentSlot].AddNewItem("qqlcoisa", inventory.GetItemQqlCoisaCount());
-            currentSlot++;
-        }
+        inventory.SetMeat(10);
+        inventory.SetCatana(1);
+        inventory.SetKnife(1);
+        inventory.AddMonsterGeneratorItem();
+        inventory.AddHiddenGeneratorItem();
+        inventory.AddBuildableGeneratorItem();
+        inventory.AddDiary();
 
         if (inventory.GetStickCount() > 0) {
-            slots[currentSlot].AddNewItem("stick", inventory.GetStickCount());
+            slots[currentSlot].AddNewItem("stick", stickIcon, inventory.GetStickCount());
             currentSlot++;
         }
 
         if (inventory.GetRockCount() > 0) {
-            slots[currentSlot].AddNewItem("rock", inventory.GetRockCount());
+            slots[currentSlot].AddNewItem("rock", rockIcon, inventory.GetRockCount());
             currentSlot++;
         }
 
         if (inventory.GetMetalCount() > 0) {
-            slots[currentSlot].AddNewItem("metal", inventory.GetMetalCount());
+            slots[currentSlot].AddNewItem("metal", metalIcon, inventory.GetMetalCount());
             currentSlot++;
         }
 
-        if (inventory.GetFoodCount() > 0) {
-            slots[currentSlot].AddNewItem("food", inventory.GetFoodCount());
+        if (inventory.GetMeatCount() > 0) {
+            slots[currentSlot].AddNewItem("meat", meatIcon, inventory.GetMeatCount());
             currentSlot++;
         }
 
-        if (inventory.GetAxeCount() > 0) {
-            slots[currentSlot].AddNewItem("axe", inventory.GetAxeCount());
+        if (inventory.GetCatanaCount() > 0) {
+            slots[currentSlot].AddNewItem("catana", catanaIcon, inventory.GetCatanaCount());
             currentSlot++;
         }
 
-        if (inventory.GetSwordCount() > 0) {
-            slots[currentSlot].AddNewItem("sword", inventory.GetSwordCount());
+        if (inventory.GetKnifeCount() > 0) {
+            slots[currentSlot].AddNewItem("knife", knifeIcon, inventory.GetKnifeCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetMonsterGeneratorItem()) {
+            slots[currentSlot].AddNewItem("monsterGeneratorItem", monsterGeneratorItemIcon);
+            currentSlot++;
+        }
+
+        if (inventory.GetHiddenGeneratorItem()) {
+            slots[currentSlot].AddNewItem("hiddenGeneratorItem", hiddenGeneratorItemIcon);
+            currentSlot++;
+        }
+
+        if (inventory.GetBuildableGeneratorItem()) {
+            slots[currentSlot].AddNewItem("buildableGeneratorItem", buildableGeneratorItemIcon);
+            currentSlot++;
+        }
+
+        if (inventory.GetDiary()) {
+            slots[currentSlot].AddNewItem("diary", diaryIcon);
             currentSlot++;
         }
     }
@@ -149,7 +192,7 @@ public class InventoryUI : MonoBehaviour
                 if (slots[i].Used())
                     continue;
 
-                slots[i].AddNewItem(item);
+                slots[i].AddNewItem(item, sprites[item]);
 
                 break;
             }
@@ -202,7 +245,7 @@ public class InventoryUI : MonoBehaviour
             }
 
             if (slots[i].Used()) {
-                slots[emptySlotIndex].AddNewItem(slots[i].GetItem(), inventory.GetCount(slots[i].GetItem()));
+                slots[emptySlotIndex].AddNewItem(slots[i].GetItem(), slots[i].GetSprite(), inventory.GetCount(slots[i].GetItem()));
                 slots[i].ResetSlot();
 
                 i = emptySlotIndex;

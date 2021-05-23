@@ -63,14 +63,26 @@ public class Inventory : ISingleton
         if (item == "metal")
             return GetMetalCount();
 
-        if (item == "food")
-            return GetFoodCount();
+        if (item == "meat")
+            return GetMeatCount();
 
-        if (item == "axe")
-            return GetAxeCount();
+        if (item == "catana")
+            return GetCatanaCount();
 
-        if (item == "sword")
-            return GetSwordCount();
+        if (item == "knife")
+            return GetKnifeCount();
+        
+        if (item == "monsterGeneratorItem" && GetMonsterGeneratorItem())
+            return 1;
+
+        if (item == "hiddenGeneratorItem" && GetHiddenGeneratorItem())
+            return 1;
+
+        if (item == "buildableGeneratorItem" && GetBuildableGeneratorItem())
+            return 1;
+
+        if (item == "diary" && GetDiary())
+            return 1;
 
         return 0;
     }
@@ -89,14 +101,26 @@ public class Inventory : ISingleton
         if (item == "metal")
             AddMetal();
 
-        if (item == "food")
-            AddFood();
+        if (item == "meat")
+            AddMeat();
 
-        if (item == "axe")
-            AddAxe();
+        if (item == "catana")
+            AddCatana();
 
-        if (item == "sword")
-            AddSword();
+        if (item == "knife")
+            AddKnife();
+
+        if (item == "monsterGeneratorItem")
+            AddMonsterGeneratorItem();
+
+        if (item == "hiddenGeneratorItem")
+            AddHiddenGeneratorItem();
+
+        if (item == "buildableGeneratorItem")
+            AddBuildableGeneratorItem();
+
+        if (item == "diary")
+            AddDiary();
     }
 
     public int SpendItem(string item, int count = 1)
@@ -113,14 +137,38 @@ public class Inventory : ISingleton
         if (item == "metal")
             return SpendMetal(count);
 
-        if (item == "food")
-            return SpendFood(count);
+        if (item == "meat")
+            return SpendMeat(count);
 
-        if (item == "axe")
-            return SpendAxe(count);
+        if (item == "catana")
+            return SpendCatana(count);
 
-        if (item == "sword")
-            return SpendSword(count);
+        if (item == "knife")
+            return SpendKnife(count);
+
+        if (item == "monsterGeneratorItem") {
+            SpendMonsterGeneratorItem();
+
+            return 0;
+        }
+
+        if (item == "hiddenGeneratorItem") {
+            SpendHiddenGeneratorItem();
+
+            return 0;
+        }
+
+        if (item == "buildableGeneratorItem") {
+            SpendBuildableGeneratorItem();
+
+            return 0;
+        }
+
+        if (item == "diary") {
+            SpendDiary();
+
+            return 0;
+        }
 
         return 0;
     }
@@ -232,84 +280,84 @@ public class Inventory : ISingleton
     }
     #endregion
 
-    #region FOOD
-    public int GetFoodCount()
+    #region MEAT
+    public int GetMeatCount()
     {
-        return this.inventoryData.Food;
+        return this.inventoryData.Meat;
     }
 
-    public int SpendFood(int count = 1)
+    public int SpendMeat(int count = 1)
     {
-        this.inventoryData.Food -= count;
-        return this.inventoryData.Food;
+        this.inventoryData.Meat -= count;
+        return this.inventoryData.Meat;
     }
 
-    public void AddFood(int count = 1)
+    public void AddMeat(int count = 1)
     {
-        this.inventoryData.Food += count;
-        lastItemPicked = "food";
+        this.inventoryData.Meat += count;
+        lastItemPicked = "meat";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
 
-    public void SetFood(int count)
+    public void SetMeat(int count)
     {
-        this.inventoryData.Food = count;
+        this.inventoryData.Meat = count;
     }
     #endregion
 
-    #region AXE
-    public int GetAxeCount()
+    #region CATANA
+    public int GetCatanaCount()
     {
-        return this.inventoryData.Axe;
+        return this.inventoryData.Catana;
     }
 
-    public int SpendAxe(int count = 1)
+    public int SpendCatana(int count = 1)
     {
-        this.inventoryData.Axe -= count;
-        return this.inventoryData.Axe;
+        this.inventoryData.Catana -= count;
+        return this.inventoryData.Catana;
     }
 
-    public void AddAxe(int count = 1)
+    public void AddCatana(int count = 1)
     {
-        this.inventoryData.Axe += count;
-        lastItemPicked = "axe";
+        this.inventoryData.Catana += count;
+        lastItemPicked = "catana";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
 
-    public void SetAxe(int count)
+    public void SetCatana(int count)
     {
-        this.inventoryData.Axe = count;
+        this.inventoryData.Catana = count;
     }
     #endregion
 
-    #region SWORD
-    public int GetSwordCount()
+    #region KNIFE
+    public int GetKnifeCount()
     {
-        return this.inventoryData.Sword;
+        return this.inventoryData.Knife;
     }
 
-    public int SpendSword(int count = 1)
+    public int SpendKnife(int count = 1)
     {
-        this.inventoryData.Sword -= count;
-        return this.inventoryData.Sword;
+        this.inventoryData.Knife -= count;
+        return this.inventoryData.Knife;
     }
 
-    public void AddSword(int count = 1)
+    public void AddKnife(int count = 1)
     {
-        this.inventoryData.Sword += count;
-        lastItemPicked = "sword";
+        this.inventoryData.Knife += count;
+        lastItemPicked = "knife";
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
 
-    public void SetSword(int count)
+    public void SetKnife(int count)
     {
-        this.inventoryData.Sword = count;
+        this.inventoryData.Knife = count;
     }
     #endregion
 
@@ -328,6 +376,7 @@ public class Inventory : ISingleton
     public void AddMonsterGeneratorItem()
     {
         this.inventoryData.hasMonsterGeneratorItem = true;
+        lastItemPicked = "monsterGeneratorItem";
     }
     #endregion
     #region HIDDEN
@@ -344,6 +393,7 @@ public class Inventory : ISingleton
     public void AddHiddenGeneratorItem()
     {
         this.inventoryData.hasHiddenGeneratorItem = true;
+        lastItemPicked = "hiddenGeneratorItem";
     }
     #endregion
     #region BUILDABLE
@@ -360,8 +410,27 @@ public class Inventory : ISingleton
     public void AddBuildableGeneratorItem()
     {
         this.inventoryData.hasBuildableGeneratorItem = true;
+        lastItemPicked = "buildableGeneratorItem";
     }
     #endregion
+    #endregion
+
+    #region DIARY
+    public bool GetDiary()
+    {
+        return this.inventoryData.hasDiary;
+    }
+
+    public void SpendDiary()
+    {
+        this.inventoryData.hasDiary = false;
+    }
+
+    public void AddDiary()
+    {
+        this.inventoryData.hasDiary = true;
+        lastItemPicked = "diary";
+    }
     #endregion
 
     void WhenQuit()
@@ -391,6 +460,6 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, Stick, Rock, Metal, Food, Axe, Sword;
-    public bool hasMonsterGeneratorItem, hasHiddenGeneratorItem, hasBuildableGeneratorItem;
+    public int itemQqlCoisaCount, Stick, Rock, Metal, Meat, Catana, Knife;
+    public bool hasMonsterGeneratorItem, hasHiddenGeneratorItem, hasBuildableGeneratorItem, hasDiary;
 }

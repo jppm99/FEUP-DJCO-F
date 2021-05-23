@@ -13,6 +13,7 @@ public abstract class Interactable : MonoBehaviour
     protected MeshRenderer[] meshRenderers;
     protected abstract void Action();
     
+
     public void Interact()
     {
         if(this.isActive && isCloseEnough()) this.Action();
