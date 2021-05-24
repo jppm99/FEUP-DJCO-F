@@ -51,7 +51,7 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
-        if (item == "food") {
+        if (item == "meat") {
             canvas.GetComponent<InventoryUI>().RemoveItem(this);
             player.GetComponent<PlayerLife>().IncreaseHealth(10);
         }
