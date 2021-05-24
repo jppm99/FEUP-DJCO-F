@@ -22,6 +22,7 @@ public class InventoryUI : MonoBehaviour
     public Sprite meatIcon;
     public Sprite catanaIcon;
     public Sprite knifeIcon;
+    public Sprite axeIcon;
     public Sprite monsterGeneratorItemIcon;
     public Sprite hiddenGeneratorItemIcon;
     public Sprite buildableGeneratorItemIcon;
@@ -47,6 +48,7 @@ public class InventoryUI : MonoBehaviour
         sprites.Add("meat", meatIcon);
         sprites.Add("catana", catanaIcon);
         sprites.Add("knife", knifeIcon);
+        sprites.Add("axe", axeIcon);
         sprites.Add("monsterGeneratorItem", monsterGeneratorItemIcon);
         sprites.Add("hiddenGeneratorItem", hiddenGeneratorItemIcon);
         sprites.Add("buildableGeneratorItem", buildableGeneratorItemIcon);
@@ -92,6 +94,7 @@ public class InventoryUI : MonoBehaviour
         inventory.SetMeat(10);
         inventory.SetCatana(1);
         inventory.SetKnife(1);
+        inventory.SetAxe(1);
         inventory.AddMonsterGeneratorItem();
         inventory.AddHiddenGeneratorItem();
         inventory.AddBuildableGeneratorItem();
@@ -124,6 +127,11 @@ public class InventoryUI : MonoBehaviour
 
         if (inventory.GetKnifeCount() > 0) {
             slots[currentSlot].AddNewItem("knife", knifeIcon, inventory.GetKnifeCount());
+            currentSlot++;
+        }
+
+        if (inventory.GetAxeCount() > 0) {
+            slots[currentSlot].AddNewItem("axe", axeIcon, inventory.GetAxeCount());
             currentSlot++;
         }
 

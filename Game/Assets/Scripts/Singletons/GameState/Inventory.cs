@@ -71,6 +71,9 @@ public class Inventory : ISingleton
 
         if (item == "knife")
             return GetKnifeCount();
+
+        if (item == "axe")
+            return GetAxeCount();
         
         if (item == "monsterGeneratorItem" && GetMonsterGeneratorItem())
             return 1;
@@ -110,6 +113,9 @@ public class Inventory : ISingleton
         if (item == "knife")
             AddKnife();
 
+        if (item == "axe")
+            AddAxe();
+
         if (item == "monsterGeneratorItem")
             AddMonsterGeneratorItem();
 
@@ -145,6 +151,9 @@ public class Inventory : ISingleton
 
         if (item == "knife")
             return SpendKnife(count);
+
+        if (item == "axe")
+            return SpendAxe(count);
 
         if (item == "monsterGeneratorItem") {
             SpendMonsterGeneratorItem();
@@ -361,6 +370,33 @@ public class Inventory : ISingleton
     }
     #endregion
 
+    #region AXE
+    public int GetAxeCount()
+    {
+        return this.inventoryData.Axe;
+    }
+
+    public int SpendAxe(int count = 1)
+    {
+        this.inventoryData.Axe -= count;
+        return this.inventoryData.Axe;
+    }
+
+    public void AddAxe(int count = 1)
+    {
+        this.inventoryData.Axe += count;
+        lastItemPicked = "axe";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+    }
+
+    public void SetAxe(int count)
+    {
+        this.inventoryData.Axe = count;
+    }
+    #endregion
+
     #region GENERATOR_ITEMS
     #region MONSTER
     public bool GetMonsterGeneratorItem()
@@ -460,6 +496,6 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, Stick, Rock, Metal, Meat, Catana, Knife;
+    public int itemQqlCoisaCount, Stick, Rock, Metal, Meat, Catana, Knife, Axe;
     public bool hasMonsterGeneratorItem, hasHiddenGeneratorItem, hasBuildableGeneratorItem, hasDiary;
 }
