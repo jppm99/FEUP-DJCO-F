@@ -50,7 +50,7 @@ public abstract class Interactable : MonoBehaviour
     }
 
     protected void LateUpdate() {
-        if(this.isActive && this.isClose)
+        if(this.isActive && this.isClose && this.text.text != "")
         {
             text.transform.LookAt(this.mainCamera.transform);
             text.transform.rotation = Quaternion.LookRotation(this.mainCamera.transform.forward);
