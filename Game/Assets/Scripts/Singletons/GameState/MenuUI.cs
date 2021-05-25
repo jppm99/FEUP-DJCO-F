@@ -11,31 +11,85 @@ public class MenuUI : MonoBehaviour
         EndMenu
     }
 
+    private enum MenuIds : int
+    {
+        MainMenu,
+        GameMenu,
+        InstructionsMenu,
+        VictoryMenu,
+        DefeatMenu
+    }
+
     private MenuContext context;
     private bool menuIsEnabled;
     private bool showingInstructions;
     public GameObject mainMenuUi;
     public GameObject gameMenu;
-    public GameObject endGameMenu;
     public GameObject instructionsMenu;
+    public GameObject GameOverMenu;
+    public GameObject GameWonMenu;
 
     public GameObject healthBar;
     public GameObject sanityBar;
 
-    private BackGroundController backgroundcontroller; 
+    private BackGroundController backgroundcontroller;
+
+    private GameObject[] menus;
 
     void Start()
     {
+        menus = new GameObject[5];
+        menus[0] = mainMenuUi;
+        menus[1] = gameMenu;
+        menus[2] = instructionsMenu;
+        menus[3] = GameOverMenu;
+        menus[4] = GameWonMenu;
+
         context = MenuContext.StartMenu;
         menuIsEnabled = true;
         showingInstructions = false;
-        menuContextSettings();
-        mainMenuUi.SetActive(true);
-        gameMenu.SetActive(false);
-        endGameMenu.SetActive(false);
 
+        menuContextSettings();
         backgroundcontroller = GameObject.Find("BackGroundCanvas").GetComponent<BackGroundController>();
         backgroundcontroller.showMainMenu();
+        showMainMenu();
+    }
+
+    public void disableAllMenus()
+    {
+        for (int i = 0; i < menus.Length; i++)
+        {
+            menus[i].SetActive(false);
+        }
+    }
+    private void activateOneDisableRest(int index)
+    {
+        for (int i = 0; i < menus.Length; i++)
+        {
+            menus[i].SetActive(i == index);
+        }
+    }
+
+    private void showMainMenu()
+    {
+        activateOneDisableRest((int)MenuIds.MainMenu);
+    }
+
+    private void showGameMenu()
+    {
+        activateOneDisableRest((int)MenuIds.GameMenu);
+    }
+    private void showInstructionsMenu()
+    {
+        activateOneDisableRest((int)MenuIds.InstructionsMenu);
+    }
+    private void showVictoryMenu()
+    {
+        activateOneDisableRest((int)MenuIds.VictoryMenu);
+    }
+    private void showDefeatMenu()
+    {
+        activateOneDisableRest((int)MenuIds.DefeatMenu);
     }
 
     // Update is called once per frame
@@ -55,13 +109,13 @@ public class MenuUI : MonoBehaviour
         if(menuIsEnabled && menuIsEnabled != oldMenuState)
         {
             menuContextSettings();
-            gameMenu.SetActive(true);
+            showGameMenu();
             backgroundcontroller.showMidGameMenu();
         }
         else if(menuIsEnabled != oldMenuState)
         {
             play();
-            gameMenu.SetActive(false);
+            disableAllMenus();
         }
     }
 
@@ -78,7 +132,7 @@ public class MenuUI : MonoBehaviour
     {
         Debug.Log("resume");
         play();
-        gameMenu.SetActive(false);
+        disableAllMenus();
         menuIsEnabled = false;
     }
 
@@ -91,6 +145,7 @@ public class MenuUI : MonoBehaviour
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
         backgroundcontroller.disableAll();
+        disableAllMenus();
     }
 
     public void newGame()
@@ -99,7 +154,6 @@ public class MenuUI : MonoBehaviour
         RuntimeStuff.GetSingleton<Inventory>().NewGame();
         play();
         menuIsEnabled = false;
-        mainMenuUi.SetActive(false);
     }
 
     public void loadGame()
@@ -116,14 +170,12 @@ public class MenuUI : MonoBehaviour
         {
             showingInstructions = true;
             backgroundcontroller.showInstructions();
-            gameMenu.SetActive(false);
-            instructionsMenu.SetActive(true);
+            showInstructionsMenu();
         }
         else if(context == MenuContext.StartMenu)
         {
             backgroundcontroller.showInstructions();
-            instructionsMenu.SetActive(true);
-            mainMenuUi.SetActive(false);
+            showInstructionsMenu();
         }
     }
 
@@ -133,14 +185,13 @@ public class MenuUI : MonoBehaviour
         {
             showingInstructions = false;
             backgroundcontroller.showMidGameMenu();
-            gameMenu.SetActive(true);
-            instructionsMenu.SetActive(false);
+            showGameMenu();
         }
         else if(context == MenuContext.StartMenu)
         {
             instructionsMenu.SetActive(false);
             backgroundcontroller.showMainMenu();
-            mainMenuUi.SetActive(true);
+            showMainMenu();
         }
     }
 
@@ -155,11 +206,25 @@ public class MenuUI : MonoBehaviour
     {
         context = MenuContext.StartMenu;
         menuContextSettings();
-        mainMenuUi.SetActive(true);
-        gameMenu.SetActive(false);
-        endGameMenu.SetActive(false);
         menuIsEnabled = false;
+        showMainMenu();
         backgroundcontroller.showMainMenu();
+    }
+
+    public void playeHasWon()
+    {
+        context = MenuContext.EndMenu;
+        menuContextSettings();
+        showVictoryMenu();
+        backgroundcontroller.showWonGameMenu();
+    }
+
+    public void playerHasLost()
+    {
+        context = MenuContext.EndMenu;
+        menuContextSettings();
+        showDefeatMenu();
+        backgroundcontroller.showLostGameMenu();
     }
 
     public void gameStarted()
