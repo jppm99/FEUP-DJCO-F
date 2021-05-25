@@ -6,48 +6,69 @@ public class BackGroundController : MonoBehaviour
 {
     public GameObject mainMenuBackGround;
     public GameObject midGameMenuBackGround;
-    public GameObject endGameMenuBackGround;
     public GameObject instructionsBackground;
+    public GameObject gameLostBackground;
+    public GameObject gameWonBackground;
 
+    private GameObject[] backgrounds;
+
+    private enum MenuContext : int
+    {
+        MainMenu,
+        MidGameMenu,
+        InstructionsGameMenu,
+        GameLostMenu,
+        GameWonMenu
+    }
+
+    void Start()
+    {
+        backgrounds = new GameObject[5];
+        backgrounds[0] = mainMenuBackGround;
+        backgrounds[1] = midGameMenuBackGround;
+        backgrounds[2] = instructionsBackground;
+        backgrounds[3] = gameLostBackground;
+        backgrounds[4] = gameWonBackground;
+    }
 
     public void disableAll()
     {
-        mainMenuBackGround.SetActive(false);
-        midGameMenuBackGround.SetActive(false);
-        endGameMenuBackGround.SetActive(false);
-        instructionsBackground.SetActive(false);
-        instructionsBackground.SetActive(false);
+        for(int i = 0; i < backgrounds.Length; i++)
+        {
+            backgrounds[i].SetActive(false);
+        }
+    }
+
+    private void activateOneDisableRest(int index)
+    {
+        for(int i = 0; i < backgrounds.Length; i++)
+        {
+            backgrounds[i].SetActive(i == index);
+        }
     }
 
     public void showMainMenu()
     {
-        mainMenuBackGround.SetActive(true);
-        midGameMenuBackGround.SetActive(false);
-        endGameMenuBackGround.SetActive(false);
-        instructionsBackground.SetActive(false);
+        activateOneDisableRest((int)MenuContext.MainMenu);
     }
 
     public void showMidGameMenu()
     {
-        mainMenuBackGround.SetActive(false);
-        midGameMenuBackGround.SetActive(true);
-        endGameMenuBackGround.SetActive(false);
-        instructionsBackground.SetActive(false);
+        activateOneDisableRest((int)MenuContext.MidGameMenu);
     }
 
-    public void showEndGameMenu()
+    public void showWonGameMenu()
     {
-        mainMenuBackGround.SetActive(false);
-        midGameMenuBackGround.SetActive(false);
-        endGameMenuBackGround.SetActive(true);
-        instructionsBackground.SetActive(false);
+        activateOneDisableRest((int)MenuContext.GameWonMenu);
+    }
+
+    public void showLostGameMenu()
+    {
+        activateOneDisableRest((int)MenuContext.GameLostMenu);
     }
 
     public void showInstructions()
     {
-        mainMenuBackGround.SetActive(false);
-        midGameMenuBackGround.SetActive(false);
-        endGameMenuBackGround.SetActive(false);
-        instructionsBackground.SetActive(true);
+        activateOneDisableRest((int)MenuContext.InstructionsGameMenu);
     }
 }
