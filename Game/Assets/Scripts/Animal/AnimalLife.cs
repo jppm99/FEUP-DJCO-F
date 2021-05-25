@@ -33,6 +33,7 @@ public class AnimalLife : MonoBehaviour
 
     public void Die()
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         StartCoroutine(DieCollectable());
     }
 
