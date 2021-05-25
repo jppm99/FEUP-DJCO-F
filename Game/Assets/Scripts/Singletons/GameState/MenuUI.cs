@@ -171,7 +171,6 @@ public class MenuUI : MonoBehaviour
     {
         play();
         menuIsEnabled = false;
-        disableAllMenus();
         RuntimeStuff.GetSingleton<GameManager>().ApplyState(true);
     }
 
