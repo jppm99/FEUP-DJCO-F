@@ -171,17 +171,15 @@ public class MenuUI : MonoBehaviour
     {
         play();
         menuIsEnabled = false;
-        mainMenuUi.SetActive(false);
-        Debug.Log("Load objects missing");
+        disableAllMenus();
+        RuntimeStuff.GetSingleton<GameManager>().ApplyState(true);
     }
 
     public void saveGame()
     {
         RuntimeStuff.GetSingleton<Inventory>().SaveData();
         RuntimeStuff.GetSingleton<GameState>().SaveData();
-        Debug.Log("Other objects missing");
     }
-
 
     public void showInstructions()
     {
