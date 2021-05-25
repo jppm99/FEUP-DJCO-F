@@ -45,11 +45,15 @@ public class MonsterLife : MonoBehaviour
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-        if (this.dropsGeneratorItem) this.interactableScript.EnableInteraction();
-
-        yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
-
-        Destroy(this.gameObject);
+        if (this.dropsGeneratorItem)
+        {
+            this.interactableScript.EnableInteraction();
+        }
+        else
+        {
+            yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
+            Destroy(this.gameObject);
+        }
     }
 
     public float GetHealth()
