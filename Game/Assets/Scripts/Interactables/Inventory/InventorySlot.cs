@@ -56,9 +56,9 @@ public class InventorySlot : MonoBehaviour
             player.GetComponent<PlayerLife>().IncreaseHealth(10);
         }
         else if (item == "buildableGeneratorItem")
-            Debug.Log("hammer");
+            player.GetComponent<PlayerHand>().UpdateHandItem("hammer");
         else if (item == "catana" || item == "knife" || item == "axe")
-            Debug.Log(item);
+            player.GetComponent<PlayerHand>().UpdateHandItem(item);
     }
 
     public void ResetSlot()

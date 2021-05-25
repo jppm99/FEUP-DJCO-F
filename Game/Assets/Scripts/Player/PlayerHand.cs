@@ -24,20 +24,20 @@ public class PlayerHand : MonoBehaviour
     {
         //TODO: Remove this lines after integrated with inventory
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            updateHandItem("knife", 40);
+            UpdateHandItem("knife");
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            updateHandItem("catana", 40);
+            UpdateHandItem("catana");
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            updateHandItem("axe", 40);
+            UpdateHandItem("axe");
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
-            updateHandItem("hammer", 40);
+            UpdateHandItem("hammer");
 
     }
 
-    public void updateHandItem(string item, int damage)
+    public void UpdateHandItem(string item)
     {
         knifeObject.SetActive(false);
         catanaObject.SetActive(false);
@@ -45,22 +45,28 @@ public class PlayerHand : MonoBehaviour
         hammerObject.SetActive(false);
         differentAnimation = false;
 
+        int damage = 0;
+
         if (item == "knife")
         {
+            damage = 30;
             knifeObject.SetActive(true);
         }
         else if (item == "catana")
         {
+            damage = 50;
             catanaObject.SetActive(true);
             differentAnimation = true;
         }
         else if (item == "axe")
         {
+            damage = 40;
             axeObject.SetActive(true);
             differentAnimation = true;
         }
         else if (item == "hammer")
         {
+            damage = 20;
             hammerObject.SetActive(true);
             differentAnimation = true;
         }
