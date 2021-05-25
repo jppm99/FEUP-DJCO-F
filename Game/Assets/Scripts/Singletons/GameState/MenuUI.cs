@@ -128,12 +128,14 @@ public class MenuUI : MonoBehaviour
         sanityBar.SetActive(false);
     }
 
-    public void resumeGame()
+    public void gameStarted()
     {
-        Debug.Log("resume");
-        play();
-        disableAllMenus();
-        menuIsEnabled = false;
+        context = MenuContext.GameMenu;
+    }
+
+    public void gameEnded()
+    {
+        context = MenuContext.EndMenu;
     }
 
     public void play()
@@ -146,6 +148,15 @@ public class MenuUI : MonoBehaviour
         sanityBar.SetActive(true);
         backgroundcontroller.disableAll();
         disableAllMenus();
+    }
+
+    /* BUTTONS FUNCTIONS */
+
+    public void resumeGame()
+    {
+        play();
+        disableAllMenus();
+        menuIsEnabled = false;
     }
 
     public void newGame()
@@ -211,7 +222,7 @@ public class MenuUI : MonoBehaviour
         backgroundcontroller.showMainMenu();
     }
 
-    public void playeHasWon()
+    public void playerHasWon()
     {
         context = MenuContext.EndMenu;
         menuContextSettings();
@@ -225,16 +236,6 @@ public class MenuUI : MonoBehaviour
         menuContextSettings();
         showDefeatMenu();
         backgroundcontroller.showLostGameMenu();
-    }
-
-    public void gameStarted()
-    {
-        context = MenuContext.GameMenu;
-    }
-
-    public void gameEnded()
-    {
-        context = MenuContext.EndMenu;
     }
 
     public void quitGame()
