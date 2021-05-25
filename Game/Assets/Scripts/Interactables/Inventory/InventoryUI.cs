@@ -10,10 +10,7 @@ public class InventoryUI : MonoBehaviour
     private BuildSlot[] buildSlots;
     private Dictionary<string, Sprite> sprites;
 
-    public Transform itemsParent;
-    public Transform buildsParent;
     public GameObject inventoryUI;
-    public GameObject build;
 
     // Sprites
     public Sprite stickIcon;
@@ -35,8 +32,10 @@ public class InventoryUI : MonoBehaviour
         inventoryEnabled = false;
 
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-        buildSlots = buildsParent.GetComponentsInChildren<BuildSlot>();
+        slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
+        buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
+
+        Debug.Log(slots.Length);
         Debug.Log(buildSlots.Length);
         
         inventory.onItemChangedCallback += UpdateUI;
@@ -68,14 +67,12 @@ public class InventoryUI : MonoBehaviour
         if (oldInventoryState != inventoryEnabled && inventoryEnabled) {
             Time.timeScale = 0;
             inventoryUI.SetActive(true);
-            build.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
         else if (oldInventoryState != inventoryEnabled && !inventoryEnabled) {
             Time.timeScale = 1;
             inventoryUI.SetActive(false);
-            build.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -282,5 +279,16 @@ public class InventoryUI : MonoBehaviour
 
             inventory.AddItem(slot.GetItem());
         }
+    }
+
+    // Close is called when clicking the close button
+    public void Close()
+    {
+        inventoryEnabled = !inventoryEnabled;
+        
+        Time.timeScale = 1;
+        inventoryUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
