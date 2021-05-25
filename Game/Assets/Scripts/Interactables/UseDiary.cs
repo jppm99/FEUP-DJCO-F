@@ -6,11 +6,17 @@ public class UseDiary : MonoBehaviour
 {
     private bool diaryOpened;
 
+    public GameObject healthBar;
+    public GameObject sanityBar;
+    public GameObject diaryPages;
+
 
     // Start is called before the first frame update
     void Start()
     {
         diaryOpened = false;
+        diaryPages.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -30,6 +36,9 @@ public class UseDiary : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        healthBar.SetActive(false);
+        sanityBar.SetActive(false);
+        diaryPages.SetActive(true);
     }
 
     void closeDiary()
@@ -38,5 +47,8 @@ public class UseDiary : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        healthBar.SetActive(true);
+        sanityBar.SetActive(true);
+        diaryPages.SetActive(false);
     }
 }
