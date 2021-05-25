@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UseDiary : MonoBehaviour
 {
-    private bool diaryOpened;
-
     public GameObject healthBar;
     public GameObject sanityBar;
     public GameObject diaryPages;
+    public GameObject page;
+
+    private bool diaryOpened;
+    private int currentPage = 0;
+    public Sprite[] pages;
 
 
     // Start is called before the first frame update
@@ -16,6 +20,8 @@ public class UseDiary : MonoBehaviour
     {
         diaryOpened = false;
         diaryPages.SetActive(false);
+        healthBar.SetActive(true);
+        sanityBar.SetActive(true);
 
     }
 
@@ -39,6 +45,8 @@ public class UseDiary : MonoBehaviour
         healthBar.SetActive(false);
         sanityBar.SetActive(false);
         diaryPages.SetActive(true);
+        page.GetComponent<Image>().sprite = pages[currentPage];
+
     }
 
     void closeDiary()
@@ -50,5 +58,10 @@ public class UseDiary : MonoBehaviour
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
         diaryPages.SetActive(false);
+    }
+
+    void changePage(int page)
+    {
+
     }
 }
