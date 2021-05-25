@@ -9,6 +9,7 @@ public class UseDiary : MonoBehaviour
     public GameObject sanityBar;
     public GameObject diaryPages;
     public GameObject page;
+    private Image pageImage;
 
     private bool diaryOpened;
     private int currentPage = 0;
@@ -22,7 +23,7 @@ public class UseDiary : MonoBehaviour
         diaryPages.SetActive(false);
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
-
+        pageImage = page.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class UseDiary : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
             openDiary();
 
-        else if (Input.GetKeyDown(KeyCode.H) && diaryOpened)
+        else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
             closeDiary();
     }
 
@@ -45,7 +46,7 @@ public class UseDiary : MonoBehaviour
         healthBar.SetActive(false);
         sanityBar.SetActive(false);
         diaryPages.SetActive(true);
-        page.GetComponent<Image>().sprite = pages[currentPage];
+        pageImage.sprite = pages[currentPage];
 
     }
 
@@ -60,8 +61,19 @@ public class UseDiary : MonoBehaviour
         diaryPages.SetActive(false);
     }
 
-    void changePage(int page)
+    public void increasePage()
     {
+        if (currentPage < pages.Length - 1)
+            currentPage++;
 
+        pageImage.sprite = pages[currentPage];
+    }
+
+    public void decreasePage()
+    {
+        if (currentPage > 0)
+            currentPage--;
+
+        pageImage.sprite = pages[currentPage];
     }
 }
