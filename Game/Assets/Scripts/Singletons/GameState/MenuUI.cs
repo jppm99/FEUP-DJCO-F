@@ -13,9 +13,11 @@ public class MenuUI : MonoBehaviour
 
     private MenuContext context;
     private bool menuIsEnabled;
+    private bool showingInstructions;
     public GameObject mainMenuUi;
     public GameObject gameMenu;
     public GameObject endGameMenu;
+    public GameObject instructionsMenu;
 
     public GameObject healthBar;
     public GameObject sanityBar;
@@ -26,12 +28,14 @@ public class MenuUI : MonoBehaviour
     {
         context = MenuContext.StartMenu;
         menuIsEnabled = true;
+        showingInstructions = false;
         menuContextSettings();
         mainMenuUi.SetActive(true);
         gameMenu.SetActive(false);
         endGameMenu.SetActive(false);
 
         backgroundcontroller = GameObject.Find("BackGroundCanvas").GetComponent<BackGroundController>();
+        backgroundcontroller.showMainMenu();
     }
 
     // Update is called once per frame
@@ -45,7 +49,7 @@ public class MenuUI : MonoBehaviour
 
         bool oldMenuState = menuIsEnabled;
 
-        if (Input.GetKeyDown(KeyCode.Escape) && context == MenuContext.GameMenu)
+        if (Input.GetKeyDown(KeyCode.Escape) && context == MenuContext.GameMenu && !showingInstructions)
             menuIsEnabled = !menuIsEnabled;
 
         if(menuIsEnabled && menuIsEnabled != oldMenuState)
@@ -72,6 +76,7 @@ public class MenuUI : MonoBehaviour
 
     public void resumeGame()
     {
+        Debug.Log("resume");
         play();
         gameMenu.SetActive(false);
         menuIsEnabled = false;
@@ -103,6 +108,40 @@ public class MenuUI : MonoBehaviour
         menuIsEnabled = false;
         mainMenuUi.SetActive(false);
         Debug.Log("Load objects missing");
+    }
+
+    public void showInstructions()
+    {
+        if(menuIsEnabled && context == MenuContext.GameMenu)
+        {
+            showingInstructions = true;
+            backgroundcontroller.showInstructions();
+            gameMenu.SetActive(false);
+            instructionsMenu.SetActive(true);
+        }
+        else if(context == MenuContext.StartMenu)
+        {
+            backgroundcontroller.showInstructions();
+            instructionsMenu.SetActive(true);
+            mainMenuUi.SetActive(false);
+        }
+    }
+
+    public void closeInstructions()
+    {
+        if(showingInstructions && context == MenuContext.GameMenu)
+        {
+            showingInstructions = false;
+            backgroundcontroller.showMidGameMenu();
+            gameMenu.SetActive(true);
+            instructionsMenu.SetActive(false);
+        }
+        else if(context == MenuContext.StartMenu)
+        {
+            instructionsMenu.SetActive(false);
+            backgroundcontroller.showMainMenu();
+            mainMenuUi.SetActive(true);
+        }
     }
 
     public void saveGame()

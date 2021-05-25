@@ -7,13 +7,16 @@ public class BackGroundController : MonoBehaviour
     public GameObject mainMenuBackGround;
     public GameObject midGameMenuBackGround;
     public GameObject endGameMenuBackGround;
+    public GameObject instructionsBackground;
 
-   
+
     public void disableAll()
     {
         mainMenuBackGround.SetActive(false);
         midGameMenuBackGround.SetActive(false);
         endGameMenuBackGround.SetActive(false);
+        instructionsBackground.SetActive(false);
+        instructionsBackground.SetActive(false);
     }
 
     public void showMainMenu()
@@ -21,6 +24,7 @@ public class BackGroundController : MonoBehaviour
         mainMenuBackGround.SetActive(true);
         midGameMenuBackGround.SetActive(false);
         endGameMenuBackGround.SetActive(false);
+        instructionsBackground.SetActive(false);
     }
 
     public void showMidGameMenu()
@@ -28,6 +32,7 @@ public class BackGroundController : MonoBehaviour
         mainMenuBackGround.SetActive(false);
         midGameMenuBackGround.SetActive(true);
         endGameMenuBackGround.SetActive(false);
+        instructionsBackground.SetActive(false);
     }
 
     public void showEndGameMenu()
@@ -35,5 +40,14 @@ public class BackGroundController : MonoBehaviour
         mainMenuBackGround.SetActive(false);
         midGameMenuBackGround.SetActive(false);
         endGameMenuBackGround.SetActive(true);
+        instructionsBackground.SetActive(false);
+    }
+
+    public void showInstructions()
+    {
+        mainMenuBackGround.SetActive(false);
+        midGameMenuBackGround.SetActive(false);
+        endGameMenuBackGround.SetActive(false);
+        instructionsBackground.SetActive(true);
     }
 }
