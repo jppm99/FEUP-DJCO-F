@@ -59,6 +59,8 @@ public class InventorySlot : MonoBehaviour
             player.GetComponent<PlayerHand>().UpdateHandItem("hammer");
         else if (item == "catana" || item == "knife" || item == "axe")
             player.GetComponent<PlayerHand>().UpdateHandItem(item);
+        else if (item == "diary")
+            Debug.Log("opening diary");
     }
 
     public void ResetSlot()
