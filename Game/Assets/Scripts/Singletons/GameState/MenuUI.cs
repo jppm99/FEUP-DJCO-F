@@ -175,6 +175,14 @@ public class MenuUI : MonoBehaviour
         Debug.Log("Load objects missing");
     }
 
+    public void saveGame()
+    {
+        RuntimeStuff.GetSingleton<Inventory>().SaveData();
+        RuntimeStuff.GetSingleton<GameState>().SaveData();
+        Debug.Log("Other objects missing");
+    }
+
+
     public void showInstructions()
     {
         if(menuIsEnabled && context == MenuContext.GameMenu)
@@ -204,13 +212,6 @@ public class MenuUI : MonoBehaviour
             backgroundcontroller.showMainMenu();
             showMainMenu();
         }
-    }
-
-    public void saveGame()
-    {
-        RuntimeStuff.GetSingleton<Inventory>().SaveData();
-        RuntimeStuff.GetSingleton<GameState>().SaveData();
-        Debug.Log("Other objects missing");
     }
 
     public void moveToMainMenu()
