@@ -29,9 +29,8 @@ public class MonsterLife : MonoBehaviour
             GetComponent<MonsterAttack>().enabled = false;
             GetComponent<MonsterMovement>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-
+            //if (transform.name == "tallMonster")
+            //    transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
     }
 
@@ -42,11 +41,19 @@ public class MonsterLife : MonoBehaviour
 
     private IEnumerator DieCollectable()
     {
-        if(this.dropsGeneratorItem) this.interactableScript.EnableInteraction();
-
-        yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
-
-        Destroy(this.gameObject);
+        //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+        if (this.dropsGeneratorItem)
+        {
+            this.interactableScript.EnableInteraction();
+        }
+        else
+        {
+            yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
+            Destroy(this.gameObject);
+        }
     }
 
     public float GetHealth()
@@ -58,5 +65,10 @@ public class MonsterLife : MonoBehaviour
     {
         this.currentHealth = h;
         this.damage(0);
+    }
+
+    void goToGround()
+    {
+
     }
 }

@@ -7,11 +7,13 @@ public class Spawner : MonoBehaviour
     public int maxNumberCreatures;
     public float spawnDelay, minimumDistaceToPlayer, maximumDistaceToPlayer;
     public Transform spawnPointParent;
+    [SerializeField] private GameObject animalParent, monsterParent;
+    public GameObject boss;
+    public Transform bossDefaultLocation;
     public GameObject[] animals, monsters;
 
     private SpawnPoint[] spawnPoints;
     private GameManager gameHandler;
-    private GameObject animalParent, monsterParent;
     private int spawn_count = 0, zone;
     private ZoneLightSystem zoneLightSystem;
 
@@ -20,12 +22,6 @@ public class Spawner : MonoBehaviour
 
         this.zone = this.GetComponent<Zone>().GetZone();
         this.zoneLightSystem = this.GetComponent<ZoneLightSystem>();
-
-        // Creating gameobjects to parent animals and monsters
-        this.animalParent = new GameObject("animals_parent_zone_" + this.zone);
-        this.animalParent.transform.SetParent(this.transform);
-        this.monsterParent = new GameObject("mosters_parent_zone_" + this.zone);
-        this.monsterParent.transform.SetParent(this.transform);
 
         // Get all Spawn Points
         this.spawnPoints = this.spawnPointParent.GetComponentsInChildren<SpawnPoint>();
@@ -98,15 +94,53 @@ public class Spawner : MonoBehaviour
 
     public void SpawnMonsters(List<MonsterData> monsters)
     {
+        bool spawned_boss = false;
         foreach(MonsterData monster in monsters)
         {
+            if(monster.type.ToLower() == "boss")
+            {
+                spawned_boss = true;
+
+                this.spawnPoints?[0]?.Spawn(
+                    this.boss,
+                    this.monsterParent.transform,
+                    monster.location,
+                    monster.rotation,
+                    monster.health
+                    );
+            }
+            else
+            {
+                this.spawnPoints?[0]?.Spawn(
+                    this.monsters?[0],
+                    this.monsterParent.transform,
+                    monster.location,
+                    monster.rotation,
+                    monster.health
+                    );
+            }
+        }
+
+        if(!spawned_boss && this.bossDefaultLocation != null)
+        {
+            float[] pos = new float[] { 
+                this.bossDefaultLocation.position[0],
+                this.bossDefaultLocation.position[1],
+                this.bossDefaultLocation.position[2]
+            };
+            
+            float[] rot = new float[] { 
+                this.bossDefaultLocation.eulerAngles[0],
+                this.bossDefaultLocation.eulerAngles[1],
+                this.bossDefaultLocation.eulerAngles[2]
+            };
+
             this.spawnPoints?[0]?.Spawn(
-                this.monsters?[0],
-                this.monsterParent.transform,
-                monster.location,
-                monster.rotation,
-                monster.health
-                );
+                    this.boss,
+                    this.monsterParent.transform,
+                    pos,
+                    rot
+                    );
         }
     }
     
