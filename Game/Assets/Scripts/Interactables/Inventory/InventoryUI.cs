@@ -84,10 +84,10 @@ public class InventoryUI : MonoBehaviour
         int count = 0;
 
         // Only for testing
-        inventory.SetStick(10);
-        inventory.SetRock(10);
-        inventory.SetMetal(10);
-        inventory.SetMeat(10);
+        inventory.SetStick(20);
+        inventory.SetRock(20);
+        inventory.SetMetal(20);
+        inventory.SetMeat(20);
         inventory.SetCatana(0);
         inventory.SetKnife(0);
         inventory.SetAxe(0);
