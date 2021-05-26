@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour, ISingleton
         this.player = RuntimeStuff.GetSingleton<PlayerAPI>();
         this.gameState = RuntimeStuff.GetSingleton<GameState>();
         this.lightingManager = RuntimeStuff.GetSingleton<LightingManager>();
-
-        //this.ApplyState(true);
     }
 
     #region DAYTIME
@@ -69,11 +67,8 @@ public class GameManager : MonoBehaviour, ISingleton
     #region GAME_STATE
     public void ApplyState(bool continueGame)
     {
-        if(!continueGame) this.gameState.NewGame();
-        else
+        if (continueGame && this.gameState.HasData())
         {
-            if(!this.gameState.HasData()) return;
-
             // Player stuff
             Vector3 playerPosition, playerRotation;
             float health, sanity;
@@ -112,6 +107,14 @@ public class GameManager : MonoBehaviour, ISingleton
             this.GetZone(3).GetComponent<Spawner>().SpawnAnimals(animals_zone3);
             this.GetZone(4).GetComponent<Spawner>().SpawnAnimals(animals_zone4);
         }
+        else
+        {
+            if (!continueGame) this.gameState.NewGame();
+            this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(new List<MonsterData>());
+        }
+
+        // Player controller must be activated after his position is set
+        this.player.gameObject.GetComponent<CharacterController>().enabled = true;
     }
 
     #region GETTERS

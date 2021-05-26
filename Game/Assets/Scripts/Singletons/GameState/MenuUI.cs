@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuUI : MonoBehaviour
 {
@@ -161,18 +162,17 @@ public class MenuUI : MonoBehaviour
 
     public void newGame()
     {
+        play();
         RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
         RuntimeStuff.GetSingleton<Inventory>().NewGame();
-        play();
         menuIsEnabled = false;
     }
 
     public void loadGame()
     {
-        Debug.Log("load");
         play();
-        menuIsEnabled = false;
         RuntimeStuff.GetSingleton<GameManager>().ApplyState(true);
+        menuIsEnabled = false;
     }
 
     public void saveGame()
@@ -214,11 +214,12 @@ public class MenuUI : MonoBehaviour
 
     public void moveToMainMenu()
     {
-        context = MenuContext.StartMenu;
-        menuContextSettings();
-        menuIsEnabled = false;
-        showMainMenu();
-        backgroundcontroller.showMainMenu();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        // context = MenuContext.StartMenu;
+        // menuContextSettings();
+        // menuIsEnabled = false;
+        // showMainMenu();
+        // backgroundcontroller.showMainMenu();
     }
 
     public void playerHasWon()
