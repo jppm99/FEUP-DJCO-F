@@ -232,6 +232,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 552230312343013998, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4929540644035466662}
+    - target: {fileID: 552230312343013998, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Use
+      objectReference: {fileID: 0}
+    - target: {fileID: 552230312343013998, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 552230312343013998, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 697512581103401736, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -327,6 +343,30 @@ PrefabInstance:
     - target: {fileID: 1154448367690368799, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534110278524488802, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534110278524488802, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4929540644035466662}
+    - target: {fileID: 2534110278524488802, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534110278524488802, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534110278524488802, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534110278524488802, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2732986681877161326, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -827,6 +867,14 @@ PrefabInstance:
     - target: {fileID: 5981471454446250336, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331392418349848793, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -433.04907
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331392418349848793, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18.512573
       objectReference: {fileID: 0}
     - target: {fileID: 6344092970465441202, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
       propertyPath: m_AnchorMax.y

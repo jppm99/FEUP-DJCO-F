@@ -36,7 +36,8 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float lightSourceDistance; //distance from which the player must be from a light source to decrease the amount of sanity that he looses during night time
     float sanityLossAmount = 1; //loss amount
     float sanityRecoverAmount = 1; //recover amount
-    
+    private float _time = 0;
+
 
     void Awake()
     {
@@ -61,6 +62,8 @@ public class PlayerLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this._time += Time.deltaTime;
+
         healthImage.fillAmount = health / maxHealth;
         healthText.text = health.ToString() + " / " + maxHealth.ToString();
 
@@ -136,7 +139,7 @@ public class PlayerLife : MonoBehaviour
     //1 to increase, -1 to decrease
     private void changeElementOverTime(ref float element, float delay, float amount, float maxAmount, ref float nextActionTime, int increase)
     {
-        if (Time.time > nextActionTime && element > 0)
+        if (this._time > nextActionTime && element > 0)
         {
             if(!(increase == 1 && element >= maxAmount))
             {
