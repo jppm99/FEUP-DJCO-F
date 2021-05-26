@@ -10,6 +10,7 @@ public class MonsterMovement : MonoBehaviour
     private int target_updates;
     private bool following;
     private static Vector3 raycast_direction = new Vector3(0, 1, 1);
+    [SerializeField] public string type;
 
     [Header("Movement Variables")]
     [SerializeField] public float speed;
@@ -27,7 +28,7 @@ public class MonsterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
         player_transform = GameObject.Find("Player").transform;
         
         angle = 0;
@@ -116,6 +117,8 @@ public class MonsterMovement : MonoBehaviour
     private MonsterData GenerateData()
     {
         MonsterData data = new MonsterData();
+
+        data.type = this.type;
 
         data.location = new float[] {
             this.transform.position[0],

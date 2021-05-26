@@ -5,7 +5,10 @@ public class Stick : Interactable
     public int spawnDelay;
     [Range(0, 100)]
     public int randomness;
+
     private Inventory inventory;
+
+
     protected override void Start()
     {
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();

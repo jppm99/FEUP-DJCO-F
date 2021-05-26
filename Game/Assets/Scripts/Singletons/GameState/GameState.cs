@@ -223,6 +223,7 @@ public class GameState : ISingleton
 [System.Serializable]
 public class MonsterData
 {
+    public string type;
     public float health;
     public float[] location, rotation;
 }
