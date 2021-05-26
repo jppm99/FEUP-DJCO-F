@@ -413,6 +413,9 @@ public class Inventory : ISingleton
     {
         this.inventoryData.hasMonsterGeneratorItem = true;
         lastItemPicked = "monsterGeneratorItem";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
     #region HIDDEN
@@ -430,6 +433,9 @@ public class Inventory : ISingleton
     {
         this.inventoryData.hasHiddenGeneratorItem = true;
         lastItemPicked = "hiddenGeneratorItem";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
     #region BUILDABLE
@@ -447,6 +453,9 @@ public class Inventory : ISingleton
     {
         this.inventoryData.hasBuildableGeneratorItem = true;
         lastItemPicked = "buildableGeneratorItem";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
     #endregion
@@ -466,6 +475,9 @@ public class Inventory : ISingleton
     {
         this.inventoryData.hasDiary = true;
         lastItemPicked = "diary";
+
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
     #endregion
 

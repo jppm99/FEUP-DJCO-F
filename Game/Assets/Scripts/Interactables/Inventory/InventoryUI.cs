@@ -86,12 +86,12 @@ public class InventoryUI : MonoBehaviour
         inventory.SetRock(10);
         inventory.SetMetal(10);
         inventory.SetMeat(10);
-        inventory.SetCatana(1);
-        inventory.SetKnife(1);
-        inventory.SetAxe(1);
+        inventory.SetCatana(0);
+        inventory.SetKnife(0);
+        inventory.SetAxe(0);
         inventory.AddMonsterGeneratorItem();
         inventory.AddHiddenGeneratorItem();
-        inventory.AddBuildableGeneratorItem();
+        inventory.SpendBuildableGeneratorItem();
         inventory.AddDiary();
 
         if (inventory.GetStickCount() > 0) {
@@ -189,7 +189,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         for (int i = 0; i < buildSlots.Length; i++) {
-            // buildSlots[i].UpdateText(item, inventory.GetCount(item));
+            buildSlots[i].UpdateRequirements(item, inventory.GetCount(item));
         }
     }
 
@@ -206,7 +206,7 @@ public class InventoryUI : MonoBehaviour
             slot.SetCount(inventory.GetCount(item));
 
         for (int i = 0; i < buildSlots.Length; i++) {
-            // buildSlots[i].UpdateText(item, inventory.GetCount(item));
+            buildSlots[i].UpdateRequirements(item, inventory.GetCount(item));
         }
     }
 
@@ -245,26 +245,9 @@ public class InventoryUI : MonoBehaviour
     }
 
     // BuildItem is called when building an item
-    public void BuildItem(BuildSlot slot)
+    public void BuildItem(string item)
     {
-        Debug.Log("built");
-        // bool canBuild = true;
-        // Dictionary<string, int> requirements = slot.GetRequirements();
-
-        // for (int i = 0; i < requirements.Count; i++) {
-        //     if (inventory.GetCount(requirements.ElementAt(i).Key) < requirements.ElementAt(i).Value) {
-        //         canBuild = false;
-        //         break;
-        //     }
-        // }
-
-        // if (canBuild) {
-        //     for (int i = 0; i < requirements.Count; i++) {
-        //         RemoveItem(requirements.ElementAt(i).Key, requirements.ElementAt(i).Value);
-        //     }
-
-        //     inventory.AddItem(slot.GetItem());
-        // }
+        inventory.AddItem(item);
     }
 
     // Close is called when clicking the close button
