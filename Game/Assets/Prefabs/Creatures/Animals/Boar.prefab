@@ -119,9 +119,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1107178
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7007141
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_Size.z
+      value: 2.8758545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_Center.y
+      value: 1.2148895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: m_Center.z
+      value: -0.007873535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: evade_speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: rotation_speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8667511837890209819, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Constraints

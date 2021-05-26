@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1390337462}
-  m_IndirectSpecularColor: {r: 0.17241222, g: 0.12579322, b: 0.06759105, a: 1}
+  m_IndirectSpecularColor: {r: 0.17241228, g: 0.12579322, b: 0.06759102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,8 +349,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356830026}
-  m_LocalRotation: {x: -0.013783112, y: -0.9721213, z: -0.22445302, w: 0.066416025}
-  m_LocalPosition: {x: 881.5187, y: -8.502918, z: 875.64606}
+  m_LocalRotation: {x: -0.22557226, y: -0.71793026, z: -0.2727869, w: 0.5994002}
+  m_LocalPosition: {x: 841.6856, y: -6.372103, z: 806.9503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2144328411291895098, guid: 59ed8a58db6334fcaabb1fdf3d47db67, type: 3}
   m_PrefabInstance: {fileID: 564325131}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &399316062
+--- !u!1001 &413908350
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -399,7 +399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4825930903951115967, guid: b0669ff738b2a7b4b9a14fa2381ad548, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.094
+      value: 10.573999
       objectReference: {fileID: 0}
     - target: {fileID: 4825930903951115967, guid: b0669ff738b2a7b4b9a14fa2381ad548, type: 3}
       propertyPath: m_LocalPosition.z
@@ -670,6 +670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SanityBar
       objectReference: {fileID: 0}
+    - target: {fileID: 2144328411291895098, guid: 59ed8a58db6334fcaabb1fdf3d47db67, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ed8a58db6334fcaabb1fdf3d47db67, type: 3}
 --- !u!1001 &587700372
@@ -821,19 +825,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db1bd3b0a694683ab186318280901b9, type: 3}
---- !u!1 &587700373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3693446155219014534, guid: 0db1bd3b0a694683ab186318280901b9, type: 3}
-  m_PrefabInstance: {fileID: 587700372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &587700374 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3693446155219014535, guid: 0db1bd3b0a694683ab186318280901b9, type: 3}
-  m_PrefabInstance: {fileID: 587700372}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &587700375 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3693446156186322326, guid: 0db1bd3b0a694683ab186318280901b9, type: 3}
   m_PrefabInstance: {fileID: 587700372}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &813071857
@@ -1062,10 +1056,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72bf4fcfc43ce0bfb2156f27da306dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsParent: {fileID: 1245703590}
-  buildsParent: {fileID: 587700375}
   inventoryUI: {fileID: 1245703588}
-  build: {fileID: 587700373}
+  stickIcon: {fileID: 0}
+  rockIcon: {fileID: 0}
+  metalIcon: {fileID: 0}
+  meatIcon: {fileID: 0}
+  catanaIcon: {fileID: 0}
+  knifeIcon: {fileID: 0}
+  axeIcon: {fileID: 0}
+  monsterGeneratorItemIcon: {fileID: 0}
+  hiddenGeneratorItemIcon: {fileID: 0}
+  buildableGeneratorItemIcon: {fileID: 0}
+  diaryIcon: {fileID: 0}
 --- !u!4 &1005713491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8766867261555458122, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
@@ -1475,11 +1477,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3693446155219014535, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
   m_PrefabInstance: {fileID: 1245703587}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1245703590 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3693446156186322326, guid: ff760c7f392d24de1adeff965ccac2c9, type: 3}
-  m_PrefabInstance: {fileID: 1245703587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1266567863 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 905672418844329867, guid: 59ed8a58db6334fcaabb1fdf3d47db67, type: 3}
@@ -1584,6 +1581,10 @@ PrefabInstance:
     - target: {fileID: 9138824264269618520, guid: c62e0f1de5b0d47549bb25d3309c6c4f, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138824264269618520, guid: c62e0f1de5b0d47549bb25d3309c6c4f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c62e0f1de5b0d47549bb25d3309c6c4f, type: 3}
