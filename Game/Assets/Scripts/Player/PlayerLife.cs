@@ -38,8 +38,7 @@ public class PlayerLife : MonoBehaviour
     float sanityRecoverAmount = 1; //recover amount
     
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         lightSources = GameObject.FindGameObjectsWithTag("LightSource");
 

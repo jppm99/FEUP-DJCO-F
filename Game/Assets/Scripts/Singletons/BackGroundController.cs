@@ -21,7 +21,7 @@ public class BackGroundController : MonoBehaviour
         GameWonMenu
     }
 
-    void Start()
+    void Awake()
     {
         backgrounds = new GameObject[5];
         backgrounds[0] = mainMenuBackGround;
