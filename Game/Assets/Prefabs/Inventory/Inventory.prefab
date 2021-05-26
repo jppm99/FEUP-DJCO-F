@@ -1529,6 +1529,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2321275740890366764}
     m_Modifications:
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: item
+      value: catana
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: buildable
+      value: 
+      objectReference: {fileID: 8942812996199496683}
     - target: {fileID: 6992153626153742124, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
       propertyPath: m_Name
       value: BuildSlot (3)
@@ -1617,6 +1625,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7495713232189916186, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b8c60be382e3b54e86f9156155ebb5d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
 --- !u!224 &8542841966019480511 stripped
@@ -2267,6 +2279,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2880138416289825369}
     m_Modifications:
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: item
+      value: axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: buildable
+      value: 
+      objectReference: {fileID: 4651864663744425554}
     - target: {fileID: 6992153626153742124, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
       propertyPath: m_Name
       value: BuildSlot (3)
@@ -2355,6 +2375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7495713232189916186, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f3dd68d8f99f49c09bd2b290b6f7a45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
 --- !u!224 &4909625885691084732 stripped
@@ -2483,6 +2507,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142778533416712426}
     m_Modifications:
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: item
+      value: buildableGeneratorItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: buildable
+      value: 
+      objectReference: {fileID: 7139105840906295633}
     - target: {fileID: 6992153626153742124, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
       propertyPath: m_Name
       value: BuildSlot (3)
@@ -2571,6 +2603,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7495713232189916186, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 201d903713d0b064f825533f295efbc5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
 --- !u!224 &5199181237864079161 stripped
@@ -2919,6 +2955,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 385653727571788639}
     m_Modifications:
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: item
+      value: knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175902899252717155, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: buildable
+      value: 
+      objectReference: {fileID: 2542847109988861898}
     - target: {fileID: 6992153626153742124, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
       propertyPath: m_Name
       value: BuildSlot (3)
@@ -3007,6 +3051,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7495713232189916186, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13c1385f7bd5ad7e3a4caa3e774368e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ec453c6e9168e8b288b2062326a79db, type: 3}
 --- !u!224 &5950781333684216710 stripped

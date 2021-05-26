@@ -34,9 +34,6 @@ public class InventoryUI : MonoBehaviour
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
         slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
         buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
-
-        Debug.Log(slots.Length);
-        Debug.Log(buildSlots.Length);
         
         inventory.onItemChangedCallback += UpdateUI;
 
@@ -156,23 +153,11 @@ public class InventoryUI : MonoBehaviour
     // LoadBuilds is called to load all items available to build
     void LoadBuilds()
     {
-        Dictionary<string, int> axeRequirements = new Dictionary<string, int>();
-        axeRequirements.Add("stick", 4);
-        axeRequirements.Add("rock", 2);
-
-        buildSlots[0].SetItem("axe", axeRequirements);
-
-        Dictionary<string, int> swordRequirements = new Dictionary<string, int>();
-        swordRequirements.Add("stick", 3);
-        swordRequirements.Add("rock", 1);
-        swordRequirements.Add("metal", 5);
-
-        buildSlots[1].SetItem("sword", swordRequirements);
-
         for (int i = 0; i < buildSlots.Length; i++) {
-            buildSlots[i].UpdateText("stick", inventory.GetStickCount());
-            buildSlots[i].UpdateText("rock", inventory.GetRockCount());
-            buildSlots[i].UpdateText("metal", inventory.GetMetalCount());
+            buildSlots[i].SetRequirements();
+            buildSlots[i].UpdateRequirements("stick", inventory.GetStickCount());
+            buildSlots[i].UpdateRequirements("rock", inventory.GetRockCount());
+            buildSlots[i].UpdateRequirements("metal", inventory.GetMetalCount());
         }
     }
 
@@ -204,7 +189,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         for (int i = 0; i < buildSlots.Length; i++) {
-            buildSlots[i].UpdateText(item, inventory.GetCount(item));
+            // buildSlots[i].UpdateText(item, inventory.GetCount(item));
         }
     }
 
@@ -221,7 +206,7 @@ public class InventoryUI : MonoBehaviour
             slot.SetCount(inventory.GetCount(item));
 
         for (int i = 0; i < buildSlots.Length; i++) {
-            buildSlots[i].UpdateText(item, inventory.GetCount(item));
+            // buildSlots[i].UpdateText(item, inventory.GetCount(item));
         }
     }
 
@@ -262,23 +247,24 @@ public class InventoryUI : MonoBehaviour
     // BuildItem is called when building an item
     public void BuildItem(BuildSlot slot)
     {
-        bool canBuild = true;
-        Dictionary<string, int> requirements = slot.GetRequirements();
+        Debug.Log("built");
+        // bool canBuild = true;
+        // Dictionary<string, int> requirements = slot.GetRequirements();
 
-        for (int i = 0; i < requirements.Count; i++) {
-            if (inventory.GetCount(requirements.ElementAt(i).Key) < requirements.ElementAt(i).Value) {
-                canBuild = false;
-                break;
-            }
-        }
+        // for (int i = 0; i < requirements.Count; i++) {
+        //     if (inventory.GetCount(requirements.ElementAt(i).Key) < requirements.ElementAt(i).Value) {
+        //         canBuild = false;
+        //         break;
+        //     }
+        // }
 
-        if (canBuild) {
-            for (int i = 0; i < requirements.Count; i++) {
-                RemoveItem(requirements.ElementAt(i).Key, requirements.ElementAt(i).Value);
-            }
+        // if (canBuild) {
+        //     for (int i = 0; i < requirements.Count; i++) {
+        //         RemoveItem(requirements.ElementAt(i).Key, requirements.ElementAt(i).Value);
+        //     }
 
-            inventory.AddItem(slot.GetItem());
-        }
+        //     inventory.AddItem(slot.GetItem());
+        // }
     }
 
     // Close is called when clicking the close button
