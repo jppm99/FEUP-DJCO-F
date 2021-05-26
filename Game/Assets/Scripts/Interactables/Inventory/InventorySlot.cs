@@ -63,6 +63,11 @@ public class InventorySlot : MonoBehaviour
             Debug.Log("opening diary");
     }
 
+    public void Select()
+    {
+        canvas.GetComponent<InventoryUI>().ChangeSelected(this);
+    }
+
     public void ResetSlot()
     {
         item = "";

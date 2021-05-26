@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     private InventorySlot[] slots;
     private BuildSlot[] buildSlots;
     private Dictionary<string, Sprite> sprites;
+    private InventorySlot selectedItem;
 
     public GameObject inventoryUI;
 
@@ -89,10 +90,10 @@ public class InventoryUI : MonoBehaviour
         inventory.SetCatana(0);
         inventory.SetKnife(0);
         inventory.SetAxe(0);
-        inventory.AddMonsterGeneratorItem();
-        inventory.AddHiddenGeneratorItem();
+        // inventory.AddMonsterGeneratorItem();
+        // inventory.AddHiddenGeneratorItem();
         inventory.SpendBuildableGeneratorItem();
-        inventory.AddDiary();
+        // inventory.AddDiary();
 
         if (inventory.GetStickCount() > 0) {
             slots[currentSlot].AddNewItem("stick", stickIcon, inventory.GetStickCount());
@@ -248,6 +249,11 @@ public class InventoryUI : MonoBehaviour
     public void BuildItem(string item)
     {
         inventory.AddItem(item);
+    }
+
+    public void ChangeSelected(InventorySlot slot)
+    {
+        this.selectedItem = slot;
     }
 
     // Close is called when clicking the close button
