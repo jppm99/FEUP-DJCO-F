@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172902810777164646}
   - component: {fileID: 3453636379734926581}
+  - component: {fileID: 5253236338796984280}
   m_Layer: 0
   m_Name: Light1
   m_TagString: LightSource
@@ -48,6 +49,29 @@ MonoBehaviour:
   flickeringDelay: 2
   flickeringDuration: 2
   flickeringDurationRandomness: 750
+--- !u!114 &5253236338796984280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238501708506591926}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: LightSource
+  Event: event:/Light Bulb
+  PlayEvent: 3
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1148006010124837215
 GameObject:
   m_ObjectHideFlags: 0
