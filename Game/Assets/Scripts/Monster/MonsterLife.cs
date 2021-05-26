@@ -1,18 +1,17 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterLife : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private int secondsUntilBodyDisapears;
     [SerializeField] private bool dropsGeneratorItem;
     private MonsterItem interactableScript;
     Animator monsterAnimator;
 
-    private void Start()
+    private void Awake()
     {
         monsterAnimator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
@@ -21,7 +20,7 @@ public class MonsterLife : MonoBehaviour
 
     public void damage(int damage)
     {
-        // Hitpoints cannnot go below 0
+        // Hitpoints cannot go below 0
         currentHealth = Math.Max(currentHealth - damage, 0);
 
         if(currentHealth <= 0)
@@ -30,6 +29,8 @@ public class MonsterLife : MonoBehaviour
             GetComponent<MonsterAttack>().enabled = false;
             GetComponent<MonsterMovement>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+            //if (transform.name == "tallMonster")
+            //    transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
     }
 
@@ -40,11 +41,34 @@ public class MonsterLife : MonoBehaviour
 
     private IEnumerator DieCollectable()
     {
-        if(this.dropsGeneratorItem) this.interactableScript.EnableInteraction();
+        //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+        if (this.dropsGeneratorItem)
+        {
+            this.interactableScript.EnableInteraction();
+        }
+        else
+        {
+            yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
+            Destroy(this.gameObject);
+        }
+    }
 
-        yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
+    public float GetHealth()
+    {
+        return this.currentHealth;
+    }
+    
+    public void SetHealth(float h)
+    {
+        this.currentHealth = h;
+        this.damage(0);
+    }
 
-        
-        Destroy(this.gameObject);
+    void goToGround()
+    {
+
     }
 }

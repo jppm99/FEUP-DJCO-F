@@ -6,6 +6,8 @@ using Cinemachine;
 public class CinemamachineHelper : MonoBehaviour
 {
     [SerializeField] bool isPlayerCam, isFirstPerson;
+    bool isStopped;
+    private float maxSpeed;
     private CinemachineVirtualCamera virtualCamera;
     private int zone;
     CameraManager cameraManager;
@@ -21,6 +23,8 @@ public class CinemamachineHelper : MonoBehaviour
             this.zone = this.GetComponentInParent<Zone>().GetZone();
             this.cameraManager.RegisterCutsceneCam(this.gameObject, this.zone);
         }
+
+        isStopped = Time.timeScale == 0;
     }
 
     public int GetPriority()
@@ -36,5 +40,25 @@ public class CinemamachineHelper : MonoBehaviour
     public void EndCutscene()
     {
         this.cameraManager.CutsceneEnded(this.zone);
+    }
+
+    private void LateUpdate() {
+        if(!this.isPlayerCam) return;
+
+        // Paused just now
+        if(!isStopped && Time.timeScale == 0)
+        {
+            isStopped = true;
+            CinemachinePOV pov = this.virtualCamera.GetCinemachineComponent<CinemachinePOV>();
+            this.maxSpeed = pov.m_VerticalAxis.m_MaxSpeed;
+            pov.m_VerticalAxis.m_MaxSpeed = 0;
+        }
+        // Just resumed
+        else if(isStopped == Time.timeScale > 0)
+        {
+            isStopped = false;
+            CinemachinePOV pov = this.virtualCamera.GetCinemachineComponent<CinemachinePOV>();
+            pov.m_VerticalAxis.m_MaxSpeed = this.maxSpeed;
+        }
     }
 }

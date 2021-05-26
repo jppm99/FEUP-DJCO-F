@@ -73,7 +73,7 @@ public class AnimalMovement : MonoBehaviour
             if (Quaternion.Angle(rb.rotation, target) > 5)
                 rb.rotation = Quaternion.Slerp(rb.rotation, target, Time.deltaTime * rotation_speed);
             else {
-                // Change direction if aproaches collision
+                // Change direction if approaches collision
                 if (Physics.Raycast(transform.position, transform.TransformDirection(raycast_direction), raycast_distance, ground_mask))
                     SetAngle(angle + 30);
                 else {
@@ -88,12 +88,6 @@ public class AnimalMovement : MonoBehaviour
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     // Update angle
@@ -111,5 +105,34 @@ public class AnimalMovement : MonoBehaviour
         // Reset updates and set new target updates
         updates = 0;
         target_updates = (int) Random.Range(0.0f, movement_range / speed);
+    }
+
+    public void AddToData(int zone)
+    {
+        RuntimeStuff.GetSingleton<GameState>().AddAnimalToData(
+            this.GenerateData(),
+            zone
+            );
+    }
+
+    private AnimalData GenerateData()
+    {
+        AnimalData data = new AnimalData();
+
+        data.location = new float[] {
+            this.transform.position[0],
+            this.transform.position[1],
+            this.transform.position[2]
+        };
+        
+        data.rotation = new float[] {
+            this.transform.eulerAngles[0],
+            this.transform.eulerAngles[1],
+            this.transform.eulerAngles[2]
+        };
+
+        data.health = this.GetComponent<AnimalLife>().GetHealth();
+
+        return data;
     }
 }

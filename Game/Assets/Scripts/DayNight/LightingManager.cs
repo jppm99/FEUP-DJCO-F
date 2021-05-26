@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class LightingManager : MonoBehaviour
+public class LightingManager : MonoBehaviour, ISingleton
 {
     public Transform center;
     public int secondsPerDay, secondsPerNight;
@@ -11,11 +11,15 @@ public class LightingManager : MonoBehaviour
     private GameManager gameManager;
     private PlayerLife playerLife;
 
+    private void Awake() {
+        this.register();
+    }
+
     private void Start()
     {
         playerLife = GameObject.Find("Player").gameObject.GetComponent<PlayerLife>();
 
-        this.maxHeight = Vector3.Distance(this.transform.position, this.center.transform.position);
+        this.maxHeight = Vector3.Distance(this.DirectionalLight.transform.position, this.center.transform.position);
         this.gameManager = RuntimeStuff.GetSingleton<GameManager>();
 
         this.daytimeStep = 360f / this.secondsPerDay;
@@ -26,7 +30,7 @@ public class LightingManager : MonoBehaviour
     {
         if (Preset == null) return;
 
-        float heightPercentage = this.transform.position.y / this.maxHeight;
+        float heightPercentage = this.DirectionalLight.transform.position.y / this.maxHeight;
 
         if(heightPercentage < 0 && this.isDaytime)
         {
@@ -54,6 +58,18 @@ public class LightingManager : MonoBehaviour
         }
     }
 
+    public void SetSunPosition(Vector3 position, Vector3 rotation)
+    {
+        this.DirectionalLight.transform.position = position;
+        this.DirectionalLight.transform.eulerAngles = rotation;
+
+        this.FixedUpdate();
+    }
+
+    public (Vector3, Vector3) GetSunPosition()
+    {
+        return (this.DirectionalLight.transform.position, this.DirectionalLight.transform.eulerAngles);
+    }
 
     //Try to find a directional light to use if we haven't set one
     private void OnValidate()
@@ -79,5 +95,14 @@ public class LightingManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    /**
+     * DON'T USE
+     * This shouldn't be public but it must be so that the interface enforces it's existence
+     */
+    public void register()
+    {
+        RuntimeStuff.AddSingleton<LightingManager>(this);
     }
 }

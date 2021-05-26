@@ -177,6 +177,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
@@ -194,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1043848609376554430, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.52
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 4178801616560886530, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_fontSize
