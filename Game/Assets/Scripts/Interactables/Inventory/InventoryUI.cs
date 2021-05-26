@@ -59,8 +59,9 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         bool oldInventoryState = this.inventoryEnabled;
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || (Input.GetKeyDown(KeyCode.Escape) && inventoryEnabled)) {
             inventoryEnabled = !inventoryEnabled;
+        }
 
         if (oldInventoryState != inventoryEnabled && inventoryEnabled) {
             Time.timeScale = 0;
@@ -254,6 +255,11 @@ public class InventoryUI : MonoBehaviour
     public void ChangeSelected(InventorySlot slot)
     {
         this.selectedItem = slot;
+    }
+
+    public void Use()
+    {
+        this.selectedItem?.UseItem();
     }
 
     // Close is called when clicking the close button
