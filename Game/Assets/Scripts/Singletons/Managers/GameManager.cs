@@ -69,10 +69,20 @@ public class GameManager : MonoBehaviour, ISingleton
     #region GAME_STATE
     public void ApplyState(bool continueGame)
     {
-        if(!continueGame) this.gameState.NewGame();
+        if(!continueGame)
+        {
+            this.gameState.NewGame();
+            // Quick hack to spawn the boss (that is on zone 4)
+            this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(new List<MonsterData>());
+        }
         else
         {
-            if(!this.gameState.HasData()) return;
+            if (!this.gameState.HasData())
+            {
+                // Quick hack to spawn the boss (that is on zone 4)
+                this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(new List<MonsterData>());
+                return;
+            }
 
             // Player stuff
             Vector3 playerPosition, playerRotation;
