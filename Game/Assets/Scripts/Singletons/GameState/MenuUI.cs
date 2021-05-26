@@ -169,6 +169,7 @@ public class MenuUI : MonoBehaviour
 
     public void loadGame()
     {
+        Debug.Log("load");
         play();
         menuIsEnabled = false;
         RuntimeStuff.GetSingleton<GameManager>().ApplyState(true);
