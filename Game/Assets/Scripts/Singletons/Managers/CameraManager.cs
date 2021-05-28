@@ -56,6 +56,11 @@ public class CameraManager : ISingleton
         }
     }
 
+    public void PlayFinalCutscene()
+    {
+        //TODO
+    }
+
     public void PlayCutscene(int zone)
     {
         Time.timeScale = 0;
