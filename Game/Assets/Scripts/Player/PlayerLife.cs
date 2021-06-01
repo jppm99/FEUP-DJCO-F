@@ -106,14 +106,18 @@ public class PlayerLife : MonoBehaviour
 
     private void LowSanityEffect()
     {
-        // If sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
-        float amount = this.sanity / this.maxSanity < this.sanityEffectStartsAt ? (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1 : 0f;
+        // If game is running normally and sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
+        float amount = 0;
+        if(this.sanity / this.maxSanity < this.sanityEffectStartsAt && Time.timeScale > 0)
+        {
+            amount = (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1;
+        }
 
         float chromaticAberrationMax = 1f;
         float lensDistortionMax = -70f;
         float vignetteMax = 0.5f;
 
-        this.chromaticAberration.intensity.value = (amount * chromaticAberrationMax);
+        this.chromaticAberration.intensity.value = amount * chromaticAberrationMax;
         this.lensDistortion.intensity.value = amount * lensDistortionMax;
         this.vignette.intensity.value = amount * vignetteMax;
     }
