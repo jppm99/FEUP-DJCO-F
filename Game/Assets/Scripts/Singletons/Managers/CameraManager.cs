@@ -6,8 +6,9 @@ using Cinemachine;
 
 public class CameraManager : ISingleton
 {
-    CinemachineVirtualCamera firstPersonCam, thirdPersonCam;
-    GameObject[] zonesCutscenes = new GameObject[4];
+    private CinemachineVirtualCamera firstPersonCam, thirdPersonCam;
+    private GameObject[] zonesCutscenes = new GameObject[4];
+    private GameObject finalCutscene;
     bool isFirstPerson;
 
     public CameraManager()
@@ -28,6 +29,11 @@ public class CameraManager : ISingleton
     public void RegisterCutsceneCam(GameObject virtualCamera, int zone)
     {
         this.zonesCutscenes[zone - 1] = virtualCamera;
+    }
+
+    public void RegisterFinalCutsceneCam(GameObject finalCutscene)
+    {
+        this.finalCutscene = finalCutscene;
     }
 
     private void Init()
@@ -58,9 +64,18 @@ public class CameraManager : ISingleton
 
     public void PlayFinalCutscene()
     {
-        //TODO
+        Time.timeScale = 0;
+        this.finalCutscene.GetComponent<CinemachineVirtualCamera>().Priority = 200;
+        this.finalCutscene.GetComponent<PlayableDirector>().Play();;
     }
 
+    public void FinalCutsceneEnded()
+    {
+        Time.timeScale = 1;
+        
+        this.finalCutscene.GetComponent<CinemachineVirtualCamera>().Priority = 0;
+    }
+    
     public void PlayCutscene(int zone)
     {
         Time.timeScale = 0;
@@ -68,7 +83,6 @@ public class CameraManager : ISingleton
         this.zonesCutscenes[zone - 1].GetComponent<CinemachineVirtualCamera>().Priority = 100;
         this.zonesCutscenes[zone - 1].GetComponent<PlayableDirector>().Play();
     }
-
     public void CutsceneEnded(int zone)
     {
         Time.timeScale = 1;

@@ -3,16 +3,15 @@ using UnityEngine;
 public class EmergencyTelephone : Interactable
 {
     [SerializeField] private float distanceToPlayer;
+    public RadioTowerLight towerLight;
     private GameManager gameManager;
     private bool hasPower = false;
 
-    
     protected override void Action()
     {
         if(this.hasPower)
         {
             RuntimeStuff.GetSingleton<CameraManager>().PlayFinalCutscene();
-            this.UpdateFloatingText("");
         }
     }
 
@@ -26,7 +25,7 @@ public class EmergencyTelephone : Interactable
         base.Start();
     }
 
-    protected override void FixedUpdate() 
+    protected override void FixedUpdate()
     {
         if(
             !this.hasPower &&
@@ -36,6 +35,7 @@ public class EmergencyTelephone : Interactable
             this.gameManager.GetLightsState(4)
         ) {
             this.hasPower = true;
+            towerLight.TurnOn();
             this.UpdateFloatingText("Press F to call Home");
         }
 

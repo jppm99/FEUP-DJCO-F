@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class CinemamachineHelper : MonoBehaviour
 {
-    [SerializeField] bool isPlayerCam, isFirstPerson;
+    [SerializeField] bool isPlayerCam, isFirstPerson, isFinalCutscene;
     bool isStopped, hasBeenCheckedForStopping;
     private float maxSpeed;
     private CinemachineVirtualCamera virtualCamera;
@@ -24,9 +24,16 @@ public class CinemamachineHelper : MonoBehaviour
             this.cameraManager.RegisterPlayerCam(this.gameObject, this.isFirstPerson);
         }
         else
-        {   
-            this.zone = this.GetComponentInParent<Zone>().GetZone();
-            this.cameraManager.RegisterCutsceneCam(this.gameObject, this.zone);
+        {
+            if(this.isFinalCutscene)
+            {
+                this.cameraManager.RegisterFinalCutsceneCam(this.gameObject);
+            }
+            else
+            {
+                this.zone = this.GetComponentInParent<Zone>().GetZone();
+                this.cameraManager.RegisterCutsceneCam(this.gameObject, this.zone);
+            }
         }
     }
 
@@ -43,6 +50,16 @@ public class CinemamachineHelper : MonoBehaviour
     public void EndCutscene()
     {
         this.cameraManager.CutsceneEnded(this.zone);
+    }
+    
+    public void EndFinalCutscene()
+    {
+        this.cameraManager.FinalCutsceneEnded();
+    }
+
+    public void ShowWinningScreen()
+    {
+        GameObject.Find("Canvas").GetComponent<MenuUI>().playerHasWon();
     }
 
     private void Update() {
