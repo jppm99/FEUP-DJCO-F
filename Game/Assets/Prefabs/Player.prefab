@@ -1271,6 +1271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerCam: 1
   isFirstPerson: 1
+  isFinalCutscene: 0
+  finalCutscenePart: 0
 --- !u!1 &1879063743078616914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,7 +2628,7 @@ GameObject:
   - component: {fileID: 2626875064534178460}
   - component: {fileID: 2793871135991616884}
   - component: {fileID: 2790050872371293716}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: DustMotesEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7583,9 +7585,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2275720376293659005, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8235043142753483253 stripped
+--- !u!1 &1393180524658630426 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7519611285760719361, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 668314823575624942, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1393180524756184022 stripped
@@ -7598,8 +7600,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3293372135992935318, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1393180524658630426 stripped
+--- !u!1 &8235043142753483253 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 668314823575624942, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7519611285760719361, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}

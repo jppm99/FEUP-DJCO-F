@@ -349,8 +349,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356830026}
-  m_LocalRotation: {x: -0.029697401, y: -0.96963936, z: -0.18134427, w: 0.16134381}
-  m_LocalPosition: {x: 566.149, y: -61.5376, z: 552.80316}
+  m_LocalRotation: {x: -0.11028493, y: 0.8889957, z: 0.31403238, w: 0.31449565}
+  m_LocalPosition: {x: 837.82074, y: -6.66194, z: 810.1308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -372,6 +372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392221437009643086, guid: b0669ff738b2a7b4b9a14fa2381ad548, type: 3}
+      propertyPath: m_IgnoreTag
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4825930903951115953, guid: b0669ff738b2a7b4b9a14fa2381ad548, type: 3}
       propertyPath: m_Name
       value: Third Person Camera
