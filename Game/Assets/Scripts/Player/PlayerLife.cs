@@ -19,6 +19,8 @@ public class PlayerLife : MonoBehaviour
     Vignette vignette;
     PlayerMovement playerMovement;
     GameObject[] lightSources;
+    [SerializeField]
+    GameObject cabinLight;
 
     [Header("Health Variables")]
     [SerializeField] float maxHealth;
@@ -81,7 +83,7 @@ public class PlayerLife : MonoBehaviour
         }
 
         //If it's daytime, sanity will increase from time to time
-        else if (isDay)
+        else if (isDay || (Mathf.Abs(cabinLight.transform.position.x - transform.position.x) <= lightSourceDistance && Mathf.Abs(cabinLight.transform.position.z - transform.position.z) <= lightSourceDistance))
         {
             changeElementOverTime(ref sanity, sanityRecoverDelay, sanityRecoverAmount, maxSanity, ref nextActionTimeSanity, 1);
             this.playerMovement.setNotBeingAbleToRun(false);

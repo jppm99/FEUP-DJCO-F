@@ -964,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   sanity: 0
+  cabinLight: {fileID: 0}
   maxHealth: 100
   healthLossDelay: 10
   healthLossAmount: 1
@@ -973,7 +974,7 @@ MonoBehaviour:
   sanityLossDelay: 1
   sanityLossDelayWithLight: 1.5
   sanityRecoverDelay: 1
-  lightSourceDistance: 40
+  lightSourceDistance: 10
 --- !u!114 &4747152697434792214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,7 +1216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879063743073803578}
   m_LocalRotation: {x: 0.000000029802322, y: -0.00000014901161, z: -0.000000009313226, w: 1}
-  m_LocalPosition: {x: 0.07397461, y: 2.510006, z: 1.1430054}
+  m_LocalPosition: {x: 0.07375607, y: 2.510006, z: 1.1432029}
   m_LocalScale: {x: 0.7999999, y: 1.7000009, z: 0.7999998}
   m_Children:
   - {fileID: 1183229301858667075}
@@ -1271,8 +1272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerCam: 1
   isFirstPerson: 1
-  isFinalCutscene: 0
-  finalCutscenePart: 0
 --- !u!1 &1879063743078616914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,7 +2627,7 @@ GameObject:
   - component: {fileID: 2626875064534178460}
   - component: {fileID: 2793871135991616884}
   - component: {fileID: 2790050872371293716}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: DustMotesEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7580,9 +7579,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
---- !u!4 &398354279225971337 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2275720376293659005, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
+--- !u!1 &1393180524756184022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 668314823671080994, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1393180524658630426 stripped
@@ -7590,14 +7589,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 668314823575624942, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1393180524756184022 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 668314823671080994, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
-  m_PrefabInstance: {fileID: 1879063743021663220}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4010365338118520930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3293372135992935318, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
+  m_PrefabInstance: {fileID: 1879063743021663220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &398354279225971337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2275720376293659005, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8235043142753483253 stripped
