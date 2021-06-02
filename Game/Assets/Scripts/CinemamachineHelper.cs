@@ -10,7 +10,8 @@ public class CinemamachineHelper : MonoBehaviour
     private float maxSpeed;
     private CinemachineVirtualCamera virtualCamera;
     private int zone;
-    CameraManager cameraManager;
+    private CameraManager cameraManager;
+    [Range(1, 2)] [SerializeField] private int finalCutscenePart;
     private void Awake()
     {
         this.cameraManager = RuntimeStuff.GetSingleton<CameraManager>();
@@ -27,7 +28,7 @@ public class CinemamachineHelper : MonoBehaviour
         {
             if(this.isFinalCutscene)
             {
-                this.cameraManager.RegisterFinalCutsceneCam(this.gameObject);
+                this.cameraManager.RegisterFinalCutsceneCam(this.gameObject, finalCutscenePart);
             }
             else
             {
@@ -54,7 +55,18 @@ public class CinemamachineHelper : MonoBehaviour
     
     public void EndFinalCutscene()
     {
-        this.cameraManager.FinalCutsceneEnded();
+        if(finalCutscenePart == 1)
+        {
+            this.cameraManager.SwitchFinalCutsceneCamera(finalCutscenePart);
+        }
+        else if(finalCutscenePart == 2)
+        {
+            this.cameraManager.FinalCutsceneEnded(finalCutscenePart);
+        }
+        else
+        {
+            Debug.LogError("Invalid camera cutscene part");
+        }
     }
 
     public void ShowWinningScreen()

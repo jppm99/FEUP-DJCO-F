@@ -8,7 +8,7 @@ public class CameraManager : ISingleton
 {
     private CinemachineVirtualCamera firstPersonCam, thirdPersonCam;
     private GameObject[] zonesCutscenes = new GameObject[4];
-    private GameObject finalCutscene;
+    private GameObject[] finalCutscene = new GameObject[2];
     bool isFirstPerson;
 
     public CameraManager()
@@ -31,9 +31,9 @@ public class CameraManager : ISingleton
         this.zonesCutscenes[zone - 1] = virtualCamera;
     }
 
-    public void RegisterFinalCutsceneCam(GameObject finalCutscene)
+    public void RegisterFinalCutsceneCam(GameObject finalCutscene, int part)
     {
-        this.finalCutscene = finalCutscene;
+        this.finalCutscene[part-1] = finalCutscene;
     }
 
     private void Init()
@@ -65,15 +65,22 @@ public class CameraManager : ISingleton
     public void PlayFinalCutscene()
     {
         Time.timeScale = 0;
-        this.finalCutscene.GetComponent<CinemachineVirtualCamera>().Priority = 200;
-        this.finalCutscene.GetComponent<PlayableDirector>().Play();;
+        this.finalCutscene[0].GetComponent<CinemachineVirtualCamera>().Priority = 200;
+        this.finalCutscene[0].GetComponent<PlayableDirector>().Play();
     }
 
-    public void FinalCutsceneEnded()
+    public void SwitchFinalCutsceneCamera(int part)
+    {
+        this.finalCutscene[part].GetComponent<CinemachineVirtualCamera>().Priority = 200 - part;
+        this.finalCutscene[part-1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
+        this.finalCutscene[part].GetComponent<PlayableDirector>().Play();
+    }
+
+    public void FinalCutsceneEnded(int part)
     {
         Time.timeScale = 1;
         
-        this.finalCutscene.GetComponent<CinemachineVirtualCamera>().Priority = 0;
+        this.finalCutscene[part-1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
     }
     
     public void PlayCutscene(int zone)
