@@ -255,12 +255,18 @@ public class InventoryUI : MonoBehaviour
 
     public void ChangeSelected(InventorySlot slot)
     {
+        if (selectedItem != null)
+            this.selectedItem.DeSelect();
+        
         this.selectedItem = slot;
     }
 
     public void Use()
     {
-        this.selectedItem?.UseItem();
+        if (this.selectedItem != null) {
+            this.selectedItem.UseItem();
+            this.selectedItem = null;
+        }
     }
 
     public void EquipItem(string item, Sprite sprite)

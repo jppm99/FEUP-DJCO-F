@@ -5,6 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     private string item = "";
     private Sprite sprite;
+    private bool selected;
     private GameObject canvas;
     private GameObject player;
 
@@ -17,6 +18,8 @@ public class InventorySlot : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         player = GameObject.Find("Player");
+
+        selected = false;
     }
 
     public void AddNewItem(string item, Sprite sprite, int count = 1) 
@@ -62,11 +65,26 @@ public class InventorySlot : MonoBehaviour
             ResetSlot();
             canvas.GetComponent<InventoryUI>().UpdateSlotsOrder();
         }
+
+        DeSelect();
     }
 
     public void Select()
     {
-        canvas.GetComponent<InventoryUI>().ChangeSelected(this);
+        if (!selected) {
+            canvas.GetComponent<InventoryUI>().ChangeSelected(this);
+            selected = true;
+        }
+        else {
+            canvas.GetComponent<InventoryUI>().ChangeSelected(null);
+            DeSelect();
+        }
+    }
+
+    public void DeSelect()
+    {
+        selected = false;
+        // TODO
     }
 
     public void ResetSlot()
