@@ -9,6 +9,12 @@ public class CameraManager : ISingleton
     private CinemachineVirtualCamera firstPersonCam, thirdPersonCam;
     private GameObject[] zonesCutscenes = new GameObject[4];
     private GameObject[] finalCutscene = new GameObject[2];
+    private Vector3 finalCutscenePlayerPostion = new Vector3(
+        555.35f,
+        44.87f,
+        528.6f
+    );
+    private Vector3 finalCutscenePlayerRotation = new Vector3(0, -175.62f, 0);
     bool isFirstPerson;
 
     public CameraManager()
@@ -74,13 +80,16 @@ public class CameraManager : ISingleton
         this.finalCutscene[part].GetComponent<CinemachineVirtualCamera>().Priority = 200 - part;
         this.finalCutscene[part-1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
         this.finalCutscene[part].GetComponent<PlayableDirector>().Play();
+
+        RuntimeStuff.GetSingleton<PlayerAPI>().gameObject.GetComponentInChildren<PlayerMovement>()
+            .MovePlayer(finalCutscenePlayerPostion, finalCutscenePlayerRotation);
     }
 
     public void FinalCutsceneEnded(int part)
     {
         Time.timeScale = 1;
         
-        this.finalCutscene[part-1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
+        // this.finalCutscene[part-1].GetComponent<CinemachineVirtualCamera>().Priority = 0;
     }
     
     public void PlayCutscene(int zone)
