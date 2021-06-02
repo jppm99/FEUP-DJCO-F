@@ -417,6 +417,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetMonsterGeneratorItem(bool hasItem)
+    {
+        this.inventoryData.hasMonsterGeneratorItem = hasItem;
+    }
     #endregion
     #region HIDDEN
     public bool GetHiddenGeneratorItem()
@@ -437,6 +442,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetHiddenGeneratorItem(bool hasItem)
+    {
+        this.inventoryData.hasHiddenGeneratorItem = hasItem;
+    }
     #endregion
     #region BUILDABLE
     public bool GetBuildableGeneratorItem()
@@ -456,6 +466,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetBuildableGeneratorItem(bool hasItem)
+    {
+        this.inventoryData.hasBuildableGeneratorItem = hasItem;
     }
     #endregion
     #endregion
@@ -478,6 +493,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetDiary(bool hasItem)
+    {
+        this.inventoryData.hasDiary = hasItem;
     }
     #endregion
 
