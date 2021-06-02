@@ -55,12 +55,13 @@ public class InventorySlot : MonoBehaviour
             canvas.GetComponent<InventoryUI>().RemoveItem(this);
             player.GetComponent<PlayerLife>().IncreaseHealth(10);
         }
-        else if (item == "buildableGeneratorItem")
-            player.GetComponent<PlayerHand>().UpdateHandItem("hammer");
-        else if (item == "catana" || item == "knife" || item == "axe")
-            player.GetComponent<PlayerHand>().UpdateHandItem(item);
         else if (item == "diary")
             player.GetComponent<UseDiary>().openDiary();
+        else if (item == "buildableGeneratorItem" || item == "catana" || item == "knife" || item == "axe") {
+            canvas.GetComponent<InventoryUI>().Equip(item, sprite);
+            ResetSlot();
+            canvas.GetComponent<InventoryUI>().UpdateSlotsOrder();
+        }
     }
 
     public void Select()

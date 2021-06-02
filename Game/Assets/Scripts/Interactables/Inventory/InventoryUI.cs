@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
     private InventorySlot selectedItem;
 
     public GameObject inventoryUI;
+    public GameObject handSlot;
 
     // Sprites
     public Sprite stickIcon;
@@ -224,7 +225,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     // Called after a slot becomes empty
-    private void UpdateSlotsOrder()
+    public void UpdateSlotsOrder()
     {
         int emptySlotIndex = -1;
 
@@ -260,6 +261,27 @@ public class InventoryUI : MonoBehaviour
     public void Use()
     {
         this.selectedItem?.UseItem();
+    }
+
+    public void EquipItem(string item, Sprite sprite)
+    {
+        this.handSlot.GetComponent<HandSlot>().AddItem(item, sprite);
+    }
+
+    public void AddItem(string item, Sprite sprite)
+    {
+        for (int i = 0; i < slots.Length; i++) {
+            if (slots[i].Used())
+                continue;
+
+            slots[i].AddNewItem(item, sprite);
+
+            break;
+        }
+
+        for (int i = 0; i < buildSlots.Length; i++) {
+            buildSlots[i].UpdateRequirements(item, inventory.GetCount(item));
+        }
     }
 
     // Close is called when clicking the close button
