@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale == 0) return;
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
@@ -57,7 +58,6 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
             StartCoroutine(WaitToAttack(attackDelay));
-            
         }
     }
 
