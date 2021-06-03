@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToPlayer: 8
---- !u!1001 &5990047275596639588
+  towerLight: {fileID: 0}
+--- !u!1001 &1889698356559303993
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7861308723720977184}
+    m_TransformParent: {fileID: 8787325356523622449}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9d322e6bfd8739b479c9b9fd0a1b7a04, type: 3}
       propertyPath: m_RootOrder
@@ -195,8 +196,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4500235874869130201, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
   m_PrefabInstance: {fileID: 8244163794199128420}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7861308723720977184 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2265836078402458180, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+--- !u!224 &8787325356523622449 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 836542051683121493, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
   m_PrefabInstance: {fileID: 8244163794199128420}
   m_PrefabAsset: {fileID: 0}
