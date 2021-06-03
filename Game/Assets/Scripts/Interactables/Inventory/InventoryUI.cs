@@ -269,7 +269,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void EquipItem(string item, Sprite sprite)
+    public void Equip(string item, Sprite sprite)
     {
         this.handSlot.GetComponent<HandSlot>().AddItem(item, sprite);
     }
