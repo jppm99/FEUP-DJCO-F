@@ -893,29 +893,29 @@ MonoBehaviour:
   m_Waypoints:
   - position: {x: -1.5287476, y: 3.252533, z: 16.158142}
     roll: 0
-  - position: {x: 5.900757, y: 3.5425339, z: 48.362488}
+  - position: {x: 5.900757, y: 8.146011, z: 48.362488}
     roll: 0
-  - position: {x: 44.955322, y: -1.1608086, z: 142.21649}
+  - position: {x: 42.593872, y: 10.496918, z: 96.33313}
     roll: 0
-  - position: {x: 145.52612, y: -3.2361221, z: 129.83484}
+  - position: {x: 152.58148, y: -3.509201, z: 85.375916}
     roll: 0
-  - position: {x: 192.30084, y: -4.82716, z: 27.59137}
+  - position: {x: 182.83557, y: -1.668541, z: -12.993103}
     roll: 0
-  - position: {x: 150.55023, y: 4.618328, z: -90.50119}
+  - position: {x: 114.446655, y: 7.146633, z: -87.810486}
     roll: 0
-  - position: {x: 32.80768, y: -3.4661484, z: -143.01685}
+  - position: {x: 22.232117, y: -3.4661484, z: -131.03842}
     roll: 0
-  - position: {x: -87.109314, y: -19.944565, z: -105.91504}
+  - position: {x: -93.966, y: -19.944565, z: -102.69284}
     roll: 0
-  - position: {x: -148.6607, y: -17.155445, z: -9.530762}
+  - position: {x: -153.38983, y: -15.87315, z: -9.530762}
     roll: 0
-  - position: {x: -108.249756, y: 7.962467, z: 92.33978}
+  - position: {x: -91.81796, y: 9.39315, z: 92.33978}
     roll: 0
   - position: {x: 2.7754517, y: 19.783112, z: 86.47015}
     roll: 0
   - position: {x: 31.787659, y: 38.160057, z: 13.036133}
     roll: 0
-  - position: {x: -0.95129395, y: 62.395027, z: -8.94342}
+  - position: {x: -1.1851807, y: 62.395027, z: -8.839844}
     roll: 0
 --- !u!1 &6501978995476809805
 GameObject:
@@ -1103,7 +1103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8918089746572830038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4059731044873574361}
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: -1.2340698, y: 11.733864, z: -3.0492554}
     roll: 0
-  - position: {x: -1.170105, y: -1.3851509, z: 1.2871704}
+  - position: {x: -1.170105, y: -2.22221, z: 1.2871704}
     roll: 0
 --- !u!320 &6393096564322691796
 PlayableDirector:

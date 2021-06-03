@@ -10,7 +10,7 @@ public class CameraManager : ISingleton
     private GameObject[] zonesCutscenes = new GameObject[4];
     private GameObject[] finalCutscene = new GameObject[2];
     private Vector3 finalCutscenePlayerPostion = new Vector3(
-        555.35f,
+        555.65f,
         44.87f,
         528.6f
     );
