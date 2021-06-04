@@ -8,6 +8,8 @@ public class Inventory : ISingleton
 {
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
+    public delegate void OnLoadInventory();
+    public OnLoadInventory onLoadInventoryCallback;
 
     private string dataFile = "inventory_data.json";
     private string dataPath;
@@ -31,17 +33,24 @@ public class Inventory : ISingleton
         {
             string data = File.ReadAllText(dataPath);
             this.inventoryData = (JsonUtility.FromJson<InventoryData>(data));
+
+            if (onLoadInventoryCallback != null)
+                onLoadInventoryCallback.Invoke();
         }
         catch (System.Exception)
         {
             Debug.LogWarning("No inventory data found, first run?");
-            this.inventoryData = new InventoryData();
+            
+            NewGame();
         }
     }
 
     public void NewGame()
     {
         this.inventoryData = new InventoryData();
+
+        if (onLoadInventoryCallback != null)
+            onLoadInventoryCallback.Invoke();
     }
 
     public string GetLastItemPicked()

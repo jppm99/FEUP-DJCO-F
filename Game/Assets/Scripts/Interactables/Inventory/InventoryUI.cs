@@ -38,6 +38,7 @@ public class InventoryUI : MonoBehaviour
         buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
         
         inventory.onItemChangedCallback += UpdateUI;
+        inventory.onLoadInventoryCallback += LoadInventory;
 
         sprites = new Dictionary<string, Sprite>();
         sprites.Add("stick", stickIcon);
@@ -51,9 +52,6 @@ public class InventoryUI : MonoBehaviour
         sprites.Add("hiddenGeneratorItem", hiddenGeneratorItemIcon);
         sprites.Add("buildableGeneratorItem", buildableGeneratorItemIcon);
         sprites.Add("diary", diaryIcon);
-
-        LoadInventory();
-        LoadBuilds();
     }
 
     // Update is called once per frame
@@ -151,6 +149,8 @@ public class InventoryUI : MonoBehaviour
             slots[currentSlot].AddNewItem("diary", diaryIcon);
             currentSlot++;
         }
+
+        LoadBuilds();
     }
 
     // LoadBuilds is called to load all items available to build
@@ -201,7 +201,7 @@ public class InventoryUI : MonoBehaviour
     {
         string item = slot.GetItem();
 
-        if (inventory.SpendItem(item, count) == 0) {
+        if (inventory.SpendItem(item, count) <= 0) {
             slot.ResetSlot();
             UpdateSlotsOrder();
         }
