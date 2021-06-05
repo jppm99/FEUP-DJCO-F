@@ -290,6 +290,11 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    public void Enequip()
+    {
+        this.handSlot.GetComponent<HandSlot>().RemoveItem();   
+    }
+
     // Close is called when clicking the close button
     public void Close()
     {

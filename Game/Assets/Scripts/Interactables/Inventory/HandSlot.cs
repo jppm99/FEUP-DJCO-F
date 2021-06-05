@@ -51,8 +51,10 @@ public class HandSlot : MonoBehaviour
 
     public void RemoveItem()
     {
-        canvas.GetComponent<InventoryUI>().AddItem(item, sprite);
+        if (item != "") {
+            canvas.GetComponent<InventoryUI>().AddItem(item, sprite);
 
-        ResetSlot();
+            ResetSlot();
+        }
     }
 }

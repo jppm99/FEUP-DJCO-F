@@ -61,6 +61,7 @@ public class InventorySlot : MonoBehaviour
         else if (item == "diary")
             player.GetComponent<UseDiary>().openDiary();
         else if (item == "buildableGeneratorItem" || item == "catana" || item == "knife" || item == "axe") {
+            canvas.GetComponent<InventoryUI>().Enequip();
             canvas.GetComponent<InventoryUI>().Equip(item, sprite);
             ResetSlot();
             canvas.GetComponent<InventoryUI>().UpdateSlotsOrder();
