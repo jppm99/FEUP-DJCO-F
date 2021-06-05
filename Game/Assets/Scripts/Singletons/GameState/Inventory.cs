@@ -483,7 +483,7 @@ public class Inventory : ISingleton
 
     void WhenQuit()
     {
-        this.SaveData();
+        if(RuntimeStuff.SaveOnQuit()) this.SaveData();
     }
 
     public void SaveData()

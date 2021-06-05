@@ -3,6 +3,8 @@ using UnityEngine;
 
 public static class RuntimeStuff
 {
+    private static bool saveOnQuit = false;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoadRuntimeMethod()
     {
@@ -46,4 +48,8 @@ public static class RuntimeStuff
         Singleton_registry.Add(id, (ISingleton)value);
     }
 
+    public static bool SaveOnQuit()
+    {
+        return saveOnQuit;
+    }
 }
