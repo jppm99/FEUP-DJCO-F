@@ -71,7 +71,7 @@ public class CinemamachineHelper : MonoBehaviour
 
     public void ShowWinningScreen()
     {
-        GameObject.Find("Canvas").GetComponent<MenuUI>().playerHasWon();
+        GameObject.FindObjectOfType<MenuUI>().playerHasWon();
     }
 
     private void Update() {

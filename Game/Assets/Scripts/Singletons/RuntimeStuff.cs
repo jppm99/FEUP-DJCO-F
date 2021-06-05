@@ -16,6 +16,8 @@ public static class RuntimeStuff
         // Set target FPS for the game
         int target_fps = 75;
         Application.targetFrameRate = target_fps > Screen.currentResolution.refreshRate ? Screen.currentResolution.refreshRate : target_fps;
+
+        Time.timeScale = 0;
     }
 
     private static Dictionary<string, ISingleton> Singleton_registry = new Dictionary<string, ISingleton>();

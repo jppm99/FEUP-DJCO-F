@@ -30,9 +30,6 @@ public class MenuUI : MonoBehaviour
     public GameObject GameOverMenu;
     public GameObject GameWonMenu;
 
-    public GameObject healthBar;
-    public GameObject sanityBar;
-
     private BackGroundController backgroundcontroller;
 
     private GameObject[] menus;
@@ -125,8 +122,6 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        healthBar.SetActive(false);
-        sanityBar.SetActive(false);
     }
 
     public void gameStarted()
@@ -145,8 +140,6 @@ public class MenuUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         gameStarted();
-        healthBar.SetActive(true);
-        sanityBar.SetActive(true);
         backgroundcontroller.disableAll();
         disableAllMenus();
     }
@@ -224,6 +217,7 @@ public class MenuUI : MonoBehaviour
 
     public void playerHasWon()
     {
+        Time.timeScale = 0;
         context = MenuContext.EndMenu;
         menuContextSettings();
         showVictoryMenu();
@@ -232,6 +226,7 @@ public class MenuUI : MonoBehaviour
 
     public void playerHasLost()
     {
+        Time.timeScale = 0;
         context = MenuContext.EndMenu;
         menuContextSettings();
         showDefeatMenu();
