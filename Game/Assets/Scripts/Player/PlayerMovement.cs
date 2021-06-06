@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(playerSpeed);
 
 
-
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, groundMask);
 
         float x = Input.GetAxis("Horizontal");
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
         playerAnimator.SetFloat("VelocityX", x);
         playerAnimator.SetFloat("VelocityY", z);
-
 
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -96,18 +94,25 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += this.gravity * Time.deltaTime;
 
-        controller.Move(movement * speed * Time.deltaTime);
-        controller.Move(velocity * Time.deltaTime);
-
+        if (controller.enabled)
+        {
+            controller.Move(movement * speed * Time.deltaTime);
+            controller.Move(velocity * Time.deltaTime);
+        }
 
         //playerAnimator.SetFloat("Velocity", playerSpeed / 1f);
+    }
+
+    public void MovePlayer(Vector3 pos, Vector3 rot)
+    {
+        controller.enabled = false;
+        controller.transform.position = pos;
+        controller.transform.eulerAngles = rot;
+        controller.enabled = true;
     }
 
     public void setNotBeingAbleToRun(bool canRun)
     {
         this.canRun = !canRun;
     }
-
-
-
 }

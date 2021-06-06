@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     private InventorySlot[] slots;
     private BuildSlot[] buildSlots;
     private Dictionary<string, Sprite> sprites;
+    private InventorySlot selectedItem;
 
     public GameObject inventoryUI;
 
@@ -58,8 +59,9 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         bool oldInventoryState = this.inventoryEnabled;
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || (Input.GetKeyDown(KeyCode.Escape) && inventoryEnabled)) {
             inventoryEnabled = !inventoryEnabled;
+        }
 
         if (oldInventoryState != inventoryEnabled && inventoryEnabled) {
             Time.timeScale = 0;
@@ -82,17 +84,17 @@ public class InventoryUI : MonoBehaviour
         int count = 0;
 
         // Only for testing
-        inventory.SetStick(10);
-        inventory.SetRock(10);
-        inventory.SetMetal(10);
-        inventory.SetMeat(10);
-        inventory.SetCatana(1);
-        inventory.SetKnife(1);
-        inventory.SetAxe(1);
-        inventory.AddMonsterGeneratorItem();
-        inventory.AddHiddenGeneratorItem();
-        inventory.AddBuildableGeneratorItem();
-        inventory.AddDiary();
+        inventory.SetStick(20);
+        inventory.SetRock(20);
+        inventory.SetMetal(20);
+        inventory.SetMeat(20);
+        inventory.SetCatana(0);
+        inventory.SetKnife(0);
+        inventory.SetAxe(0);
+        // inventory.AddMonsterGeneratorItem();
+        // inventory.AddHiddenGeneratorItem();
+        inventory.SpendBuildableGeneratorItem();
+        // inventory.AddDiary();
 
         if (inventory.GetStickCount() > 0) {
             slots[currentSlot].AddNewItem("stick", stickIcon, inventory.GetStickCount());
@@ -189,7 +191,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         for (int i = 0; i < buildSlots.Length; i++) {
-            // buildSlots[i].UpdateText(item, inventory.GetCount(item));
+            buildSlots[i].UpdateRequirements(item, inventory.GetCount(item));
         }
     }
 
@@ -206,7 +208,7 @@ public class InventoryUI : MonoBehaviour
             slot.SetCount(inventory.GetCount(item));
 
         for (int i = 0; i < buildSlots.Length; i++) {
-            // buildSlots[i].UpdateText(item, inventory.GetCount(item));
+            buildSlots[i].UpdateRequirements(item, inventory.GetCount(item));
         }
     }
 
@@ -245,26 +247,19 @@ public class InventoryUI : MonoBehaviour
     }
 
     // BuildItem is called when building an item
-    public void BuildItem(BuildSlot slot)
+    public void BuildItem(string item)
     {
-        Debug.Log("built");
-        // bool canBuild = true;
-        // Dictionary<string, int> requirements = slot.GetRequirements();
+        inventory.AddItem(item);
+    }
 
-        // for (int i = 0; i < requirements.Count; i++) {
-        //     if (inventory.GetCount(requirements.ElementAt(i).Key) < requirements.ElementAt(i).Value) {
-        //         canBuild = false;
-        //         break;
-        //     }
-        // }
+    public void ChangeSelected(InventorySlot slot)
+    {
+        this.selectedItem = slot;
+    }
 
-        // if (canBuild) {
-        //     for (int i = 0; i < requirements.Count; i++) {
-        //         RemoveItem(requirements.ElementAt(i).Key, requirements.ElementAt(i).Value);
-        //     }
-
-        //     inventory.AddItem(slot.GetItem());
-        // }
+    public void Use()
+    {
+        this.selectedItem?.UseItem();
     }
 
     // Close is called when clicking the close button

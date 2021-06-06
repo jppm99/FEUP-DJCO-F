@@ -53,11 +53,11 @@ public class UseDiary : MonoBehaviour
     void closeDiary()
     {
         diaryOpened = false;
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        healthBar.SetActive(true);
-        sanityBar.SetActive(true);
+        // Time.timeScale = 1;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
+        // healthBar.SetActive(true);
+        // sanityBar.SetActive(true);
         diaryPages.SetActive(false);
     }
 

@@ -19,6 +19,8 @@ public class PlayerLife : MonoBehaviour
     Vignette vignette;
     PlayerMovement playerMovement;
     GameObject[] lightSources;
+    [SerializeField]
+    GameObject cabinLight;
 
     [Header("Health Variables")]
     [SerializeField] float maxHealth;
@@ -36,10 +38,10 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float lightSourceDistance; //distance from which the player must be from a light source to decrease the amount of sanity that he looses during night time
     float sanityLossAmount = 1; //loss amount
     float sanityRecoverAmount = 1; //recover amount
-    
+    private float _time = 0;
 
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         lightSources = GameObject.FindGameObjectsWithTag("LightSource");
 
@@ -62,6 +64,8 @@ public class PlayerLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this._time += Time.deltaTime;
+
         healthImage.fillAmount = health / maxHealth;
         healthText.text = health.ToString() + " / " + maxHealth.ToString();
 
@@ -79,7 +83,7 @@ public class PlayerLife : MonoBehaviour
         }
 
         //If it's daytime, sanity will increase from time to time
-        else if (isDay)
+        else if (isDay || (Mathf.Abs(cabinLight.transform.position.x - transform.position.x) <= lightSourceDistance && Mathf.Abs(cabinLight.transform.position.z - transform.position.z) <= lightSourceDistance))
         {
             changeElementOverTime(ref sanity, sanityRecoverDelay, sanityRecoverAmount, maxSanity, ref nextActionTimeSanity, 1);
             this.playerMovement.setNotBeingAbleToRun(false);
@@ -104,14 +108,18 @@ public class PlayerLife : MonoBehaviour
 
     private void LowSanityEffect()
     {
-        // If sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
-        float amount = this.sanity / this.maxSanity < this.sanityEffectStartsAt ? (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1 : 0f;
+        // If game is running normally and sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
+        float amount = 0;
+        if(this.sanity / this.maxSanity < this.sanityEffectStartsAt && Time.timeScale > 0)
+        {
+            amount = (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1;
+        }
 
         float chromaticAberrationMax = 1f;
         float lensDistortionMax = -70f;
         float vignetteMax = 0.5f;
 
-        this.chromaticAberration.intensity.value = (amount * chromaticAberrationMax);
+        this.chromaticAberration.intensity.value = amount * chromaticAberrationMax;
         this.lensDistortion.intensity.value = amount * lensDistortionMax;
         this.vignette.intensity.value = amount * vignetteMax;
     }
@@ -137,7 +145,7 @@ public class PlayerLife : MonoBehaviour
     //1 to increase, -1 to decrease
     private void changeElementOverTime(ref float element, float delay, float amount, float maxAmount, ref float nextActionTime, int increase)
     {
-        if (Time.time > nextActionTime && element > 0)
+        if (this._time > nextActionTime && element > 0)
         {
             if(!(increase == 1 && element >= maxAmount))
             {

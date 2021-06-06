@@ -710,7 +710,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1879063742724623594}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1879063742515979807
 GameObject:
@@ -854,7 +854,6 @@ GameObject:
   - component: {fileID: 1830304975}
   - component: {fileID: 417596581}
   - component: {fileID: 2118711482}
-  - component: {fileID: 7768751976676588108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -874,6 +873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2626875064534178460}
+  - {fileID: 1705712877801539301}
   - {fileID: 1879063743154918945}
   - {fileID: 1879063742503035823}
   m_Father: {fileID: 0}
@@ -888,7 +888,7 @@ CharacterController:
   m_GameObject: {fileID: 1879063742724623592}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 3
   m_Radius: 0.5
@@ -965,6 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   sanity: 0
+  cabinLight: {fileID: 0}
   maxHealth: 100
   healthLossDelay: 10
   healthLossAmount: 1
@@ -974,7 +975,7 @@ MonoBehaviour:
   sanityLossDelay: 1
   sanityLossDelayWithLight: 1.5
   sanityRecoverDelay: 1
-  lightSourceDistance: 40
+  lightSourceDistance: 10
 --- !u!114 &4747152697434792214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,31 +1037,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 493343dab76064771afa31693c719e73, type: 3}
   - {fileID: 21300000, guid: 8a6afd624e2e74126acab7ab74b54cec, type: 3}
   - {fileID: 21300000, guid: fcbf238eb73884bf2a3e72969ba26937, type: 3}
---- !u!114 &7768751976676588108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879063742724623592}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  Event: event:/Character/Player Footsteps
-  PlayEvent: 3
-  StopEvent: 4
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: Surface
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1879063742808624125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879063743073803578}
   m_LocalRotation: {x: 0.000000029802322, y: -0.00000014901161, z: -0.000000009313226, w: 1}
-  m_LocalPosition: {x: 0.07397461, y: 2.510006, z: 1.1430054}
+  m_LocalPosition: {x: 0.07375607, y: 2.510006, z: 1.1432029}
   m_LocalScale: {x: 0.7999999, y: 1.7000009, z: 0.7999998}
   m_Children:
   - {fileID: 1183229301858667075}
@@ -1297,6 +1273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerCam: 1
   isFirstPerson: 1
+  isFinalCutscene: 0
+  finalCutscenePart: 0
 --- !u!1 &1879063743078616914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1527,7 @@ Transform:
   - {fileID: 1518301761177884440}
   - {fileID: 1458809409}
   m_Father: {fileID: 1879063742724623594}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1879063743154918958
 Animator:
@@ -7609,9 +7587,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2275720376293659005, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1393180524658630426 stripped
+--- !u!1 &8235043142753483253 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 668314823575624942, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7519611285760719361, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1393180524756184022 stripped
@@ -7624,8 +7602,46 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3293372135992935318, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8235043142753483253 stripped
+--- !u!1 &1393180524658630426 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7519611285760719361, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 668314823575624942, guid: 7743c0bca4a3c4acab7697b13249880d, type: 3}
   m_PrefabInstance: {fileID: 1879063743021663220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4618656520441783864
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1879063742724623594}
+    m_Modifications:
+    - target: {fileID: 926499683112293231, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+      propertyPath: m_Name
+      value: Minimap Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431227382756967937, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+      propertyPath: orthographic size
+      value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319442467574964445, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319442467574964445, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319442467574964445, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319442467574964445, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+--- !u!4 &1705712877801539301 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6319442467574964445, guid: 66dfbab673c8a2d4f949f50e3bac1acf, type: 3}
+  m_PrefabInstance: {fileID: 4618656520441783864}
   m_PrefabAsset: {fileID: 0}

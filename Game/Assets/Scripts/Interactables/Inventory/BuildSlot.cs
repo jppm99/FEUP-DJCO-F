@@ -50,7 +50,12 @@ public class BuildSlot : MonoBehaviour
             }
         }
 
-        if (satisfied)
-            canvas.GetComponent<InventoryUI>().BuildItem(this);
+        if (satisfied) {
+            for (int i = 0; i < requirements.Count; i++) {
+                canvas.GetComponent<InventoryUI>().RemoveItem(requirements.ElementAt(i).Key, requirements.ElementAt(i).Value.quantity);
+            }
+
+            canvas.GetComponent<InventoryUI>().BuildItem(item);
+        }
     }
 }
