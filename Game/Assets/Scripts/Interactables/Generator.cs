@@ -6,9 +6,8 @@ public class Generator : Interactable
     private GameManager gameManager;
     private int zone;
     private Inventory inventory;
-    private bool fixable = false, hasBeenFixed;
+    private bool fixable = false, hasBeenFixed, markerHasBeenRemoved = false;
 
-    
     protected override void Action()
     {
         if(!this.gameManager.GetLightsState(this.zone) && this.CanFix())
@@ -16,6 +15,7 @@ public class Generator : Interactable
             RuntimeStuff.GetSingleton<CameraManager>().PlayCutscene(this.zone);
             this.gameManager.TurnOnZoneLights(this.zone, true);
             this.UpdateFloatingText("");
+            this.RemoveMarkerFromMinimap();
         }
     }
 
@@ -56,6 +56,7 @@ public class Generator : Interactable
         if(this.gameManager.GetLightsState(this.zone))
         {
             this.UpdateFloatingText("");
+            this.RemoveMarkerFromMinimap();
         }
         else if(!fixable && !this.gameManager.GetLightsState(this.zone) && this.CanFix())
         {
@@ -88,5 +89,13 @@ public class Generator : Interactable
             default:
                 return false;
         }
+    }
+
+    private void RemoveMarkerFromMinimap()
+    {
+        if(markerHasBeenRemoved) return;
+        markerHasBeenRemoved = true;
+        GameObject marker = gameObject.GetComponentInChildren<KeepSameRotationAsPlayer>()?.gameObject;
+        if(marker != null && marker.activeInHierarchy) marker.SetActive(false);
     }
 }
