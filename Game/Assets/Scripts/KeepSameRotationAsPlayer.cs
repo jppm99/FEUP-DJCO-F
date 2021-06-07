@@ -3,6 +3,7 @@ using UnityEngine;
 public class KeepSameRotationAsPlayer : MonoBehaviour
 {
     private PlayerAPI player;
+    private Vector3 optimizationVector = new Vector3(90, 0, 0);
 
     void Start()
     {
@@ -11,8 +12,7 @@ public class KeepSameRotationAsPlayer : MonoBehaviour
 
     void Update()
     {
-        float playerYRot = player.transform.eulerAngles.y;
-        Vector3 newRot = new Vector3(90, playerYRot, 0);
-        transform.eulerAngles = newRot;
+        optimizationVector.y = player.transform.eulerAngles.y;
+        transform.eulerAngles = optimizationVector;
     }
 }
