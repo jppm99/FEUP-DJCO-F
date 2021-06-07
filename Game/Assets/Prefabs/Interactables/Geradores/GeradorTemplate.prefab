@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &5802763225299154251
 RectTransform:
@@ -157,6 +157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapIndicator-Question
       objectReference: {fileID: 0}
+    - target: {fileID: 7479621828757594621, guid: c38394f8093875447b02374c52d6099b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38394f8093875447b02374c52d6099b, type: 3}
 --- !u!1001 &8811724240352565315
@@ -166,6 +170,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611758178637763298, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 836542051683121493, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -285,6 +293,10 @@ PrefabInstance:
     - target: {fileID: 4500235874869130201, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
       propertyPath: m_Name
       value: GeradorTemplate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500235874869130201, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7799660525071075543, guid: 72a595252acf7cd49ad54b3584d5205e, type: 3}
