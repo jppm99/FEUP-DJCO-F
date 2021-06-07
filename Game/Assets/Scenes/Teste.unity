@@ -194,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254631064}
   - component: {fileID: 254631063}
+  - component: {fileID: 254631065}
   m_Layer: 0
   m_Name: Water4AdvancedReflectionSceneCamera
   m_TagString: Untagged
@@ -233,7 +234,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 8
-  m_RenderingPath: 3
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -251,13 +252,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254631062}
-  m_LocalRotation: {x: 0.034081545, y: 0.60611904, z: 0.026029736, w: -0.794217}
-  m_LocalPosition: {x: 624.6198, y: -22.699276, z: 674.4381}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -393.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &254631065
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254631062}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1001 &305265296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -556,8 +566,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1122520129548564486, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_TreeCrossFadeLength
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122520129548564486, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_DetailObjectDistance
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122520129548564486, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_TreeBillboardDistance
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1619466846548670940, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_IsActive
@@ -1826,8 +1844,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375207799}
-  m_LocalRotation: {x: -0.088199586, y: 0.79658854, z: 0.119895674, w: 0.5859118}
-  m_LocalPosition: {x: 536.46533, y: -48.500572, z: 600.1951}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -243.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
