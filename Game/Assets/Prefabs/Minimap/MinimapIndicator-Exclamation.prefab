@@ -182,3 +182,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae182fdc3a332f4198eb4e19b4d1f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseRotation: {x: 90, y: 0, z: 0}
+  axisToRotate: 1

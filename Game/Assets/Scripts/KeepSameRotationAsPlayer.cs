@@ -3,16 +3,24 @@ using UnityEngine;
 public class KeepSameRotationAsPlayer : MonoBehaviour
 {
     private PlayerAPI player;
-    private Vector3 optimizationVector = new Vector3(90, 0, 0);
+    private enum axis: int
+    {
+        X = 0,
+        Y = 1,
+        Z = 2
+    }
+
+    [SerializeField] private Vector3 baseRotation;
+    [SerializeField] private axis axisToRotate;
 
     void Start()
     {
         player = RuntimeStuff.GetSingleton<PlayerAPI>();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        optimizationVector.y = player.transform.eulerAngles.y;
-        transform.eulerAngles = optimizationVector;
+        baseRotation[(int) axisToRotate] = player.transform.eulerAngles.y;
+        transform.eulerAngles = baseRotation;
     }
 }
