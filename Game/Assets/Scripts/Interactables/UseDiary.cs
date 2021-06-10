@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class UseDiary : MonoBehaviour
 {
-    public GameObject healthBar;
-    public GameObject sanityBar;
     public GameObject diaryPages;
     public GameObject rightArrow;
     public GameObject leftArrow;
@@ -24,8 +22,6 @@ public class UseDiary : MonoBehaviour
     {
         diaryOpened = false;
         diaryPages.SetActive(false);
-        healthBar.SetActive(true);
-        sanityBar.SetActive(true);
         pageImage = page.GetComponent<Image>();
 
     }
@@ -69,8 +65,6 @@ public class UseDiary : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        //healthBar.SetActive(false);
-        //sanityBar.SetActive(false);
         diaryPages.SetActive(true);
         pageImage.sprite = pages[currentPage];
 
@@ -78,11 +72,11 @@ public class UseDiary : MonoBehaviour
 
     public void closeDiary()
     {
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
         diaryOpened = false;
         diaryPages.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
 
     public void increasePage()
