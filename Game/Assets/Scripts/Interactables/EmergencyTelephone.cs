@@ -36,7 +36,7 @@ public class EmergencyTelephone : Interactable
         ) {
             this.hasPower = true;
             towerLight.TurnOn();
-            this.UpdateFloatingText("Press F to call Home");
+            this.UpdateFloatingText("Press F to call for help");
         }
 
         base.FixedUpdate();
