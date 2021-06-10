@@ -665,6 +665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+--- !u!1 &852065659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7557075877749049714, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+  m_PrefabInstance: {fileID: 1113243497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1005713491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8766867261555458122, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
@@ -765,6 +770,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6784276770099377351, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2118711482}
     - target: {fileID: 8927353761228231333, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1384,6 +1393,10 @@ PrefabInstance:
       propertyPath: rightArrow
       value: 
       objectReference: {fileID: 797613324}
+    - target: {fileID: 2118711482, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 852065659}
     - target: {fileID: 1879063742724623592, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: m_Name
       value: Player

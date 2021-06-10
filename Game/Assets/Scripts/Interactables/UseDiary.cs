@@ -10,6 +10,7 @@ public class UseDiary : MonoBehaviour
     public GameObject diaryPages;
     public GameObject rightArrow;
     public GameObject leftArrow;
+    public GameObject closeButton;
     public GameObject page;
     private Image pageImage;
 
@@ -26,7 +27,6 @@ public class UseDiary : MonoBehaviour
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
         pageImage = page.GetComponent<Image>();
-        //leftArrow.SetActive(false);
 
     }
 
@@ -34,34 +34,37 @@ public class UseDiary : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
-            openDiary();
+        //if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
+        //    openDiary();
 
-        else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
-            closeDiary();
+        //else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
+        //    closeDiary();
 
         if (currentPage >= pages.Length - 1)
         {
             rightArrow.SetActive(false);
             leftArrow.SetActive(true);
+            closeButton.SetActive(true);
 
         }
         else if (currentPage <= 0)
         {
             leftArrow.SetActive(false);
             rightArrow.SetActive(true);
+            closeButton.SetActive(false);
 
         }
         else
         {
             leftArrow.SetActive(true);
             rightArrow.SetActive(true);
-
+            closeButton.SetActive(false);
         }
     }
 
     public void openDiary()
     {
+        currentPage = 0;
         diaryOpened = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
@@ -73,11 +76,13 @@ public class UseDiary : MonoBehaviour
 
     }
 
-    void closeDiary()
+    public void closeDiary()
     {
         Time.timeScale = 1;
         diaryOpened = false;
         diaryPages.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void increasePage()
