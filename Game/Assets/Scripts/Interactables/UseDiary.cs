@@ -8,6 +8,8 @@ public class UseDiary : MonoBehaviour
     public GameObject healthBar;
     public GameObject sanityBar;
     public GameObject diaryPages;
+    public GameObject rightArrow;
+    public GameObject leftArrow;
     public GameObject page;
     private Image pageImage;
 
@@ -24,6 +26,8 @@ public class UseDiary : MonoBehaviour
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
         pageImage = page.GetComponent<Image>();
+        //leftArrow.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -35,6 +39,25 @@ public class UseDiary : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
             closeDiary();
+
+        if (currentPage >= pages.Length - 1)
+        {
+            rightArrow.SetActive(false);
+            leftArrow.SetActive(true);
+
+        }
+        else if (currentPage <= 0)
+        {
+            leftArrow.SetActive(false);
+            rightArrow.SetActive(true);
+
+        }
+        else
+        {
+            leftArrow.SetActive(true);
+            rightArrow.SetActive(true);
+
+        }
     }
 
     public void openDiary()
@@ -43,8 +66,8 @@ public class UseDiary : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        healthBar.SetActive(false);
-        sanityBar.SetActive(false);
+        //healthBar.SetActive(false);
+        //sanityBar.SetActive(false);
         diaryPages.SetActive(true);
         pageImage.sprite = pages[currentPage];
 
@@ -52,12 +75,8 @@ public class UseDiary : MonoBehaviour
 
     void closeDiary()
     {
+        Time.timeScale = 1;
         diaryOpened = false;
-        // Time.timeScale = 1;
-        // Cursor.lockState = CursorLockMode.Locked;
-        // Cursor.visible = false;
-        // healthBar.SetActive(true);
-        // sanityBar.SetActive(true);
         diaryPages.SetActive(false);
     }
 
@@ -67,6 +86,7 @@ public class UseDiary : MonoBehaviour
             currentPage++;
 
         pageImage.sprite = pages[currentPage];
+
     }
 
     public void decreasePage()
@@ -75,5 +95,6 @@ public class UseDiary : MonoBehaviour
             currentPage--;
 
         pageImage.sprite = pages[currentPage];
+
     }
 }
