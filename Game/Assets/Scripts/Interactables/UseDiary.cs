@@ -8,6 +8,9 @@ public class UseDiary : MonoBehaviour
     public GameObject healthBar;
     public GameObject sanityBar;
     public GameObject diaryPages;
+    public GameObject rightArrow;
+    public GameObject leftArrow;
+    public GameObject closeButton;
     public GameObject page;
     private Image pageImage;
 
@@ -24,41 +27,62 @@ public class UseDiary : MonoBehaviour
         healthBar.SetActive(true);
         sanityBar.SetActive(true);
         pageImage = page.GetComponent<Image>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
-            openDiary();
+        //if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
+        //    openDiary();
 
-        else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
-            closeDiary();
+        //else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
+        //    closeDiary();
+
+        if (currentPage >= pages.Length - 1)
+        {
+            rightArrow.SetActive(false);
+            leftArrow.SetActive(true);
+            closeButton.SetActive(true);
+
+        }
+        else if (currentPage <= 0)
+        {
+            leftArrow.SetActive(false);
+            rightArrow.SetActive(true);
+            closeButton.SetActive(false);
+
+        }
+        else
+        {
+            leftArrow.SetActive(true);
+            rightArrow.SetActive(true);
+            closeButton.SetActive(false);
+        }
     }
 
     public void openDiary()
     {
+        currentPage = 0;
         diaryOpened = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        healthBar.SetActive(false);
-        sanityBar.SetActive(false);
+        //healthBar.SetActive(false);
+        //sanityBar.SetActive(false);
         diaryPages.SetActive(true);
         pageImage.sprite = pages[currentPage];
 
     }
 
-    void closeDiary()
+    public void closeDiary()
     {
+        Time.timeScale = 1;
         diaryOpened = false;
-        // Time.timeScale = 1;
-        // Cursor.lockState = CursorLockMode.Locked;
-        // Cursor.visible = false;
-        // healthBar.SetActive(true);
-        // sanityBar.SetActive(true);
         diaryPages.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void increasePage()
@@ -67,6 +91,7 @@ public class UseDiary : MonoBehaviour
             currentPage++;
 
         pageImage.sprite = pages[currentPage];
+
     }
 
     public void decreasePage()
@@ -75,5 +100,6 @@ public class UseDiary : MonoBehaviour
             currentPage--;
 
         pageImage.sprite = pages[currentPage];
+
     }
 }
