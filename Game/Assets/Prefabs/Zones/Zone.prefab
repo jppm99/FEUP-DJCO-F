@@ -82,12 +82,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNumberCreatures: 30
   spawnDelay: 5
-  minimumDistaceToPlayer: 0
+  minimumDistaceToPlayer: 150
   maximumDistaceToPlayer: 9999
   spawnPointParent: {fileID: 2707126472241920475}
   animalParent: {fileID: 7990188246418697172}
   monsterParent: {fileID: 8763361154259580537}
   boss: {fileID: 5808495786083611068, guid: 51856b49f932f4343ab347c9194a2ac8, type: 3}
+  bossDefaultLocation: {fileID: 0}
   animals:
   - {fileID: 2978547453086077047, guid: 66adda67a849248c7b04354a2aba9415, type: 3}
   monsters:
