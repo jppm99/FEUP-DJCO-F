@@ -649,9 +649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306219988d707bb418e9195aecb4192a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 60
   currentHealth: 0
-  secondsUntilBodyDisapears: 10
+  secondsUntilBodyDisapears: 0
   dropsGeneratorItem: 0
 --- !u!114 &4910944086739739179
 MonoBehaviour:
@@ -665,9 +665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25014bfc805bf2f40a7c95b564f0793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atackDistance: 6
+  atackDistance: 5
   atackInterval: 5
-  atackDamage: 5
+  atackDamage: 15
 --- !u!54 &827631380
 Rigidbody:
   m_ObjectHideFlags: 0

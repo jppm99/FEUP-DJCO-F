@@ -695,9 +695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25014bfc805bf2f40a7c95b564f0793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atackDistance: 4
+  atackDistance: 5
   atackInterval: 5
-  atackDamage: 5
+  atackDamage: 20
 --- !u!114 &3141767021773013628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: boss
   speed: 2
-  follow_speed: 4
+  follow_speed: 5
   rotation_speed: 8
   movement_range: 2000
   detect_radius: 30
@@ -732,9 +732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306219988d707bb418e9195aecb4192a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 200
   currentHealth: 0
-  secondsUntilBodyDisapears: 10
+  secondsUntilBodyDisapears: 15
   dropsGeneratorItem: 1
 --- !u!54 &2018756883043546094
 Rigidbody:
