@@ -109,7 +109,14 @@ public class GameManager : MonoBehaviour, ISingleton
         }
         else
         {
-            if (!continueGame) this.gameState.NewGame();
+            if (!continueGame)
+            {
+                this.gameState.NewGame();
+                foreach(Generator g in GameObject.FindObjectsOfType<Generator>())
+                {
+                    g.UpdateGeneratorText();
+                }
+            }
             this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(new List<MonsterData>());
         }
 

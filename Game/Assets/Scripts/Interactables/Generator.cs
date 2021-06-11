@@ -27,26 +27,7 @@ public class Generator : Interactable
 
         this.maxDistanceToPlayer = this.distanceToPlayer;
 
-        // Set floating text for when the player cannot fix the generator
-        switch (this.zone)
-        {
-            case 1:
-                // No need for text because it is always fixable
-                this.UpdateFloatingText("");
-                break;
-            case 2:
-                this.UpdateFloatingText("First you need to find something");
-                break;
-            case 3:
-                this.UpdateFloatingText("You must build the the tool");
-                break;
-            case 4:
-                this.UpdateFloatingText("Somewhere there is a monster that will drop you the tool you need");
-                break;
-            default:
-                this.UpdateFloatingText("This shouldn't happen");
-                break;
-        }
+        this.UpdateGeneratorText(fromStart:true);
 
         base.Start();
     }
@@ -65,6 +46,47 @@ public class Generator : Interactable
         }
 
         base.FixedUpdate();
+    }
+
+    public void UpdateGeneratorText(bool fromStart = false)
+    {
+        string g1 = "";
+        string g2 = "First you need to find something";
+        string g3 = "You must build the the tool";
+        string g4 = "Somewhere there is a monster that will drop you the tool you need";
+
+        if(!fromStart && this.gameManager.GetLightsState(this.zone))
+        {
+            this.UpdateFloatingText("");
+            this.RemoveMarkerFromMinimap();
+        }
+        else if(!this.CanFix())
+        {
+            // Set floating text for when the player cannot fix the generator
+            switch (this.zone)
+            {
+                case 1:
+                    // No need for text because it is always fixable
+                    this.UpdateFloatingText(g1);
+                    break;
+                case 2:
+                    this.UpdateFloatingText(g2);
+                    break;
+                case 3:
+                    this.UpdateFloatingText(g3);
+                    break;
+                case 4:
+                    this.UpdateFloatingText(g4);
+                    break;
+                default:
+                    this.UpdateFloatingText("This shouldn't happen");
+                    break;
+            }
+        }
+        else
+        {
+            this.UpdateFloatingText("Press F to fix");
+        }
     }
 
     private bool CanFix()

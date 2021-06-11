@@ -156,8 +156,9 @@ public class MenuUI : MonoBehaviour
     public void newGame()
     {
         play();
-        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
+        // inventory call must be first
         RuntimeStuff.GetSingleton<Inventory>().NewGame();
+        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
         menuIsEnabled = false;
     }
 
