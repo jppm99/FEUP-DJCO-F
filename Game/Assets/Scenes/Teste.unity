@@ -446,11 +446,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0669ff738b2a7b4b9a14fa2381ad548, type: 3}
---- !u!4 &476206795 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6773432163946879055, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-  m_PrefabInstance: {fileID: 1879063743274685369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547383158
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,11 +516,6 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4850861897865791415, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
   m_PrefabInstance: {fileID: 813071857}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &745364394 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7338107449033986697, guid: 239c688d6afafa3439fc01071e5a7bf4, type: 3}
-  m_PrefabInstance: {fileID: 558872379060322403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &762914843 stripped
 GameObject:
@@ -624,6 +614,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.2742715
       objectReference: {fileID: 0}
+    - target: {fileID: 2646096766944845728, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3090326003433874910, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -643,6 +637,14 @@ PrefabInstance:
     - target: {fileID: 3630166353207194023, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_BoundingSphereOverride.z
       value: 2.7107536e-20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602152558731292428, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796106804969526018, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6310673431798064372, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_IsActive
@@ -787,6 +789,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2118711482}
+    - target: {fileID: 7346746024149220282, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8927353761228231333, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -896,11 +902,6 @@ Skybox:
   m_GameObject: {fileID: 1375207799}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 0}
---- !u!1 &1378301915 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9056199778757726139, guid: 239c688d6afafa3439fc01071e5a7bf4, type: 3}
-  m_PrefabInstance: {fileID: 558872379060322403}
-  m_PrefabAsset: {fileID: 0}
 --- !u!108 &1390337462 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
@@ -917,34 +918,6 @@ PrefabInstance:
       propertyPath: center
       value: 
       objectReference: {fileID: 1005713491}
-    - target: {fileID: 1136953125222791506, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: secondsPerDay
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791506, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: secondsPerNight
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: m_ShadowAngle
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 15.404686
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 4.65e-43
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 7.1e-44
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791508, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1136953125222791509, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1032,10 +1005,6 @@ PrefabInstance:
     - target: {fileID: 1136953125222791511, guid: e6041e9443b98664aae73609b1959d84, type: 3}
       propertyPath: m_Name
       value: Directional Light
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136953125222791511, guid: e6041e9443b98664aae73609b1959d84, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6041e9443b98664aae73609b1959d84, type: 3}
@@ -1382,26 +1351,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 417596581, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2118711482, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: page
       value: 
       objectReference: {fileID: 1113243500}
     - target: {fileID: 2118711482, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1378301915}
-    - target: {fileID: 2118711482, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: leftArrow
       value: 
       objectReference: {fileID: 762914843}
-    - target: {fileID: 2118711482, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: sanityBar
-      value: 
-      objectReference: {fileID: 745364394}
     - target: {fileID: 2118711482, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: diaryPages
       value: 
@@ -1462,22 +1419,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3183103555576097925, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: m_VerticalAxis.m_MaxValue
-      value: 85
-      objectReference: {fileID: 0}
     - target: {fileID: 4719049699430213647, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
       propertyPath: cabinLight
       value: 
       objectReference: {fileID: 690032599}
-    - target: {fileID: 5707415617490213793, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: m_Name
-      value: FPS cam lookAt
-      objectReference: {fileID: 0}
-    - target: {fileID: 7740151953134378546, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
-      propertyPath: m_LookAt
-      value: 
-      objectReference: {fileID: 476206795}
-    m_RemovedComponents:
-    - {fileID: 417596581, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7b04a6806464479a6f155bbf5296b5, type: 3}
