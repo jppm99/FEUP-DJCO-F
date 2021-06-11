@@ -50,10 +50,7 @@ public class Inventory : ISingleton
     }
 
     public int GetCount(string item)
-    {
-        if (item == "qqlcoisa")
-            return GetItemQqlCoisaCount();
-        
+    {        
         if (item == "stick")
             return GetStickCount();
 
@@ -91,10 +88,7 @@ public class Inventory : ISingleton
     }
 
     public void AddItem(string item)
-    {
-        if (item == "qqlcoisa")
-            AddItemQqlCoisa();
-        
+    {        
         if (item == "stick")
             AddStick();
 
@@ -130,10 +124,7 @@ public class Inventory : ISingleton
     }
 
     public int SpendItem(string item, int count = 1)
-    {
-        if (item == "qqlcoisa")
-            return SpendItemQqlCoisa(count);
-        
+    {        
         if (item == "stick")
             return SpendStick(count);
 
@@ -181,33 +172,6 @@ public class Inventory : ISingleton
 
         return 0;
     }
-
-    #region ItemQqlCoisa
-    public int GetItemQqlCoisaCount()
-    {
-        return this.inventoryData.itemQqlCoisaCount;
-    }
-
-    public int SpendItemQqlCoisa(int count = 1)
-    {
-        this.inventoryData.itemQqlCoisaCount -= count;
-        return this.inventoryData.itemQqlCoisaCount;
-    }
-
-    public void AddItemQqlCoisa(int count = 1)
-    {
-        this.inventoryData.itemQqlCoisaCount += count;
-        lastItemPicked = "qqlcoisa";
-
-        if (onItemChangedCallback != null)
-            onItemChangedCallback.Invoke();
-    }
-
-    public void SetItemQqlCoisa(int count)
-    {
-        this.inventoryData.itemQqlCoisaCount = count;
-    }
-    #endregion
 
     #region STICK
     public int GetStickCount()
@@ -508,6 +472,6 @@ public class Inventory : ISingleton
 [System.Serializable]
 class InventoryData
 {
-    public int itemQqlCoisaCount, Stick, Rock, Metal, Meat, Catana, Knife, Axe;
+    public int Stick, Rock, Metal, Meat, Catana, Knife, Axe;
     public bool hasMonsterGeneratorItem, hasHiddenGeneratorItem, hasBuildableGeneratorItem, hasDiary;
 }

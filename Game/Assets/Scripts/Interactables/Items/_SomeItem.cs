@@ -15,8 +15,8 @@ public class _SomeItem : Interactable
 
     protected override void Action()
     {
-        this.inventory.AddItemQqlCoisa();
+        // this.inventory.AddItemQqlCoisa();
         
-        Debug.Log("Added to inventory, current count: " + this.inventory.GetItemQqlCoisaCount());
+        // Debug.Log("Added to inventory, current count: " + this.inventory.GetItemQqlCoisaCount());
     }
 }
