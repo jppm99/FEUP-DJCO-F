@@ -20,10 +20,10 @@ TagManager:
   - PostProcessing
   - Tree
   - Lamp
+  - Collectable
   - 
   - 
-  - 
-  - 
+  - MinimapIndicator
   - 
   - 
   - 

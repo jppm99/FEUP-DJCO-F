@@ -40,8 +40,8 @@ public class MenuUI : MonoBehaviour
         menus[0] = mainMenuUi;
         menus[1] = gameMenu;
         menus[2] = instructionsMenu;
-        menus[3] = GameOverMenu;
-        menus[4] = GameWonMenu;
+        menus[3] = GameWonMenu; 
+         menus[4] = GameOverMenu;
 
         context = MenuContext.StartMenu;
         menuIsEnabled = true;
@@ -156,8 +156,9 @@ public class MenuUI : MonoBehaviour
     public void newGame()
     {
         play();
-        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
+        // inventory call must be first
         RuntimeStuff.GetSingleton<Inventory>().NewGame();
+        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
         menuIsEnabled = false;
     }
 

@@ -49,24 +49,24 @@ public class PlayerHand : MonoBehaviour
 
         if (item == "knife")
         {
-            damage = 30;
+            damage = 10;
             knifeObject.SetActive(true);
         }
         else if (item == "catana")
         {
-            damage = 50;
+            damage = 20;
             catanaObject.SetActive(true);
             differentAnimation = true;
         }
         else if (item == "axe")
         {
-            damage = 40;
+            damage = 15;
             axeObject.SetActive(true);
             differentAnimation = true;
         }
         else if (item == "hammer")
         {
-            damage = 20;
+            damage = 15;
             hammerObject.SetActive(true);
             differentAnimation = true;
         }
