@@ -664,6 +664,9 @@ Rain recordings provided by Xue Qiao of BB Studio, Chongqing Qiaoya Music and Cu
 		<property name="color">
 			<value>Magenta</value>
 		</property>
+		<property name="volume">
+			<value>-22.5</value>
+		</property>
 		<property name="name">
 			<value>Birds</value>
 		</property>

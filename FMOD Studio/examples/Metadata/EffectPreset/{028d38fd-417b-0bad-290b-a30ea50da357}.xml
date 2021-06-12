@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="EffectPreset" id="{028d38fd-417b-0bad-290b-a30ea50da357}">
 		<property name="name">
 			<value>Reverb Send</value>
@@ -13,7 +13,7 @@
 	</object>
 	<object class="MixerSend" id="{3debf704-4e5f-496e-a8db-a2f9a9917a58}">
 		<property name="level">
-			<value>0</value>
+			<value>5</value>
 		</property>
 		<property name="inputFormat">
 			<value>2</value>

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Grab Metal
+  Event: event:/Grabs/Grab Metal
   PlayEvent: 2
   StopEvent: 0
   AllowFadeout: 1

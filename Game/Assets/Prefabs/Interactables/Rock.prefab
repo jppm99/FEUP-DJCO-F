@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Grab Rock
+  Event: event:/Grabs/Grab Rock
   PlayEvent: 2
   StopEvent: 0
   AllowFadeout: 1

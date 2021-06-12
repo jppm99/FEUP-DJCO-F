@@ -914,7 +914,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 0
   m_StandbyUpdate: 0
-  m_LookAt: {fileID: 7215647744522752304}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 45
@@ -1403,6 +1403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3967251614846818811}
   - component: {fileID: 9100170256550318821}
+  - component: {fileID: 112503912954310891}
   m_Layer: 0
   m_Name: collider (8)
   m_TagString: Untagged
@@ -1437,6 +1438,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 141.73615}
   m_Center: {x: -0.000263235, y: -7.6931286, z: 50.83173}
+--- !u!114 &112503912954310891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687485721067785563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &2705697788059193227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7668653769169036991}
   - component: {fileID: 1233021569783260150}
+  - component: {fileID: 2532441935463496959}
   m_Layer: 0
   m_Name: collider
   m_TagString: Untagged
@@ -1772,6 +1797,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 666.8766}
   m_Center: {x: 0, y: -7.6931286, z: 19.707901}
+--- !u!114 &2532441935463496959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100860830911756783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &3171943853721440581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +2041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1431055008631592966}
+  - component: {fileID: 508360944314092681}
   m_Layer: 0
   m_Name: Bounds
   m_TagString: Untagged
@@ -2023,6 +2072,29 @@ Transform:
   m_Father: {fileID: 408056173296389515}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508360944314092681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469873945009809608}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &3533427661023281417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8730499481054936245}
   - component: {fileID: 8743824384391777011}
+  - component: {fileID: 4602018142293750101}
   m_Layer: 0
   m_Name: collider (7)
   m_TagString: Untagged
@@ -2694,6 +2767,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 640.9624}
   m_Center: {x: 0, y: -7.6931286, z: 32.664948}
+--- !u!114 &4602018142293750101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347287743872684458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &5379183452624718838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,7 +3105,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 0
   m_StandbyUpdate: 0
-  m_LookAt: {fileID: 2196791894287657288}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 45
@@ -3136,6 +3232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7286637694245033029}
   - component: {fileID: 2848347286018192993}
+  - component: {fileID: 5650464292827784139}
   m_Layer: 0
   m_Name: collider (5)
   m_TagString: Untagged
@@ -3170,6 +3267,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 640.9624}
   m_Center: {x: 0, y: -7.6931286, z: 32.664948}
+--- !u!114 &5650464292827784139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954642385718136231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &5978161746272868048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +3931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1250156364836436864}
   - component: {fileID: 6946722442927029350}
+  - component: {fileID: 5021998451894317327}
   m_Layer: 0
   m_Name: collider (1)
   m_TagString: Untagged
@@ -3845,6 +3966,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 640.9624}
   m_Center: {x: 0, y: -7.6931286, z: 32.664948}
+--- !u!114 &5021998451894317327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864895557494762870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &7004096058023321939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,6 +3999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370295532733107277}
   - component: {fileID: 5175866081302365271}
+  - component: {fileID: 3090353101711646614}
   m_Layer: 0
   m_Name: collider (2)
   m_TagString: Untagged
@@ -3889,6 +4034,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 640.9624}
   m_Center: {x: 0, y: -7.6931286, z: 32.664948}
+--- !u!114 &3090353101711646614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004096058023321939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &7363909762733627400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,6 +4150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6373266847153581284}
   - component: {fileID: 1161666107907090402}
+  - component: {fileID: 1552149526315447788}
   m_Layer: 0
   m_Name: collider (3)
   m_TagString: Untagged
@@ -4016,6 +4185,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 666.153}
   m_Center: {x: 5.7832916e-14, y: -7.6931286, z: 20.069626}
+--- !u!114 &1552149526315447788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528157377427105669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &7590648462405064860
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,6 +4218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6617891614565499257}
   - component: {fileID: 1335305121682267674}
+  - component: {fileID: 8647808289080278390}
   m_Layer: 0
   m_Name: collider (4)
   m_TagString: Untagged
@@ -4060,6 +4253,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 640.9624}
   m_Center: {x: 0, y: -7.6931286, z: 32.664948}
+--- !u!114 &8647808289080278390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590648462405064860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1 &7615693413543859512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +5120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6662506085629336019}
   - component: {fileID: 1495355844327870400}
+  - component: {fileID: 5991342332088474257}
   m_Layer: 0
   m_Name: collider (6)
   m_TagString: Untagged
@@ -4938,6 +5155,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 16.386253, z: 640.9624}
   m_Center: {x: 0, y: -7.6931286, z: 32.664948}
+--- !u!114 &5991342332088474257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179765794982184314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ocean 3D
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 200
 --- !u!1001 &18684448241422773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13648,6 +13888,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 408056173296389515}
     m_Modifications:
+    - target: {fileID: -3461300785231602393, guid: 7bf8a932c0da5874ab4d037fdab84d29, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 478343246740240003, guid: 7bf8a932c0da5874ab4d037fdab84d29, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4695596228211347546, guid: 7bf8a932c0da5874ab4d037fdab84d29, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17030,9 +17278,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2957609116027760023, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2235636098952185631}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8392641669594022433 stripped
+--- !u!4 &4221902554027327172 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7745685643964892478, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2707126472241920475, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2235636098952185631}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2573251732410417906 stripped
@@ -17040,9 +17288,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4373160159668504045, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2235636098952185631}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4221902554027327172 stripped
+--- !u!4 &8392641669594022433 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2707126472241920475, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7745685643964892478, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2235636098952185631}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2258075500175330406
@@ -17730,6 +17978,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2957609116027760023, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2395670974023253450}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &337355594167452689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2707126472241920475, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
+  m_PrefabInstance: {fileID: 2395670974023253450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2130123390654101543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4373160159668504045, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
@@ -17738,11 +17991,6 @@ Transform:
 --- !u!4 &5350582025222912244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7745685643964892478, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
-  m_PrefabInstance: {fileID: 2395670974023253450}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &337355594167452689 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2707126472241920475, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2395670974023253450}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2409996577158577512
@@ -18801,11 +19049,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
---- !u!4 &5702421714988789933 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7745685643964892478, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
-  m_PrefabInstance: {fileID: 2620292718928049555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &961148579449477124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2957609116027760023, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
@@ -18819,6 +19062,11 @@ Transform:
 --- !u!4 &1796289354248827006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4373160159668504045, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
+  m_PrefabInstance: {fileID: 2620292718928049555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5702421714988789933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7745685643964892478, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 2620292718928049555}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2640203079062607224
@@ -19543,6 +19791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5997910318011781703, guid: 70af798e5537eb54782fe5694e1ee2c1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6331247217085536909, guid: 70af798e5537eb54782fe5694e1ee2c1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -19557,11 +19809,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70af798e5537eb54782fe5694e1ee2c1, type: 3}
---- !u!224 &7215647744522752304 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4843402271983055260, guid: 70af798e5537eb54782fe5694e1ee2c1, type: 3}
-  m_PrefabInstance: {fileID: 2815904051537780908}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2821307627003490403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35890,6 +36137,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4843402271983055260, guid: 476c8ccc2032d9342b51217fefa48226, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5176598459208235350, guid: 476c8ccc2032d9342b51217fefa48226, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -35996,11 +36247,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476c8ccc2032d9342b51217fefa48226, type: 3}
---- !u!224 &2196791894287657288 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5997910318011781703, guid: 476c8ccc2032d9342b51217fefa48226, type: 3}
-  m_PrefabInstance: {fileID: 5566529615637723919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5574804462328221628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43833,6 +44079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
+--- !u!4 &8638078308724045728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2957609116027760023, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
+  m_PrefabInstance: {fileID: 6839586463588964919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8897620312498332652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2707126472241920475, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
@@ -43841,11 +44092,6 @@ Transform:
 --- !u!4 &7087401754712924122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4373160159668504045, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
-  m_PrefabInstance: {fileID: 6839586463588964919}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8638078308724045728 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2957609116027760023, guid: b3d96faf5aa022c4e98bceba8e74ccbd, type: 3}
   m_PrefabInstance: {fileID: 6839586463588964919}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &3861031462729195273 stripped
