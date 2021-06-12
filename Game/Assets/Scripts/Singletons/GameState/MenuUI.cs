@@ -40,8 +40,8 @@ public class MenuUI : MonoBehaviour
         menus[0] = mainMenuUi;
         menus[1] = gameMenu;
         menus[2] = instructionsMenu;
-        menus[3] = GameOverMenu;
-        menus[4] = GameWonMenu;
+        menus[3] = GameWonMenu; 
+         menus[4] = GameOverMenu;
 
         context = MenuContext.StartMenu;
         menuIsEnabled = true;
