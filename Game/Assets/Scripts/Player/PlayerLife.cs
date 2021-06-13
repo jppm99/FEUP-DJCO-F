@@ -22,6 +22,10 @@ public class PlayerLife : MonoBehaviour
     [SerializeField]
     GameObject cabinLight;
 
+    [FMODUnity.EventRef]
+    public string healthSound;
+    private FMOD.Studio.EventInstance healthSoundInstance;
+
     [Header("Health Variables")]
     [SerializeField] float maxHealth;
     [SerializeField] float healthLossDelay; //interval of time between losses
@@ -59,11 +63,17 @@ public class PlayerLife : MonoBehaviour
 
         health = maxHealth;
         sanity = maxSanity;
+
+        healthSoundInstance = FMODUnity.RuntimeManager.CreateInstance(healthSound);
+        healthSoundInstance.start();
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthSoundInstance.setParameterByName("Health", 100*health/80);
+
+
         this._time += Time.deltaTime;
 
         healthImage.fillAmount = health / maxHealth;
@@ -132,6 +142,11 @@ public class PlayerLife : MonoBehaviour
     public void decreaseHealth(float damage)
     {
         health -= damage;
+
+        if(health <= 0)
+        {
+            healthSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 
     public void IncreaseHealth(float increase)
@@ -140,6 +155,8 @@ public class PlayerLife : MonoBehaviour
             health = maxHealth;
         else
             health = health + increase;
+
+      
     }
 
     public void setDay(bool isDay)

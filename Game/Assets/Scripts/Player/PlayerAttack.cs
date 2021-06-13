@@ -42,20 +42,26 @@ public class PlayerAttack : MonoBehaviour
 
                 if (objectTag.Equals("Monster"))
                 {
+                    GetComponentsInChildren<FMODUnity.StudioEventEmitter>()[1].Play();
                     MonsterLife enemy = ray.transform.GetComponent<MonsterLife>();
                     enemy.damage(attackDamage);
                 }
             }
-
-            if (Physics.Raycast(attackspotAnimal.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
+            else if (Physics.Raycast(attackspotAnimal.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
             {
                 string objectTag = ray.transform.tag;
 
                 if (objectTag.Equals("Animal"))
                 {
+                    GetComponentsInChildren<FMODUnity.StudioEventEmitter>()[1].Play();
                     AnimalLife animal = ray.transform.GetComponentInParent<AnimalLife>();
                     animal.damage(attackDamage);
                 }
+            }
+            else
+            {
+                GetComponentsInChildren<FMODUnity.StudioEventEmitter>()[2].Play();
+
             }
             StartCoroutine(WaitToAttack(attackDelay));
         }
