@@ -924,9 +924,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdec7f5d872963f4ba94919aa9af7963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 5
+  attackDistance: 4
   attackDamage: 5
   attackDelay: 0.5
+  attackSound: event:/Armas/ataque
+  weaponAttackSound: event:/Armas/Hits
 --- !u!114 &1851746457701439544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,6 +968,7 @@ MonoBehaviour:
   health: 0
   sanity: 0
   cabinLight: {fileID: 0}
+  healthSound: event:/Character/Health
   maxHealth: 50
   healthLossDelay: 20
   healthLossAmount: 1
