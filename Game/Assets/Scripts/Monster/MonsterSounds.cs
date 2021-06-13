@@ -5,11 +5,13 @@ using UnityEngine;
 public class MonsterSounds : MonoBehaviour
 {
     bool isDead = false;
+    bool firstSound = false;
+    public float howlTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("PlaySound", 5, 4);
+        InvokeRepeating("PlaySound", 5, howlTime);
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class MonsterSounds : MonoBehaviour
 
     public void PlayStep()
     {
+        firstSound = true;
         GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
     }
 
@@ -31,7 +34,7 @@ public class MonsterSounds : MonoBehaviour
 
     public void PlaySound()
     {
-        if(!isDead)
+        if(!isDead && firstSound)
             GetComponents<FMODUnity.StudioEventEmitter>()[2].Play();
     }
 
