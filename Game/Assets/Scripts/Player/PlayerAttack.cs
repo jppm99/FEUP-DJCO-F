@@ -12,15 +12,6 @@ public class PlayerAttack : MonoBehaviour
 
     Animator playerAnimator;
 
-    [FMODUnity.EventRef]
-    public string attackSound;
-    private FMOD.Studio.EventInstance attackSoundInstance;
-
-    [FMODUnity.EventRef]
-    public string weaponAttackSound;
-    private FMOD.Studio.EventInstance weaponAttackSoundInstance;
-
-
     GameObject attackspotMonster;
     GameObject attackspotAnimal;
 
@@ -29,11 +20,6 @@ public class PlayerAttack : MonoBehaviour
         playerAnimator = GameObject.Find("PlayerBody").GetComponent<Animator>();
         attackspotMonster = GameObject.Find("Attack Spot Monster");
         attackspotAnimal = GameObject.Find("Attack Spot Animal");
-
-        attackSoundInstance = FMODUnity.RuntimeManager.CreateInstance(attackSound);
-        weaponAttackSoundInstance = FMODUnity.RuntimeManager.CreateInstance(weaponAttackSound);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(attackSoundInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(weaponAttackSoundInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
 
     }
 
@@ -57,15 +43,15 @@ public class PlayerAttack : MonoBehaviour
                 if (objectTag.Equals("Monster"))
                 {
                     if (attackDamage == 5)
-                        attackSoundInstance.start();
+                        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
                     else
-                        weaponAttackSoundInstance.start();
+                        GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
 
                     MonsterLife enemy = ray.transform.GetComponent<MonsterLife>();
                     enemy.damage(attackDamage);
                 }
                 else
-                    attackSoundInstance.start();
+                    GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
             }
             else if (Physics.Raycast(attackspotAnimal.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
             {
@@ -74,18 +60,18 @@ public class PlayerAttack : MonoBehaviour
                 if (objectTag.Equals("Animal"))
                 {
                     if (attackDamage == 5)
-                        attackSoundInstance.start();
+                        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
                     else
-                        weaponAttackSoundInstance.start();
+                        GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
 
                     AnimalLife animal = ray.transform.GetComponentInParent<AnimalLife>();
                     animal.damage(attackDamage);
                 }
                 else
-                    attackSoundInstance.start();
+                    GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
             }
             else
-                attackSoundInstance.start();
+                GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
 
 
 
