@@ -6,7 +6,7 @@ public class Generator : Interactable
     private GameManager gameManager;
     private int zone;
     private Inventory inventory;
-    private bool fixable = false, hasBeenFixed, markerHasBeenRemoved = false;
+    private bool hasBeenFixed, markerHasBeenRemoved = false;
 
     protected override void Action()
     {
@@ -39,9 +39,8 @@ public class Generator : Interactable
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
         }
-        else if(!fixable && !this.gameManager.GetLightsState(this.zone) && this.CanFix())
+        else if(!this.gameManager.GetLightsState(this.zone) && this.CanFix())
         {
-            fixable = true;
             this.UpdateFloatingText("Press F to fix");
         }
 
