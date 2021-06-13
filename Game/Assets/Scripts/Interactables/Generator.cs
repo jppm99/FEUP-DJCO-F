@@ -16,6 +16,7 @@ public class Generator : Interactable
             this.gameManager.TurnOnZoneLights(this.zone, true);
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
         }
     }
 

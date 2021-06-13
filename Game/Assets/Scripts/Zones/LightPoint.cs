@@ -14,6 +14,9 @@ public class LightPoint : MonoBehaviour
 
     public void SetState(bool isOn, bool flicker = false)
     {
+        if (isOn)
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+
         if(isOn && flicker)
         {
             float duration = this.flickeringDuration * ((Random.Range(-this.flickeringDurationRandomness, this.flickeringDurationRandomness) / 200) + 1);
