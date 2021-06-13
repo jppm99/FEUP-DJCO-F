@@ -715,6 +715,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 112503912954310891, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112503912954310891, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 408056173296389515, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -758,6 +766,86 @@ PrefabInstance:
     - target: {fileID: 408056173296389515, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552149526315447788, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552149526315447788, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552149526315447788, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532441935463496959, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532441935463496959, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532441935463496959, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090353101711646614, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090353101711646614, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469873945009809608, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602018142293750101, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602018142293750101, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021998451894317327, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021998451894317327, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021998451894317327, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650464292827784139, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650464292827784139, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991342332088474257, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991342332088474257, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647808289080278390, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647808289080278390, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8896795278214428610, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_Name
