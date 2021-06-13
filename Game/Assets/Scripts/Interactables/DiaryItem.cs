@@ -18,6 +18,8 @@ public class DiaryItem : Interactable
 
     protected override void Action()
     {
+        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+
         this.inventory.AddDiary();
         
         Debug.Log("Added diary item to inventory");
