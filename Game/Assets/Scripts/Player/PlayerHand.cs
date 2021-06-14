@@ -46,7 +46,7 @@ public class PlayerHand : MonoBehaviour
         differentAnimation = false;
 
         int damage = 4;
-        float delay = 0;
+        float delay = 0.5f, mult = 1;
 
         if (item == "knife")
         {
@@ -68,6 +68,7 @@ public class PlayerHand : MonoBehaviour
             // 20 damage per second
             damage = 30;
             delay = 1.5f;
+            mult = 0.9f;
             axeObject.SetActive(true);
             differentAnimation = true;
         }
@@ -76,12 +77,15 @@ public class PlayerHand : MonoBehaviour
             // 14 damage per second
             damage = 14;
             delay = 1f;
+            mult = 0.95f;
             hammerObject.SetActive(true);
             differentAnimation = true;
         }
 
         GetComponent<PlayerAttack>().setDamage(damage);
         GetComponent<PlayerAttack>().setDelay(delay);
+
+        playerAnimator.SetFloat("attackSpeedMult", mult);
         playerAnimator.SetBool("withItem", differentAnimation);
     }
 }

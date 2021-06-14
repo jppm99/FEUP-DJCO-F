@@ -46,6 +46,7 @@ public class MonsterLife : MonoBehaviour
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+        GetComponents<FMODUnity.StudioEventEmitter>()[1].Stop();
         if (this.dropsGeneratorItem)
         {
             this.interactableScript.EnableInteraction();

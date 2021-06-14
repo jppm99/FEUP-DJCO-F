@@ -21,13 +21,12 @@ public class Inventory : ISingleton
         this.register();
 
         this.dataPath = Path.Combine(Application.persistentDataPath, this.dataFile);
-        this.LoadData();
 
         // Getting Unity events from outside MonoBehaviours
         UnityMessageForwarder.AddListener(MessageType.OnApplicationQuit, this.WhenQuit);
     }
 
-    private void LoadData()
+    public void LoadData()
     {
         try
         {

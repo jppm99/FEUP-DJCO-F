@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: LightSource
-  Event: event:/Lights/Light Bulb
+  Event: event:/Lights/Bulb
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1

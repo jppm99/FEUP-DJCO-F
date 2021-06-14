@@ -35,6 +35,8 @@ public class Generator : Interactable
 
     protected override void FixedUpdate() 
     {
+        if(Time.timeScale == 0) return;
+
         if(this.gameManager.GetLightsState(this.zone))
         {
             this.UpdateFloatingText("");
@@ -60,7 +62,7 @@ public class Generator : Interactable
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
         }
-        else if(!this.CanFix())
+        else if(fromStart || !this.CanFix())
         {
             // Set floating text for when the player cannot fix the generator
             switch (this.zone)

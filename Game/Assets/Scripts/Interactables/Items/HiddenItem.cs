@@ -3,7 +3,7 @@ using UnityEngine;
 public class HiddenItem : Interactable
 {
     private Inventory inventory;
-    protected override void Start()
+    public void Setup()
     {
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
@@ -11,9 +11,7 @@ public class HiddenItem : Interactable
         if(this.inventory.GetHiddenGeneratorItem()) Destroy(this.gameObject);
 
         // Must be set before start runs
-        this.floatingText = "Press F to grab part";
-
-        base.Start();        
+        this.UpdateFloatingText("Press F to grab part");
     }
 
     protected override void Action()

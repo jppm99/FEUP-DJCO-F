@@ -83,17 +83,17 @@ public class InventoryUI : MonoBehaviour
         int count = 0;
 
         // Only for testing
-        inventory.SetStick(20);
-        inventory.SetRock(20);
-        inventory.SetMetal(20);
-        inventory.SetMeat(20);
-        inventory.SetCatana(0);
-        inventory.SetKnife(0);
-        inventory.SetAxe(0);
-        inventory.SetMonsterGeneratorItem(true);
-        inventory.SetHiddenGeneratorItem(true);
-        inventory.SetBuildableGeneratorItem(true);
-        inventory.SetDiary(true);
+        // inventory.SetStick(20);
+        // inventory.SetRock(20);
+        // inventory.SetMetal(20);
+        // inventory.SetMeat(20);
+        // inventory.SetCatana(0);
+        // inventory.SetKnife(0);
+        // inventory.SetAxe(0);
+        // inventory.SetMonsterGeneratorItem(true);
+        // inventory.SetHiddenGeneratorItem(true);
+        // inventory.SetBuildableGeneratorItem(true);
+        // inventory.SetDiary(true);
 
         if (inventory.GetStickCount() > 0) {
             slots[currentSlot].AddNewItem("stick", stickIcon, inventory.GetStickCount());

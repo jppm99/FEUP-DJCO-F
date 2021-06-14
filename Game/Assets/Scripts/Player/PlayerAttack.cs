@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
         playerAnimator = GameObject.Find("PlayerBody").GetComponent<Animator>();
         attackspotMonster = GameObject.Find("Attack Spot Monster");
         attackspotAnimal = GameObject.Find("Attack Spot Animal");
-
+        playerAnimator.SetFloat("attackSpeedMult", 1);
     }
 
     // Update is called once per frame

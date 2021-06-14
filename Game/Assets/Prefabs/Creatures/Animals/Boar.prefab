@@ -179,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Size.z
-      value: 2.8758545
+      value: 3.1113586
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Center.x
@@ -191,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Center.z
-      value: -0.007873535
+      value: -0.12562561
       objectReference: {fileID: 0}
     - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: speed
@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: rotation_speed
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8667511837890209819, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Constraints

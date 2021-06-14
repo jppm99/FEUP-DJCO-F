@@ -69,6 +69,11 @@ public class CinemamachineHelper : MonoBehaviour
         }
     }
 
+    public void PlayFinalCutsceneDialog()
+    {
+        GameObject.FindObjectOfType<EmergencyTelephone>().GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+    }
+
     public void ShowWinningScreen()
     {
         GameObject.FindObjectOfType<MenuUI>().playerHasWon();
