@@ -633,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: normal
   speed: 2
-  follow_speed: 4
+  follow_speed: 5
   rotation_speed: 8
   movement_range: 2000
   detect_radius: 30
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25014bfc805bf2f40a7c95b564f0793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atackDistance: 5
+  atackDistance: 7
   atackInterval: 5
   atackDamage: 15
 --- !u!54 &827631380

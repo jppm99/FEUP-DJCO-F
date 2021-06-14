@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25014bfc805bf2f40a7c95b564f0793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atackDistance: 4
+  atackDistance: 6
   atackInterval: 5
   atackDamage: 20
 --- !u!114 &3141767021773013628
@@ -717,9 +717,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: boss
   speed: 2
-  follow_speed: 5
+  follow_speed: 6
   rotation_speed: 8
-  movement_range: 250
+  movement_range: 225
   detect_radius: 30
   ground_mask:
     serializedVersion: 2

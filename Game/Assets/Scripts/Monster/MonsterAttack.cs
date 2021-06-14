@@ -25,9 +25,8 @@ public class MonsterAttack : MonoBehaviour
         life = player.GetComponent<PlayerLife>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-
         if(canAttack)
         {
             float dist = Vector3.Distance(playerTransform.position, transform.position);
