@@ -719,7 +719,7 @@ MonoBehaviour:
   speed: 2
   follow_speed: 5
   rotation_speed: 8
-  movement_range: 2000
+  movement_range: 250
   detect_radius: 30
   ground_mask:
     serializedVersion: 2
