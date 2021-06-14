@@ -977,9 +977,8 @@ MonoBehaviour:
   maxSanity: 50
   sanityEffectStartsAt: 0.6
   sanityLossDelay: 4
-  sanityLossDelayWithLight: 8
   sanityRecoverDelay: 3.5
-  lightSourceDistance: 5
+  lightSourceDistance: 15
 --- !u!114 &4747152697434792214
 MonoBehaviour:
   m_ObjectHideFlags: 0
