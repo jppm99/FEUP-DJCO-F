@@ -44,7 +44,7 @@ public class GameState : ISingleton
 
     private void WhenQuit()
     {
-        this.SaveData();
+        if(RuntimeStuff.SaveOnQuit()) this.SaveData();
     }
 
     public void UpdateData()

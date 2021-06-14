@@ -58,7 +58,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         bool oldInventoryState = this.inventoryEnabled;
-        if (Input.GetKeyDown(KeyCode.I) || (Input.GetKeyDown(KeyCode.Escape) && inventoryEnabled)) {
+        if (Input.GetKeyDown(KeyCode.I)) {
             inventoryEnabled = !inventoryEnabled;
         }
 

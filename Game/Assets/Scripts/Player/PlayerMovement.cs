@@ -103,6 +103,14 @@ public class PlayerMovement : MonoBehaviour
         //playerAnimator.SetFloat("Velocity", playerSpeed / 1f);
     }
 
+    public void MovePlayer(Vector3 pos, Vector3 rot)
+    {
+        controller.enabled = false;
+        controller.transform.position = pos;
+        controller.transform.eulerAngles = rot;
+        controller.enabled = true;
+    }
+
     public void setNotBeingAbleToRun(bool canRun)
     {
         this.canRun = !canRun;

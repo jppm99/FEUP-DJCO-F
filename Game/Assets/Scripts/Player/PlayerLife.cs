@@ -75,6 +75,11 @@ public class PlayerLife : MonoBehaviour
         //Health will decrease from time to time
         changeElementOverTime(ref health, healthLossDelay, healthLossAmount, maxHealth, ref nextActionTimeHealth, -1);
 
+        if(health <= 0)
+        {
+            GameObject.FindObjectOfType<MenuUI>().playerHasLost();
+        }
+
         //If health is below a certain level, sanity will decrease from time to time
         if (health <= maxHealth * healthLevelPercent / 100)
         {
@@ -108,14 +113,18 @@ public class PlayerLife : MonoBehaviour
 
     private void LowSanityEffect()
     {
-        // If sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
-        float amount = this.sanity / this.maxSanity < this.sanityEffectStartsAt ? (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1 : 0f;
+        // If game is running normally and sanity is lower than sanityEffectStartsAt -> effect strength is the percentage of sanity/sanityEffectStartsAt
+        float amount = 0;
+        if(this.sanity / this.maxSanity < this.sanityEffectStartsAt && Time.timeScale > 0)
+        {
+            amount = (this.sanity / (this.maxSanity * this.sanityEffectStartsAt)) * -1 + 1;
+        }
 
         float chromaticAberrationMax = 1f;
         float lensDistortionMax = -70f;
         float vignetteMax = 0.5f;
 
-        this.chromaticAberration.intensity.value = (amount * chromaticAberrationMax);
+        this.chromaticAberration.intensity.value = amount * chromaticAberrationMax;
         this.lensDistortion.intensity.value = amount * lensDistortionMax;
         this.vignette.intensity.value = amount * vignetteMax;
     }

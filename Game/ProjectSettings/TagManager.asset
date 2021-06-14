@@ -19,11 +19,11 @@ TagManager:
   - Ground
   - PostProcessing
   - Tree
+  - Lamp
+  - Collectable
   - 
   - 
-  - 
-  - 
-  - 
+  - MinimapIndicator
   - 
   - 
   - 

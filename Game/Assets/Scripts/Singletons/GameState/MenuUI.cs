@@ -30,9 +30,6 @@ public class MenuUI : MonoBehaviour
     public GameObject GameOverMenu;
     public GameObject GameWonMenu;
 
-    public GameObject healthBar;
-    public GameObject sanityBar;
-
     private BackGroundController backgroundcontroller;
 
     private GameObject[] menus;
@@ -43,8 +40,8 @@ public class MenuUI : MonoBehaviour
         menus[0] = mainMenuUi;
         menus[1] = gameMenu;
         menus[2] = instructionsMenu;
-        menus[3] = GameOverMenu;
-        menus[4] = GameWonMenu;
+        menus[3] = GameWonMenu; 
+         menus[4] = GameOverMenu;
 
         context = MenuContext.StartMenu;
         menuIsEnabled = true;
@@ -125,8 +122,6 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        healthBar.SetActive(false);
-        sanityBar.SetActive(false);
     }
 
     public void gameStarted()
@@ -145,8 +140,6 @@ public class MenuUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         gameStarted();
-        healthBar.SetActive(true);
-        sanityBar.SetActive(true);
         backgroundcontroller.disableAll();
         disableAllMenus();
     }
@@ -163,8 +156,9 @@ public class MenuUI : MonoBehaviour
     public void newGame()
     {
         play();
-        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
+        // inventory call must be first
         RuntimeStuff.GetSingleton<Inventory>().NewGame();
+        RuntimeStuff.GetSingleton<GameManager>().ApplyState(false);
         menuIsEnabled = false;
     }
 
@@ -224,6 +218,7 @@ public class MenuUI : MonoBehaviour
 
     public void playerHasWon()
     {
+        Time.timeScale = 0;
         context = MenuContext.EndMenu;
         menuContextSettings();
         showVictoryMenu();
@@ -232,6 +227,7 @@ public class MenuUI : MonoBehaviour
 
     public void playerHasLost()
     {
+        Time.timeScale = 0;
         context = MenuContext.EndMenu;
         menuContextSettings();
         showDefeatMenu();

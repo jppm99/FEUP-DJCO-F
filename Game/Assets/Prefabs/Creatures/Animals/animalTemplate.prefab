@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fe5923dba0583d7bbaaff766c13958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  evade_speed: 3
+  speed: 3
+  evade_speed: 5
   rotation_speed: 8
   movement_range: 2000
   detect_radius: 20
@@ -74,9 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7b250efd35b1645ba6c6b5244dfe51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 30
   currentHealth: 0
-  secondsUntilBodyDisapears: 120
+  secondsUntilBodyDisapears: 15
 --- !u!65 &2897294843719918161
 BoxCollider:
   m_ObjectHideFlags: 0

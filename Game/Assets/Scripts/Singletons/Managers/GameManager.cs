@@ -109,12 +109,23 @@ public class GameManager : MonoBehaviour, ISingleton
         }
         else
         {
-            if (!continueGame) this.gameState.NewGame();
+            if (!continueGame)
+            {
+                this.gameState.NewGame();
+                foreach(Generator g in GameObject.FindObjectsOfType<Generator>())
+                {
+                    g.UpdateGeneratorText();
+                }
+            }
             this.GetZone(4).GetComponent<Spawner>().SpawnMonsters(new List<MonsterData>());
         }
 
         // Player controller must be activated after his position is set
         this.player.gameObject.GetComponent<CharacterController>().enabled = true;
+
+        // Run 'singleton objects' setup
+        GameObject.FindObjectOfType<DiaryItem>().Setup();
+        GameObject.FindObjectOfType<MonsterItem>().Setup();
     }
 
     #region GETTERS

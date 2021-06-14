@@ -19,7 +19,7 @@ public class InventorySlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find("Menus Canvas");
         player = GameObject.Find("Player");
 
         selected = false;

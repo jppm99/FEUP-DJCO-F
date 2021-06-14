@@ -25,13 +25,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136953125222791511}
-  m_LocalRotation: {x: -0.015917817, y: 0.70692766, z: 0.015917817, w: 0.70692766}
+  m_LocalRotation: {x: -0.015919024, y: 0.7069276, z: 0.015919024, w: 0.7069276}
   m_LocalPosition: {x: 0, y: 0, z: 578.3533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.58, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -199.2904, y: -31.51}
@@ -94,11 +94,11 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.65e-43, y: 7.1e-44, z: 0, w: 17.658218}
+  m_BoundingSphereOverride: {x: 4.65e-43, y: 7.1e-44, z: 0, w: 15.404686}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_ShadowAngle: 10
 --- !u!114 &1136953125222791506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 0}
-  secondsPerDay: 120
-  secondsPerNight: 120
+  secondsPerDay: 180
+  secondsPerNight: 240
   DirectionalLight: {fileID: 1136953125222791508}
   Preset: {fileID: 11400000, guid: 90c3c66ae35e3b840be125e2619555e4, type: 2}

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public static class RuntimeStuff
 {
+    private static bool saveOnQuit = false;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoadRuntimeMethod()
     {
@@ -14,6 +16,8 @@ public static class RuntimeStuff
         // Set target FPS for the game
         int target_fps = 75;
         Application.targetFrameRate = target_fps > Screen.currentResolution.refreshRate ? Screen.currentResolution.refreshRate : target_fps;
+
+        Time.timeScale = 0;
     }
 
     private static Dictionary<string, ISingleton> Singleton_registry = new Dictionary<string, ISingleton>();
@@ -46,4 +50,8 @@ public static class RuntimeStuff
         Singleton_registry.Add(id, (ISingleton)value);
     }
 
+    public static bool SaveOnQuit()
+    {
+        return saveOnQuit;
+    }
 }

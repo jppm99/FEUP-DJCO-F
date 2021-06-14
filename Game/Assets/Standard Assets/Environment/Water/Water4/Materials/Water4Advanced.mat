@@ -126,7 +126,7 @@ Material:
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 2, g: 4, b: 2, a: -1}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
-    - _BaseColor: {r: 0.15234536, g: 0.26669145, b: 0.29706874, a: 0.8509804}
+    - _BaseColor: {r: 0.15233463, g: 0.26668012, b: 0.29705745, a: 0.8509804}
     - _BumpDirection: {r: 40, g: 40, b: 40, a: -40}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 0.15, g: 0.11, b: 0.2, a: 0.1}
