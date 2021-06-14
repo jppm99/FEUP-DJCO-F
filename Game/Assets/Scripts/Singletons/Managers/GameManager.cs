@@ -122,6 +122,10 @@ public class GameManager : MonoBehaviour, ISingleton
 
         // Player controller must be activated after his position is set
         this.player.gameObject.GetComponent<CharacterController>().enabled = true;
+
+        // Run 'singleton objects' setup
+        GameObject.FindObjectOfType<DiaryItem>().Setup();
+        GameObject.FindObjectOfType<MonsterItem>().Setup();
     }
 
     #region GETTERS
