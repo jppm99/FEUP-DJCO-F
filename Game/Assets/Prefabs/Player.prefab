@@ -894,12 +894,12 @@ CharacterController:
   m_Enabled: 0
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_SlopeLimit: 5
   m_StepOffset: 0
   m_SkinWidth: 0.1
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.35}
 --- !u!114 &1879063742724623597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 8
   m_IgnoreTag: 
   m_TransparentLayers:
     serializedVersion: 2
@@ -7522,7 +7522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5500191054765634535}
   - component: {fileID: 1354239647305817373}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
