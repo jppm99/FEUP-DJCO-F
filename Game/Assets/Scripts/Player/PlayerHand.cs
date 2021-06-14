@@ -45,7 +45,7 @@ public class PlayerHand : MonoBehaviour
         hammerObject.SetActive(false);
         differentAnimation = false;
 
-        int damage = 0;
+        int damage = 4;
         float delay = 0;
 
         if (item == "knife")

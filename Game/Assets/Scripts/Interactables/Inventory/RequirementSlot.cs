@@ -6,6 +6,9 @@ public class RequirementSlot : MonoBehaviour
     public string item;
     public int quantity;
     public Text text;
+    public Image circle;
+    public Sprite redSprite;
+    public Sprite greenSprite;
 
     private bool satisfied = false;
 
@@ -20,11 +23,11 @@ public class RequirementSlot : MonoBehaviour
     {
         if (count < quantity) {
             satisfied = false;
-            text.color = new Color(0.76f ,0.02f ,0 ,1);
+            circle.sprite = redSprite;
         }
         else {
             satisfied = true;
-            text.color = new Color(0, 0.45f, 0.02f, 1);
+            circle.sprite = greenSprite;
         }
     }
 
