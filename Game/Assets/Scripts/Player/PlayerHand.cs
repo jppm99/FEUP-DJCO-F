@@ -46,32 +46,42 @@ public class PlayerHand : MonoBehaviour
         differentAnimation = false;
 
         int damage = 0;
+        float delay = 0;
 
         if (item == "knife")
         {
-            damage = 10;
+            // 12 damage per second
+            damage = 6;
+            delay = 0.5f;
             knifeObject.SetActive(true);
         }
         else if (item == "catana")
         {
-            damage = 20;
+            // 15 damage per second
+            damage = 12;
+            delay = 0.8f;
             catanaObject.SetActive(true);
             differentAnimation = true;
         }
         else if (item == "axe")
         {
-            damage = 15;
+            // 20 damage per second
+            damage = 30;
+            delay = 1.5f;
             axeObject.SetActive(true);
             differentAnimation = true;
         }
         else if (item == "hammer")
         {
-            damage = 15;
+            // 14 damage per second
+            damage = 14;
+            delay = 1f;
             hammerObject.SetActive(true);
             differentAnimation = true;
         }
 
         GetComponent<PlayerAttack>().setDamage(damage);
+        GetComponent<PlayerAttack>().setDelay(delay);
         playerAnimator.SetBool("withItem", differentAnimation);
     }
 }
