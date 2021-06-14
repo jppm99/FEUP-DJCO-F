@@ -52,6 +52,8 @@ public class HandSlot : MonoBehaviour
 
         icon.color = new Color(0,0,0,0);
         buttonImage.enabled = false;
+
+        player.GetComponent<PlayerHand>().UpdateHandItem("pata");
     }
 
     public void RemoveItem()
