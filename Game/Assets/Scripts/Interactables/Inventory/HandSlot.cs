@@ -9,6 +9,7 @@ public class HandSlot : MonoBehaviour
     private GameObject canvas;
 
     public Image icon;
+    public Image buttonImage;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,8 @@ public class HandSlot : MonoBehaviour
     {
         player = GameObject.Find("Player");
         canvas = GameObject.Find("Canvas");
+
+        buttonImage.enabled = false;
     }
 
     public void AddItem(string item, Sprite sprite) 
@@ -25,6 +28,7 @@ public class HandSlot : MonoBehaviour
 
         icon.sprite = this.sprite;
         icon.color = new Color(1,1,1,1);
+        buttonImage.enabled = true;
 
         if (this.item == "buildableGeneratorItem")
             player.GetComponent<PlayerHand>().UpdateHandItem("hammer");
@@ -47,6 +51,7 @@ public class HandSlot : MonoBehaviour
         item = "";
 
         icon.color = new Color(0,0,0,0);
+        buttonImage.enabled = false;
     }
 
     public void RemoveItem()

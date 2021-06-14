@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class InventorySlot : MonoBehaviour
     private GameObject canvas;
     private GameObject player;
 
+    public Button button;
     public Image icon;
+    public Image redCircle;
     public Text text;
 
 
@@ -29,6 +32,7 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = this.sprite;
         icon.color = new Color(1,1,1,1);
+        redCircle.color = new Color(1,1,1,0.78f);
         text.text = count.ToString();
     }
 
@@ -72,20 +76,24 @@ public class InventorySlot : MonoBehaviour
 
     public void Select()
     {
-        if (!selected) {
-            canvas.GetComponent<InventoryUI>().ChangeSelected(this);
-            selected = true;
-        }
-        else {
-            canvas.GetComponent<InventoryUI>().ChangeSelected(null);
-            DeSelect();
+        if (Used()) {
+            if (!selected) {
+                selected = true;
+                canvas.GetComponent<InventoryUI>().ChangeSelected(this);
+                button.Select();
+            }
+            else {
+                canvas.GetComponent<InventoryUI>().ChangeSelected(null);
+                DeSelect();
+            }
         }
     }
 
     public void DeSelect()
     {
         selected = false;
-        // TODO
+        
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void ResetSlot()
@@ -93,6 +101,7 @@ public class InventorySlot : MonoBehaviour
         item = "";
 
         icon.color = new Color(0,0,0,0);
+        redCircle.color = new Color(0,0,0,0);
         text.text = "";
     }
 }

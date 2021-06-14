@@ -161,6 +161,10 @@ public class InventoryUI : MonoBehaviour
             buildSlots[i].UpdateRequirements("stick", inventory.GetStickCount());
             buildSlots[i].UpdateRequirements("rock", inventory.GetRockCount());
             buildSlots[i].UpdateRequirements("metal", inventory.GetMetalCount());
+            buildSlots[i].UpdateBuilds("catana", inventory.GetCatanaCount());
+            buildSlots[i].UpdateBuilds("axe", inventory.GetAxeCount());
+            buildSlots[i].UpdateBuilds("knife", inventory.GetKnifeCount());
+            buildSlots[i].UpdateBuilds("buildableGeneratorItem", inventory.GetCount("buildableGeneratorItem"));
         }
     }
 
