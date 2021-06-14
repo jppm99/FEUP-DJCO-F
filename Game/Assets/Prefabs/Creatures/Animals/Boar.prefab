@@ -73,6 +73,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: 909924484736010501, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: secondsUntilBodyDisapears
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2223725829353696696, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_TagString
       value: Animal
