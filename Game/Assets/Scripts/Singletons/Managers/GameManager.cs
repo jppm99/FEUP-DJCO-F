@@ -126,6 +126,8 @@ public class GameManager : MonoBehaviour, ISingleton
         // Run 'singleton objects' setup
         GameObject.FindObjectOfType<DiaryItem>().Setup();
         GameObject.FindObjectOfType<MonsterItem>().Setup();
+
+        GameObject.FindObjectOfType<LightingManager>().StartPlayingMusic();
     }
 
     #region GETTERS
