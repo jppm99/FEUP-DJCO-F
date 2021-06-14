@@ -16,7 +16,7 @@ public class HandSlot : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find("Menus Canvas");
 
         buttonImage.enabled = false;
     }

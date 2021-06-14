@@ -16,7 +16,7 @@ public class BuildSlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find("Menus Canvas");
     }
 
     // SetRequirements is called when the game is started
