@@ -18,6 +18,6 @@ public class PlayerSounds : MonoBehaviour
 
     public void PlayStep()
     {
-        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
 }
