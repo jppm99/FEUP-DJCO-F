@@ -30,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
+            if(Time.timeScale == 0) return;
+            
             playerAnimator.SetTrigger("Attack");
 
             //Debug.DrawRay(attackspot.transform.position, transform.TransformDirection(Vector3.forward));
