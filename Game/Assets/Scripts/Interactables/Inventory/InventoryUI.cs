@@ -34,8 +34,6 @@ public class InventoryUI : MonoBehaviour
         inventoryEnabled = false;
 
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
-        slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
-        buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
         
         inventory.onItemChangedCallback += UpdateUI;
         inventory.onLoadInventoryCallback += LoadInventory;
@@ -79,6 +77,11 @@ public class InventoryUI : MonoBehaviour
     // LoadInventory is called to load a previous saved inventory
     void LoadInventory()
     {
+        inventoryEnabled = false;
+
+        slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
+        buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
+
         int currentSlot = 0;
         int count = 0;
 
