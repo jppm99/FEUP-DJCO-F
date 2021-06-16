@@ -10,6 +10,9 @@ public class MonsterMovement : MonoBehaviour
     private int target_updates;
     private bool following;
     private static Vector3 raycast_direction = new Vector3(0, 1, 1);
+    private GameManager gameManager;
+    private Transform center;
+
     [SerializeField] public string type;
 
     [Header("Movement Variables")]
@@ -30,6 +33,8 @@ public class MonsterMovement : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody>();
         player_transform = GameObject.Find("Player").transform;
+        gameManager = RuntimeStuff.GetSingleton<GameManager>();
+        center = GameObject.Find("Center of terrain").transform;
         
         angle = 0;
         updates = 0;
@@ -41,8 +46,43 @@ public class MonsterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(Physics.gravity, ForceMode.Acceleration);
-        float dist = Vector3.Distance(player_transform.position, transform.position);
 
+        float dist = Vector3.Distance(player_transform.position, transform.position);
+        bool runAway = false;
+        int zone = 1;
+
+        if (transform.position.x < center.position.x) {
+            if (transform.position.z < center.position.z)
+                zone = 2;
+        }
+        else {
+            if (transform.position.z < center.position.z)
+                zone = 4;
+            else
+                zone = 3;
+        }
+
+        if (gameManager.IsDaytime() || gameManager.GetLightsState(zone))
+            runAway = true;
+
+        // If running away
+        if (runAway) {
+            // Rotate away from player
+            Vector3 facing = player_transform.position - transform.position;
+            Vector3 facing_x_z = new Vector3(facing.x, 0, facing.z);
+
+            Quaternion awayRotation = Quaternion.LookRotation(facing_x_z);
+            Vector3 euler = awayRotation.eulerAngles;
+            euler.y -= 180;
+            awayRotation = Quaternion.Euler(euler);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, awayRotation, rotation_speed * Time.deltaTime);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            
+
+            // Move away from player
+            transform.position += transform.forward * Time.deltaTime * speed;
+        }
         // If following player
         if (dist < detect_radius) {
             following = true;
