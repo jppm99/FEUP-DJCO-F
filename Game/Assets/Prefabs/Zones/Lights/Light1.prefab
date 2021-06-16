@@ -115,7 +115,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9245283, g: 0.86479425, b: 0.70211816, a: 1}
-  m_Intensity: 8.5
+  m_Intensity: 10
   m_Range: 2.5
   m_SpotAngle: 75
   m_InnerSpotAngle: 9
@@ -241,7 +241,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9245283, g: 0.86479425, b: 0.70211816, a: 1}
-  m_Intensity: 8.5
+  m_Intensity: 10
   m_Range: 2.5
   m_SpotAngle: 75
   m_InnerSpotAngle: 9
@@ -334,7 +334,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8867924, g: 0.83557516, b: 0.5479708, a: 1}
-  m_Intensity: 5
+  m_Intensity: 4.15
   m_Range: 35
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
