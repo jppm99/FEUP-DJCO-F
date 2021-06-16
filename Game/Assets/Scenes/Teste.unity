@@ -188,6 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef00f78dc0981041b29e095890d0caf, type: 3}
+--- !u!224 &234552873 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2196791894287657288, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+  m_PrefabInstance: {fileID: 813071857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &254631062
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +723,14 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 10238
       objectReference: {fileID: 0}
+    - target: {fileID: 7579795316663733907, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 234552873}
+    - target: {fileID: 7628610751260987180, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 954778067}
     - target: {fileID: 8067495102721270064, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -744,6 +757,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7557075877749049714, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
   m_PrefabInstance: {fileID: 1113243497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &954778067 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7215647744522752304, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
+  m_PrefabInstance: {fileID: 813071857}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1005713491 stripped
 Transform:
@@ -823,7 +841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249387838871251160, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51.099976
+      value: 51.100098
       objectReference: {fileID: 0}
     - target: {fileID: 1271314517683612608, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1011,7 +1029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3856784883062937353, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -52.569946
+      value: -52.569824
       objectReference: {fileID: 0}
     - target: {fileID: 4347479368981417848, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1373,6 +1391,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6755126405445668700, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 357.2998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755126405445668700, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.399902
+      objectReference: {fileID: 0}
     - target: {fileID: 6784276770099377351, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1579,7 +1605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8750420788839870605, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51.099976
+      value: 51.100098
       objectReference: {fileID: 0}
     - target: {fileID: 8927353761228231333, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1722,8 +1748,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375207799}
-  m_LocalRotation: {x: -0.1343881, y: 0.45331168, z: 0.06935056, w: 0.8784298}
-  m_LocalPosition: {x: 531.7902, y: -51.92558, z: 509.9704}
+  m_LocalRotation: {x: 0.22323784, y: 0.69773763, z: 0.6349375, w: -0.24531892}
+  m_LocalPosition: {x: 766.1891, y: -627.06274, z: 756.4726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

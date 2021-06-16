@@ -88,8 +88,8 @@ public class MonsterMovement : MonoBehaviour
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             
 
-            // Move away from player
-            transform.position += transform.forward * Time.deltaTime * speed;
+            // Move away from player at 2x speed
+            transform.position += transform.forward * Time.deltaTime * speed * 2;
 
             if(dist > disappear_distance) Destroy(this);
 
