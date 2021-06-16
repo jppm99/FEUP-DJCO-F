@@ -513,57 +513,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4850861897865791415, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
   m_PrefabInstance: {fileID: 813071857}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &756914198 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4199287443535621509, guid: 3ef00f78dc0981041b29e095890d0caf, type: 3}
-  m_PrefabInstance: {fileID: 183187420}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &756914199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756914198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Dark_night
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!114 &756914200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756914198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Light_day
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &762914843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8927353761263787259, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
@@ -874,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1249387838871251160, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51.099976
+      value: 51.100098
       objectReference: {fileID: 0}
     - target: {fileID: 1271314517683612608, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1062,7 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3856784883062937353, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -52.569946
+      value: -52.569824
       objectReference: {fileID: 0}
     - target: {fileID: 4347479368981417848, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1424,6 +1373,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6755126405445668700, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 357.2998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755126405445668700, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.399902
+      objectReference: {fileID: 0}
     - target: {fileID: 6784276770099377351, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1630,7 +1587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8750420788839870605, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51.099976
+      value: 51.100098
       objectReference: {fileID: 0}
     - target: {fileID: 8927353761228231333, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
