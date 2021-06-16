@@ -256,8 +256,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254631062}
-  m_LocalRotation: {x: 0.010195715, y: -0.7106215, z: -0.7034252, w: -0.010299298}
-  m_LocalPosition: {x: 550.8394, y: -860.2799, z: 519.60205}
+  m_LocalRotation: {x: 0.19704264, y: 0.56998736, z: 0.1431217, w: -0.78473234}
+  m_LocalPosition: {x: 532.98047, y: -329.50662, z: 313.5855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -513,6 +513,57 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4850861897865791415, guid: 7ffed3dfcfdaa394fb2947bd3157b1d4, type: 3}
   m_PrefabInstance: {fileID: 813071857}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &756914198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4199287443535621509, guid: 3ef00f78dc0981041b29e095890d0caf, type: 3}
+  m_PrefabInstance: {fileID: 183187420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &756914199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756914198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Dark_night
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &756914200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756914198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Light_day
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &762914843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8927353761263787259, guid: 9f08d556cd97b984c90a2578a910b6ea, type: 3}
@@ -1722,8 +1773,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375207799}
-  m_LocalRotation: {x: -0.1343881, y: 0.45331168, z: 0.06935056, w: 0.8784298}
-  m_LocalPosition: {x: 531.7902, y: -51.92558, z: 509.9704}
+  m_LocalRotation: {x: -9.206378e-10, y: 0.9628597, z: 0.000000031210043, w: -0.27000234}
+  m_LocalPosition: {x: 881.295, y: -4.6031785, z: 859.12976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
