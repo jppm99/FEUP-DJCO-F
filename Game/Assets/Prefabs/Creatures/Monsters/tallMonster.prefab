@@ -641,6 +641,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   raycast_distance: 3
+  runs_from_light: 1
+  disappear_distance: 200
 --- !u!114 &4910944086739739180
 MonoBehaviour:
   m_ObjectHideFlags: 0

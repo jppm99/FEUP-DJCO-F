@@ -26,6 +26,10 @@ public class MonsterMovement : MonoBehaviour
     //[SerializeField] public Transform collision_check_transform;
     [SerializeField] public LayerMask ground_mask;
     [SerializeField] public float raycast_distance;
+    
+    [Header("Light interaction")]
+    [SerializeField] public bool runs_from_light;
+    [SerializeField] public float disappear_distance;
 
 
     // Start is called before the first frame update
@@ -48,25 +52,29 @@ public class MonsterMovement : MonoBehaviour
         rb.AddForce(Physics.gravity, ForceMode.Acceleration);
 
         float dist = Vector3.Distance(player_transform.position, transform.position);
-        bool runAway = false;
         int zone = 1;
+        // bool runAway = false;
 
         if (transform.position.x < center.position.x) {
-            if (transform.position.z < center.position.z)
-                zone = 2;
-        }
-        else {
             if (transform.position.z < center.position.z)
                 zone = 4;
             else
                 zone = 3;
         }
+        else {
+            if (transform.position.z < center.position.z)
+                zone = 2;
+            // else
+            //     zone = 1;
+        }
 
-        if (gameManager.IsDaytime() || gameManager.GetLightsState(zone))
-            runAway = true;
+        // if (gameManager.IsDaytime() || gameManager.GetLightsState(zone))
+        //     runAway = true;
+
+        // if (dist < 100 ) Debug.Log("dist -> " + dist + " || zone -> " + zone);
 
         // If running away
-        if (runAway) {
+        if (runs_from_light && (gameManager.IsDaytime() || gameManager.GetLightsState(zone))) {
             // Rotate away from player
             Vector3 facing = player_transform.position - transform.position;
             Vector3 facing_x_z = new Vector3(facing.x, 0, facing.z);
@@ -82,7 +90,12 @@ public class MonsterMovement : MonoBehaviour
 
             // Move away from player
             transform.position += transform.forward * Time.deltaTime * speed;
+
+            if(dist > disappear_distance) Destroy(this);
+
+            return;
         }
+
         // If following player
         if (dist < detect_radius) {
             following = true;
