@@ -44,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
 
                 if (objectTag.Equals("Monster"))
                 {
-                    if (attackDamage == 5)
+                    if (attackDamage == 4)
                         GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
                     else
                         GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
 
                 if (objectTag.Equals("Animal"))
                 {
-                    if (attackDamage == 5)
+                    if (attackDamage == 4)
                         GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
                     else
                         GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
