@@ -10,6 +10,7 @@ public class LightPoint : MonoBehaviour
     void Awake()
     {
         this.lights = this.transform.GetComponentsInChildren<Light>();
+        GetComponentsInChildren<FMODUnity.StudioEventEmitter>()[0].Stop();
     }
 
     public void SetState(bool isOn, bool flicker = false)

@@ -651,8 +651,8 @@ Transform:
   m_Children:
   - {fileID: 1693474701074221970}
   - {fileID: 8850015219458675843}
-  - {fileID: 91226692259938764}
   - {fileID: 1935122793654147907}
+  - {fileID: 91226692259938764}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -725,6 +725,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   raycast_distance: 3
+  runs_from_light: 0
+  disappear_distance: 0
 --- !u!114 &7126087592832635266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3061050285500240051, guid: 5330becbd74895d4ea5658e43b72fbdc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3061050285500240051, guid: 5330becbd74895d4ea5658e43b72fbdc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1521,7 +1523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6669250595273819991, guid: 76baeee8d3664f942b254b47d8955d75, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6669250595273819991, guid: 76baeee8d3664f942b254b47d8955d75, type: 3}
       propertyPath: m_AnchorMax.x
