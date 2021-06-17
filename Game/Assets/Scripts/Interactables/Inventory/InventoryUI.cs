@@ -37,8 +37,8 @@ public class InventoryUI : MonoBehaviour
         slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
         buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
         
-        inventory.onItemChangedCallback += UpdateUI;
-        inventory.onLoadInventoryCallback += LoadInventory;
+        inventory.onItemChangedCallback = UpdateUI;
+        inventory.onLoadInventoryCallback = LoadInventory;
 
         sprites = new Dictionary<string, Sprite>();
         sprites.Add("stick", stickIcon);

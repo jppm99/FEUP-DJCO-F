@@ -5,7 +5,7 @@ using System.Linq;
 
 public class BuildSlot : MonoBehaviour
 {
-    // public GameObject buildable;
+    public GameObject buildable;
     public string item;
 
     private Dictionary<string, RequirementSlot> requirements;
@@ -24,9 +24,7 @@ public class BuildSlot : MonoBehaviour
     {
         requirements = new Dictionary<string, RequirementSlot>();
 
-        Debug.Log(this.gameObject.GetComponentsInChildren<RequirementSlot>().Length);
-
-        RequirementSlot[] requirementsList = this.gameObject.GetComponentsInChildren<RequirementSlot>();
+        RequirementSlot[] requirementsList = buildable.GetComponentsInChildren<RequirementSlot>();
 
         for (int i = 0; i < requirementsList.Length; i++) {
             requirements.Add(requirementsList[i].item, requirementsList[i]);
