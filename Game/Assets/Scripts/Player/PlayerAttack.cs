@@ -13,13 +13,13 @@ public class PlayerAttack : MonoBehaviour
     Animator playerAnimator;
 
     GameObject attackspotMonster;
-    GameObject attackspotAnimal;
+    // GameObject attackspotAnimal;
 
     void Start()
     {
         playerAnimator = GameObject.Find("PlayerBody").GetComponent<Animator>();
         attackspotMonster = GameObject.Find("Attack Spot Monster");
-        attackspotAnimal = GameObject.Find("Attack Spot Animal");
+        // attackspotAnimal = GameObject.Find("Attack Spot Animal");
         playerAnimator.SetFloat("attackSpeedMult", 1);
     }
 
@@ -44,27 +44,14 @@ public class PlayerAttack : MonoBehaviour
 
                 if (objectTag.Equals("Monster"))
                 {
-                    if (attackDamage == 4)
-                        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
-                    else
-                        GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
+                    GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
 
                     MonsterLife enemy = ray.transform.GetComponent<MonsterLife>();
                     enemy.damage(attackDamage);
                 }
-                else
-                    GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
-            }
-            else if (Physics.Raycast(attackspotAnimal.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
-            {
-                string objectTag = ray.transform.tag;
-
-                if (objectTag.Equals("Animal"))
+                else if (objectTag.Equals("Animal"))
                 {
-                    if (attackDamage == 4)
-                        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
-                    else
-                        GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
+                    GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
 
                     AnimalLife animal = ray.transform.GetComponentInParent<AnimalLife>();
                     animal.damage(attackDamage);
@@ -72,6 +59,23 @@ public class PlayerAttack : MonoBehaviour
                 else
                     GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
             }
+            // else if (Physics.Raycast(attackspotAnimal.transform.position, transform.TransformDirection(Vector3.forward), out ray, attackDistance))
+            // {
+            //     string objectTag = ray.transform.tag;
+
+            //     if (objectTag.Equals("Animal"))
+            //     {
+            //         if (attackDamage == 4)
+            //             GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+            //         else
+            //             GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
+
+            //         AnimalLife animal = ray.transform.GetComponentInParent<AnimalLife>();
+            //         animal.damage(attackDamage);
+            //     }
+            //     else
+            //         GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+            // }
             else
                 GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
 
