@@ -36,8 +36,9 @@ public class Inventory : ISingleton
             if (onLoadInventoryCallback != null)
                 onLoadInventoryCallback.Invoke();
         }
-        catch (System.Exception)
+        catch (System.Exception e)
         {
+            Debug.LogWarning(e);
             Debug.LogWarning("No inventory data found, first run?");
             
             NewGame();

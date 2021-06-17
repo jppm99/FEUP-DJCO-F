@@ -35,8 +35,8 @@ public class InventoryUI : MonoBehaviour
 
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
         
-        inventory.onItemChangedCallback += UpdateUI;
-        inventory.onLoadInventoryCallback += LoadInventory;
+        inventory.onItemChangedCallback = UpdateUI;
+        inventory.onLoadInventoryCallback = LoadInventory;
 
         sprites = new Dictionary<string, Sprite>();
         sprites.Add("stick", stickIcon);

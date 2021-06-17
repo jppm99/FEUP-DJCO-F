@@ -221,5 +221,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2c74d965e5842708016361b03f2080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildable: {fileID: 0}
+  buildable: {fileID: 6992153626153742124}
   item: 
