@@ -28,11 +28,11 @@ public class MonsterAttack : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(canAttack && !monsterMovement.IsRunningAway())
+        if(canAttack)
         {
             float dist = Vector3.Distance(playerTransform.position, transform.position);
 
-            if (dist < atackDistance)
+            if (dist < atackDistance && !monsterMovement.IsRunningAway())
             {
                 monsterAnimator.SetTrigger("attack");
                 canAttack = false;
