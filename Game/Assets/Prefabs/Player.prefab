@@ -1302,7 +1302,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 60
+  m_Priority: 40
   m_StandbyUpdate: 0
   m_LookAt: {fileID: 6773432163946879055}
   m_Follow: {fileID: 1738383887815146507}
