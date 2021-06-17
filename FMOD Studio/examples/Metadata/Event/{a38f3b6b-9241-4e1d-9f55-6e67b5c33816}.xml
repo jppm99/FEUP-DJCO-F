@@ -130,6 +130,9 @@ All footsteps recorded by Oliver Richardson.</value>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{d5d41330-4596-4611-b6cb-2f6d2d98c13b}">
+		<property name="volume">
+			<value>-11.5</value>
+		</property>
 		<property name="name">
 			<value>Footstep</value>
 		</property>

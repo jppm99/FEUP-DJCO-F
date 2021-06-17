@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Ambience/Forest
+  Event: event:/Light_day
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/LOst song menu
+  Event: event:/Dark_night
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1

@@ -15,9 +15,9 @@ public class LightPoint : MonoBehaviour
     public void SetState(bool isOn, bool flicker = false)
     {
         if (isOn)
-            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+            GetComponentsInChildren<FMODUnity.StudioEventEmitter>()[0].Play();
         else
-            GetComponents<FMODUnity.StudioEventEmitter>()[0].Stop();
+            GetComponentsInChildren<FMODUnity.StudioEventEmitter>()[0].Stop();
 
         if (isOn && flicker)
         {
