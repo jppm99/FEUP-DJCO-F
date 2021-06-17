@@ -70,8 +70,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 2
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 8
 --- !u!1 &1148006010124837215
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 564cf0edafdb7d4438350fcf9b832d01, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.23
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 564cf0edafdb7d4438350fcf9b832d01, type: 3}
       propertyPath: m_LocalPosition.z

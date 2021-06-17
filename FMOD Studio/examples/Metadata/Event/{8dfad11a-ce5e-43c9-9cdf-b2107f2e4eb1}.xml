@@ -103,6 +103,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b16bc3c9-adb4-43b7-a4a5-a0b2a90acc35}">
+		<property name="volume">
+			<value>-20.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -118,10 +121,10 @@
 	</object>
 	<object class="LoopRegion" id="{bd093054-7cc3-4d4b-97f3-ea9bd8223337}">
 		<property name="position">
-			<value>0</value>
+			<value>14</value>
 		</property>
 		<property name="length">
-			<value>32</value>
+			<value>13.5</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{aedc61f0-1488-437d-88eb-8ad029e5f13a}</destination>
