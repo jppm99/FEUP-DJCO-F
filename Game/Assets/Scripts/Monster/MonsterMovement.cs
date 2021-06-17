@@ -71,7 +71,6 @@ public class MonsterMovement : MonoBehaviour
         // if (gameManager.IsDaytime() || gameManager.GetLightsState(zone))
         //     runAway = true;
 
-        // if (dist < 100 ) Debug.Log("dist -> " + dist + " || zone -> " + zone);
 
         // If running away
         if (runs_from_light && (gameManager.IsDaytime() || gameManager.GetLightsState(zone))) {
@@ -91,7 +90,7 @@ public class MonsterMovement : MonoBehaviour
             // Move away from player at 2x speed
             transform.position += transform.forward * Time.deltaTime * speed * 2;
 
-            if(dist > disappear_distance) Destroy(this);
+            if(dist > disappear_distance) Destroy(this.gameObject);
 
             return;
         }
