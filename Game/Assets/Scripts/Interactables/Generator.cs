@@ -41,6 +41,8 @@ public class Generator : Interactable
         {
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+            if(!GetComponents<FMODUnity.StudioEventEmitter>()[0].IsPlaying()) GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+
         }
         else if(!this.gameManager.GetLightsState(this.zone) && this.CanFix())
         {
@@ -61,6 +63,7 @@ public class Generator : Interactable
         {
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
         }
         else if(fromStart || !this.CanFix())
         {
