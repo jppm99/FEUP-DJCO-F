@@ -16,6 +16,12 @@ public class Generator : Interactable
             this.gameManager.TurnOnZoneLights(this.zone, true);
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+
+            // Saving game (checkpoint)
+            RuntimeStuff.GetSingleton<Inventory>().SaveData();
+            RuntimeStuff.GetSingleton<GameState>().SaveData();
+
+            // Sounds
             GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
         }
     }
