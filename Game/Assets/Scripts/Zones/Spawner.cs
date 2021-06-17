@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public int maxNumberCreatures;
+    public int maxNumberAnimals, maxNumberMonsters;
     public float spawnDelay, minimumDistaceToPlayer, maximumDistaceToPlayer;
     public Transform spawnPointParent;
     [SerializeField] private GameObject animalParent, monsterParent;
@@ -38,10 +38,11 @@ public class Spawner : MonoBehaviour
 
             GameObject parent;
             GameObject[] spannableList;
+            int maxNumberCreatures;
+            
+            (parent, spannableList, maxNumberCreatures) = (this.gameHandler.IsDaytime() || this.zoneLightSystem.GetState()) ? (this.animalParent, this.animals, this.maxNumberAnimals) : (this.monsterParent, this.monsters, this.maxNumberMonsters);
 
-            (parent, spannableList) = (this.gameHandler.IsDaytime() || this.zoneLightSystem.GetState()) ? (this.animalParent, this.animals) : (this.monsterParent, this.monsters);
-
-            if(parent.transform.childCount < this.maxNumberCreatures)
+            if(parent.transform.childCount < maxNumberCreatures)
             {
                 if(spannableList.Length > 0 && this.spawnPoints.Length > 0)
                 {
