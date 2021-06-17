@@ -13,7 +13,7 @@ public class MonsterAttack : MonoBehaviour
     private GameObject player;
     private Transform playerTransform;
     PlayerLife life;
-
+    MonsterMovement monsterMovement;
     Animator monsterAnimator;
 
 
@@ -23,11 +23,12 @@ public class MonsterAttack : MonoBehaviour
         player = GameObject.Find("Player");
         playerTransform = player.transform;
         life = player.GetComponent<PlayerLife>();
+        monsterMovement = GetComponent<MonsterMovement>();
     }
 
     void FixedUpdate()
     {
-        if(canAttack)
+        if(canAttack && !monsterMovement.IsRunningAway())
         {
             float dist = Vector3.Distance(playerTransform.position, transform.position);
 

@@ -12,6 +12,7 @@ public class MonsterMovement : MonoBehaviour
     private static Vector3 raycast_direction = new Vector3(0, 1, 1);
     private GameManager gameManager;
     private Transform center;
+    private bool isRunningAway;
 
     [SerializeField] public string type;
 
@@ -74,6 +75,8 @@ public class MonsterMovement : MonoBehaviour
 
         // If running away
         if (runs_from_light && (gameManager.IsDaytime() || gameManager.GetLightsState(zone))) {
+            isRunningAway = true;
+
             // Rotate away from player
             Vector3 facing = player_transform.position - transform.position;
             Vector3 facing_x_z = new Vector3(facing.x, 0, facing.z);
@@ -88,11 +91,13 @@ public class MonsterMovement : MonoBehaviour
             
 
             // Move away from player at 2x speed
-            transform.position += transform.forward * Time.deltaTime * speed * 2;
+            transform.position += transform.forward * Time.deltaTime * speed * 4;
 
             if(dist > disappear_distance) Destroy(this.gameObject);
 
             return;
+        } else {
+            isRunningAway = false;
         }
 
         // If following player
@@ -164,6 +169,11 @@ public class MonsterMovement : MonoBehaviour
             this.GenerateData(),
             zone
             );
+    }
+
+    public bool IsRunningAway()
+    {
+        return this.isRunningAway;
     }
 
     private MonsterData GenerateData()
