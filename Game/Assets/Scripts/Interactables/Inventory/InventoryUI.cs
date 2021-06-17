@@ -83,7 +83,6 @@ public class InventoryUI : MonoBehaviour
         buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
 
         int currentSlot = 0;
-        int count = 0;
 
         // Only for testing
         // inventory.SetStick(20);
