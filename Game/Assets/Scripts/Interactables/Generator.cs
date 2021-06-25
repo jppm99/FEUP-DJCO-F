@@ -6,7 +6,7 @@ public class Generator : Interactable
     private GameManager gameManager;
     private int zone;
     private Inventory inventory;
-    private bool fixable = false, hasBeenFixed, markerHasBeenRemoved = false;
+    private bool hasBeenFixed, markerHasBeenRemoved = false;
 
     protected override void Action()
     {
@@ -16,6 +16,13 @@ public class Generator : Interactable
             this.gameManager.TurnOnZoneLights(this.zone, true);
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+
+            // Saving game (checkpoint)
+            RuntimeStuff.GetSingleton<Inventory>().SaveData();
+            RuntimeStuff.GetSingleton<GameState>().SaveData();
+
+            // Sounds
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
         }
     }
 
@@ -34,14 +41,17 @@ public class Generator : Interactable
 
     protected override void FixedUpdate() 
     {
+        if(Time.timeScale == 0) return;
+
         if(this.gameManager.GetLightsState(this.zone))
         {
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+            if(!GetComponents<FMODUnity.StudioEventEmitter>()[0].IsPlaying()) GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+
         }
-        else if(!fixable && !this.gameManager.GetLightsState(this.zone) && this.CanFix())
+        else if(!this.gameManager.GetLightsState(this.zone) && this.CanFix())
         {
-            fixable = true;
             this.UpdateFloatingText("Press F to fix");
         }
 
@@ -59,8 +69,9 @@ public class Generator : Interactable
         {
             this.UpdateFloatingText("");
             this.RemoveMarkerFromMinimap();
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
         }
-        else if(!this.CanFix())
+        else if(fromStart || !this.CanFix())
         {
             // Set floating text for when the player cannot fix the generator
             switch (this.zone)

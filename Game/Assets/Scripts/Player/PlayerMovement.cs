@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = -30f;
     private float jumpHeigh = 2f;
     private bool canRun = true;
+    private bool isMoving = false;
 
     private Vector3 velocity;
 
@@ -21,18 +22,20 @@ public class PlayerMovement : MonoBehaviour
     Vector3 lastPosition = Vector3.zero;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator = GameObject.Find("PlayerBody").GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         groundCheck = GameObject.Find("Ground Check").transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerSpeed = (new Vector3(transform.position.x, 0, transform.position.z) - new Vector3 (lastPosition.x, 0, lastPosition.z)).magnitude;
+        playerSpeed = (new Vector3(transform.position.x, 0, transform.position.z) - new Vector3(lastPosition.x, 0, lastPosition.z)).magnitude;
         lastPosition = transform.position;
 
         //Debug.Log(playerSpeed);
@@ -57,24 +60,28 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && canRun && (x != 0 || z != 0))
         {
             speed = 8f;
+            isMoving = true;
             playerAnimator.SetBool("isRunning", true);
             playerAnimator.SetBool("isWalking", false);
         }
         else if (Input.GetKey(KeyCode.LeftControl) && (x != 0 || z != 0))
         {
             speed = 2.5f;
+            isMoving = true;
             playerAnimator.SetBool("isRunning", false);
             playerAnimator.SetBool("isWalking", true);
         }
-        else if((x != 0 || z != 0))
+        else if ((x != 0 || z != 0))
         {
             speed = 5f;
+            isMoving = true;
             playerAnimator.SetBool("isRunning", false);
             playerAnimator.SetBool("isWalking", true);
         }
         else
         {
             speed = 0f;
+            isMoving = false;
             playerAnimator.SetBool("isRunning", false);
             playerAnimator.SetBool("isWalking", false);
         }
@@ -115,4 +122,5 @@ public class PlayerMovement : MonoBehaviour
     {
         this.canRun = !canRun;
     }
+
 }

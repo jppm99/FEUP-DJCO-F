@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapIndicator-Question
       objectReference: {fileID: 0}
+    - target: {fileID: 7479621828757594621, guid: c38394f8093875447b02374c52d6099b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38394f8093875447b02374c52d6099b, type: 3}
 --- !u!1001 &5382335317960042767

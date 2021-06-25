@@ -80,9 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdcbd655fc82a4498b47c4fb03e3d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumberCreatures: 30
+  maxNumberAnimals: 30
+  maxNumberMonsters: 30
   spawnDelay: 5
-  minimumDistaceToPlayer: 150
+  minimumDistaceToPlayer: 125
   maximumDistaceToPlayer: 9999
   spawnPointParent: {fileID: 2707126472241920475}
   animalParent: {fileID: 7990188246418697172}

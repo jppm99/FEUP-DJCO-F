@@ -26,6 +26,20 @@ public class LightingManager : MonoBehaviour, ISingleton
         this.nighttimeStep = 360f / this.secondsPerNight;
     }
 
+    public void StartPlayingMusic()
+    {
+        float heightPercentage = this.DirectionalLight.transform.position.y / this.maxHeight;
+
+        if(heightPercentage < 0 )
+        {
+            GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
+        }
+        else if(heightPercentage > 0)
+        {
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+        }
+    }
+
     private void FixedUpdate()
     {
         if (Preset == null) return;
@@ -34,12 +48,16 @@ public class LightingManager : MonoBehaviour, ISingleton
 
         if(heightPercentage < 0 && this.isDaytime)
         {
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Stop();
+            GetComponents<FMODUnity.StudioEventEmitter>()[1].Play();
             playerLife.setDay(false);
             this.isDaytime = false;
             this.gameManager.SetDaytime(this.isDaytime);
         }
         else if(heightPercentage > 0 && !this.isDaytime)
         {
+            GetComponents<FMODUnity.StudioEventEmitter>()[1].Stop();
+            GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
             playerLife.setDay(true);
             this.isDaytime = true;
             this.gameManager.SetDaytime(this.isDaytime);

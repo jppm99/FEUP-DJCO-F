@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour
 {
     private string item = "";
     private Sprite sprite;
+    private bool selected;
     private GameObject canvas;
     private GameObject player;
 
+    public Button button;
     public Image icon;
+    public Image redCircle;
     public Text text;
 
 
@@ -17,6 +21,8 @@ public class InventorySlot : MonoBehaviour
     {
         canvas = GameObject.Find("Menus Canvas");
         player = GameObject.Find("Player");
+
+        selected = false;
     }
 
     public void AddNewItem(string item, Sprite sprite, int count = 1) 
@@ -26,6 +32,7 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = this.sprite;
         icon.color = new Color(1,1,1,1);
+        redCircle.color = new Color(1,1,1,0.78f);
         text.text = count.ToString();
     }
 
@@ -51,21 +58,42 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
-        if (item == "meat") {
+        if (item == "meat" && player.GetComponent<PlayerLife>().GetHealth() < 50) {
             canvas.GetComponent<InventoryUI>().RemoveItem(this);
             player.GetComponent<PlayerLife>().IncreaseHealth(10);
         }
-        else if (item == "buildableGeneratorItem")
-            player.GetComponent<PlayerHand>().UpdateHandItem("hammer");
-        else if (item == "catana" || item == "knife" || item == "axe")
-            player.GetComponent<PlayerHand>().UpdateHandItem(item);
         else if (item == "diary")
             player.GetComponent<UseDiary>().openDiary();
+        else if (item == "buildableGeneratorItem" || item == "catana" || item == "knife" || item == "axe") {
+            canvas.GetComponent<InventoryUI>().Enequip();
+            canvas.GetComponent<InventoryUI>().Equip(item, sprite);
+            ResetSlot();
+            canvas.GetComponent<InventoryUI>().UpdateSlotsOrder();
+        }
+
+        DeSelect();
     }
 
     public void Select()
     {
-        canvas.GetComponent<InventoryUI>().ChangeSelected(this);
+        if (Used()) {
+            if (!selected) {
+                selected = true;
+                canvas.GetComponent<InventoryUI>().ChangeSelected(this);
+                button.Select();
+            }
+            else {
+                canvas.GetComponent<InventoryUI>().ChangeSelected(null);
+                DeSelect();
+            }
+        }
+    }
+
+    public void DeSelect()
+    {
+        selected = false;
+        
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void ResetSlot()
@@ -73,6 +101,7 @@ public class InventorySlot : MonoBehaviour
         item = "";
 
         icon.color = new Color(0,0,0,0);
+        redCircle.color = new Color(0,0,0,0);
         text.text = "";
     }
 }

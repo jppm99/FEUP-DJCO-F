@@ -626,6 +626,11 @@ GameObject:
   - component: {fileID: 3141767021773013628}
   - component: {fileID: 7126087592832635266}
   - component: {fileID: 2018756883043546094}
+  - component: {fileID: 8422523963552791617}
+  - component: {fileID: 8183715174525319719}
+  - component: {fileID: 3282168860673841668}
+  - component: {fileID: 4941760030304362656}
+  - component: {fileID: 2102278611037183467}
   m_Layer: 0
   m_Name: Werewolf
   m_TagString: Monster
@@ -646,8 +651,8 @@ Transform:
   m_Children:
   - {fileID: 1693474701074221970}
   - {fileID: 8850015219458675843}
-  - {fileID: 91226692259938764}
   - {fileID: 1935122793654147907}
+  - {fileID: 91226692259938764}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -695,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25014bfc805bf2f40a7c95b564f0793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atackDistance: 5
+  atackDistance: 6
   atackInterval: 5
   atackDamage: 20
 --- !u!114 &3141767021773013628
@@ -712,14 +717,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: boss
   speed: 2
-  follow_speed: 5
+  follow_speed: 6
   rotation_speed: 8
-  movement_range: 250
+  movement_range: 225
   detect_radius: 30
   ground_mask:
     serializedVersion: 2
     m_Bits: 64
   raycast_distance: 3
+  runs_from_light: 0
+  disappear_distance: 0
 --- !u!114 &7126087592832635266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +759,111 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &8422523963552791617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808495786083611068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Wolf/steps
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &8183715174525319719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808495786083611068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Wolf/howl
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3282168860673841668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808495786083611068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91cf5cd1da9c433d8b9bf4d5b168995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  howlTime: 20
+--- !u!114 &4941760030304362656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808495786083611068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Wolf/howl
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2102278611037183467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808495786083611068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Armas/defesa
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6007667117522686695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3061050285500240051, guid: 5330becbd74895d4ea5658e43b72fbdc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3061050285500240051, guid: 5330becbd74895d4ea5658e43b72fbdc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1411,7 +1523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6669250595273819991, guid: 76baeee8d3664f942b254b47d8955d75, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6669250595273819991, guid: 76baeee8d3664f942b254b47d8955d75, type: 3}
       propertyPath: m_AnchorMax.x

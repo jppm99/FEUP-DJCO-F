@@ -18,6 +18,7 @@ public class Metal : Interactable
 
     protected override void Action()
     {
+        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
         this.inventory.AddMetal();
         Debug.Log("Added to inventory, current count: " + this.inventory.GetMetalCount());
 

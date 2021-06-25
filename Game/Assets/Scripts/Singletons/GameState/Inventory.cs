@@ -8,6 +8,8 @@ public class Inventory : ISingleton
 {
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
+    public delegate void OnLoadInventory();
+    public OnLoadInventory onLoadInventoryCallback;
 
     private string dataFile = "inventory_data.json";
     private string dataPath;
@@ -19,29 +21,36 @@ public class Inventory : ISingleton
         this.register();
 
         this.dataPath = Path.Combine(Application.persistentDataPath, this.dataFile);
-        this.LoadData();
 
         // Getting Unity events from outside MonoBehaviours
         UnityMessageForwarder.AddListener(MessageType.OnApplicationQuit, this.WhenQuit);
     }
 
-    private void LoadData()
+    public void LoadData()
     {
         try
         {
             string data = File.ReadAllText(dataPath);
             this.inventoryData = (JsonUtility.FromJson<InventoryData>(data));
+
+            if (onLoadInventoryCallback != null)
+                onLoadInventoryCallback.Invoke();
         }
-        catch (System.Exception)
+        catch (System.Exception e)
         {
+            Debug.LogWarning(e);
             Debug.LogWarning("No inventory data found, first run?");
-            this.inventoryData = new InventoryData();
+            
+            NewGame();
         }
     }
 
     public void NewGame()
     {
         this.inventoryData = new InventoryData();
+
+        if (onLoadInventoryCallback != null)
+            onLoadInventoryCallback.Invoke();
     }
 
     public string GetLastItemPicked()
@@ -381,6 +390,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetMonsterGeneratorItem(bool hasItem)
+    {
+        this.inventoryData.hasMonsterGeneratorItem = hasItem;
+    }
     #endregion
     #region HIDDEN
     public bool GetHiddenGeneratorItem()
@@ -401,6 +415,11 @@ public class Inventory : ISingleton
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
+
+    public void SetHiddenGeneratorItem(bool hasItem)
+    {
+        this.inventoryData.hasHiddenGeneratorItem = hasItem;
+    }
     #endregion
     #region BUILDABLE
     public bool GetBuildableGeneratorItem()
@@ -420,6 +439,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetBuildableGeneratorItem(bool hasItem)
+    {
+        this.inventoryData.hasBuildableGeneratorItem = hasItem;
     }
     #endregion
     #endregion
@@ -442,6 +466,11 @@ public class Inventory : ISingleton
 
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+    }
+
+    public void SetDiary(bool hasItem)
+    {
+        this.inventoryData.hasDiary = hasItem;
     }
     #endregion
 

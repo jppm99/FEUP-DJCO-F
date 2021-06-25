@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2683002253327488502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978547453086077047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Hog/Hog
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 5
+--- !u!114 &3135778622069349023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978547453086077047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Hog/steps
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &797080447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +72,10 @@ PrefabInstance:
     - target: {fileID: 707645069301936573, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_TagString
       value: Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 909924484736010501, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+      propertyPath: secondsUntilBodyDisapears
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2223725829353696696, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_TagString
@@ -125,11 +175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Size.y
-      value: 1.7007141
+      value: 5.811554
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Size.z
-      value: 2.8758545
+      value: 3.1113586
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Center.x
@@ -137,11 +187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Center.y
-      value: 1.2148895
+      value: 3.2703094
       objectReference: {fileID: 0}
     - target: {fileID: 2897294843719918161, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Center.z
-      value: -0.007873535
+      value: -0.12562561
       objectReference: {fileID: 0}
     - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: speed
@@ -157,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4522975776656052879, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: rotation_speed
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8667511837890209819, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
       propertyPath: m_Constraints
@@ -185,6 +235,11 @@ PrefabInstance:
     - {fileID: 1921880363918890366, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
     - {fileID: 8667511837890209819, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+--- !u!1 &2978547453086077047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 707645069301936573, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}
+  m_PrefabInstance: {fileID: 2344090965655642570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6570232022852958179 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910870381872584233, guid: 791f13a401d95e34a946fc1d258031e8, type: 3}

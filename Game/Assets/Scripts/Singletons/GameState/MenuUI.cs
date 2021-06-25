@@ -165,6 +165,7 @@ public class MenuUI : MonoBehaviour
     public void loadGame()
     {
         play();
+        RuntimeStuff.GetSingleton<Inventory>().LoadData();
         RuntimeStuff.GetSingleton<GameManager>().ApplyState(true);
         menuIsEnabled = false;
     }

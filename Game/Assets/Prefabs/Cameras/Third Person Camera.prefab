@@ -110,7 +110,7 @@ MonoBehaviour:
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -2
+    m_MinValue: -55
     m_MaxValue: 70
     m_Wrap: 0
     m_Recentering:
@@ -200,7 +200,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 45
+  m_Priority: 60
   m_StandbyUpdate: 0
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}

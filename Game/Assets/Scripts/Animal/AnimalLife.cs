@@ -27,7 +27,7 @@ public class AnimalLife : MonoBehaviour
             GetComponent<AnimalMovement>().enabled = false;
             GetComponentInChildren<Rigidbody>().useGravity = false;
             GetComponentInChildren<BoxCollider>().enabled = false;
-            this.Die();
+            //this.Die();
         }
     }
 

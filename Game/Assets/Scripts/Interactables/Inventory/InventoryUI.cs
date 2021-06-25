@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
     private InventorySlot selectedItem;
 
     public GameObject inventoryUI;
+    public GameObject handSlot;
 
     // Sprites
     public Sprite stickIcon;
@@ -33,10 +34,9 @@ public class InventoryUI : MonoBehaviour
         inventoryEnabled = false;
 
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
-        slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
-        buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
         
-        inventory.onItemChangedCallback += UpdateUI;
+        inventory.onItemChangedCallback = UpdateUI;
+        inventory.onLoadInventoryCallback = LoadInventory;
 
         sprites = new Dictionary<string, Sprite>();
         sprites.Add("stick", stickIcon);
@@ -50,9 +50,6 @@ public class InventoryUI : MonoBehaviour
         sprites.Add("hiddenGeneratorItem", hiddenGeneratorItemIcon);
         sprites.Add("buildableGeneratorItem", buildableGeneratorItemIcon);
         sprites.Add("diary", diaryIcon);
-
-        LoadInventory();
-        LoadBuilds();
     }
 
     // Update is called once per frame
@@ -80,21 +77,25 @@ public class InventoryUI : MonoBehaviour
     // LoadInventory is called to load a previous saved inventory
     void LoadInventory()
     {
+        inventoryEnabled = false;
+
+        slots = inventoryUI.GetComponentsInChildren<InventorySlot>();
+        buildSlots = inventoryUI.GetComponentsInChildren<BuildSlot>();
+
         int currentSlot = 0;
-        int count = 0;
 
         // Only for testing
-        inventory.SetStick(20);
-        inventory.SetRock(20);
-        inventory.SetMetal(20);
-        inventory.SetMeat(20);
-        inventory.SetCatana(0);
-        inventory.SetKnife(0);
-        inventory.SetAxe(0);
-        // inventory.AddMonsterGeneratorItem();
-        // inventory.AddHiddenGeneratorItem();
-        inventory.SpendBuildableGeneratorItem();
-        // inventory.AddDiary();
+        // inventory.SetStick(20);
+        // inventory.SetRock(20);
+        // inventory.SetMetal(20);
+        // inventory.SetMeat(20);
+        // inventory.SetCatana(0);
+        // inventory.SetKnife(0);
+        // inventory.SetAxe(0);
+        // inventory.SetMonsterGeneratorItem(true);
+        // inventory.SetHiddenGeneratorItem(true);
+        // inventory.SetBuildableGeneratorItem(true);
+        // inventory.SetDiary(true);
 
         if (inventory.GetStickCount() > 0) {
             slots[currentSlot].AddNewItem("stick", stickIcon, inventory.GetStickCount());
@@ -150,6 +151,8 @@ public class InventoryUI : MonoBehaviour
             slots[currentSlot].AddNewItem("diary", diaryIcon);
             currentSlot++;
         }
+
+        LoadBuilds();
     }
 
     // LoadBuilds is called to load all items available to build
@@ -160,6 +163,10 @@ public class InventoryUI : MonoBehaviour
             buildSlots[i].UpdateRequirements("stick", inventory.GetStickCount());
             buildSlots[i].UpdateRequirements("rock", inventory.GetRockCount());
             buildSlots[i].UpdateRequirements("metal", inventory.GetMetalCount());
+            buildSlots[i].UpdateBuilds("catana", inventory.GetCatanaCount());
+            buildSlots[i].UpdateBuilds("axe", inventory.GetAxeCount());
+            buildSlots[i].UpdateBuilds("knife", inventory.GetKnifeCount());
+            buildSlots[i].UpdateBuilds("buildableGeneratorItem", inventory.GetCount("buildableGeneratorItem"));
         }
     }
 
@@ -200,7 +207,7 @@ public class InventoryUI : MonoBehaviour
     {
         string item = slot.GetItem();
 
-        if (inventory.SpendItem(item, count) == 0) {
+        if (inventory.SpendItem(item, count) <= 0) {
             slot.ResetSlot();
             UpdateSlotsOrder();
         }
@@ -224,7 +231,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     // Called after a slot becomes empty
-    private void UpdateSlotsOrder()
+    public void UpdateSlotsOrder()
     {
         int emptySlotIndex = -1;
 
@@ -254,12 +261,44 @@ public class InventoryUI : MonoBehaviour
 
     public void ChangeSelected(InventorySlot slot)
     {
+        if (selectedItem != null)
+            this.selectedItem.DeSelect();
+        
         this.selectedItem = slot;
     }
 
     public void Use()
     {
-        this.selectedItem?.UseItem();
+        if (this.selectedItem != null) {
+            this.selectedItem.UseItem();
+            this.selectedItem = null;
+        }
+    }
+
+    public void Equip(string item, Sprite sprite)
+    {
+        this.handSlot.GetComponent<HandSlot>().AddItem(item, sprite);
+    }
+
+    public void AddItem(string item, Sprite sprite)
+    {
+        for (int i = 0; i < slots.Length; i++) {
+            if (slots[i].Used())
+                continue;
+
+            slots[i].AddNewItem(item, sprite);
+
+            break;
+        }
+
+        for (int i = 0; i < buildSlots.Length; i++) {
+            buildSlots[i].UpdateRequirements(item, inventory.GetCount(item));
+        }
+    }
+
+    public void Enequip()
+    {
+        this.handSlot.GetComponent<HandSlot>().RemoveItem();   
     }
 
     // Close is called when clicking the close button

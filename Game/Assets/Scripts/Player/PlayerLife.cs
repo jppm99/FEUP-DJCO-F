@@ -22,6 +22,10 @@ public class PlayerLife : MonoBehaviour
     [SerializeField]
     GameObject cabinLight;
 
+    [FMODUnity.EventRef]
+    public string healthSound;
+    private FMOD.Studio.EventInstance healthSoundInstance;
+
     [Header("Health Variables")]
     [SerializeField] float maxHealth;
     [SerializeField] float healthLossDelay; //interval of time between losses
@@ -33,7 +37,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] float maxSanity;
     [SerializeField] [Range(0, 1)] float sanityEffectStartsAt; // 0-1 amount of full sanity at which low sanity post processing effect starts at
     [SerializeField] float sanityLossDelay; //interval of time between losses
-    [SerializeField] float sanityLossDelayWithLight; //interval of time between losses when in presence of light
+    // [SerializeField] float sanityLossDelayWithLight; //interval of time between losses when in presence of light
     [SerializeField] float sanityRecoverDelay; //recover amount
     [SerializeField] float lightSourceDistance; //distance from which the player must be from a light source to decrease the amount of sanity that he looses during night time
     float sanityLossAmount = 1; //loss amount
@@ -59,11 +63,17 @@ public class PlayerLife : MonoBehaviour
 
         health = maxHealth;
         sanity = maxSanity;
+
+        healthSoundInstance = FMODUnity.RuntimeManager.CreateInstance(healthSound);
+        healthSoundInstance.start();
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthSoundInstance.setParameterByName("Health", 100*health/80);
+
+
         this._time += Time.deltaTime;
 
         healthImage.fillAmount = health / maxHealth;
@@ -88,7 +98,7 @@ public class PlayerLife : MonoBehaviour
         }
 
         //If it's daytime, sanity will increase from time to time
-        else if (isDay || (Mathf.Abs(cabinLight.transform.position.x - transform.position.x) <= lightSourceDistance && Mathf.Abs(cabinLight.transform.position.z - transform.position.z) <= lightSourceDistance))
+        else if (isDay /*|| (Mathf.Abs(cabinLight.transform.position.x - transform.position.x) <= lightSourceDistance && Mathf.Abs(cabinLight.transform.position.z - transform.position.z) <= lightSourceDistance)*/)
         {
             changeElementOverTime(ref sanity, sanityRecoverDelay, sanityRecoverAmount, maxSanity, ref nextActionTimeSanity, 1);
             this.playerMovement.setNotBeingAbleToRun(false);
@@ -99,7 +109,8 @@ public class PlayerLife : MonoBehaviour
         {
             //if the player is close to a light source his sanity will decrease slower
             if (checkCloseLightSources())
-                changeElementOverTime(ref sanity, sanityLossDelayWithLight, sanityLossAmount, maxSanity, ref nextActionTimeSanity, -1);
+                changeElementOverTime(ref sanity, sanityRecoverDelay, sanityRecoverAmount, maxSanity, ref nextActionTimeSanity, 1);
+                // changeElementOverTime(ref sanity, sanityLossDelayWithLight, sanityLossAmount, maxSanity, ref nextActionTimeSanity, -1);
 
             //if the player is NOT close to a light source his sanity will decrease faster
             else
@@ -132,6 +143,11 @@ public class PlayerLife : MonoBehaviour
     public void decreaseHealth(float damage)
     {
         health -= damage;
+
+        if(health <= 0)
+        {
+            healthSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 
     public void IncreaseHealth(float increase)
@@ -140,6 +156,8 @@ public class PlayerLife : MonoBehaviour
             health = maxHealth;
         else
             health = health + increase;
+
+      
     }
 
     public void setDay(bool isDay)

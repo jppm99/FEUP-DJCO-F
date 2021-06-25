@@ -30,8 +30,8 @@ public class UseDiary : MonoBehaviour
     void Update()
     {
 
-        //if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
-        //    openDiary();
+        if (Input.GetKeyDown(KeyCode.H) && !diaryOpened)
+            openDiary();
 
         //else if (Input.GetKeyDown(KeyCode.Escape) && diaryOpened)
         //    closeDiary();
@@ -82,7 +82,10 @@ public class UseDiary : MonoBehaviour
     public void increasePage()
     {
         if (currentPage < pages.Length - 1)
+        {
             currentPage++;
+            GetComponents<FMODUnity.StudioEventEmitter>()[2].Play();
+        }
 
         pageImage.sprite = pages[currentPage];
 
@@ -91,9 +94,12 @@ public class UseDiary : MonoBehaviour
     public void decreasePage()
     {
         if (currentPage > 0)
+        {
             currentPage--;
+            GetComponents<FMODUnity.StudioEventEmitter>()[2].Play();
+        }
 
-        pageImage.sprite = pages[currentPage];
+            pageImage.sprite = pages[currentPage];
 
     }
 }

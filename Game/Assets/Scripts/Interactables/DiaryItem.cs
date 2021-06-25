@@ -3,7 +3,8 @@ using UnityEngine;
 public class DiaryItem : Interactable
 {
     private Inventory inventory;
-    protected override void Start()
+
+    public void Setup()
     {
         this.inventory = RuntimeStuff.GetSingleton<Inventory>();
 
@@ -11,13 +12,13 @@ public class DiaryItem : Interactable
         if(this.inventory.GetDiary()) Destroy(this.gameObject);
 
         // Must be set before start runs
-        this.floatingText = "Press F to grab book";
-
-        base.Start();        
+        this.UpdateFloatingText("Press F to grab book");
     }
 
     protected override void Action()
     {
+        GetComponents<FMODUnity.StudioEventEmitter>()[0].Play();
+
         this.inventory.AddDiary();
         
         Debug.Log("Added diary item to inventory");

@@ -30,6 +30,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gerador4
       objectReference: {fileID: 0}
+    - target: {fileID: 7404945372113854176, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: Event
+      value: event:/Gerador 3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404945372113854176, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: PlayEvent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404945372113854176, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404945372113854176, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404945372113854176, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8201747694345412886, guid: d6ee55eb27fece242946fa9f790bb917, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

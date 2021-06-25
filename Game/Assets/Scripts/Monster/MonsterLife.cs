@@ -29,6 +29,7 @@ public class MonsterLife : MonoBehaviour
             GetComponent<MonsterAttack>().enabled = false;
             GetComponent<MonsterMovement>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+            this.RemoveMarkerFromMinimap();
             //if (transform.name == "tallMonster")
             //    transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
@@ -45,6 +46,7 @@ public class MonsterLife : MonoBehaviour
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+        GetComponents<FMODUnity.StudioEventEmitter>()[1].Stop();
         if (this.dropsGeneratorItem)
         {
             this.interactableScript.EnableInteraction();
@@ -54,6 +56,12 @@ public class MonsterLife : MonoBehaviour
             yield return new WaitForSeconds(this.secondsUntilBodyDisapears);
             Destroy(this.gameObject);
         }
+    }
+
+    private void RemoveMarkerFromMinimap()
+    {
+        GameObject marker = gameObject.GetComponentInChildren<KeepSameRotationAsPlayer>()?.gameObject;
+        if(marker != null && marker.activeInHierarchy) marker.SetActive(false);
     }
 
     public float GetHealth()
